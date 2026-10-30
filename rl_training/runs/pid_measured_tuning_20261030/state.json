@@ -1,0 +1,3355 @@
+{
+  "state": "COMPLETE",
+  "trials": {
+    "screen_p025_i010_d0002_t050": {
+      "state": "COMPLETE",
+      "command": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/.venv/bin/python",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/run_ablation_suite.py",
+        "--modes",
+        "PID",
+        "--pid-config",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p025_i010_d0002_t050_gains.yaml",
+        "--episodes",
+        "1",
+        "--seed",
+        "5101",
+        "--purpose",
+        "calibration",
+        "--device",
+        "cpu",
+        "--max-episode-seconds",
+        "90",
+        "--deadline-monotonic",
+        "5001.414102181",
+        "--output-root",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p025_i010_d0002_t050"
+      ],
+      "measurement": {
+        "episodes": [
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p025_i010_d0002_t050/PID/episode_00001_072234_873082",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 0.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.22209056090866933,
+              "amcl_goal_xy_m": 0.2188737892594346,
+              "amcl_goal_yaw_rad": 0.008200134017879376,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 0.0,
+              "gt_goal_xy_m": 0.31658982871777525,
+              "gt_goal_yaw_rad": 0.0037822299062860686,
+              "amcl_rmse_m": 0.04397724030034416,
+              "amcl_p95_m": 0.08795333049706144,
+              "amcl_max_m": 0.11237231352117914,
+              "amcl_heading_rmse_rad": 0.11646348522474288,
+              "gt_rmse_m": 0.06479590478550462,
+              "gt_p95_m": 0.1198822451309827,
+              "gt_max_m": 0.1484666052038333,
+              "gt_heading_rmse_rad": 0.1252500212304812,
+              "az_rms_m_s2": 3.34685520220295,
+              "az_peak_m_s2": 124.98098007324037,
+              "roll_rate_rms_rad_s": 0.154823782411622,
+              "pitch_rate_rms_rad_s": 0.2130659807419245,
+              "jerk_rms_m_s3": 89.19586738624447,
+              "jerk_p95_m_s3": 76.56182479903838,
+              "wheel_rmse_rad_s": 1.3056374564956026,
+              "torque_rms_nm": 0.4011500954075764,
+              "torque_peak_nm": 1.2882325932125576,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 21.209438313292704,
+              "saturation_pct": 0.00205896886839071,
+              "lateral_rate_rms_m_s": 0.028736410694408878,
+              "roll_angle_rms_rad": 0.018916517189102443,
+              "roll_angle_peak_rad": 0.08102050249056414,
+              "pitch_angle_peak_rad": 0.11240436434192724,
+              "measured_wheel_peak_rad_s": 13.22585122173379,
+              "target_wheel_peak_rad_s": 5.304763009103447
+            },
+            "failure_reasons": [
+              "gt_goal_xy_m=0.31659 > 0.25"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.9994239631336407
+            },
+            "raw_sha256": "bc2fd4f015fd2d7129f4b32d726149159b075c94ee0daeb79555e184fdcac465"
+          }
+        ],
+        "metrics": {
+          "mission_success_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "nav_success_pct": {
+            "n": 1,
+            "mean": 100.0,
+            "std": null,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "deviation_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "completion_time_s": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "median": null,
+            "p95": null
+          },
+          "average_speed_m_s": {
+            "n": 1,
+            "mean": 0.22209056090866933,
+            "std": null,
+            "median": 0.22209056090866933,
+            "p95": 0.22209056090866933
+          },
+          "amcl_goal_xy_m": {
+            "n": 1,
+            "mean": 0.2188737892594346,
+            "std": null,
+            "median": 0.2188737892594346,
+            "p95": 0.2188737892594346
+          },
+          "amcl_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.008200134017879376,
+            "std": null,
+            "median": 0.008200134017879376,
+            "p95": 0.008200134017879376
+          },
+          "amcl_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_goal_xy_m": {
+            "n": 1,
+            "mean": 0.31658982871777525,
+            "std": null,
+            "median": 0.31658982871777525,
+            "p95": 0.31658982871777525
+          },
+          "gt_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.0037822299062860686,
+            "std": null,
+            "median": 0.0037822299062860686,
+            "p95": 0.0037822299062860686
+          },
+          "amcl_rmse_m": {
+            "n": 1,
+            "mean": 0.04397724030034416,
+            "std": null,
+            "median": 0.04397724030034416,
+            "p95": 0.04397724030034416
+          },
+          "amcl_p95_m": {
+            "n": 1,
+            "mean": 0.08795333049706144,
+            "std": null,
+            "median": 0.08795333049706144,
+            "p95": 0.08795333049706144
+          },
+          "amcl_max_m": {
+            "n": 1,
+            "mean": 0.11237231352117914,
+            "std": null,
+            "median": 0.11237231352117914,
+            "p95": 0.11237231352117914
+          },
+          "amcl_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.11646348522474288,
+            "std": null,
+            "median": 0.11646348522474288,
+            "p95": 0.11646348522474288
+          },
+          "gt_rmse_m": {
+            "n": 1,
+            "mean": 0.06479590478550462,
+            "std": null,
+            "median": 0.06479590478550462,
+            "p95": 0.06479590478550462
+          },
+          "gt_p95_m": {
+            "n": 1,
+            "mean": 0.1198822451309827,
+            "std": null,
+            "median": 0.1198822451309827,
+            "p95": 0.1198822451309827
+          },
+          "gt_max_m": {
+            "n": 1,
+            "mean": 0.1484666052038333,
+            "std": null,
+            "median": 0.1484666052038333,
+            "p95": 0.1484666052038333
+          },
+          "gt_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.1252500212304812,
+            "std": null,
+            "median": 0.1252500212304812,
+            "p95": 0.1252500212304812
+          },
+          "az_rms_m_s2": {
+            "n": 1,
+            "mean": 3.34685520220295,
+            "std": null,
+            "median": 3.34685520220295,
+            "p95": 3.34685520220295
+          },
+          "az_peak_m_s2": {
+            "n": 1,
+            "mean": 124.98098007324037,
+            "std": null,
+            "median": 124.98098007324037,
+            "p95": 124.98098007324037
+          },
+          "roll_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.154823782411622,
+            "std": null,
+            "median": 0.154823782411622,
+            "p95": 0.154823782411622
+          },
+          "pitch_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.2130659807419245,
+            "std": null,
+            "median": 0.2130659807419245,
+            "p95": 0.2130659807419245
+          },
+          "jerk_rms_m_s3": {
+            "n": 1,
+            "mean": 89.19586738624447,
+            "std": null,
+            "median": 89.19586738624447,
+            "p95": 89.19586738624447
+          },
+          "jerk_p95_m_s3": {
+            "n": 1,
+            "mean": 76.56182479903838,
+            "std": null,
+            "median": 76.56182479903838,
+            "p95": 76.56182479903838
+          },
+          "wheel_rmse_rad_s": {
+            "n": 1,
+            "mean": 1.3056374564956026,
+            "std": null,
+            "median": 1.3056374564956026,
+            "p95": 1.3056374564956026
+          },
+          "torque_rms_nm": {
+            "n": 1,
+            "mean": 0.4011500954075764,
+            "std": null,
+            "median": 0.4011500954075764,
+            "p95": 0.4011500954075764
+          },
+          "torque_peak_nm": {
+            "n": 1,
+            "mean": 1.2882325932125576,
+            "std": null,
+            "median": 1.2882325932125576,
+            "p95": 1.2882325932125576
+          },
+          "sac_contribution_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "slew_limit_pct": {
+            "n": 1,
+            "mean": 21.209438313292704,
+            "std": null,
+            "median": 21.209438313292704,
+            "p95": 21.209438313292704
+          },
+          "saturation_pct": {
+            "n": 1,
+            "mean": 0.00205896886839071,
+            "std": null,
+            "median": 0.00205896886839071,
+            "p95": 0.00205896886839071
+          },
+          "lateral_rate_rms_m_s": {
+            "n": 1,
+            "mean": 0.028736410694408878,
+            "std": null,
+            "median": 0.028736410694408878,
+            "p95": 0.028736410694408878
+          },
+          "roll_angle_rms_rad": {
+            "n": 1,
+            "mean": 0.018916517189102443,
+            "std": null,
+            "median": 0.018916517189102443,
+            "p95": 0.018916517189102443
+          },
+          "roll_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.08102050249056414,
+            "std": null,
+            "median": 0.08102050249056414,
+            "p95": 0.08102050249056414
+          },
+          "pitch_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.11240436434192724,
+            "std": null,
+            "median": 0.11240436434192724,
+            "p95": 0.11240436434192724
+          },
+          "measured_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 13.22585122173379,
+            "std": null,
+            "median": 13.22585122173379,
+            "p95": 13.22585122173379
+          },
+          "target_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 5.304763009103447,
+            "std": null,
+            "median": 5.304763009103447,
+            "p95": 5.304763009103447
+          }
+        }
+      },
+      "rejection_reasons": [
+        "episode 1: full task failed: gt_goal_xy_m=0.31659 > 0.25"
+      ]
+    },
+    "screen_p030_i010_d0002_t080": {
+      "state": "COMPLETE",
+      "command": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/.venv/bin/python",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/run_ablation_suite.py",
+        "--modes",
+        "PID",
+        "--pid-config",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p030_i010_d0002_t080_gains.yaml",
+        "--episodes",
+        "1",
+        "--seed",
+        "5101",
+        "--purpose",
+        "calibration",
+        "--device",
+        "cpu",
+        "--max-episode-seconds",
+        "90",
+        "--deadline-monotonic",
+        "5001.414102181",
+        "--output-root",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p030_i010_d0002_t080"
+      ],
+      "measurement": {
+        "episodes": [
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p030_i010_d0002_t080/PID/episode_00001_072345_830844",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 0.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.22111100585980703,
+              "amcl_goal_xy_m": 0.21348858400941226,
+              "amcl_goal_yaw_rad": 0.08716027255769965,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 0.0,
+              "gt_goal_xy_m": 0.27333698947079355,
+              "gt_goal_yaw_rad": 0.09601202774539229,
+              "amcl_rmse_m": 0.04578679926905145,
+              "amcl_p95_m": 0.08288182309377931,
+              "amcl_max_m": 0.11006414876727566,
+              "amcl_heading_rmse_rad": 0.11297631141868875,
+              "gt_rmse_m": 0.05847210519353906,
+              "gt_p95_m": 0.10704006409477924,
+              "gt_max_m": 0.11761212459820669,
+              "gt_heading_rmse_rad": 0.1538408779286399,
+              "az_rms_m_s2": 2.0985225387573254,
+              "az_peak_m_s2": 62.45187916070881,
+              "roll_rate_rms_rad_s": 0.15022896669578012,
+              "pitch_rate_rms_rad_s": 0.21014860152212297,
+              "jerk_rms_m_s3": 55.79477672253344,
+              "jerk_p95_m_s3": 61.277834559176895,
+              "wheel_rmse_rad_s": 1.22805066981086,
+              "torque_rms_nm": 0.39880742607745523,
+              "torque_peak_nm": 1.3224130540934342,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 23.571399520071584,
+              "saturation_pct": 0.012201569935331679,
+              "lateral_rate_rms_m_s": 0.03474600667550881,
+              "roll_angle_rms_rad": 0.01934566752429453,
+              "roll_angle_peak_rad": 0.08153674802818105,
+              "pitch_angle_peak_rad": 0.11856724932376143,
+              "measured_wheel_peak_rad_s": 12.477637332112668,
+              "target_wheel_peak_rad_s": 5.191305356137928
+            },
+            "failure_reasons": [
+              "gt_goal_xy_m=0.273337 > 0.25"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.9982733754494301
+            },
+            "raw_sha256": "bc100844b7db58aae19a3c6c1ede2fee3a0ca986f6b49b3d7921f011462ee8d4"
+          }
+        ],
+        "metrics": {
+          "mission_success_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "nav_success_pct": {
+            "n": 1,
+            "mean": 100.0,
+            "std": null,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "deviation_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "completion_time_s": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "median": null,
+            "p95": null
+          },
+          "average_speed_m_s": {
+            "n": 1,
+            "mean": 0.22111100585980703,
+            "std": null,
+            "median": 0.22111100585980703,
+            "p95": 0.22111100585980703
+          },
+          "amcl_goal_xy_m": {
+            "n": 1,
+            "mean": 0.21348858400941226,
+            "std": null,
+            "median": 0.21348858400941226,
+            "p95": 0.21348858400941226
+          },
+          "amcl_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.08716027255769965,
+            "std": null,
+            "median": 0.08716027255769965,
+            "p95": 0.08716027255769965
+          },
+          "amcl_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_goal_xy_m": {
+            "n": 1,
+            "mean": 0.27333698947079355,
+            "std": null,
+            "median": 0.27333698947079355,
+            "p95": 0.27333698947079355
+          },
+          "gt_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.09601202774539229,
+            "std": null,
+            "median": 0.09601202774539229,
+            "p95": 0.09601202774539229
+          },
+          "amcl_rmse_m": {
+            "n": 1,
+            "mean": 0.04578679926905145,
+            "std": null,
+            "median": 0.04578679926905145,
+            "p95": 0.04578679926905145
+          },
+          "amcl_p95_m": {
+            "n": 1,
+            "mean": 0.08288182309377931,
+            "std": null,
+            "median": 0.08288182309377931,
+            "p95": 0.08288182309377931
+          },
+          "amcl_max_m": {
+            "n": 1,
+            "mean": 0.11006414876727566,
+            "std": null,
+            "median": 0.11006414876727566,
+            "p95": 0.11006414876727566
+          },
+          "amcl_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.11297631141868875,
+            "std": null,
+            "median": 0.11297631141868875,
+            "p95": 0.11297631141868875
+          },
+          "gt_rmse_m": {
+            "n": 1,
+            "mean": 0.05847210519353906,
+            "std": null,
+            "median": 0.05847210519353906,
+            "p95": 0.05847210519353906
+          },
+          "gt_p95_m": {
+            "n": 1,
+            "mean": 0.10704006409477924,
+            "std": null,
+            "median": 0.10704006409477924,
+            "p95": 0.10704006409477924
+          },
+          "gt_max_m": {
+            "n": 1,
+            "mean": 0.11761212459820669,
+            "std": null,
+            "median": 0.11761212459820669,
+            "p95": 0.11761212459820669
+          },
+          "gt_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.1538408779286399,
+            "std": null,
+            "median": 0.1538408779286399,
+            "p95": 0.1538408779286399
+          },
+          "az_rms_m_s2": {
+            "n": 1,
+            "mean": 2.0985225387573254,
+            "std": null,
+            "median": 2.0985225387573254,
+            "p95": 2.0985225387573254
+          },
+          "az_peak_m_s2": {
+            "n": 1,
+            "mean": 62.45187916070881,
+            "std": null,
+            "median": 62.45187916070881,
+            "p95": 62.45187916070881
+          },
+          "roll_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.15022896669578012,
+            "std": null,
+            "median": 0.15022896669578012,
+            "p95": 0.15022896669578012
+          },
+          "pitch_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.21014860152212297,
+            "std": null,
+            "median": 0.21014860152212297,
+            "p95": 0.21014860152212297
+          },
+          "jerk_rms_m_s3": {
+            "n": 1,
+            "mean": 55.79477672253344,
+            "std": null,
+            "median": 55.79477672253344,
+            "p95": 55.79477672253344
+          },
+          "jerk_p95_m_s3": {
+            "n": 1,
+            "mean": 61.277834559176895,
+            "std": null,
+            "median": 61.277834559176895,
+            "p95": 61.277834559176895
+          },
+          "wheel_rmse_rad_s": {
+            "n": 1,
+            "mean": 1.22805066981086,
+            "std": null,
+            "median": 1.22805066981086,
+            "p95": 1.22805066981086
+          },
+          "torque_rms_nm": {
+            "n": 1,
+            "mean": 0.39880742607745523,
+            "std": null,
+            "median": 0.39880742607745523,
+            "p95": 0.39880742607745523
+          },
+          "torque_peak_nm": {
+            "n": 1,
+            "mean": 1.3224130540934342,
+            "std": null,
+            "median": 1.3224130540934342,
+            "p95": 1.3224130540934342
+          },
+          "sac_contribution_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "slew_limit_pct": {
+            "n": 1,
+            "mean": 23.571399520071584,
+            "std": null,
+            "median": 23.571399520071584,
+            "p95": 23.571399520071584
+          },
+          "saturation_pct": {
+            "n": 1,
+            "mean": 0.012201569935331679,
+            "std": null,
+            "median": 0.012201569935331679,
+            "p95": 0.012201569935331679
+          },
+          "lateral_rate_rms_m_s": {
+            "n": 1,
+            "mean": 0.03474600667550881,
+            "std": null,
+            "median": 0.03474600667550881,
+            "p95": 0.03474600667550881
+          },
+          "roll_angle_rms_rad": {
+            "n": 1,
+            "mean": 0.01934566752429453,
+            "std": null,
+            "median": 0.01934566752429453,
+            "p95": 0.01934566752429453
+          },
+          "roll_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.08153674802818105,
+            "std": null,
+            "median": 0.08153674802818105,
+            "p95": 0.08153674802818105
+          },
+          "pitch_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.11856724932376143,
+            "std": null,
+            "median": 0.11856724932376143,
+            "p95": 0.11856724932376143
+          },
+          "measured_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 12.477637332112668,
+            "std": null,
+            "median": 12.477637332112668,
+            "p95": 12.477637332112668
+          },
+          "target_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 5.191305356137928,
+            "std": null,
+            "median": 5.191305356137928,
+            "p95": 5.191305356137928
+          }
+        }
+      },
+      "rejection_reasons": [
+        "episode 1: full task failed: gt_goal_xy_m=0.273337 > 0.25"
+      ]
+    },
+    "screen_p030_i010_d0005_t050": {
+      "state": "COMPLETE",
+      "command": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/.venv/bin/python",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/run_ablation_suite.py",
+        "--modes",
+        "PID",
+        "--pid-config",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p030_i010_d0005_t050_gains.yaml",
+        "--episodes",
+        "1",
+        "--seed",
+        "5101",
+        "--purpose",
+        "calibration",
+        "--device",
+        "cpu",
+        "--max-episode-seconds",
+        "90",
+        "--deadline-monotonic",
+        "5001.414102181",
+        "--output-root",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p030_i010_d0005_t050"
+      ],
+      "measurement": {
+        "episodes": [
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p030_i010_d0005_t050/PID/episode_00001_072457_142165",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 0.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.22080048959585413,
+              "amcl_goal_xy_m": 0.21565311954987884,
+              "amcl_goal_yaw_rad": 0.17788581031929487,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 0.0,
+              "gt_goal_xy_m": 0.2972597169546189,
+              "gt_goal_yaw_rad": 0.18079565736509817,
+              "amcl_rmse_m": 0.047179864683058556,
+              "amcl_p95_m": 0.0997610898315699,
+              "amcl_max_m": 0.11082811203641152,
+              "amcl_heading_rmse_rad": 0.11574520354997268,
+              "gt_rmse_m": 0.06645677688998902,
+              "gt_p95_m": 0.11908280180275929,
+              "gt_max_m": 0.13129614689735125,
+              "gt_heading_rmse_rad": 0.14808476567958648,
+              "az_rms_m_s2": 6.706144821429642,
+              "az_peak_m_s2": 150.71142577412715,
+              "roll_rate_rms_rad_s": 0.15913970074328435,
+              "pitch_rate_rms_rad_s": 0.21130892207251842,
+              "jerk_rms_m_s3": 178.80451898172026,
+              "jerk_p95_m_s3": 106.28003585487427,
+              "wheel_rmse_rad_s": 1.24740744186242,
+              "torque_rms_nm": 0.41563141117851893,
+              "torque_peak_nm": 1.3130369554308299,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 25.637677019140515,
+              "saturation_pct": 0.03570991307186875,
+              "lateral_rate_rms_m_s": 0.03322026434231884,
+              "roll_angle_rms_rad": 0.019863237543832016,
+              "roll_angle_peak_rad": 0.08124267722065102,
+              "pitch_angle_peak_rad": 0.11452217917477323,
+              "measured_wheel_peak_rad_s": 12.279655448373415,
+              "target_wheel_peak_rad_s": 5.077847703172411
+            },
+            "failure_reasons": [
+              "gt_goal_xy_m=0.29726 > 0.25"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.9991846718304119
+            },
+            "raw_sha256": "59b59324ecab437d646360d90248a935dbc67bcc1953680ea72eeb83a55cc2eb"
+          }
+        ],
+        "metrics": {
+          "mission_success_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "nav_success_pct": {
+            "n": 1,
+            "mean": 100.0,
+            "std": null,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "deviation_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "completion_time_s": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "median": null,
+            "p95": null
+          },
+          "average_speed_m_s": {
+            "n": 1,
+            "mean": 0.22080048959585413,
+            "std": null,
+            "median": 0.22080048959585413,
+            "p95": 0.22080048959585413
+          },
+          "amcl_goal_xy_m": {
+            "n": 1,
+            "mean": 0.21565311954987884,
+            "std": null,
+            "median": 0.21565311954987884,
+            "p95": 0.21565311954987884
+          },
+          "amcl_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.17788581031929487,
+            "std": null,
+            "median": 0.17788581031929487,
+            "p95": 0.17788581031929487
+          },
+          "amcl_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_goal_xy_m": {
+            "n": 1,
+            "mean": 0.2972597169546189,
+            "std": null,
+            "median": 0.2972597169546189,
+            "p95": 0.2972597169546189
+          },
+          "gt_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.18079565736509817,
+            "std": null,
+            "median": 0.18079565736509817,
+            "p95": 0.18079565736509817
+          },
+          "amcl_rmse_m": {
+            "n": 1,
+            "mean": 0.047179864683058556,
+            "std": null,
+            "median": 0.047179864683058556,
+            "p95": 0.047179864683058556
+          },
+          "amcl_p95_m": {
+            "n": 1,
+            "mean": 0.0997610898315699,
+            "std": null,
+            "median": 0.0997610898315699,
+            "p95": 0.0997610898315699
+          },
+          "amcl_max_m": {
+            "n": 1,
+            "mean": 0.11082811203641152,
+            "std": null,
+            "median": 0.11082811203641152,
+            "p95": 0.11082811203641152
+          },
+          "amcl_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.11574520354997268,
+            "std": null,
+            "median": 0.11574520354997268,
+            "p95": 0.11574520354997268
+          },
+          "gt_rmse_m": {
+            "n": 1,
+            "mean": 0.06645677688998902,
+            "std": null,
+            "median": 0.06645677688998902,
+            "p95": 0.06645677688998902
+          },
+          "gt_p95_m": {
+            "n": 1,
+            "mean": 0.11908280180275929,
+            "std": null,
+            "median": 0.11908280180275929,
+            "p95": 0.11908280180275929
+          },
+          "gt_max_m": {
+            "n": 1,
+            "mean": 0.13129614689735125,
+            "std": null,
+            "median": 0.13129614689735125,
+            "p95": 0.13129614689735125
+          },
+          "gt_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.14808476567958648,
+            "std": null,
+            "median": 0.14808476567958648,
+            "p95": 0.14808476567958648
+          },
+          "az_rms_m_s2": {
+            "n": 1,
+            "mean": 6.706144821429642,
+            "std": null,
+            "median": 6.706144821429642,
+            "p95": 6.706144821429642
+          },
+          "az_peak_m_s2": {
+            "n": 1,
+            "mean": 150.71142577412715,
+            "std": null,
+            "median": 150.71142577412715,
+            "p95": 150.71142577412715
+          },
+          "roll_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.15913970074328435,
+            "std": null,
+            "median": 0.15913970074328435,
+            "p95": 0.15913970074328435
+          },
+          "pitch_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.21130892207251842,
+            "std": null,
+            "median": 0.21130892207251842,
+            "p95": 0.21130892207251842
+          },
+          "jerk_rms_m_s3": {
+            "n": 1,
+            "mean": 178.80451898172026,
+            "std": null,
+            "median": 178.80451898172026,
+            "p95": 178.80451898172026
+          },
+          "jerk_p95_m_s3": {
+            "n": 1,
+            "mean": 106.28003585487427,
+            "std": null,
+            "median": 106.28003585487427,
+            "p95": 106.28003585487427
+          },
+          "wheel_rmse_rad_s": {
+            "n": 1,
+            "mean": 1.24740744186242,
+            "std": null,
+            "median": 1.24740744186242,
+            "p95": 1.24740744186242
+          },
+          "torque_rms_nm": {
+            "n": 1,
+            "mean": 0.41563141117851893,
+            "std": null,
+            "median": 0.41563141117851893,
+            "p95": 0.41563141117851893
+          },
+          "torque_peak_nm": {
+            "n": 1,
+            "mean": 1.3130369554308299,
+            "std": null,
+            "median": 1.3130369554308299,
+            "p95": 1.3130369554308299
+          },
+          "sac_contribution_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "slew_limit_pct": {
+            "n": 1,
+            "mean": 25.637677019140515,
+            "std": null,
+            "median": 25.637677019140515,
+            "p95": 25.637677019140515
+          },
+          "saturation_pct": {
+            "n": 1,
+            "mean": 0.03570991307186875,
+            "std": null,
+            "median": 0.03570991307186875,
+            "p95": 0.03570991307186875
+          },
+          "lateral_rate_rms_m_s": {
+            "n": 1,
+            "mean": 0.03322026434231884,
+            "std": null,
+            "median": 0.03322026434231884,
+            "p95": 0.03322026434231884
+          },
+          "roll_angle_rms_rad": {
+            "n": 1,
+            "mean": 0.019863237543832016,
+            "std": null,
+            "median": 0.019863237543832016,
+            "p95": 0.019863237543832016
+          },
+          "roll_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.08124267722065102,
+            "std": null,
+            "median": 0.08124267722065102,
+            "p95": 0.08124267722065102
+          },
+          "pitch_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.11452217917477323,
+            "std": null,
+            "median": 0.11452217917477323,
+            "p95": 0.11452217917477323
+          },
+          "measured_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 12.279655448373415,
+            "std": null,
+            "median": 12.279655448373415,
+            "p95": 12.279655448373415
+          },
+          "target_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 5.077847703172411,
+            "std": null,
+            "median": 5.077847703172411,
+            "p95": 5.077847703172411
+          }
+        }
+      },
+      "rejection_reasons": [
+        "episode 1: full task failed: gt_goal_xy_m=0.29726 > 0.25"
+      ]
+    },
+    "screen_p035_i010_d0002_t080": {
+      "state": "COMPLETE",
+      "command": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/.venv/bin/python",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/run_ablation_suite.py",
+        "--modes",
+        "PID",
+        "--pid-config",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p035_i010_d0002_t080_gains.yaml",
+        "--episodes",
+        "1",
+        "--seed",
+        "5101",
+        "--purpose",
+        "calibration",
+        "--device",
+        "cpu",
+        "--max-episode-seconds",
+        "90",
+        "--deadline-monotonic",
+        "5001.414102181",
+        "--output-root",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p035_i010_d0002_t080"
+      ],
+      "measurement": {
+        "episodes": [
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p035_i010_d0002_t080/PID/episode_00001_072612_433160",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 0.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.2186082362410624,
+              "amcl_goal_xy_m": 0.21278246755974728,
+              "amcl_goal_yaw_rad": 0.1356353952992348,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 0.0,
+              "gt_goal_xy_m": 0.28949772647052285,
+              "gt_goal_yaw_rad": 0.14486903673995508,
+              "amcl_rmse_m": 0.046680575870673875,
+              "amcl_p95_m": 0.09567703579626975,
+              "amcl_max_m": 0.11708346939485896,
+              "amcl_heading_rmse_rad": 0.11068160587005815,
+              "gt_rmse_m": 0.05977744308954363,
+              "gt_p95_m": 0.11443067031203058,
+              "gt_max_m": 0.13390053110959715,
+              "gt_heading_rmse_rad": 0.15510646806119663,
+              "az_rms_m_s2": 3.4168065152069618,
+              "az_peak_m_s2": 80.34696333248634,
+              "roll_rate_rms_rad_s": 0.15618152477054478,
+              "pitch_rate_rms_rad_s": 0.2129707517900972,
+              "jerk_rms_m_s3": 91.24216209169461,
+              "jerk_p95_m_s3": 97.09857263969957,
+              "wheel_rmse_rad_s": 1.1923159496709352,
+              "torque_rms_nm": 0.41807763897080513,
+              "torque_peak_nm": 1.3920322504414218,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 26.6447896596018,
+              "saturation_pct": 0.36026814386640976,
+              "lateral_rate_rms_m_s": 0.035270453313064894,
+              "roll_angle_rms_rad": 0.02041352756328021,
+              "roll_angle_peak_rad": 0.08098498762007414,
+              "pitch_angle_peak_rad": 0.10904784800227017,
+              "measured_wheel_peak_rad_s": 11.936218722361147,
+              "target_wheel_peak_rad_s": 5.403092975006894
+            },
+            "failure_reasons": [
+              "gt_goal_xy_m=0.289498 > 0.25"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.999277920410783
+            },
+            "raw_sha256": "f5e0bb2d55574f4f49f8e6b34c700b26cdaabd58612f8b2eee4d31f57050cfff"
+          }
+        ],
+        "metrics": {
+          "mission_success_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "nav_success_pct": {
+            "n": 1,
+            "mean": 100.0,
+            "std": null,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "deviation_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "completion_time_s": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "median": null,
+            "p95": null
+          },
+          "average_speed_m_s": {
+            "n": 1,
+            "mean": 0.2186082362410624,
+            "std": null,
+            "median": 0.2186082362410624,
+            "p95": 0.2186082362410624
+          },
+          "amcl_goal_xy_m": {
+            "n": 1,
+            "mean": 0.21278246755974728,
+            "std": null,
+            "median": 0.21278246755974728,
+            "p95": 0.21278246755974728
+          },
+          "amcl_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.1356353952992348,
+            "std": null,
+            "median": 0.1356353952992348,
+            "p95": 0.1356353952992348
+          },
+          "amcl_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_goal_xy_m": {
+            "n": 1,
+            "mean": 0.28949772647052285,
+            "std": null,
+            "median": 0.28949772647052285,
+            "p95": 0.28949772647052285
+          },
+          "gt_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.14486903673995508,
+            "std": null,
+            "median": 0.14486903673995508,
+            "p95": 0.14486903673995508
+          },
+          "amcl_rmse_m": {
+            "n": 1,
+            "mean": 0.046680575870673875,
+            "std": null,
+            "median": 0.046680575870673875,
+            "p95": 0.046680575870673875
+          },
+          "amcl_p95_m": {
+            "n": 1,
+            "mean": 0.09567703579626975,
+            "std": null,
+            "median": 0.09567703579626975,
+            "p95": 0.09567703579626975
+          },
+          "amcl_max_m": {
+            "n": 1,
+            "mean": 0.11708346939485896,
+            "std": null,
+            "median": 0.11708346939485896,
+            "p95": 0.11708346939485896
+          },
+          "amcl_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.11068160587005815,
+            "std": null,
+            "median": 0.11068160587005815,
+            "p95": 0.11068160587005815
+          },
+          "gt_rmse_m": {
+            "n": 1,
+            "mean": 0.05977744308954363,
+            "std": null,
+            "median": 0.05977744308954363,
+            "p95": 0.05977744308954363
+          },
+          "gt_p95_m": {
+            "n": 1,
+            "mean": 0.11443067031203058,
+            "std": null,
+            "median": 0.11443067031203058,
+            "p95": 0.11443067031203058
+          },
+          "gt_max_m": {
+            "n": 1,
+            "mean": 0.13390053110959715,
+            "std": null,
+            "median": 0.13390053110959715,
+            "p95": 0.13390053110959715
+          },
+          "gt_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.15510646806119663,
+            "std": null,
+            "median": 0.15510646806119663,
+            "p95": 0.15510646806119663
+          },
+          "az_rms_m_s2": {
+            "n": 1,
+            "mean": 3.4168065152069618,
+            "std": null,
+            "median": 3.4168065152069618,
+            "p95": 3.4168065152069618
+          },
+          "az_peak_m_s2": {
+            "n": 1,
+            "mean": 80.34696333248634,
+            "std": null,
+            "median": 80.34696333248634,
+            "p95": 80.34696333248634
+          },
+          "roll_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.15618152477054478,
+            "std": null,
+            "median": 0.15618152477054478,
+            "p95": 0.15618152477054478
+          },
+          "pitch_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.2129707517900972,
+            "std": null,
+            "median": 0.2129707517900972,
+            "p95": 0.2129707517900972
+          },
+          "jerk_rms_m_s3": {
+            "n": 1,
+            "mean": 91.24216209169461,
+            "std": null,
+            "median": 91.24216209169461,
+            "p95": 91.24216209169461
+          },
+          "jerk_p95_m_s3": {
+            "n": 1,
+            "mean": 97.09857263969957,
+            "std": null,
+            "median": 97.09857263969957,
+            "p95": 97.09857263969957
+          },
+          "wheel_rmse_rad_s": {
+            "n": 1,
+            "mean": 1.1923159496709352,
+            "std": null,
+            "median": 1.1923159496709352,
+            "p95": 1.1923159496709352
+          },
+          "torque_rms_nm": {
+            "n": 1,
+            "mean": 0.41807763897080513,
+            "std": null,
+            "median": 0.41807763897080513,
+            "p95": 0.41807763897080513
+          },
+          "torque_peak_nm": {
+            "n": 1,
+            "mean": 1.3920322504414218,
+            "std": null,
+            "median": 1.3920322504414218,
+            "p95": 1.3920322504414218
+          },
+          "sac_contribution_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "slew_limit_pct": {
+            "n": 1,
+            "mean": 26.6447896596018,
+            "std": null,
+            "median": 26.6447896596018,
+            "p95": 26.6447896596018
+          },
+          "saturation_pct": {
+            "n": 1,
+            "mean": 0.36026814386640976,
+            "std": null,
+            "median": 0.36026814386640976,
+            "p95": 0.36026814386640976
+          },
+          "lateral_rate_rms_m_s": {
+            "n": 1,
+            "mean": 0.035270453313064894,
+            "std": null,
+            "median": 0.035270453313064894,
+            "p95": 0.035270453313064894
+          },
+          "roll_angle_rms_rad": {
+            "n": 1,
+            "mean": 0.02041352756328021,
+            "std": null,
+            "median": 0.02041352756328021,
+            "p95": 0.02041352756328021
+          },
+          "roll_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.08098498762007414,
+            "std": null,
+            "median": 0.08098498762007414,
+            "p95": 0.08098498762007414
+          },
+          "pitch_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.10904784800227017,
+            "std": null,
+            "median": 0.10904784800227017,
+            "p95": 0.10904784800227017
+          },
+          "measured_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 11.936218722361147,
+            "std": null,
+            "median": 11.936218722361147,
+            "p95": 11.936218722361147
+          },
+          "target_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 5.403092975006894,
+            "std": null,
+            "median": 5.403092975006894,
+            "p95": 5.403092975006894
+          }
+        }
+      },
+      "rejection_reasons": [
+        "episode 1: full task failed: gt_goal_xy_m=0.289498 > 0.25"
+      ]
+    },
+    "screen_p025_i012_d0005_t080": {
+      "state": "COMPLETE",
+      "command": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/.venv/bin/python",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/run_ablation_suite.py",
+        "--modes",
+        "PID",
+        "--pid-config",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p025_i012_d0005_t080_gains.yaml",
+        "--episodes",
+        "1",
+        "--seed",
+        "5101",
+        "--purpose",
+        "calibration",
+        "--device",
+        "cpu",
+        "--max-episode-seconds",
+        "90",
+        "--deadline-monotonic",
+        "5001.414102181",
+        "--output-root",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p025_i012_d0005_t080"
+      ],
+      "measurement": {
+        "episodes": [
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p025_i012_d0005_t080/PID/episode_00001_072726_154286",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 100.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.19886329927141563,
+              "amcl_goal_xy_m": 0.09056523882563614,
+              "amcl_goal_yaw_rad": 0.2438701713366308,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 100.0,
+              "gt_goal_xy_m": 0.13186227366253697,
+              "gt_goal_yaw_rad": 0.27544629849447533,
+              "amcl_rmse_m": 0.05876337092306562,
+              "amcl_p95_m": 0.13470740424821948,
+              "amcl_max_m": 0.1702871908483821,
+              "amcl_heading_rmse_rad": 0.22846619460262227,
+              "gt_rmse_m": 0.08195588892969215,
+              "gt_p95_m": 0.18045651970828255,
+              "gt_max_m": 0.2247777370614703,
+              "gt_heading_rmse_rad": 0.2471541190768715,
+              "az_rms_m_s2": 2.936247017986771,
+              "az_peak_m_s2": 98.08893320666384,
+              "roll_rate_rms_rad_s": 0.1471149297131871,
+              "pitch_rate_rms_rad_s": 0.19337680785664094,
+              "jerk_rms_m_s3": 78.4130288641109,
+              "jerk_p95_m_s3": 62.37834554828917,
+              "wheel_rmse_rad_s": 1.2629775266975503,
+              "torque_rms_nm": 0.40303029773102306,
+              "torque_peak_nm": 1.333203763734882,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 18.243664404908195,
+              "saturation_pct": 0.0035618243664404907,
+              "lateral_rate_rms_m_s": 0.04704407001468187,
+              "roll_angle_rms_rad": 0.018410251899761667,
+              "roll_angle_peak_rad": 0.08171814317705496,
+              "pitch_angle_peak_rad": 0.11198096075740725,
+              "measured_wheel_peak_rad_s": 11.864165006577544,
+              "target_wheel_peak_rad_s": 5.645135967999998
+            },
+            "failure_reasons": [
+              "gt_goal_yaw_rad=0.275446 > 0.25",
+              "gt_max_m=0.224778 > 0.2"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.9992168588922113
+            },
+            "raw_sha256": "2e02f47268349217aa535d26cf372fb6abc3f4b7601639a701452deda7f104ac"
+          }
+        ],
+        "metrics": {
+          "mission_success_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "nav_success_pct": {
+            "n": 1,
+            "mean": 100.0,
+            "std": null,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "deviation_violation_pct": {
+            "n": 1,
+            "mean": 100.0,
+            "std": null,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "completion_time_s": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "median": null,
+            "p95": null
+          },
+          "average_speed_m_s": {
+            "n": 1,
+            "mean": 0.19886329927141563,
+            "std": null,
+            "median": 0.19886329927141563,
+            "p95": 0.19886329927141563
+          },
+          "amcl_goal_xy_m": {
+            "n": 1,
+            "mean": 0.09056523882563614,
+            "std": null,
+            "median": 0.09056523882563614,
+            "p95": 0.09056523882563614
+          },
+          "amcl_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.2438701713366308,
+            "std": null,
+            "median": 0.2438701713366308,
+            "p95": 0.2438701713366308
+          },
+          "amcl_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_violation_pct": {
+            "n": 1,
+            "mean": 100.0,
+            "std": null,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "gt_goal_xy_m": {
+            "n": 1,
+            "mean": 0.13186227366253697,
+            "std": null,
+            "median": 0.13186227366253697,
+            "p95": 0.13186227366253697
+          },
+          "gt_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.27544629849447533,
+            "std": null,
+            "median": 0.27544629849447533,
+            "p95": 0.27544629849447533
+          },
+          "amcl_rmse_m": {
+            "n": 1,
+            "mean": 0.05876337092306562,
+            "std": null,
+            "median": 0.05876337092306562,
+            "p95": 0.05876337092306562
+          },
+          "amcl_p95_m": {
+            "n": 1,
+            "mean": 0.13470740424821948,
+            "std": null,
+            "median": 0.13470740424821948,
+            "p95": 0.13470740424821948
+          },
+          "amcl_max_m": {
+            "n": 1,
+            "mean": 0.1702871908483821,
+            "std": null,
+            "median": 0.1702871908483821,
+            "p95": 0.1702871908483821
+          },
+          "amcl_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.22846619460262227,
+            "std": null,
+            "median": 0.22846619460262227,
+            "p95": 0.22846619460262227
+          },
+          "gt_rmse_m": {
+            "n": 1,
+            "mean": 0.08195588892969215,
+            "std": null,
+            "median": 0.08195588892969215,
+            "p95": 0.08195588892969215
+          },
+          "gt_p95_m": {
+            "n": 1,
+            "mean": 0.18045651970828255,
+            "std": null,
+            "median": 0.18045651970828255,
+            "p95": 0.18045651970828255
+          },
+          "gt_max_m": {
+            "n": 1,
+            "mean": 0.2247777370614703,
+            "std": null,
+            "median": 0.2247777370614703,
+            "p95": 0.2247777370614703
+          },
+          "gt_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.2471541190768715,
+            "std": null,
+            "median": 0.2471541190768715,
+            "p95": 0.2471541190768715
+          },
+          "az_rms_m_s2": {
+            "n": 1,
+            "mean": 2.936247017986771,
+            "std": null,
+            "median": 2.936247017986771,
+            "p95": 2.936247017986771
+          },
+          "az_peak_m_s2": {
+            "n": 1,
+            "mean": 98.08893320666384,
+            "std": null,
+            "median": 98.08893320666384,
+            "p95": 98.08893320666384
+          },
+          "roll_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.1471149297131871,
+            "std": null,
+            "median": 0.1471149297131871,
+            "p95": 0.1471149297131871
+          },
+          "pitch_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.19337680785664094,
+            "std": null,
+            "median": 0.19337680785664094,
+            "p95": 0.19337680785664094
+          },
+          "jerk_rms_m_s3": {
+            "n": 1,
+            "mean": 78.4130288641109,
+            "std": null,
+            "median": 78.4130288641109,
+            "p95": 78.4130288641109
+          },
+          "jerk_p95_m_s3": {
+            "n": 1,
+            "mean": 62.37834554828917,
+            "std": null,
+            "median": 62.37834554828917,
+            "p95": 62.37834554828917
+          },
+          "wheel_rmse_rad_s": {
+            "n": 1,
+            "mean": 1.2629775266975503,
+            "std": null,
+            "median": 1.2629775266975503,
+            "p95": 1.2629775266975503
+          },
+          "torque_rms_nm": {
+            "n": 1,
+            "mean": 0.40303029773102306,
+            "std": null,
+            "median": 0.40303029773102306,
+            "p95": 0.40303029773102306
+          },
+          "torque_peak_nm": {
+            "n": 1,
+            "mean": 1.333203763734882,
+            "std": null,
+            "median": 1.333203763734882,
+            "p95": 1.333203763734882
+          },
+          "sac_contribution_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "slew_limit_pct": {
+            "n": 1,
+            "mean": 18.243664404908195,
+            "std": null,
+            "median": 18.243664404908195,
+            "p95": 18.243664404908195
+          },
+          "saturation_pct": {
+            "n": 1,
+            "mean": 0.0035618243664404907,
+            "std": null,
+            "median": 0.0035618243664404907,
+            "p95": 0.0035618243664404907
+          },
+          "lateral_rate_rms_m_s": {
+            "n": 1,
+            "mean": 0.04704407001468187,
+            "std": null,
+            "median": 0.04704407001468187,
+            "p95": 0.04704407001468187
+          },
+          "roll_angle_rms_rad": {
+            "n": 1,
+            "mean": 0.018410251899761667,
+            "std": null,
+            "median": 0.018410251899761667,
+            "p95": 0.018410251899761667
+          },
+          "roll_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.08171814317705496,
+            "std": null,
+            "median": 0.08171814317705496,
+            "p95": 0.08171814317705496
+          },
+          "pitch_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.11198096075740725,
+            "std": null,
+            "median": 0.11198096075740725,
+            "p95": 0.11198096075740725
+          },
+          "measured_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 11.864165006577544,
+            "std": null,
+            "median": 11.864165006577544,
+            "p95": 11.864165006577544
+          },
+          "target_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 5.645135967999998,
+            "std": null,
+            "median": 5.645135967999998,
+            "p95": 5.645135967999998
+          }
+        }
+      },
+      "rejection_reasons": [
+        "episode 1: full task failed: gt_goal_yaw_rad=0.275446 > 0.25, gt_max_m=0.224778 > 0.2"
+      ]
+    },
+    "screen_p040_i010_d0005_t080": {
+      "state": "COMPLETE",
+      "command": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/.venv/bin/python",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/run_ablation_suite.py",
+        "--modes",
+        "PID",
+        "--pid-config",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p040_i010_d0005_t080_gains.yaml",
+        "--episodes",
+        "1",
+        "--seed",
+        "5101",
+        "--purpose",
+        "calibration",
+        "--device",
+        "cpu",
+        "--max-episode-seconds",
+        "90",
+        "--deadline-monotonic",
+        "5001.414102181",
+        "--output-root",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p040_i010_d0005_t080"
+      ],
+      "measurement": {
+        "episodes": [
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p040_i010_d0005_t080/PID/episode_00001_072847_609668",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 0.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.2134903521509507,
+              "amcl_goal_xy_m": 0.20929965391487185,
+              "amcl_goal_yaw_rad": 0.24720968759893203,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 0.0,
+              "gt_goal_xy_m": 0.32198445447871415,
+              "gt_goal_yaw_rad": 0.23692011658960238,
+              "amcl_rmse_m": 0.04649162724417214,
+              "amcl_p95_m": 0.09153791675679024,
+              "amcl_max_m": 0.12135134707990368,
+              "amcl_heading_rmse_rad": 0.10869066215575948,
+              "gt_rmse_m": 0.07787722264444935,
+              "gt_p95_m": 0.16880130046191047,
+              "gt_max_m": 0.19935760796576435,
+              "gt_heading_rmse_rad": 0.13410678430040646,
+              "az_rms_m_s2": 2.455480927655642,
+              "az_peak_m_s2": 71.55691054191351,
+              "roll_rate_rms_rad_s": 0.1426250124154634,
+              "pitch_rate_rms_rad_s": 0.2697909288241828,
+              "jerk_rms_m_s3": 65.38062297390732,
+              "jerk_p95_m_s3": 64.9946412384499,
+              "wheel_rmse_rad_s": 1.3321784132816843,
+              "torque_rms_nm": 0.4595533049408136,
+              "torque_peak_nm": 1.7935863812160993,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 32.462136837762976,
+              "saturation_pct": 1.5037224743159094,
+              "lateral_rate_rms_m_s": 0.030289983034075946,
+              "roll_angle_rms_rad": 0.018914182264716223,
+              "roll_angle_peak_rad": 0.08099558658361634,
+              "pitch_angle_peak_rad": 0.33029307347717973,
+              "measured_wheel_peak_rad_s": 14.339605630550698,
+              "target_wheel_peak_rad_s": 5.058938094344825
+            },
+            "failure_reasons": [
+              "gt_goal_xy_m=0.321984 > 0.25"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.9993915722949501
+            },
+            "raw_sha256": "ab0e2382f0b1bc6beeabec8b8cecbe53df22c7da1bc81b9d9abfb8a5937971c0"
+          }
+        ],
+        "metrics": {
+          "mission_success_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "nav_success_pct": {
+            "n": 1,
+            "mean": 100.0,
+            "std": null,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "deviation_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "completion_time_s": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "median": null,
+            "p95": null
+          },
+          "average_speed_m_s": {
+            "n": 1,
+            "mean": 0.2134903521509507,
+            "std": null,
+            "median": 0.2134903521509507,
+            "p95": 0.2134903521509507
+          },
+          "amcl_goal_xy_m": {
+            "n": 1,
+            "mean": 0.20929965391487185,
+            "std": null,
+            "median": 0.20929965391487185,
+            "p95": 0.20929965391487185
+          },
+          "amcl_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.24720968759893203,
+            "std": null,
+            "median": 0.24720968759893203,
+            "p95": 0.24720968759893203
+          },
+          "amcl_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_violation_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_goal_xy_m": {
+            "n": 1,
+            "mean": 0.32198445447871415,
+            "std": null,
+            "median": 0.32198445447871415,
+            "p95": 0.32198445447871415
+          },
+          "gt_goal_yaw_rad": {
+            "n": 1,
+            "mean": 0.23692011658960238,
+            "std": null,
+            "median": 0.23692011658960238,
+            "p95": 0.23692011658960238
+          },
+          "amcl_rmse_m": {
+            "n": 1,
+            "mean": 0.04649162724417214,
+            "std": null,
+            "median": 0.04649162724417214,
+            "p95": 0.04649162724417214
+          },
+          "amcl_p95_m": {
+            "n": 1,
+            "mean": 0.09153791675679024,
+            "std": null,
+            "median": 0.09153791675679024,
+            "p95": 0.09153791675679024
+          },
+          "amcl_max_m": {
+            "n": 1,
+            "mean": 0.12135134707990368,
+            "std": null,
+            "median": 0.12135134707990368,
+            "p95": 0.12135134707990368
+          },
+          "amcl_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.10869066215575948,
+            "std": null,
+            "median": 0.10869066215575948,
+            "p95": 0.10869066215575948
+          },
+          "gt_rmse_m": {
+            "n": 1,
+            "mean": 0.07787722264444935,
+            "std": null,
+            "median": 0.07787722264444935,
+            "p95": 0.07787722264444935
+          },
+          "gt_p95_m": {
+            "n": 1,
+            "mean": 0.16880130046191047,
+            "std": null,
+            "median": 0.16880130046191047,
+            "p95": 0.16880130046191047
+          },
+          "gt_max_m": {
+            "n": 1,
+            "mean": 0.19935760796576435,
+            "std": null,
+            "median": 0.19935760796576435,
+            "p95": 0.19935760796576435
+          },
+          "gt_heading_rmse_rad": {
+            "n": 1,
+            "mean": 0.13410678430040646,
+            "std": null,
+            "median": 0.13410678430040646,
+            "p95": 0.13410678430040646
+          },
+          "az_rms_m_s2": {
+            "n": 1,
+            "mean": 2.455480927655642,
+            "std": null,
+            "median": 2.455480927655642,
+            "p95": 2.455480927655642
+          },
+          "az_peak_m_s2": {
+            "n": 1,
+            "mean": 71.55691054191351,
+            "std": null,
+            "median": 71.55691054191351,
+            "p95": 71.55691054191351
+          },
+          "roll_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.1426250124154634,
+            "std": null,
+            "median": 0.1426250124154634,
+            "p95": 0.1426250124154634
+          },
+          "pitch_rate_rms_rad_s": {
+            "n": 1,
+            "mean": 0.2697909288241828,
+            "std": null,
+            "median": 0.2697909288241828,
+            "p95": 0.2697909288241828
+          },
+          "jerk_rms_m_s3": {
+            "n": 1,
+            "mean": 65.38062297390732,
+            "std": null,
+            "median": 65.38062297390732,
+            "p95": 65.38062297390732
+          },
+          "jerk_p95_m_s3": {
+            "n": 1,
+            "mean": 64.9946412384499,
+            "std": null,
+            "median": 64.9946412384499,
+            "p95": 64.9946412384499
+          },
+          "wheel_rmse_rad_s": {
+            "n": 1,
+            "mean": 1.3321784132816843,
+            "std": null,
+            "median": 1.3321784132816843,
+            "p95": 1.3321784132816843
+          },
+          "torque_rms_nm": {
+            "n": 1,
+            "mean": 0.4595533049408136,
+            "std": null,
+            "median": 0.4595533049408136,
+            "p95": 0.4595533049408136
+          },
+          "torque_peak_nm": {
+            "n": 1,
+            "mean": 1.7935863812160993,
+            "std": null,
+            "median": 1.7935863812160993,
+            "p95": 1.7935863812160993
+          },
+          "sac_contribution_pct": {
+            "n": 1,
+            "mean": 0.0,
+            "std": null,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "slew_limit_pct": {
+            "n": 1,
+            "mean": 32.462136837762976,
+            "std": null,
+            "median": 32.462136837762976,
+            "p95": 32.462136837762976
+          },
+          "saturation_pct": {
+            "n": 1,
+            "mean": 1.5037224743159094,
+            "std": null,
+            "median": 1.5037224743159094,
+            "p95": 1.5037224743159094
+          },
+          "lateral_rate_rms_m_s": {
+            "n": 1,
+            "mean": 0.030289983034075946,
+            "std": null,
+            "median": 0.030289983034075946,
+            "p95": 0.030289983034075946
+          },
+          "roll_angle_rms_rad": {
+            "n": 1,
+            "mean": 0.018914182264716223,
+            "std": null,
+            "median": 0.018914182264716223,
+            "p95": 0.018914182264716223
+          },
+          "roll_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.08099558658361634,
+            "std": null,
+            "median": 0.08099558658361634,
+            "p95": 0.08099558658361634
+          },
+          "pitch_angle_peak_rad": {
+            "n": 1,
+            "mean": 0.33029307347717973,
+            "std": null,
+            "median": 0.33029307347717973,
+            "p95": 0.33029307347717973
+          },
+          "measured_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 14.339605630550698,
+            "std": null,
+            "median": 14.339605630550698,
+            "p95": 14.339605630550698
+          },
+          "target_wheel_peak_rad_s": {
+            "n": 1,
+            "mean": 5.058938094344825,
+            "std": null,
+            "median": 5.058938094344825,
+            "p95": 5.058938094344825
+          }
+        }
+      },
+      "rejection_reasons": [
+        "episode 1: full task failed: gt_goal_xy_m=0.321984 > 0.25"
+      ]
+    },
+    "verification": {
+      "state": "COMPLETE",
+      "command": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/.venv/bin/python",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/run_ablation_suite.py",
+        "--modes",
+        "PID",
+        "--pid-config",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/verification_gains.yaml",
+        "--episodes",
+        "3",
+        "--seed",
+        "6101",
+        "--purpose",
+        "evaluation",
+        "--device",
+        "cpu",
+        "--max-episode-seconds",
+        "90",
+        "--deadline-monotonic",
+        "5001.414102181",
+        "--output-root",
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/verification"
+      ],
+      "measurement": {
+        "episodes": [
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/verification/PID/episode_00001_073000_893891",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 0.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.21918448143775124,
+              "amcl_goal_xy_m": 0.21982017424350558,
+              "amcl_goal_yaw_rad": 0.12218044355311755,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 0.0,
+              "gt_goal_xy_m": 0.2966810758809142,
+              "gt_goal_yaw_rad": 0.1302789223136941,
+              "amcl_rmse_m": 0.04382160554709926,
+              "amcl_p95_m": 0.09295492390371368,
+              "amcl_max_m": 0.10387399304403594,
+              "amcl_heading_rmse_rad": 0.10715224563141316,
+              "gt_rmse_m": 0.058221470561269965,
+              "gt_p95_m": 0.09757414330892882,
+              "gt_max_m": 0.10426873969168408,
+              "gt_heading_rmse_rad": 0.1358684785291675,
+              "az_rms_m_s2": 4.847744982471044,
+              "az_peak_m_s2": 150.1623357566946,
+              "roll_rate_rms_rad_s": 0.1564509623598372,
+              "pitch_rate_rms_rad_s": 0.21423282043111327,
+              "jerk_rms_m_s3": 129.58158945464643,
+              "jerk_p95_m_s3": 91.75190950553996,
+              "wheel_rmse_rad_s": 1.2158949885119905,
+              "torque_rms_nm": 0.4185258437785834,
+              "torque_peak_nm": 1.4822008834798668,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 27.64983492333556,
+              "saturation_pct": 0.35648457596564787,
+              "lateral_rate_rms_m_s": 0.031117814716056184,
+              "roll_angle_rms_rad": 0.019512897987349023,
+              "roll_angle_peak_rad": 0.080977228340412,
+              "pitch_angle_peak_rad": 0.11425483833698002,
+              "measured_wheel_peak_rad_s": 12.305586795147633,
+              "target_wheel_peak_rad_s": 5.074065781406894
+            },
+            "failure_reasons": [
+              "gt_goal_xy_m=0.296681 > 0.25"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.9992105103342173
+            },
+            "raw_sha256": "48dd08c20581e7bc81c47ffb4168f7086bc81204bc97e00b7dc32d2f819e1e4c"
+          },
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/verification/PID/episode_00002_073109_450919",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 100.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.18991739434519248,
+              "amcl_goal_xy_m": 0.020321760492249128,
+              "amcl_goal_yaw_rad": 0.24763241828127208,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 100.0,
+              "gt_goal_xy_m": 0.0996622461266773,
+              "gt_goal_yaw_rad": 0.2505504901153428,
+              "amcl_rmse_m": 0.04929979108947471,
+              "amcl_p95_m": 0.1072699929955534,
+              "amcl_max_m": 0.14691893375533738,
+              "amcl_heading_rmse_rad": 0.16936777626903624,
+              "gt_rmse_m": 0.08376083338470697,
+              "gt_p95_m": 0.18276899179938422,
+              "gt_max_m": 0.2360768315885907,
+              "gt_heading_rmse_rad": 0.18879167129090763,
+              "az_rms_m_s2": 3.8019506067796236,
+              "az_peak_m_s2": 119.33185701016515,
+              "roll_rate_rms_rad_s": 0.13620120102252037,
+              "pitch_rate_rms_rad_s": 0.1969744522135268,
+              "jerk_rms_m_s3": 101.75166514847623,
+              "jerk_p95_m_s3": 76.1679835385437,
+              "wheel_rmse_rad_s": 1.1451039665392275,
+              "torque_rms_nm": 0.40355950406947194,
+              "torque_peak_nm": 1.593639709677747,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 23.902480752780153,
+              "saturation_pct": 0.2771599657827203,
+              "lateral_rate_rms_m_s": 0.03349435831531908,
+              "roll_angle_rms_rad": 0.017165191557888954,
+              "roll_angle_peak_rad": 0.0809583813374301,
+              "pitch_angle_peak_rad": 0.12022771877056562,
+              "measured_wheel_peak_rad_s": 12.59445454833731,
+              "target_wheel_peak_rad_s": 5.406874896772411
+            },
+            "failure_reasons": [
+              "gt_goal_yaw_rad=0.25055 > 0.25",
+              "gt_max_m=0.236077 > 0.2"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.9977254459323107
+            },
+            "raw_sha256": "8cb057ea0e18751613dbe124a66872fc6a47d7b8dcbae7d3af64ed575f86f630"
+          },
+          {
+            "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/verification/PID/episode_00003_073228_346650",
+            "nav2_succeeded": true,
+            "amcl_task_pass": true,
+            "gt_task_pass": false,
+            "full_pass": false,
+            "outcome": "SUCCEEDED",
+            "metrics": {
+              "mission_success_pct": 0.0,
+              "nav_success_pct": 100.0,
+              "deviation_violation_pct": 100.0,
+              "completion_time_s": null,
+              "average_speed_m_s": 0.21936786494272043,
+              "amcl_goal_xy_m": 0.2300640140190466,
+              "amcl_goal_yaw_rad": 0.23974784394689716,
+              "amcl_violation_pct": 0.0,
+              "gt_violation_pct": 100.0,
+              "gt_goal_xy_m": 0.32418365097496393,
+              "gt_goal_yaw_rad": 0.2167768228767439,
+              "amcl_rmse_m": 0.059407943061261244,
+              "amcl_p95_m": 0.11876329377569306,
+              "amcl_max_m": 0.18376532387516822,
+              "amcl_heading_rmse_rad": 0.13296444488686693,
+              "gt_rmse_m": 0.09612528100079294,
+              "gt_p95_m": 0.1996475442445067,
+              "gt_max_m": 0.24417994866420353,
+              "gt_heading_rmse_rad": 0.15974861268619198,
+              "az_rms_m_s2": 4.986545500079889,
+              "az_peak_m_s2": 175.05123246241774,
+              "roll_rate_rms_rad_s": 0.15024749808766769,
+              "pitch_rate_rms_rad_s": 0.21466520681184847,
+              "jerk_rms_m_s3": 133.08761504387795,
+              "jerk_p95_m_s3": 77.05453543103518,
+              "wheel_rmse_rad_s": 1.2471648548186638,
+              "torque_rms_nm": 0.43147158312863393,
+              "torque_peak_nm": 1.60467511281233,
+              "sac_contribution_pct": 0.0,
+              "slew_limit_pct": 27.693767539520703,
+              "saturation_pct": 0.35028567967535484,
+              "lateral_rate_rms_m_s": 0.03685501790863896,
+              "roll_angle_rms_rad": 0.019370468510401202,
+              "roll_angle_peak_rad": 0.0808946196786384,
+              "pitch_angle_peak_rad": 0.11412005783730997,
+              "measured_wheel_peak_rad_s": 12.258025332806687,
+              "target_wheel_peak_rad_s": 5.645135967999998
+            },
+            "failure_reasons": [
+              "gt_goal_xy_m=0.324184 > 0.25",
+              "gt_max_m=0.24418 > 0.2"
+            ],
+            "coverage": {
+              "amcl": 1.0,
+              "ground_truth": 1.0,
+              "az": 1.0,
+              "jerk": 0.9992130591819851
+            },
+            "raw_sha256": "74cbdab92378d8c486c082c1ea16af7bc3af5a4ddbd11a5b9dcdfa92177f409e"
+          }
+        ],
+        "metrics": {
+          "mission_success_pct": {
+            "n": 3,
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "nav_success_pct": {
+            "n": 3,
+            "mean": 100.0,
+            "std": 0.0,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "deviation_violation_pct": {
+            "n": 3,
+            "mean": 66.66666666666667,
+            "std": 57.735026918962575,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "completion_time_s": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "median": null,
+            "p95": null
+          },
+          "average_speed_m_s": {
+            "n": 3,
+            "mean": 0.20948991357522137,
+            "std": 0.016950546868312603,
+            "median": 0.21918448143775124,
+            "p95": 0.2193495265922235
+          },
+          "amcl_goal_xy_m": {
+            "n": 3,
+            "mean": 0.15673531625160045,
+            "std": 0.11824858438695567,
+            "median": 0.21982017424350558,
+            "p95": 0.2290396300414925
+          },
+          "amcl_goal_yaw_rad": {
+            "n": 3,
+            "mean": 0.2031869019270956,
+            "std": 0.07026433200301452,
+            "median": 0.23974784394689716,
+            "p95": 0.24684396084783458
+          },
+          "amcl_violation_pct": {
+            "n": 3,
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "gt_violation_pct": {
+            "n": 3,
+            "mean": 66.66666666666667,
+            "std": 57.735026918962575,
+            "median": 100.0,
+            "p95": 100.0
+          },
+          "gt_goal_xy_m": {
+            "n": 3,
+            "mean": 0.2401756576608518,
+            "std": 0.12246269646276034,
+            "median": 0.2966810758809142,
+            "p95": 0.32143339346555894
+          },
+          "gt_goal_yaw_rad": {
+            "n": 3,
+            "mean": 0.19920207843526028,
+            "std": 0.0620319775358181,
+            "median": 0.2167768228767439,
+            "p95": 0.24717312339148292
+          },
+          "amcl_rmse_m": {
+            "n": 3,
+            "mean": 0.05084311323261174,
+            "std": 0.00790695021512505,
+            "median": 0.04929979108947471,
+            "p95": 0.05839712786408259
+          },
+          "amcl_p95_m": {
+            "n": 3,
+            "mean": 0.10632940355832005,
+            "std": 0.012929869304416785,
+            "median": 0.1072699929955534,
+            "p95": 0.1176139636976791
+          },
+          "amcl_max_m": {
+            "n": 3,
+            "mean": 0.14485275022484717,
+            "std": 0.039985722717972835,
+            "median": 0.14691893375533738,
+            "p95": 0.18008068486318513
+          },
+          "amcl_heading_rmse_rad": {
+            "n": 3,
+            "mean": 0.13649482226243878,
+            "std": 0.03125765084648422,
+            "median": 0.13296444488686693,
+            "p95": 0.1657274431308193
+          },
+          "gt_rmse_m": {
+            "n": 3,
+            "mean": 0.07936919498225663,
+            "std": 0.019329758853959617,
+            "median": 0.08376083338470697,
+            "p95": 0.09488883623918434
+          },
+          "gt_p95_m": {
+            "n": 3,
+            "mean": 0.15999689311760656,
+            "std": 0.054714451047399464,
+            "median": 0.18276899179938422,
+            "p95": 0.19795968899999444
+          },
+          "gt_max_m": {
+            "n": 3,
+            "mean": 0.19484183998149276,
+            "std": 0.07854317283294633,
+            "median": 0.2360768315885907,
+            "p95": 0.24336963695664224
+          },
+          "gt_heading_rmse_rad": {
+            "n": 3,
+            "mean": 0.16146958750208903,
+            "std": 0.02650353558983762,
+            "median": 0.15974861268619198,
+            "p95": 0.18588736543043605
+          },
+          "az_rms_m_s2": {
+            "n": 3,
+            "mean": 4.545413696443519,
+            "std": 0.6475873842127868,
+            "median": 4.847744982471044,
+            "p95": 4.972665448319004
+          },
+          "az_peak_m_s2": {
+            "n": 3,
+            "mean": 148.18180840975916,
+            "std": 27.912435698559907,
+            "median": 150.1623357566946,
+            "p95": 172.56234279184542
+          },
+          "roll_rate_rms_rad_s": {
+            "n": 3,
+            "mean": 0.1476332204900084,
+            "std": 0.010374923810457121,
+            "median": 0.15024749808766769,
+            "p95": 0.15583061593262024
+          },
+          "pitch_rate_rms_rad_s": {
+            "n": 3,
+            "mean": 0.2086241598188295,
+            "std": 0.010091258839329573,
+            "median": 0.21423282043111327,
+            "p95": 0.21462196817377496
+          },
+          "jerk_rms_m_s3": {
+            "n": 3,
+            "mean": 121.47362321566688,
+            "std": 17.169443099911714,
+            "median": 129.58158945464643,
+            "p95": 132.7370124849548
+          },
+          "jerk_p95_m_s3": {
+            "n": 3,
+            "mean": 81.6581428250396,
+            "std": 8.752690324397653,
+            "median": 77.05453543103518,
+            "p95": 90.28217209808948
+          },
+          "wheel_rmse_rad_s": {
+            "n": 3,
+            "mean": 1.2027212699566272,
+            "std": 0.052290212989897396,
+            "median": 1.2158949885119905,
+            "p95": 1.2440378681879964
+          },
+          "torque_rms_nm": {
+            "n": 3,
+            "mean": 0.4178523103255631,
+            "std": 0.013968223753773433,
+            "median": 0.4185258437785834,
+            "p95": 0.4301770091936289
+          },
+          "torque_peak_nm": {
+            "n": 3,
+            "mean": 1.5601719019899813,
+            "std": 0.06774994336687044,
+            "median": 1.593639709677747,
+            "p95": 1.6035715724988717
+          },
+          "sac_contribution_pct": {
+            "n": 3,
+            "mean": 0.0,
+            "std": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "slew_limit_pct": {
+            "n": 3,
+            "mean": 26.415361071878806,
+            "std": 2.1763290519303893,
+            "median": 27.64983492333556,
+            "p95": 27.68937427790219
+          },
+          "saturation_pct": {
+            "n": 3,
+            "mean": 0.3279767404745743,
+            "std": 0.044117627104893635,
+            "median": 0.35028567967535484,
+            "p95": 0.35586468633661855
+          },
+          "lateral_rate_rms_m_s": {
+            "n": 3,
+            "mean": 0.03382239698000474,
+            "std": 0.002882634583569701,
+            "median": 0.03349435831531908,
+            "p95": 0.036518951949306974
+          },
+          "roll_angle_rms_rad": {
+            "n": 3,
+            "mean": 0.01868285268521306,
+            "std": 0.0013162609969223106,
+            "median": 0.019370468510401202,
+            "p95": 0.019498655039654242
+          },
+          "roll_angle_peak_rad": {
+            "n": 3,
+            "mean": 0.0809434097854935,
+            "std": 4.3291549701404285e-05,
+            "median": 0.0809583813374301,
+            "p95": 0.08097534364011381
+          },
+          "pitch_angle_peak_rad": {
+            "n": 3,
+            "mean": 0.1162008716482852,
+            "std": 0.0034880029752619745,
+            "median": 0.11425483833698002,
+            "p95": 0.11963043072720707
+          },
+          "measured_wheel_peak_rad_s": {
+            "n": 3,
+            "mean": 12.386022225430544,
+            "std": 0.18206742734282644,
+            "median": 12.305586795147633,
+            "p95": 12.565567773018342
+          },
+          "target_wheel_peak_rad_s": {
+            "n": 3,
+            "mean": 5.375358882059768,
+            "std": 0.2868365978939863,
+            "median": 5.406874896772411,
+            "p95": 5.62130986087724
+          }
+        }
+      },
+      "rejection_reasons": [
+        "episode 1: full task failed: gt_goal_xy_m=0.296681 > 0.25",
+        "episode 2: full task failed: gt_goal_yaw_rad=0.25055 > 0.25, gt_max_m=0.236077 > 0.2",
+        "episode 3: full task failed: gt_goal_xy_m=0.324184 > 0.25, gt_max_m=0.24418 > 0.2"
+      ]
+    }
+  },
+  "selected": {
+    "name": "p035_i010_d0002_t080",
+    "velocity_kp": 0.35,
+    "velocity_ki": 0.1,
+    "velocity_kd": 0.0002,
+    "derivative_filter_seconds": 0.08
+  },
+  "profile_updated": false,
+  "current_trial": "verification",
+  "finalists": [],
+  "selection_eligible": false,
+  "selection_measurement": {
+    "episodes": [
+      {
+        "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/screen_p035_i010_d0002_t080/PID/episode_00001_072612_433160",
+        "nav2_succeeded": true,
+        "amcl_task_pass": true,
+        "gt_task_pass": false,
+        "full_pass": false,
+        "outcome": "SUCCEEDED",
+        "metrics": {
+          "mission_success_pct": 0.0,
+          "nav_success_pct": 100.0,
+          "deviation_violation_pct": 0.0,
+          "completion_time_s": null,
+          "average_speed_m_s": 0.2186082362410624,
+          "amcl_goal_xy_m": 0.21278246755974728,
+          "amcl_goal_yaw_rad": 0.1356353952992348,
+          "amcl_violation_pct": 0.0,
+          "gt_violation_pct": 0.0,
+          "gt_goal_xy_m": 0.28949772647052285,
+          "gt_goal_yaw_rad": 0.14486903673995508,
+          "amcl_rmse_m": 0.046680575870673875,
+          "amcl_p95_m": 0.09567703579626975,
+          "amcl_max_m": 0.11708346939485896,
+          "amcl_heading_rmse_rad": 0.11068160587005815,
+          "gt_rmse_m": 0.05977744308954363,
+          "gt_p95_m": 0.11443067031203058,
+          "gt_max_m": 0.13390053110959715,
+          "gt_heading_rmse_rad": 0.15510646806119663,
+          "az_rms_m_s2": 3.4168065152069618,
+          "az_peak_m_s2": 80.34696333248634,
+          "roll_rate_rms_rad_s": 0.15618152477054478,
+          "pitch_rate_rms_rad_s": 0.2129707517900972,
+          "jerk_rms_m_s3": 91.24216209169461,
+          "jerk_p95_m_s3": 97.09857263969957,
+          "wheel_rmse_rad_s": 1.1923159496709352,
+          "torque_rms_nm": 0.41807763897080513,
+          "torque_peak_nm": 1.3920322504414218,
+          "sac_contribution_pct": 0.0,
+          "slew_limit_pct": 26.6447896596018,
+          "saturation_pct": 0.36026814386640976,
+          "lateral_rate_rms_m_s": 0.035270453313064894,
+          "roll_angle_rms_rad": 0.02041352756328021,
+          "roll_angle_peak_rad": 0.08098498762007414,
+          "pitch_angle_peak_rad": 0.10904784800227017,
+          "measured_wheel_peak_rad_s": 11.936218722361147,
+          "target_wheel_peak_rad_s": 5.403092975006894
+        },
+        "failure_reasons": [
+          "gt_goal_xy_m=0.289498 > 0.25"
+        ],
+        "coverage": {
+          "amcl": 1.0,
+          "ground_truth": 1.0,
+          "az": 1.0,
+          "jerk": 0.999277920410783
+        },
+        "raw_sha256": "f5e0bb2d55574f4f49f8e6b34c700b26cdaabd58612f8b2eee4d31f57050cfff"
+      }
+    ],
+    "metrics": {
+      "mission_success_pct": {
+        "n": 1,
+        "mean": 0.0,
+        "std": null,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "nav_success_pct": {
+        "n": 1,
+        "mean": 100.0,
+        "std": null,
+        "median": 100.0,
+        "p95": 100.0
+      },
+      "deviation_violation_pct": {
+        "n": 1,
+        "mean": 0.0,
+        "std": null,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "completion_time_s": {
+        "n": 0,
+        "mean": null,
+        "std": null,
+        "median": null,
+        "p95": null
+      },
+      "average_speed_m_s": {
+        "n": 1,
+        "mean": 0.2186082362410624,
+        "std": null,
+        "median": 0.2186082362410624,
+        "p95": 0.2186082362410624
+      },
+      "amcl_goal_xy_m": {
+        "n": 1,
+        "mean": 0.21278246755974728,
+        "std": null,
+        "median": 0.21278246755974728,
+        "p95": 0.21278246755974728
+      },
+      "amcl_goal_yaw_rad": {
+        "n": 1,
+        "mean": 0.1356353952992348,
+        "std": null,
+        "median": 0.1356353952992348,
+        "p95": 0.1356353952992348
+      },
+      "amcl_violation_pct": {
+        "n": 1,
+        "mean": 0.0,
+        "std": null,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "gt_violation_pct": {
+        "n": 1,
+        "mean": 0.0,
+        "std": null,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "gt_goal_xy_m": {
+        "n": 1,
+        "mean": 0.28949772647052285,
+        "std": null,
+        "median": 0.28949772647052285,
+        "p95": 0.28949772647052285
+      },
+      "gt_goal_yaw_rad": {
+        "n": 1,
+        "mean": 0.14486903673995508,
+        "std": null,
+        "median": 0.14486903673995508,
+        "p95": 0.14486903673995508
+      },
+      "amcl_rmse_m": {
+        "n": 1,
+        "mean": 0.046680575870673875,
+        "std": null,
+        "median": 0.046680575870673875,
+        "p95": 0.046680575870673875
+      },
+      "amcl_p95_m": {
+        "n": 1,
+        "mean": 0.09567703579626975,
+        "std": null,
+        "median": 0.09567703579626975,
+        "p95": 0.09567703579626975
+      },
+      "amcl_max_m": {
+        "n": 1,
+        "mean": 0.11708346939485896,
+        "std": null,
+        "median": 0.11708346939485896,
+        "p95": 0.11708346939485896
+      },
+      "amcl_heading_rmse_rad": {
+        "n": 1,
+        "mean": 0.11068160587005815,
+        "std": null,
+        "median": 0.11068160587005815,
+        "p95": 0.11068160587005815
+      },
+      "gt_rmse_m": {
+        "n": 1,
+        "mean": 0.05977744308954363,
+        "std": null,
+        "median": 0.05977744308954363,
+        "p95": 0.05977744308954363
+      },
+      "gt_p95_m": {
+        "n": 1,
+        "mean": 0.11443067031203058,
+        "std": null,
+        "median": 0.11443067031203058,
+        "p95": 0.11443067031203058
+      },
+      "gt_max_m": {
+        "n": 1,
+        "mean": 0.13390053110959715,
+        "std": null,
+        "median": 0.13390053110959715,
+        "p95": 0.13390053110959715
+      },
+      "gt_heading_rmse_rad": {
+        "n": 1,
+        "mean": 0.15510646806119663,
+        "std": null,
+        "median": 0.15510646806119663,
+        "p95": 0.15510646806119663
+      },
+      "az_rms_m_s2": {
+        "n": 1,
+        "mean": 3.4168065152069618,
+        "std": null,
+        "median": 3.4168065152069618,
+        "p95": 3.4168065152069618
+      },
+      "az_peak_m_s2": {
+        "n": 1,
+        "mean": 80.34696333248634,
+        "std": null,
+        "median": 80.34696333248634,
+        "p95": 80.34696333248634
+      },
+      "roll_rate_rms_rad_s": {
+        "n": 1,
+        "mean": 0.15618152477054478,
+        "std": null,
+        "median": 0.15618152477054478,
+        "p95": 0.15618152477054478
+      },
+      "pitch_rate_rms_rad_s": {
+        "n": 1,
+        "mean": 0.2129707517900972,
+        "std": null,
+        "median": 0.2129707517900972,
+        "p95": 0.2129707517900972
+      },
+      "jerk_rms_m_s3": {
+        "n": 1,
+        "mean": 91.24216209169461,
+        "std": null,
+        "median": 91.24216209169461,
+        "p95": 91.24216209169461
+      },
+      "jerk_p95_m_s3": {
+        "n": 1,
+        "mean": 97.09857263969957,
+        "std": null,
+        "median": 97.09857263969957,
+        "p95": 97.09857263969957
+      },
+      "wheel_rmse_rad_s": {
+        "n": 1,
+        "mean": 1.1923159496709352,
+        "std": null,
+        "median": 1.1923159496709352,
+        "p95": 1.1923159496709352
+      },
+      "torque_rms_nm": {
+        "n": 1,
+        "mean": 0.41807763897080513,
+        "std": null,
+        "median": 0.41807763897080513,
+        "p95": 0.41807763897080513
+      },
+      "torque_peak_nm": {
+        "n": 1,
+        "mean": 1.3920322504414218,
+        "std": null,
+        "median": 1.3920322504414218,
+        "p95": 1.3920322504414218
+      },
+      "sac_contribution_pct": {
+        "n": 1,
+        "mean": 0.0,
+        "std": null,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "slew_limit_pct": {
+        "n": 1,
+        "mean": 26.6447896596018,
+        "std": null,
+        "median": 26.6447896596018,
+        "p95": 26.6447896596018
+      },
+      "saturation_pct": {
+        "n": 1,
+        "mean": 0.36026814386640976,
+        "std": null,
+        "median": 0.36026814386640976,
+        "p95": 0.36026814386640976
+      },
+      "lateral_rate_rms_m_s": {
+        "n": 1,
+        "mean": 0.035270453313064894,
+        "std": null,
+        "median": 0.035270453313064894,
+        "p95": 0.035270453313064894
+      },
+      "roll_angle_rms_rad": {
+        "n": 1,
+        "mean": 0.02041352756328021,
+        "std": null,
+        "median": 0.02041352756328021,
+        "p95": 0.02041352756328021
+      },
+      "roll_angle_peak_rad": {
+        "n": 1,
+        "mean": 0.08098498762007414,
+        "std": null,
+        "median": 0.08098498762007414,
+        "p95": 0.08098498762007414
+      },
+      "pitch_angle_peak_rad": {
+        "n": 1,
+        "mean": 0.10904784800227017,
+        "std": null,
+        "median": 0.10904784800227017,
+        "p95": 0.10904784800227017
+      },
+      "measured_wheel_peak_rad_s": {
+        "n": 1,
+        "mean": 11.936218722361147,
+        "std": null,
+        "median": 11.936218722361147,
+        "p95": 11.936218722361147
+      },
+      "target_wheel_peak_rad_s": {
+        "n": 1,
+        "mean": 5.403092975006894,
+        "std": null,
+        "median": 5.403092975006894,
+        "p95": 5.403092975006894
+      }
+    }
+  },
+  "freeze_unix": 1793320198.8594224,
+  "verification_used_for_tuning": false,
+  "frozen_profile_sha256": "49c51b260f6dc0b4334aa75665af45a978f72ddfa7b623de056bd046a2758597",
+  "verification": {
+    "episodes": [
+      {
+        "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/verification/PID/episode_00001_073000_893891",
+        "nav2_succeeded": true,
+        "amcl_task_pass": true,
+        "gt_task_pass": false,
+        "full_pass": false,
+        "outcome": "SUCCEEDED",
+        "metrics": {
+          "mission_success_pct": 0.0,
+          "nav_success_pct": 100.0,
+          "deviation_violation_pct": 0.0,
+          "completion_time_s": null,
+          "average_speed_m_s": 0.21918448143775124,
+          "amcl_goal_xy_m": 0.21982017424350558,
+          "amcl_goal_yaw_rad": 0.12218044355311755,
+          "amcl_violation_pct": 0.0,
+          "gt_violation_pct": 0.0,
+          "gt_goal_xy_m": 0.2966810758809142,
+          "gt_goal_yaw_rad": 0.1302789223136941,
+          "amcl_rmse_m": 0.04382160554709926,
+          "amcl_p95_m": 0.09295492390371368,
+          "amcl_max_m": 0.10387399304403594,
+          "amcl_heading_rmse_rad": 0.10715224563141316,
+          "gt_rmse_m": 0.058221470561269965,
+          "gt_p95_m": 0.09757414330892882,
+          "gt_max_m": 0.10426873969168408,
+          "gt_heading_rmse_rad": 0.1358684785291675,
+          "az_rms_m_s2": 4.847744982471044,
+          "az_peak_m_s2": 150.1623357566946,
+          "roll_rate_rms_rad_s": 0.1564509623598372,
+          "pitch_rate_rms_rad_s": 0.21423282043111327,
+          "jerk_rms_m_s3": 129.58158945464643,
+          "jerk_p95_m_s3": 91.75190950553996,
+          "wheel_rmse_rad_s": 1.2158949885119905,
+          "torque_rms_nm": 0.4185258437785834,
+          "torque_peak_nm": 1.4822008834798668,
+          "sac_contribution_pct": 0.0,
+          "slew_limit_pct": 27.64983492333556,
+          "saturation_pct": 0.35648457596564787,
+          "lateral_rate_rms_m_s": 0.031117814716056184,
+          "roll_angle_rms_rad": 0.019512897987349023,
+          "roll_angle_peak_rad": 0.080977228340412,
+          "pitch_angle_peak_rad": 0.11425483833698002,
+          "measured_wheel_peak_rad_s": 12.305586795147633,
+          "target_wheel_peak_rad_s": 5.074065781406894
+        },
+        "failure_reasons": [
+          "gt_goal_xy_m=0.296681 > 0.25"
+        ],
+        "coverage": {
+          "amcl": 1.0,
+          "ground_truth": 1.0,
+          "az": 1.0,
+          "jerk": 0.9992105103342173
+        },
+        "raw_sha256": "48dd08c20581e7bc81c47ffb4168f7086bc81204bc97e00b7dc32d2f819e1e4c"
+      },
+      {
+        "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/verification/PID/episode_00002_073109_450919",
+        "nav2_succeeded": true,
+        "amcl_task_pass": true,
+        "gt_task_pass": false,
+        "full_pass": false,
+        "outcome": "SUCCEEDED",
+        "metrics": {
+          "mission_success_pct": 0.0,
+          "nav_success_pct": 100.0,
+          "deviation_violation_pct": 100.0,
+          "completion_time_s": null,
+          "average_speed_m_s": 0.18991739434519248,
+          "amcl_goal_xy_m": 0.020321760492249128,
+          "amcl_goal_yaw_rad": 0.24763241828127208,
+          "amcl_violation_pct": 0.0,
+          "gt_violation_pct": 100.0,
+          "gt_goal_xy_m": 0.0996622461266773,
+          "gt_goal_yaw_rad": 0.2505504901153428,
+          "amcl_rmse_m": 0.04929979108947471,
+          "amcl_p95_m": 0.1072699929955534,
+          "amcl_max_m": 0.14691893375533738,
+          "amcl_heading_rmse_rad": 0.16936777626903624,
+          "gt_rmse_m": 0.08376083338470697,
+          "gt_p95_m": 0.18276899179938422,
+          "gt_max_m": 0.2360768315885907,
+          "gt_heading_rmse_rad": 0.18879167129090763,
+          "az_rms_m_s2": 3.8019506067796236,
+          "az_peak_m_s2": 119.33185701016515,
+          "roll_rate_rms_rad_s": 0.13620120102252037,
+          "pitch_rate_rms_rad_s": 0.1969744522135268,
+          "jerk_rms_m_s3": 101.75166514847623,
+          "jerk_p95_m_s3": 76.1679835385437,
+          "wheel_rmse_rad_s": 1.1451039665392275,
+          "torque_rms_nm": 0.40355950406947194,
+          "torque_peak_nm": 1.593639709677747,
+          "sac_contribution_pct": 0.0,
+          "slew_limit_pct": 23.902480752780153,
+          "saturation_pct": 0.2771599657827203,
+          "lateral_rate_rms_m_s": 0.03349435831531908,
+          "roll_angle_rms_rad": 0.017165191557888954,
+          "roll_angle_peak_rad": 0.0809583813374301,
+          "pitch_angle_peak_rad": 0.12022771877056562,
+          "measured_wheel_peak_rad_s": 12.59445454833731,
+          "target_wheel_peak_rad_s": 5.406874896772411
+        },
+        "failure_reasons": [
+          "gt_goal_yaw_rad=0.25055 > 0.25",
+          "gt_max_m=0.236077 > 0.2"
+        ],
+        "coverage": {
+          "amcl": 1.0,
+          "ground_truth": 1.0,
+          "az": 1.0,
+          "jerk": 0.9977254459323107
+        },
+        "raw_sha256": "8cb057ea0e18751613dbe124a66872fc6a47d7b8dcbae7d3af64ed575f86f630"
+      },
+      {
+        "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/pid_measured_tuning_20261030/verification/PID/episode_00003_073228_346650",
+        "nav2_succeeded": true,
+        "amcl_task_pass": true,
+        "gt_task_pass": false,
+        "full_pass": false,
+        "outcome": "SUCCEEDED",
+        "metrics": {
+          "mission_success_pct": 0.0,
+          "nav_success_pct": 100.0,
+          "deviation_violation_pct": 100.0,
+          "completion_time_s": null,
+          "average_speed_m_s": 0.21936786494272043,
+          "amcl_goal_xy_m": 0.2300640140190466,
+          "amcl_goal_yaw_rad": 0.23974784394689716,
+          "amcl_violation_pct": 0.0,
+          "gt_violation_pct": 100.0,
+          "gt_goal_xy_m": 0.32418365097496393,
+          "gt_goal_yaw_rad": 0.2167768228767439,
+          "amcl_rmse_m": 0.059407943061261244,
+          "amcl_p95_m": 0.11876329377569306,
+          "amcl_max_m": 0.18376532387516822,
+          "amcl_heading_rmse_rad": 0.13296444488686693,
+          "gt_rmse_m": 0.09612528100079294,
+          "gt_p95_m": 0.1996475442445067,
+          "gt_max_m": 0.24417994866420353,
+          "gt_heading_rmse_rad": 0.15974861268619198,
+          "az_rms_m_s2": 4.986545500079889,
+          "az_peak_m_s2": 175.05123246241774,
+          "roll_rate_rms_rad_s": 0.15024749808766769,
+          "pitch_rate_rms_rad_s": 0.21466520681184847,
+          "jerk_rms_m_s3": 133.08761504387795,
+          "jerk_p95_m_s3": 77.05453543103518,
+          "wheel_rmse_rad_s": 1.2471648548186638,
+          "torque_rms_nm": 0.43147158312863393,
+          "torque_peak_nm": 1.60467511281233,
+          "sac_contribution_pct": 0.0,
+          "slew_limit_pct": 27.693767539520703,
+          "saturation_pct": 0.35028567967535484,
+          "lateral_rate_rms_m_s": 0.03685501790863896,
+          "roll_angle_rms_rad": 0.019370468510401202,
+          "roll_angle_peak_rad": 0.0808946196786384,
+          "pitch_angle_peak_rad": 0.11412005783730997,
+          "measured_wheel_peak_rad_s": 12.258025332806687,
+          "target_wheel_peak_rad_s": 5.645135967999998
+        },
+        "failure_reasons": [
+          "gt_goal_xy_m=0.324184 > 0.25",
+          "gt_max_m=0.24418 > 0.2"
+        ],
+        "coverage": {
+          "amcl": 1.0,
+          "ground_truth": 1.0,
+          "az": 1.0,
+          "jerk": 0.9992130591819851
+        },
+        "raw_sha256": "74cbdab92378d8c486c082c1ea16af7bc3af5a4ddbd11a5b9dcdfa92177f409e"
+      }
+    ],
+    "metrics": {
+      "mission_success_pct": {
+        "n": 3,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "nav_success_pct": {
+        "n": 3,
+        "mean": 100.0,
+        "std": 0.0,
+        "median": 100.0,
+        "p95": 100.0
+      },
+      "deviation_violation_pct": {
+        "n": 3,
+        "mean": 66.66666666666667,
+        "std": 57.735026918962575,
+        "median": 100.0,
+        "p95": 100.0
+      },
+      "completion_time_s": {
+        "n": 0,
+        "mean": null,
+        "std": null,
+        "median": null,
+        "p95": null
+      },
+      "average_speed_m_s": {
+        "n": 3,
+        "mean": 0.20948991357522137,
+        "std": 0.016950546868312603,
+        "median": 0.21918448143775124,
+        "p95": 0.2193495265922235
+      },
+      "amcl_goal_xy_m": {
+        "n": 3,
+        "mean": 0.15673531625160045,
+        "std": 0.11824858438695567,
+        "median": 0.21982017424350558,
+        "p95": 0.2290396300414925
+      },
+      "amcl_goal_yaw_rad": {
+        "n": 3,
+        "mean": 0.2031869019270956,
+        "std": 0.07026433200301452,
+        "median": 0.23974784394689716,
+        "p95": 0.24684396084783458
+      },
+      "amcl_violation_pct": {
+        "n": 3,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "gt_violation_pct": {
+        "n": 3,
+        "mean": 66.66666666666667,
+        "std": 57.735026918962575,
+        "median": 100.0,
+        "p95": 100.0
+      },
+      "gt_goal_xy_m": {
+        "n": 3,
+        "mean": 0.2401756576608518,
+        "std": 0.12246269646276034,
+        "median": 0.2966810758809142,
+        "p95": 0.32143339346555894
+      },
+      "gt_goal_yaw_rad": {
+        "n": 3,
+        "mean": 0.19920207843526028,
+        "std": 0.0620319775358181,
+        "median": 0.2167768228767439,
+        "p95": 0.24717312339148292
+      },
+      "amcl_rmse_m": {
+        "n": 3,
+        "mean": 0.05084311323261174,
+        "std": 0.00790695021512505,
+        "median": 0.04929979108947471,
+        "p95": 0.05839712786408259
+      },
+      "amcl_p95_m": {
+        "n": 3,
+        "mean": 0.10632940355832005,
+        "std": 0.012929869304416785,
+        "median": 0.1072699929955534,
+        "p95": 0.1176139636976791
+      },
+      "amcl_max_m": {
+        "n": 3,
+        "mean": 0.14485275022484717,
+        "std": 0.039985722717972835,
+        "median": 0.14691893375533738,
+        "p95": 0.18008068486318513
+      },
+      "amcl_heading_rmse_rad": {
+        "n": 3,
+        "mean": 0.13649482226243878,
+        "std": 0.03125765084648422,
+        "median": 0.13296444488686693,
+        "p95": 0.1657274431308193
+      },
+      "gt_rmse_m": {
+        "n": 3,
+        "mean": 0.07936919498225663,
+        "std": 0.019329758853959617,
+        "median": 0.08376083338470697,
+        "p95": 0.09488883623918434
+      },
+      "gt_p95_m": {
+        "n": 3,
+        "mean": 0.15999689311760656,
+        "std": 0.054714451047399464,
+        "median": 0.18276899179938422,
+        "p95": 0.19795968899999444
+      },
+      "gt_max_m": {
+        "n": 3,
+        "mean": 0.19484183998149276,
+        "std": 0.07854317283294633,
+        "median": 0.2360768315885907,
+        "p95": 0.24336963695664224
+      },
+      "gt_heading_rmse_rad": {
+        "n": 3,
+        "mean": 0.16146958750208903,
+        "std": 0.02650353558983762,
+        "median": 0.15974861268619198,
+        "p95": 0.18588736543043605
+      },
+      "az_rms_m_s2": {
+        "n": 3,
+        "mean": 4.545413696443519,
+        "std": 0.6475873842127868,
+        "median": 4.847744982471044,
+        "p95": 4.972665448319004
+      },
+      "az_peak_m_s2": {
+        "n": 3,
+        "mean": 148.18180840975916,
+        "std": 27.912435698559907,
+        "median": 150.1623357566946,
+        "p95": 172.56234279184542
+      },
+      "roll_rate_rms_rad_s": {
+        "n": 3,
+        "mean": 0.1476332204900084,
+        "std": 0.010374923810457121,
+        "median": 0.15024749808766769,
+        "p95": 0.15583061593262024
+      },
+      "pitch_rate_rms_rad_s": {
+        "n": 3,
+        "mean": 0.2086241598188295,
+        "std": 0.010091258839329573,
+        "median": 0.21423282043111327,
+        "p95": 0.21462196817377496
+      },
+      "jerk_rms_m_s3": {
+        "n": 3,
+        "mean": 121.47362321566688,
+        "std": 17.169443099911714,
+        "median": 129.58158945464643,
+        "p95": 132.7370124849548
+      },
+      "jerk_p95_m_s3": {
+        "n": 3,
+        "mean": 81.6581428250396,
+        "std": 8.752690324397653,
+        "median": 77.05453543103518,
+        "p95": 90.28217209808948
+      },
+      "wheel_rmse_rad_s": {
+        "n": 3,
+        "mean": 1.2027212699566272,
+        "std": 0.052290212989897396,
+        "median": 1.2158949885119905,
+        "p95": 1.2440378681879964
+      },
+      "torque_rms_nm": {
+        "n": 3,
+        "mean": 0.4178523103255631,
+        "std": 0.013968223753773433,
+        "median": 0.4185258437785834,
+        "p95": 0.4301770091936289
+      },
+      "torque_peak_nm": {
+        "n": 3,
+        "mean": 1.5601719019899813,
+        "std": 0.06774994336687044,
+        "median": 1.593639709677747,
+        "p95": 1.6035715724988717
+      },
+      "sac_contribution_pct": {
+        "n": 3,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "slew_limit_pct": {
+        "n": 3,
+        "mean": 26.415361071878806,
+        "std": 2.1763290519303893,
+        "median": 27.64983492333556,
+        "p95": 27.68937427790219
+      },
+      "saturation_pct": {
+        "n": 3,
+        "mean": 0.3279767404745743,
+        "std": 0.044117627104893635,
+        "median": 0.35028567967535484,
+        "p95": 0.35586468633661855
+      },
+      "lateral_rate_rms_m_s": {
+        "n": 3,
+        "mean": 0.03382239698000474,
+        "std": 0.002882634583569701,
+        "median": 0.03349435831531908,
+        "p95": 0.036518951949306974
+      },
+      "roll_angle_rms_rad": {
+        "n": 3,
+        "mean": 0.01868285268521306,
+        "std": 0.0013162609969223106,
+        "median": 0.019370468510401202,
+        "p95": 0.019498655039654242
+      },
+      "roll_angle_peak_rad": {
+        "n": 3,
+        "mean": 0.0809434097854935,
+        "std": 4.3291549701404285e-05,
+        "median": 0.0809583813374301,
+        "p95": 0.08097534364011381
+      },
+      "pitch_angle_peak_rad": {
+        "n": 3,
+        "mean": 0.1162008716482852,
+        "std": 0.0034880029752619745,
+        "median": 0.11425483833698002,
+        "p95": 0.11963043072720707
+      },
+      "measured_wheel_peak_rad_s": {
+        "n": 3,
+        "mean": 12.386022225430544,
+        "std": 0.18206742734282644,
+        "median": 12.305586795147633,
+        "p95": 12.565567773018342
+      },
+      "target_wheel_peak_rad_s": {
+        "n": 3,
+        "mean": 5.375358882059768,
+        "std": 0.2868365978939863,
+        "median": 5.406874896772411,
+        "p95": 5.62130986087724
+      }
+    }
+  },
+  "verification_rejections": [
+    "episode 1: full task failed: gt_goal_xy_m=0.296681 > 0.25",
+    "episode 2: full task failed: gt_goal_yaw_rad=0.25055 > 0.25, gt_max_m=0.236077 > 0.2",
+    "episode 3: full task failed: gt_goal_xy_m=0.324184 > 0.25, gt_max_m=0.24418 > 0.2"
+  ],
+  "elapsed_seconds": 669.2101058959961,
+  "operating_profile_sha256": "38cb7f6ef5fdcfda84ac83d79bb0959d723d03107471a4a3fb981b2b5c701479"
+}

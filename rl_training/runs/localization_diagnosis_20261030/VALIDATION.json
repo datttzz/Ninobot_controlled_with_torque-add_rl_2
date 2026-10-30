@@ -1,0 +1,40 @@
+{
+  "protected_files_unchanged": {
+    "rl_training/config/pid.yaml": true,
+    "rl_training/runs/pid_measured_tuning_20261030/pid_frozen_candidate.yaml": true,
+    "src/nino_navigation/config/nav2.yaml": true,
+    "src/nino_control/nino_control/effort_drive.py": true,
+    "src/nino_control/config/effort_drive.yaml": true,
+    "src/nino_description/urdf/nino.urdf.xacro": true,
+    "maps/hall_01.yaml": true,
+    "maps/hall_01.pgm": true
+  },
+  "all_old_16_raw_preserved": true,
+  "diagnostic_physical_episodes": 1,
+  "diagnostic_result": [
+    {
+      "episode": 0,
+      "seed": 8101,
+      "reward": 236.88567243156962,
+      "steps": 595,
+      "outcome": "SUCCEEDED",
+      "reference_geometry_sha256": "990a576f10e7fd2918e24bde2405e3fe3a26a29f41055a0f109077ef1df3bef1",
+      "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/localization_diagnosis_20261030/capture_episode/PID/episode_00001_094835_603185"
+    }
+  ],
+  "tests_passed": 5,
+  "active_gazebo": [],
+  "active_jobs": [],
+  "resource_min_ram_gib": 13.983238220214844,
+  "resource_min_disk_gib": 9.999366760253906,
+  "resource_peak_temperature_c": 86.05,
+  "recorder_startup_error": "First recorder CLI rejected fractional polling interval before Gazebo/episode started; original log retained; corrected to integer milliseconds",
+  "known_analysis_correction": "Half-cell map border sampling corrected, test added; initial outputs retained in analysis_attempt1_boundary_check",
+  "runtime_changes": false,
+  "registration_uncertainty": "Independent fixed static fit; raster-scale uncertainty, not exact survey transform",
+  "sources": {
+    "rl_training/localization_math.py": "658c6ad58bca5e857ff64f6b7416da0ee701c1f2a2598c281640fedfdb5d08a8",
+    "rl_training/localization_diagnosis.py": "e3b66191abc1ebb3cd55c71eec2f8d03a0fb038cfcb2708bcc4f79e05b638fbe",
+    "rl_training/tests/test_localization_math.py": "5271a13f1f7806dcf4b77217f483ca5d12145214901d3595839eef8e4e06a964"
+  }
+}

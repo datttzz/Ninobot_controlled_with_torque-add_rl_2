@@ -1,0 +1,4 @@
+derivative_filter_seconds: 0.05
+velocity_kd: 0.0002
+velocity_ki: 0.1
+velocity_kp: 0.25

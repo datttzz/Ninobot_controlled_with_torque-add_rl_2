@@ -1,0 +1,10 @@
+{
+  "rl_training/config/pid.yaml": "38cb7f6ef5fdcfda84ac83d79bb0959d723d03107471a4a3fb981b2b5c701479",
+  "rl_training/runs/pid_measured_tuning_20261030/pid_frozen_candidate.yaml": "49c51b260f6dc0b4334aa75665af45a978f72ddfa7b623de056bd046a2758597",
+  "src/nino_navigation/config/nav2.yaml": "557a612ed8b8fe1ba14e9adbf1e2519d7477bf94b7a34c4e720944b5523d9d16",
+  "src/nino_control/nino_control/effort_drive.py": "6933bd28af7dee2c149194e25d8962390f239acb0ddf249775a2658d5c0f5a39",
+  "src/nino_control/config/effort_drive.yaml": "b27e69a986dc506ff1d2c538e3d4f9fcf1ac547da0227b28acc6ca6345da8920",
+  "src/nino_description/urdf/nino.urdf.xacro": "c4084e7c851c06cbd57b88df3831e437550b6998173975c37f8fecb7f7baf31e",
+  "maps/hall_01.yaml": "715591109a58b45993fce9b9a87c4b9e12e7febffab9c2df03d62fd54998960b",
+  "maps/hall_01.pgm": "c38721ff425ad62b0637f51797373eeaf5ccba812980db7d21b5a281605dc604"
+}

@@ -1,0 +1,17 @@
+% Requires \usepackage{booktabs}. Values are episode mean ± sample SD; -- = unavailable.
+\begin{table*}[ht]
+\centering
+\caption{Recorded multi-model benchmark; all completed outcomes retained.}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Method & Success & $e_y$ RMS (cm) & Peak $|e_y|$ (cm) & $T_{success}$ (s) & Heading RMS (rad) & Acc. RMS ($m/s^2$) & Torque RMS (Nm) \\
+\midrule
+PI & 7/7 & $5.288 \pm 0.862$ & $13.646 \pm 2.684$ & $53.545 \pm 4.828$ & $0.145 \pm 0.043$ & $3.840 \pm 1.390$ & $0.420 \pm 0.028$ \\
+PI+SAC (50k) & 7/7 & $3.895 \pm 0.960$ & $10.735 \pm 3.937$ & $49.334 \pm 1.841$ & $0.112 \pm 0.026$ & $5.336 \pm 2.342$ & $0.423 \pm 0.035$ \\
+PI+SAC (70k) & 7/7 & $4.370 \pm 0.258$ & $10.526 \pm 1.829$ & $49.213 \pm 2.465$ & $0.114 \pm 0.015$ & $2.898 \pm 1.015$ & $0.416 \pm 0.033$ \\
+\bottomrule
+\end{tabular}
+\label{tab:multi_model_benchmark}
+\end{table*}
+% Success-only completion time; other means include failures/time limits.
+% Metric-specific n/coverage, signal provenance and confounders: comparison_summary.csv / benchmark_report.html.

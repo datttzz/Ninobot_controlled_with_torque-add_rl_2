@@ -1,0 +1,5 @@
+# Profile ban đầu CHƯA được xác nhận cải thiện. Kết quả tuning được lưu riêng.
+velocity_kp: 0.45
+velocity_ki: 0.12
+velocity_kd: 0.002
+derivative_filter_seconds: 0.05

@@ -1,0 +1,46 @@
+{
+  "session": "rl_training/runs/mission_audit_20261030/integration_PID/PID/episode_00001_071805_354718",
+  "outcome": "SUCCEEDED",
+  "samples": 2415,
+  "states": [
+    "FOLLOWING",
+    "STOPPING",
+    "SUCCEEDED"
+  ],
+  "frames": {
+    "amcl_frame": [
+      "map"
+    ],
+    "amcl_child_frame": [
+      "base_footprint"
+    ],
+    "ground_truth_frame": [
+      "world"
+    ],
+    "ground_truth_child_frame": [
+      "base_footprint"
+    ]
+  },
+  "quaternions": {
+    "amcl_quaternion": {
+      "max_norm_error": 1.1102230246251565e-16,
+      "max_yaw_error": 0.0
+    },
+    "ground_truth_quaternion": {
+      "max_norm_error": 2.6867397195928788e-14,
+      "max_yaw_error": 0.0
+    }
+  },
+  "max_pose_source_age_s": {
+    "amcl_stamp_s": [
+      0.0009999999999976694,
+      0.02200000000000557
+    ],
+    "gt_stamp_s": [
+      0.001999999999995339,
+      0.012000000000000455
+    ]
+  },
+  "min_GT_z_m": -0.00013764697214243364,
+  "max_GT_z_m": 0.021882770972512698
+}

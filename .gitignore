@@ -1,0 +1,23 @@
+build/
+install/
+log/
+*.pyc
+__pycache__/
+rl_training/.venv/
+rl_training/runs/
+.pytest_cache/
+
+# Môi trường và dữ liệu máy cục bộ; giữ file tại máy, không đưa vào Git.
+.venv/
+*.egg-info/
+.vscode/browse.vc.db*
+bags/
+*.db3
+*.db3-shm
+*.db3-wal
+*.mcap
+.coverage
+htmlcov/
+
+# Bản chụp đầu ra terminal, không phải mã nguồn.
+/idual SAC training, periodic evaluation and dashboard

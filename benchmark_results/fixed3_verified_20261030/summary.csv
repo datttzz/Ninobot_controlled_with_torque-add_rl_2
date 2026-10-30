@@ -1,0 +1,346 @@
+group,section,metric,description,unit,missing_reason,std_reason,n,mean,std,median,p95,center_world_x_m
+PI,1. Hoàn thành,mission_success_pct,Đến đích theo đủ điều kiện AMCL và GT,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PI,1. Hoàn thành,nav_success_pct,Nav2 thông báo SUCCEEDED,%,N/A,N/A,2,100.0,0.0,100.0,100.0,
+PI,1. Hoàn thành,deviation_violation_pct,Lượt vi phạm lệch đường AMCL hoặc GT,%,N/A,N/A,2,50.0,70.71067811865476,50.0,95.0,
+PI,1. Hoàn thành,completion_time_s,"Thời gian hoàn thành, chỉ lượt đạt chuẩn",s,No verified successful completion under all goal/deviation conditions,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,
+PI,1. Hoàn thành,average_speed_m_s,Vận tốc trung bình từ GT,m/s,N/A,N/A,2,0.22095059681016238,0.0005197498672219289,0.22095059681016238,0.22128136360023246,
+PI,1. Hoàn thành,amcl_goal_xy_m,Sai số vị trí AMCL cuối lượt,m,N/A,N/A,2,0.22288616630559788,0.006639536364903782,0.22288616630559788,0.2271115413744002,
+PI,1. Hoàn thành,amcl_goal_yaw_rad,Sai số hướng AMCL cuối lượt,rad,N/A,N/A,2,0.20273904960595648,0.021015228033277294,0.20273904960595648,0.2161130588314173,
+PI,1. Hoàn thành,amcl_violation_pct,Lượt AMCL vượt giới hạn lệch đường,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PI,1. Hoàn thành,gt_violation_pct,Lượt GT vượt giới hạn lệch đường,%,N/A,N/A,2,50.0,70.71067811865476,50.0,95.0,
+PI,1. Hoàn thành,gt_goal_xy_m,Sai số vị trí GT cuối lượt,m,N/A,N/A,2,0.2991182638919543,0.01400695114324734,0.2991182638919543,0.3080322330153793,
+PI,1. Hoàn thành,gt_goal_yaw_rad,Sai số hướng GT tại đích,rad,N/A,N/A,2,0.20515728509683018,0.006177847401002996,0.20515728509683018,0.20908884310817658,
+PI,2. Bám đường,amcl_rmse_m,AMCL: RMSE ngang cân thời gian,m,N/A,N/A,2,0.053481300235404816,0.003633058469550735,0.053481300235404816,0.05579336448764471,
+PI,2. Bám đường,amcl_p95_m,AMCL: P95 |e_y| cân thời gian,m,N/A,N/A,2,0.1100077314327692,0.020691437278539167,0.1100077314327692,0.12317568148370525,
+PI,2. Bám đường,amcl_max_m,AMCL: Max |e_y|,m,N/A,N/A,2,0.16611625760462712,0.03224054628011264,0.16611625760462712,0.18663401561807086,
+PI,2. Bám đường,amcl_heading_rmse_rad,AMCL: RMSE lỗi hướng,rad,N/A,N/A,2,0.14471334315158807,0.023945124409163365,0.14471334315158807,0.1599519270130555,
+PI,2. Bám đường,gt_rmse_m,Ground truth: RMSE ngang cân thời gian,m,N/A,N/A,2,0.07499870255496599,0.01845948362863951,0.07499870255496599,0.08674624600087774,
+PI,2. Bám đường,gt_p95_m,Ground truth: P95 |e_y| cân thời gian,m,N/A,N/A,2,0.14350364760877124,0.028932780779907664,0.14350364760877124,0.1619163565480221,
+PI,2. Bám đường,gt_max_m,Ground truth: Max |e_y|,m,N/A,N/A,2,0.18900373859054415,0.05363276250411923,0.18900373859054415,0.22313541964493142,
+PI,2. Bám đường,gt_heading_rmse_rad,Ground truth: RMSE lỗi hướng,rad,N/A,N/A,2,0.17716350749825294,0.020072070141505367,0.17716350749825294,0.18993729471681234,
+PI,3. IMU,az_rms_m_s2,RMS a_z đã trừ trọng lực,m/s²,N/A,N/A,2,3.073837059281531,1.531258514033088,3.073837059281531,4.04832401040172,
+PI,3. IMU,az_peak_m_s2,Peak |a_z| đã trừ trọng lực,m/s²,N/A,N/A,2,92.93290402315859,57.96439458713724,92.93290402315859,129.8212188551024,
+PI,3. IMU,roll_rate_rms_rad_s,"RMS vận tốc góc roll, body p",rad/s,N/A,N/A,2,0.1524139826740802,0.0044143913937917546,0.1524139826740802,0.15522328415450573,
+PI,3. IMU,pitch_rate_rms_rad_s,"RMS vận tốc góc pitch, body q",rad/s,N/A,N/A,2,0.20990286546735978,0.007769247909292656,0.20990286546735978,0.214847184560602,
+PI,3. IMU,jerk_rms_m_s3,"RMS jerk z, lọc 5 Hz",m/s³,N/A,N/A,2,81.7242398995198,41.16551677429761,81.7242398995198,107.92181435545876,
+PI,3. IMU,jerk_p95_m_s3,"P95 |jerk z|, lọc 5 Hz",m/s³,N/A,N/A,2,69.04749071309506,9.757265092135771,69.04749071309506,75.25697619433065,
+PI,5. Chấp hành,wheel_rmse_rad_s,RMSE bám vận tốc hai bánh,rad/s,N/A,N/A,2,1.257656025485248,0.035950290151282246,1.257656025485248,1.2805346500416839,
+PI,5. Chấp hành,torque_rms_nm,"RMS mô-men tổng, trung bình hai bánh",N·m,N/A,N/A,2,0.40997297003353295,0.01359451288779148,0.40997297003353295,0.4186244650584297,
+PI,5. Chấp hành,torque_peak_nm,Peak |mô-men tổng| trên hai bánh,N·m,N/A,N/A,2,1.3585960153818186,0.00198553408839671,1.3585960153818186,1.3598596015381827,
+PI,5. Chấp hành,sac_contribution_pct,Đóng góp |SAC| / (|PI| + |SAC|),%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PI,5. Chấp hành,slew_limit_pct,Chu kỳ chạm giới hạn slew trên hai bánh,%,N/A,N/A,2,23.609866406365423,1.0749946640684849,23.609866406365423,24.293988821397384,
+PI,5. Chấp hành,saturation_pct,Chu kỳ bão hòa mô-men trên hai bánh,%,N/A,N/A,2,0.10981535776190103,0.054585154582992644,0.10981535776190103,0.14455313742387607,
+PID,1. Hoàn thành,mission_success_pct,Đến đích theo đủ điều kiện AMCL và GT,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PID,1. Hoàn thành,nav_success_pct,Nav2 thông báo SUCCEEDED,%,N/A,N/A,2,100.0,0.0,100.0,100.0,
+PID,1. Hoàn thành,deviation_violation_pct,Lượt vi phạm lệch đường AMCL hoặc GT,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PID,1. Hoàn thành,completion_time_s,"Thời gian hoàn thành, chỉ lượt đạt chuẩn",s,No verified successful completion under all goal/deviation conditions,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,
+PID,1. Hoàn thành,average_speed_m_s,Vận tốc trung bình từ GT,m/s,N/A,N/A,2,0.20753340746563725,0.0225613612409154,0.20753340746563725,0.22189136983926283,
+PID,1. Hoàn thành,amcl_goal_xy_m,Sai số vị trí AMCL cuối lượt,m,N/A,N/A,2,0.21376675854407248,0.02530799590862909,0.21376675854407248,0.2298726685167822,
+PID,1. Hoàn thành,amcl_goal_yaw_rad,Sai số hướng AMCL cuối lượt,rad,N/A,N/A,2,0.1741544097286691,0.0014437886971847363,0.1741544097286691,0.17507323122921095,
+PID,1. Hoàn thành,amcl_violation_pct,Lượt AMCL vượt giới hạn lệch đường,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PID,1. Hoàn thành,gt_violation_pct,Lượt GT vượt giới hạn lệch đường,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PID,1. Hoàn thành,gt_goal_xy_m,Sai số vị trí GT cuối lượt,m,N/A,N/A,2,0.685081948682241,0.49680397889435907,0.685081948682241,1.0012460648392347,
+PID,1. Hoàn thành,gt_goal_yaw_rad,Sai số hướng GT tại đích,rad,N/A,N/A,2,0.18333332554850207,0.01422304659110211,0.18333332554850207,0.19238481697283255,
+PID,2. Bám đường,amcl_rmse_m,AMCL: RMSE ngang cân thời gian,m,N/A,N/A,2,0.04153786568044761,0.0018143159138238974,0.04153786568044761,0.042692489257739205,
+PID,2. Bám đường,amcl_p95_m,AMCL: P95 |e_y| cân thời gian,m,N/A,N/A,2,0.0817924163729572,0.006149646584692473,0.0817924163729572,0.08570602749470027,
+PID,2. Bám đường,amcl_max_m,AMCL: Max |e_y|,m,N/A,N/A,2,0.11112477999024381,0.002350163859535223,0.11112477999024381,0.11262041511202302,
+PID,2. Bám đường,amcl_heading_rmse_rad,AMCL: RMSE lỗi hướng,rad,N/A,N/A,2,0.1175076525622081,0.0196684222087874,0.1175076525622081,0.1300245598093744,
+PID,2. Bám đường,gt_rmse_m,Ground truth: RMSE ngang cân thời gian,m,N/A,N/A,2,0.06613539854860792,0.005135653288909445,0.06613539854860792,0.06940370828837769,
+PID,2. Bám đường,gt_p95_m,Ground truth: P95 |e_y| cân thời gian,m,N/A,N/A,2,0.13257535676760476,0.008560159546452029,0.13257535676760476,0.13802300894460626,
+PID,2. Bám đường,gt_max_m,Ground truth: Max |e_y|,m,N/A,N/A,2,0.14885543455605216,0.011680968631132573,0.14885543455605216,0.15628915747296324,
+PID,2. Bám đường,gt_heading_rmse_rad,Ground truth: RMSE lỗi hướng,rad,N/A,N/A,2,0.12249295711207257,0.008971356366460207,0.12249295711207257,0.1282022933429212,
+PID,3. IMU,az_rms_m_s2,RMS a_z đã trừ trọng lực,m/s²,N/A,N/A,2,3.3680084606166107,1.4929402193940462,3.3680084606166107,4.318109798352307,
+PID,3. IMU,az_peak_m_s2,Peak |a_z| đã trừ trọng lực,m/s²,N/A,N/A,2,99.49888248382722,44.58311714978758,99.49888248382722,127.87140450057137,
+PID,3. IMU,roll_rate_rms_rad_s,"RMS vận tốc góc roll, body p",rad/s,N/A,N/A,2,0.14853372776538123,0.00013055738830369573,0.14853372776538123,0.14861681397852441,
+PID,3. IMU,pitch_rate_rms_rad_s,"RMS vận tốc góc pitch, body q",rad/s,N/A,N/A,2,0.2221738939685178,0.003923357194576032,0.2221738939685178,0.22467070319808938,
+PID,3. IMU,jerk_rms_m_s3,"RMS jerk z, lọc 5 Hz",m/s³,N/A,N/A,2,89.38066470787994,40.86046642439663,89.38066470787994,115.38410630990244,
+PID,3. IMU,jerk_p95_m_s3,"P95 |jerk z|, lọc 5 Hz",m/s³,N/A,N/A,2,81.23084206657438,12.905348020093923,81.23084206657438,89.44375525529709,
+PID,5. Chấp hành,wheel_rmse_rad_s,RMSE bám vận tốc hai bánh,rad/s,N/A,N/A,2,1.4474143545686962,0.3792257929990962,1.4474143545686962,1.6887521714161524,
+PID,5. Chấp hành,torque_rms_nm,"RMS mô-men tổng, trung bình hai bánh",N·m,N/A,N/A,2,0.4939457802060854,0.12127592648173006,0.4939457802060854,0.5711253072150067,
+PID,5. Chấp hành,torque_peak_nm,Peak |mô-men tổng| trên hai bánh,N·m,N/A,N/A,2,1.665467212750419,0.3175373129257923,1.665467212750419,1.8675467212750432,
+PID,5. Chấp hành,sac_contribution_pct,Đóng góp |SAC| / (|PI| + |SAC|),%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PID,5. Chấp hành,slew_limit_pct,Chu kỳ chạm giới hạn slew trên hai bánh,%,N/A,N/A,2,37.50145294979254,7.805551907969193,37.50145294979254,42.468875766318284,
+PID,5. Chấp hành,saturation_pct,Chu kỳ bão hòa mô-men trên hai bánh,%,N/A,N/A,2,4.823111160932882,3.460238862134762,4.823111160932882,7.025193688479525,
+PI + SAC,1. Hoàn thành,mission_success_pct,Đến đích theo đủ điều kiện AMCL và GT,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PI + SAC,1. Hoàn thành,nav_success_pct,Nav2 thông báo SUCCEEDED,%,N/A,N/A,2,100.0,0.0,100.0,100.0,
+PI + SAC,1. Hoàn thành,deviation_violation_pct,Lượt vi phạm lệch đường AMCL hoặc GT,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PI + SAC,1. Hoàn thành,completion_time_s,"Thời gian hoàn thành, chỉ lượt đạt chuẩn",s,No verified successful completion under all goal/deviation conditions,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,
+PI + SAC,1. Hoàn thành,average_speed_m_s,Vận tốc trung bình từ GT,m/s,N/A,N/A,2,0.21755747747075782,0.0011473994062189883,0.21755747747075782,0.218287677981538,
+PI + SAC,1. Hoàn thành,amcl_goal_xy_m,Sai số vị trí AMCL cuối lượt,m,N/A,N/A,2,0.15499192150275792,0.1006819287138225,0.15499192150275792,0.21906550858559393,
+PI + SAC,1. Hoàn thành,amcl_goal_yaw_rad,Sai số hướng AMCL cuối lượt,rad,N/A,N/A,2,0.16437276898340392,0.11825506203309653,0.16437276898340392,0.23962982962931847,
+PI + SAC,1. Hoàn thành,amcl_violation_pct,Lượt AMCL vượt giới hạn lệch đường,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PI + SAC,1. Hoàn thành,gt_violation_pct,Lượt GT vượt giới hạn lệch đường,%,N/A,N/A,2,0.0,0.0,0.0,0.0,
+PI + SAC,1. Hoàn thành,gt_goal_xy_m,Sai số vị trí GT cuối lượt,m,N/A,N/A,2,0.21730300209205045,0.09423953249611834,0.21730300209205045,0.2772766733275202,
+PI + SAC,1. Hoàn thành,gt_goal_yaw_rad,Sai số hướng GT tại đích,rad,N/A,N/A,2,0.17458361846004625,0.11611978837905816,0.17458361846004625,0.24848179927354724,
+PI + SAC,2. Bám đường,amcl_rmse_m,AMCL: RMSE ngang cân thời gian,m,N/A,N/A,2,0.03232121448395393,0.0007221376723809046,0.03232121448395393,0.032780780084535666,
+PI + SAC,2. Bám đường,amcl_p95_m,AMCL: P95 |e_y| cân thời gian,m,N/A,N/A,2,0.06947759710339159,0.0006366233114558261,0.06947759710339159,0.06988274169792426,
+PI + SAC,2. Bám đường,amcl_max_m,AMCL: Max |e_y|,m,N/A,N/A,2,0.08427077134848956,0.0001026561089223196,0.08427077134848956,0.08433610129616385,
+PI + SAC,2. Bám đường,amcl_heading_rmse_rad,AMCL: RMSE lỗi hướng,rad,N/A,N/A,2,0.10010202002087507,0.019998127672790557,0.10010202002087507,0.11282875054049316,
+PI + SAC,2. Bám đường,gt_rmse_m,Ground truth: RMSE ngang cân thời gian,m,N/A,N/A,2,0.04890730715585427,0.0003513618900151851,0.04890730715585427,0.0491309124934265,
+PI + SAC,2. Bám đường,gt_p95_m,Ground truth: P95 |e_y| cân thời gian,m,N/A,N/A,2,0.08950244035954098,0.007858954654376523,0.08950244035954098,0.09450384847577348,
+PI + SAC,2. Bám đường,gt_max_m,Ground truth: Max |e_y|,m,N/A,N/A,2,0.10426752494438546,0.00307832956510997,0.10426752494438546,0.10622656188358014,
+PI + SAC,2. Bám đường,gt_heading_rmse_rad,Ground truth: RMSE lỗi hướng,rad,N/A,N/A,2,0.11933287672650827,0.00637024690743745,0.11933287672650827,0.12338687703398177,
+PI + SAC,3. IMU,az_rms_m_s2,RMS a_z đã trừ trọng lực,m/s²,N/A,N/A,2,4.875445367066215,0.2008933458579935,4.875445367066215,5.003293109502512,
+PI + SAC,3. IMU,az_peak_m_s2,Peak |a_z| đã trừ trọng lực,m/s²,N/A,N/A,2,160.57466684881769,28.30628116514922,160.57466684881769,178.58867387466273,
+PI + SAC,3. IMU,roll_rate_rms_rad_s,"RMS vận tốc góc roll, body p",rad/s,N/A,N/A,2,0.1572809011240348,0.0077463786924481665,0.1572809011240348,0.16221066633679698,
+PI + SAC,3. IMU,pitch_rate_rms_rad_s,"RMS vận tốc góc pitch, body q",rad/s,N/A,N/A,2,0.2144631063815995,0.005742802671204717,0.2144631063815995,0.21811780362224206,
+PI + SAC,3. IMU,jerk_rms_m_s3,"RMS jerk z, lọc 5 Hz",m/s³,N/A,N/A,2,129.70799898365436,5.067705240455771,129.70799898365436,132.93306685017714,
+PI + SAC,3. IMU,jerk_p95_m_s3,"P95 |jerk z|, lọc 5 Hz",m/s³,N/A,N/A,2,78.9201846517386,2.5406888595703716,78.9201846517386,80.5370691410772,
+PI + SAC,5. Chấp hành,wheel_rmse_rad_s,RMSE bám vận tốc hai bánh,rad/s,N/A,N/A,2,1.3050380101314523,0.11451886947235936,1.3050380101314523,1.3779173723914022,
+PI + SAC,5. Chấp hành,torque_rms_nm,"RMS mô-men tổng, trung bình hai bánh",N·m,N/A,N/A,2,0.42029389868258715,0.0500569897406633,0.42029389868258715,0.4521499718848548,
+PI + SAC,5. Chấp hành,torque_peak_nm,Peak |mô-men tổng| trên hai bánh,N·m,N/A,N/A,2,1.490472519334118,0.24580416094754395,1.490472519334118,1.6469013294790078,
+PI + SAC,5. Chấp hành,sac_contribution_pct,Đóng góp |SAC| / (|PI| + |SAC|),%,N/A,N/A,2,41.878176582458295,1.6290544231160347,41.878176582458295,42.91490046901485,
+PI + SAC,5. Chấp hành,slew_limit_pct,Chu kỳ chạm giới hạn slew trên hai bánh,%,N/A,N/A,2,30.1721416049172,2.0910433927624674,30.1721416049172,31.5028734714171,
+PI + SAC,5. Chấp hành,saturation_pct,Chu kỳ bão hòa mô-men trên hai bánh,%,N/A,N/A,2,0.07599059038292333,0.032352860631887796,0.07599059038292333,0.09657982481215535,
+PI,4. Local obstacle,obstacle_0.5_local_peak_error_m,Peak |e_y| GT,m,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PID,4. Local obstacle,obstacle_0.5_local_peak_error_m,Peak |e_y| GT,m,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI + SAC,4. Local obstacle,obstacle_0.5_local_peak_error_m,Peak |e_y| GT,m,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI,4. Local obstacle,obstacle_0.5_local_rmse_m,Local RMSE GT,m,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PID,4. Local obstacle,obstacle_0.5_local_rmse_m,Local RMSE GT,m,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI + SAC,4. Local obstacle,obstacle_0.5_local_rmse_m,Local RMSE GT,m,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI,4. Local obstacle,obstacle_0.5_peak_az_m_s2,Peak |a_z|,m/s²,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PID,4. Local obstacle,obstacle_0.5_peak_az_m_s2,Peak |a_z|,m/s²,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI + SAC,4. Local obstacle,obstacle_0.5_peak_az_m_s2,Peak |a_z|,m/s²,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI,4. Local obstacle,obstacle_0.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PID,4. Local obstacle,obstacle_0.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI + SAC,4. Local obstacle,obstacle_0.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI,4. Local obstacle,obstacle_0.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PID,4. Local obstacle,obstacle_0.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI + SAC,4. Local obstacle,obstacle_0.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI,4. Local obstacle,obstacle_0.5_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PID,4. Local obstacle,obstacle_0.5_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI + SAC,4. Local obstacle,obstacle_0.5_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,0.5
+PI,4. Local obstacle,obstacle_1_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.10172351301298549,0.02147870287965344,0.10172351301298549,0.11539247582455006,1.0
+PID,4. Local obstacle,obstacle_1_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.016710582426985574,0.010073253423301178,0.016710582426985574,0.023121161650789753,1.0
+PI + SAC,4. Local obstacle,obstacle_1_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.05004633688161413,0.04846770770145338,0.05004633688161413,0.08089099718745275,1.0
+PI,4. Local obstacle,obstacle_1_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.06246628339262428,0.00962443723503692,0.06246628339262428,0.0685912377432233,1.0
+PID,4. Local obstacle,obstacle_1_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.008479101354186752,0.005420823375444751,0.008479101354186752,0.01192889222573913,1.0
+PI + SAC,4. Local obstacle,obstacle_1_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.029493820467337933,0.026780510725270802,0.029493820467337933,0.04653683313106818,1.0
+PI,4. Local obstacle,obstacle_1_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,29.757264605463256,31.3794514889598,29.757264605463256,49.727025249445255,1.0
+PID,4. Local obstacle,obstacle_1_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,24.851609916815253,8.373132296130471,24.851609916815253,30.1802386805446,1.0
+PI + SAC,4. Local obstacle,obstacle_1_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,50.91784363658601,34.35692851142135,50.91784363658601,72.78245905463673,1.0
+PI,4. Local obstacle,obstacle_1_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,711.4781242494856,731.2007165016427,711.4781242494856,1176.811410791582,1.0
+PID,4. Local obstacle,obstacle_1_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,579.3665688572835,194.68400272413146,579.3665688572835,703.2627095205797,1.0
+PI + SAC,4. Local obstacle,obstacle_1_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1208.2738928187719,804.0752089031286,1208.2738928187719,1719.9842223382248,1.0
+PI,4. Local obstacle,obstacle_1_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.7363896527089,0.3319797139149274,99.7363896527089,99.94766024894194,1.0
+PID,4. Local obstacle,obstacle_1_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.86237714687266,0.16239421044470395,99.86237714687266,99.96572418956046,1.0
+PI + SAC,4. Local obstacle,obstacle_1_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.70441328650551,0.14055957344822648,99.70441328650551,99.79386485129685,1.0
+PI,4. Local obstacle,obstacle_1_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,1.0
+PID,4. Local obstacle,obstacle_1_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,1.0
+PI + SAC,4. Local obstacle,obstacle_1_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,1.0
+PI,4. Local obstacle,obstacle_1.5_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.10172771940333236,0.021484651613930615,0.10172771940333236,0.1154004679662091,1.5
+PID,4. Local obstacle,obstacle_1.5_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.036777487245211,0.0005737339968435947,0.036777487245211,0.03714260932499983,1.5
+PI + SAC,4. Local obstacle,obstacle_1.5_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.0555613854969483,0.04079054464573439,0.0555613854969483,0.08152032915151056,1.5
+PI,4. Local obstacle,obstacle_1.5_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.0879599535610251,0.019745145192670822,0.0879599535610251,0.10052568701615054,1.5
+PID,4. Local obstacle,obstacle_1.5_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.021724136699249996,0.004732139797240752,0.021724136699249996,0.024735652025386502,1.5
+PI + SAC,4. Local obstacle,obstacle_1.5_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.04541174169267642,0.04303261361756925,0.04541174169267642,0.07279752930372382,1.5
+PI,4. Local obstacle,obstacle_1.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,29.126573725463903,32.27138308511991,29.126573725463903,49.66395616144532,1.5
+PID,4. Local obstacle,obstacle_1.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,14.278925454008967,6.578901461861481,14.278925454008967,18.465712706805274,1.5
+PI + SAC,4. Local obstacle,obstacle_1.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,86.96934658814592,16.627595906608345,86.96934658814592,97.55108382649911,1.5
+PI,4. Local obstacle,obstacle_1.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,711.4781242494856,731.2007165016427,711.4781242494856,1176.811410791582,1.5
+PID,4. Local obstacle,obstacle_1.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,338.9478646649741,145.31938939279777,338.9478646649741,431.42855777475626,1.5
+PI + SAC,4. Local obstacle,obstacle_1.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,2049.1552673014403,385.1106352371904,2049.1552673014403,2294.238174816389,1.5
+PI,4. Local obstacle,obstacle_1.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.6161962788677,0.024106356749989566,99.6161962788677,99.63153747036256,1.5
+PID,4. Local obstacle,obstacle_1.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.75168548264014,0.04687715007984775,99.75168548264014,99.78151791827388,1.5
+PI + SAC,4. Local obstacle,obstacle_1.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.94156854583917,0.021014670138323078,99.94156854583917,99.95494220002246,1.5
+PI,4. Local obstacle,obstacle_1.5_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,1.5
+PID,4. Local obstacle,obstacle_1.5_settling_time_s,Ổn định sau tâm gờ,s,N/A,N/A,2,0.4999999999999991,0.028284271247462554,0.4999999999999991,0.5179999999999996,1.5
+PI + SAC,4. Local obstacle,obstacle_1.5_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.5199999999999996,N/A,0.5199999999999996,0.5199999999999996,1.5
+PI,4. Local obstacle,obstacle_2.1667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.09336664516875137,0.02499868403079376,0.09336664516875137,0.10927571026777409,2.1667
+PID,4. Local obstacle,obstacle_2.1667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.11842498478949226,0.005578090654159666,0.11842498478949226,0.1219748599443589,2.1667
+PI + SAC,4. Local obstacle,obstacle_2.1667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.08809798250859481,0.005982216698648016,0.08809798250859481,0.09190504190332208,2.1667
+PI,4. Local obstacle,obstacle_2.1667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.06097831537891221,0.024372112339880028,0.06097831537891221,0.07648863269554476,2.1667
+PID,4. Local obstacle,obstacle_2.1667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.058984473090300804,0.002089074082159556,0.058984473090300804,0.06031395169520728,2.1667
+PI + SAC,4. Local obstacle,obstacle_2.1667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.0543701282383581,0.015415800868362133,0.0543701282383581,0.0641806838366544,2.1667
+PI,4. Local obstacle,obstacle_2.1667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,7.738902741697637,1.9533926185022328,7.738902741697637,8.982034191874044,2.1667
+PID,4. Local obstacle,obstacle_2.1667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,99.49888248382722,44.58311714978758,99.49888248382722,127.87140450057137,2.1667
+PI + SAC,4. Local obstacle,obstacle_2.1667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,23.581287373087626,24.45930873667369,23.581287373087626,39.14709613684123,2.1667
+PI,4. Local obstacle,obstacle_2.1667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,191.92859493326426,61.8795547598049,191.92859493326426,231.30850244198038,2.1667
+PID,4. Local obstacle,obstacle_2.1667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,2321.337140037531,1065.5886172068037,2321.337140037531,2999.473583501445,2.1667
+PI + SAC,4. Local obstacle,obstacle_2.1667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,558.4488308307549,558.6853430157607,558.4488308307549,913.994005967134,2.1667
+PI,4. Local obstacle,obstacle_2.1667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.7128450818129,0.05913424531534509,99.7128450818129,99.75047788508945,2.1667
+PID,4. Local obstacle,obstacle_2.1667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.9094508867497,0.04362410042472766,99.9094508867497,99.93721309425983,2.1667
+PI + SAC,4. Local obstacle,obstacle_2.1667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.95819017047874,0.032533172816272125,99.95819017047874,99.97889415487946,2.1667
+PI,4. Local obstacle,obstacle_2.1667_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,2.1667
+PID,4. Local obstacle,obstacle_2.1667_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,2.1667
+PI + SAC,4. Local obstacle,obstacle_2.1667_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,2.1667
+PI,4. Local obstacle,obstacle_2.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.07016342128298858,0.0042496901423617174,0.07016342128298858,0.07286790752883363,2.6667
+PID,4. Local obstacle,obstacle_2.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.12069148374499888,0.008174510672791856,0.12069148374499888,0.12589371048165052,2.6667
+PI + SAC,4. Local obstacle,obstacle_2.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.08156326557621371,0.021144313173095588,0.08156326557621371,0.09501942408161884,2.6667
+PI,4. Local obstacle,obstacle_2.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.04775442250270377,0.00026193248890663234,0.04775442250270377,0.04792111531791083,2.6667
+PID,4. Local obstacle,obstacle_2.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.09598804037776376,0.008919105924116053,0.09598804037776376,0.10166412463072097,2.6667
+PI + SAC,4. Local obstacle,obstacle_2.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.06105259189959242,0.025002574320789075,0.06105259189959242,0.07696413276400796,2.6667
+PI,4. Local obstacle,obstacle_2.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,15.429084633161452,12.82895214652634,15.429084633161452,23.59337978565529,2.6667
+PID,4. Local obstacle,obstacle_2.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,99.49888248382722,44.58311714978758,99.49888248382722,127.87140450057137,2.6667
+PI + SAC,4. Local obstacle,obstacle_2.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,9.734058103681814,5.1643747284527315,9.734058103681814,13.020646055651438,2.6667
+PI,4. Local obstacle,obstacle_2.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,360.22673218707916,299.8890629862786,360.22673218707916,551.0749632242287,2.6667
+PID,4. Local obstacle,obstacle_2.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,2321.337140037531,1065.5886172068037,2321.337140037531,2999.473583501445,2.6667
+PI + SAC,4. Local obstacle,obstacle_2.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,236.8384533948593,134.43379471400064,236.8384533948593,322.3915964714784,2.6667
+PI,4. Local obstacle,obstacle_2.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.87561803828109,0.16145726545909647,99.87561803828109,99.97836881283125,2.6667
+PID,4. Local obstacle,obstacle_2.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.75919816081306,0.043352328898997594,99.75919816081306,99.78678741398329,2.6667
+PI + SAC,4. Local obstacle,obstacle_2.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.95270971248186,0.047154918881964325,99.95270971248186,99.98271891909883,2.6667
+PI,4. Local obstacle,obstacle_2.6667_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.6400000000000006,N/A,0.6400000000000006,0.6400000000000006,2.6667
+PID,4. Local obstacle,obstacle_2.6667_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,2.6667
+PI + SAC,4. Local obstacle,obstacle_2.6667_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.6600000000000001,N/A,0.6600000000000001,0.6600000000000001,2.6667
+PI,4. Local obstacle,obstacle_3.3333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.07331206249406311,0.02661472312432875,0.07331206249406311,0.09024956857461686,3.3333
+PID,4. Local obstacle,obstacle_3.3333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.11713991539675599,0.011421877344728907,0.11713991539675599,0.12440875362866091,3.3333
+PI + SAC,4. Local obstacle,obstacle_3.3333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.08759604058969658,0.012234262586042623,0.08759604058969658,0.09538187762336343,3.3333
+PI,4. Local obstacle,obstacle_3.3333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.04402525468801523,0.015024881149591945,0.04402525468801523,0.05358703050067379,3.3333
+PID,4. Local obstacle,obstacle_3.3333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.07068612227173166,0.012939044945030186,0.07068612227173166,0.07892048005216917,3.3333
+PI + SAC,4. Local obstacle,obstacle_3.3333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.06177195008444042,0.011644613227429117,0.06177195008444042,0.06918253656410914,3.3333
+PI,4. Local obstacle,obstacle_3.3333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,19.33071026920005,7.311220256737999,19.33071026920005,23.983542349259153,3.3333
+PID,4. Local obstacle,obstacle_3.3333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,18.923156773207488,7.559734477479494,18.923156773207488,23.734142334903428,3.3333
+PI + SAC,4. Local obstacle,obstacle_3.3333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,75.5124176619497,91.98990528087926,75.5124176619497,134.0544349042858,3.3333
+PI,4. Local obstacle,obstacle_3.3333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,462.26599982367384,155.58374679998838,462.26599982367384,561.2788899878882,3.3333
+PID,4. Local obstacle,obstacle_3.3333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,458.2027663823692,152.62066074159065,458.2027663823692,555.3299601259644,3.3333
+PI + SAC,4. Local obstacle,obstacle_3.3333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1783.068887830819,2149.6876164302203,1783.068887830819,3151.1217097403182,3.3333
+PI,4. Local obstacle,obstacle_3.3333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.87759896044896,0.15877643692433083,99.87759896044896,99.97864366616662,3.3333
+PID,4. Local obstacle,obstacle_3.3333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,80.28421854262909,6.615712967149508,80.28421854262909,84.49443249393876,3.3333
+PI + SAC,4. Local obstacle,obstacle_3.3333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,94.52928454453301,7.719727286020415,94.52928454453301,99.44208890610328,3.3333
+PI,4. Local obstacle,obstacle_3.3333_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.620000000000001,N/A,0.620000000000001,0.620000000000001,3.3333
+PID,4. Local obstacle,obstacle_3.3333_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.6600000000000001,N/A,0.6600000000000001,0.6600000000000001,3.3333
+PI + SAC,4. Local obstacle,obstacle_3.3333_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,3.3333
+PI,4. Local obstacle,obstacle_4_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.08869203162442513,0.025860214977244483,0.08869203162442513,0.10514937166044147,4.0
+PID,4. Local obstacle,obstacle_4_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.039766756457756854,0.012331751395561537,0.039766756457756854,0.04761463498989427,4.0
+PI + SAC,4. Local obstacle,obstacle_4_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.06948863413333928,0.005664438223177479,0.06948863413333928,0.07309346054463825,4.0
+PI,4. Local obstacle,obstacle_4_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.06658531121841885,0.025314554553329274,0.06658531121841885,0.08269539508705719,4.0
+PID,4. Local obstacle,obstacle_4_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.023807493233145554,0.0032219582699511856,0.023807493233145554,0.025857934920389857,4.0
+PI + SAC,4. Local obstacle,obstacle_4_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.049989507471176836,0.019242944514810383,0.049989507471176836,0.06223564237195385,4.0
+PI,4. Local obstacle,obstacle_4_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,10.873763752268717,4.648708203770201,10.873763752268717,13.832183537447817,4.0
+PID,4. Local obstacle,obstacle_4_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,23.08963027452365,26.51498049771654,23.08963027452365,39.96366053619163,4.0
+PI + SAC,4. Local obstacle,obstacle_4_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,7.453859516801369,4.2594306835473885,7.453859516801369,10.164544605098738,4.0
+PI,4. Local obstacle,obstacle_4_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,264.28918071149957,124.39775582393348,264.28918071149957,343.4554277482421,4.0
+PID,4. Local obstacle,obstacle_4_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,549.9729680623401,622.0284728628059,549.9729680623401,945.8294641895022,4.0
+PI + SAC,4. Local obstacle,obstacle_4_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,183.28340940440918,112.75070404793891,183.28340940440918,255.03751807867877,4.0
+PI,4. Local obstacle,obstacle_4_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,80.77755341617586,15.914917453418715,80.77755341617586,90.90574486417873,4.0
+PID,4. Local obstacle,obstacle_4_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,63.13834375865689,4.288402391640538,63.13834375865689,65.86746632908395,4.0
+PI + SAC,4. Local obstacle,obstacle_4_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,80.9548993926598,16.294667229032637,80.9548993926598,91.32476211800427,4.0
+PI,4. Local obstacle,obstacle_4_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,4.0
+PID,4. Local obstacle,obstacle_4_settling_time_s,Ổn định sau tâm gờ,s,N/A,N/A,2,0.35999999999999943,0.0,0.35999999999999943,0.35999999999999943,4.0
+PI + SAC,4. Local obstacle,obstacle_4_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.29999999999999716,N/A,0.29999999999999716,0.29999999999999716,4.0
+PI,4. Local obstacle,obstacle_4.8333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.08579998286715246,0.012883937490876424,0.08579998286715246,0.09399927047851654,4.8333
+PID,4. Local obstacle,obstacle_4.8333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.13037610505008482,0.008177946845051845,0.13037610505008482,0.13558051855337216,4.8333
+PI + SAC,4. Local obstacle,obstacle_4.8333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.07051676666217355,0.0012438767370778962,0.07051676666217355,0.07130836497034672,4.8333
+PI,4. Local obstacle,obstacle_4.8333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.057478579981874514,0.0324524851332904,0.057478579981874514,0.07813121505556925,4.8333
+PID,4. Local obstacle,obstacle_4.8333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.06842372252094259,0.003120922261055312,0.06842372252094259,0.07040986528585602,4.8333
+PI + SAC,4. Local obstacle,obstacle_4.8333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.053793302917362174,0.008359552748080942,0.053793302917362174,0.05911328970963138,4.8333
+PI,4. Local obstacle,obstacle_4.8333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,9.55652000400424,0.30663306300667564,9.55652000400424,9.75166009037346,4.8333
+PID,4. Local obstacle,obstacle_4.8333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,12.572147398059762,9.04034509552723,12.572147398059762,18.325387787242228,4.8333
+PI + SAC,4. Local obstacle,obstacle_4.8333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,7.682030929595568,2.0023394288586474,7.682030929595568,8.9563119391404,4.8333
+PI,4. Local obstacle,obstacle_4.8333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,239.77083807632778,20.07886050395524,239.77083807632778,252.5489466550887,4.8333
+PID,4. Local obstacle,obstacle_4.8333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,263.48315196699724,175.82024854942486,263.48315196699724,375.3744729842795,4.8333
+PI + SAC,4. Local obstacle,obstacle_4.8333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,210.01259388381843,66.72906193819277,210.01259388381843,252.47870886266034,4.8333
+PI,4. Local obstacle,obstacle_4.8333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.84240464489096,0.0010463752010925504,99.84240464489096,99.84307055399128,4.8333
+PID,4. Local obstacle,obstacle_4.8333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.8574372746226,0.1412512857198936,99.8574372746226,99.94732904240807,4.8333
+PI + SAC,4. Local obstacle,obstacle_4.8333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.8535446369238,0.0067720518239826645,99.8535446369238,99.85785434431436,4.8333
+PI,4. Local obstacle,obstacle_4.8333_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.5600000000000023,N/A,0.5600000000000023,0.5600000000000023,4.8333
+PID,4. Local obstacle,obstacle_4.8333_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,4.8333
+PI + SAC,4. Local obstacle,obstacle_4.8333_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,4.8333
+PI,4. Local obstacle,obstacle_5.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.08055044475331913,0.03359127530418407,0.08055044475331913,0.10192780145398261,5.6667
+PID,4. Local obstacle,obstacle_5.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.13417527569034404,0.009079911134543454,0.13417527569034404,0.13995369575257027,5.6667
+PI + SAC,4. Local obstacle,obstacle_5.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.07612938863044044,0.006102718521988168,0.07612938863044044,0.08001313491595397,5.6667
+PI,4. Local obstacle,obstacle_5.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.06546103844787812,0.03756278136641658,0.06546103844787812,0.08936584612985689,5.6667
+PID,4. Local obstacle,obstacle_5.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.10560497411044209,0.017335325651334423,0.10560497411044209,0.1166371078003642,5.6667
+PI + SAC,4. Local obstacle,obstacle_5.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.05556411278214503,0.009155743806896198,0.05556411278214503,0.06139079246154176,5.6667
+PI,4. Local obstacle,obstacle_5.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,63.25218682457352,79.58990415804774,63.25218682457352,113.90289167430218,5.6667
+PID,4. Local obstacle,obstacle_5.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,6.288468525613628,0.22627846886072822,6.288468525613628,6.432471261404765,5.6667
+PI + SAC,4. Local obstacle,obstacle_5.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,30.32837102450328,33.03932963281726,30.32837102450328,51.35447165080373,5.6667
+PI,4. Local obstacle,obstacle_5.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1485.987701830932,1871.253911586317,1485.987701830932,2676.8463990150153,5.6667
+PID,4. Local obstacle,obstacle_5.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,184.2921295799297,31.356094861848263,184.2921295799297,204.24702615743712,5.6667
+PI + SAC,4. Local obstacle,obstacle_5.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,732.3363799754153,735.2347586427823,732.3363799754153,1200.2369152157446,5.6667
+PI,4. Local obstacle,obstacle_5.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.5537681026488,0.03759806314467595,99.5537681026488,99.57769536351698,5.6667
+PID,4. Local obstacle,obstacle_5.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.855110550358,0.01255620325545104,99.855110550358,99.86310126917911,5.6667
+PI + SAC,4. Local obstacle,obstacle_5.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.7593399907979,0.14720713734547866,99.7593399907979,99.85302203934835,5.6667
+PI,4. Local obstacle,obstacle_5.6667_settling_time_s,Ổn định sau tâm gờ,s,N/A,N/A,2,1.6999999999999993,1.1313708498984771,1.6999999999999993,2.42,5.6667
+PID,4. Local obstacle,obstacle_5.6667_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.9200000000000017,N/A,0.9200000000000017,0.9200000000000017,5.6667
+PI + SAC,4. Local obstacle,obstacle_5.6667_settling_time_s,Ổn định sau tâm gờ,s,N/A,N/A,2,0.6600000000000001,0.11313708498985021,0.6600000000000001,0.7320000000000018,5.6667
+PI,4. Local obstacle,obstacle_6.5_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.05947762682862692,0.026085432661596773,0.05947762682862692,0.07607829452130704,6.5
+PID,4. Local obstacle,obstacle_6.5_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.06361939013463755,0.01673068986013102,0.06361939013463755,0.07426673596326244,6.5
+PI + SAC,4. Local obstacle,obstacle_6.5_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.05732177416714063,0.01290659663271291,0.05732177416714063,0.0655354819680683,6.5
+PI,4. Local obstacle,obstacle_6.5_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.029221613045185797,0.015455962538032247,0.029221613045185797,0.039057727373552856,6.5
+PID,4. Local obstacle,obstacle_6.5_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.03290737715592713,0.0032563020524751267,0.03290737715592713,0.03497967509253428,6.5
+PI + SAC,4. Local obstacle,obstacle_6.5_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.04008852571534676,0.014026331251882507,0.04008852571534676,0.049014828264384185,6.5
+PI,4. Local obstacle,obstacle_6.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,5.8296212423154685,0.4989693117210206,5.8296212423154685,6.147163367845194,6.5
+PID,4. Local obstacle,obstacle_6.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,15.29576017454405,13.872353561731808,15.29576017454405,24.124071921610174,6.5
+PI + SAC,4. Local obstacle,obstacle_6.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,6.847260840938333,0.12381577224488768,6.847260840938333,6.9260567158933215,6.5
+PI,4. Local obstacle,obstacle_6.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,123.0021089804676,0.6134350262516182,123.0021089804676,123.39249664065947,6.5
+PID,4. Local obstacle,obstacle_6.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,394.19629627958466,329.9470484718507,394.19629627958466,604.1733121458235,6.5
+PI + SAC,4. Local obstacle,obstacle_6.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,145.544665365586,1.2963062428359344,145.544665365586,146.36962960690937,6.5
+PI,4. Local obstacle,obstacle_6.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,87.0395685923396,3.979781676282648,87.0395685923396,89.5722861421869,6.5
+PID,4. Local obstacle,obstacle_6.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,84.93232402839584,3.6932688225790717,84.93232402839584,87.2827059146673,6.5
+PI + SAC,4. Local obstacle,obstacle_6.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,90.97910785466144,12.68688446545437,90.97910785466144,99.05299168854917,6.5
+PI,4. Local obstacle,obstacle_6.5_settling_time_s,Ổn định sau tâm gờ,s,N/A,N/A,2,0.5299999999999976,0.466690475583124,0.5299999999999976,0.8269999999999992,6.5
+PID,4. Local obstacle,obstacle_6.5_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.22000000000000597,N/A,0.22000000000000597,0.22000000000000597,6.5
+PI + SAC,4. Local obstacle,obstacle_6.5_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.4799999999999969,N/A,0.4799999999999969,0.4799999999999969,6.5
+PI,4. Local obstacle,obstacle_7.3333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.1138737009436032,0.041245892934716116,0.1138737009436032,0.14012242647481207,7.3333
+PID,4. Local obstacle,obstacle_7.3333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.10635255808447497,0.011325172950811275,0.10635255808447497,0.11355985401694117,7.3333
+PI + SAC,4. Local obstacle,obstacle_7.3333_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.03468224362290488,0.004126584142624314,0.03468224362290488,0.03730838569025275,7.3333
+PI,4. Local obstacle,obstacle_7.3333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.058018535224439796,0.014146542791473036,0.058018535224439796,0.06702133992881643,7.3333
+PID,4. Local obstacle,obstacle_7.3333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.05217999080814975,0.005577920134740086,0.05217999080814975,0.05572975744512228,7.3333
+PI + SAC,4. Local obstacle,obstacle_7.3333_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.019109464010444305,0.0036535202337150603,0.019109464010444305,0.021434550049660266,7.3333
+PI,4. Local obstacle,obstacle_7.3333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,61.091508888952674,25.806092646147437,61.091508888952674,77.5144056843699,7.3333
+PID,4. Local obstacle,obstacle_7.3333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,20.55946833964602,15.544173760594992,20.55946833964602,30.451719946298866,7.3333
+PI + SAC,4. Local obstacle,obstacle_7.3333_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,48.44448841860917,39.44257129828307,48.44448841860917,73.54558708781403,7.3333
+PI,4. Local obstacle,obstacle_7.3333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1436.5406850981972,616.4044258164485,1436.5406850981972,1828.818059601587,7.3333
+PID,4. Local obstacle,obstacle_7.3333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,481.1716205655358,359.2028327715913,481.1716205655358,709.7669035523245,7.3333
+PI + SAC,4. Local obstacle,obstacle_7.3333_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1116.036780725259,939.4038294910148,1116.036780725259,1713.869717020396,7.3333
+PI,4. Local obstacle,obstacle_7.3333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.96750621615469,0.03453000913571314,99.96750621615469,99.98948097940756,7.3333
+PID,4. Local obstacle,obstacle_7.3333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.86570409127727,0.042304835200162164,99.86570409127727,99.89262672353958,7.3333
+PI + SAC,4. Local obstacle,obstacle_7.3333_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.83837335197552,0.08434844167818834,99.83837335197552,99.89205237155936,7.3333
+PI,4. Local obstacle,obstacle_7.3333_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,7.3333
+PID,4. Local obstacle,obstacle_7.3333_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,7.3333
+PI + SAC,4. Local obstacle,obstacle_7.3333_settling_time_s,Ổn định sau tâm gờ,s,N/A,N/A,2,0.7600000000000016,0.05656854249492762,0.7600000000000016,0.796000000000004,7.3333
+PI,4. Local obstacle,obstacle_8_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.12282455233368977,0.052381001683993414,0.12282455233368977,0.1561596176801759,8.0
+PID,4. Local obstacle,obstacle_8_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.11300253903925263,0.013640019499393391,0.11300253903925263,0.12168299429443664,8.0
+PI + SAC,4. Local obstacle,obstacle_8_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.0654661545064395,0.05525992490225989,0.0654661545064395,0.1006333553700621,8.0
+PI,4. Local obstacle,obstacle_8_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.09394139840146132,0.04265998105906812,0.09394139840146132,0.12109004410440237,8.0
+PID,4. Local obstacle,obstacle_8_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.08439349681016298,0.012338666918825564,0.08439349681016298,0.09224577635435628,8.0
+PI + SAC,4. Local obstacle,obstacle_8_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.03476197220325514,0.029983105283176943,0.03476197220325514,0.05384310356334329,8.0
+PI,4. Local obstacle,obstacle_8_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,17.555068104287525,9.728343021382035,17.555068104287525,23.74614769240278,8.0
+PID,4. Local obstacle,obstacle_8_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,73.53067075351554,59.36841910830971,73.53067075351554,111.31250131934526,8.0
+PI + SAC,4. Local obstacle,obstacle_8_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,44.35304242553986,5.561687162558681,44.35304242553986,47.89247846227493,8.0
+PI,4. Local obstacle,obstacle_8_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,427.40513330816805,234.65137775381635,427.40513330816805,576.7363556902088,8.0
+PID,4. Local obstacle,obstacle_8_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1726.2338834130612,1401.5811053463144,1726.2338834130612,2618.194636989045,8.0
+PI + SAC,4. Local obstacle,obstacle_8_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1041.6464529035097,139.76322099889782,1041.6464529035097,1130.591222099425,8.0
+PI,4. Local obstacle,obstacle_8_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.92138517555495,0.03812047086907875,99.92138517555495,99.94564489466315,8.0
+PID,4. Local obstacle,obstacle_8_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.88465502920934,0.07217410660984896,99.88465502920934,99.93058634939825,8.0
+PI + SAC,4. Local obstacle,obstacle_8_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.88604305102746,0.03348064109065636,99.88604305102746,99.90735000054578,8.0
+PI,4. Local obstacle,obstacle_8_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,8.0
+PID,4. Local obstacle,obstacle_8_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,8.0
+PI + SAC,4. Local obstacle,obstacle_8_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,8.0
+PI,4. Local obstacle,obstacle_8.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.14176880415754833,0.05308503670399525,0.14176880415754833,0.17555191464718697,8.6667
+PID,4. Local obstacle,obstacle_8.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.10086996677803667,0.032159584156144984,0.10086996677803667,0.12133620081129128,8.6667
+PI + SAC,4. Local obstacle,obstacle_8.6667_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.07726601152193205,0.04126423605174276,0.07726601152193205,0.10352641054133478,8.6667
+PI,4. Local obstacle,obstacle_8.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.06967096104619817,0.03900612076892588,0.06967096104619817,0.0944943042993382,8.6667
+PID,4. Local obstacle,obstacle_8.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.043417411125301994,0.0051540034288444355,0.043417411125301994,0.04669739882261715,8.6667
+PI + SAC,4. Local obstacle,obstacle_8.6667_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.056374506316482005,0.043859452995225395,0.056374506316482005,0.08428649128533286,8.6667
+PI,4. Local obstacle,obstacle_8.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,17.555068104287525,9.728343021382035,17.555068104287525,23.74614769240278,8.6667
+PID,4. Local obstacle,obstacle_8.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,62.603457821989224,74.82183183501289,62.603457821989224,110.21978002619262,8.6667
+PI + SAC,4. Local obstacle,obstacle_8.6667_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,146.61012985073253,48.05511878010208,146.61012985073253,177.1922201748542,8.6667
+PI,4. Local obstacle,obstacle_8.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,427.40513330816805,234.65137775381635,427.40513330816805,576.7363556902088,8.6667
+PID,4. Local obstacle,obstacle_8.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1472.8497530370757,1759.9203790141455,1472.8497530370757,2592.8562239514467,8.6667
+PI + SAC,4. Local obstacle,obstacle_8.6667_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,3400.4781479542357,1118.8373762603583,3400.4781479542357,4112.501894173033,8.6667
+PI,4. Local obstacle,obstacle_8.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.94027009389066,0.05361061402867215,99.94027009389066,99.97438767974158,8.6667
+PID,4. Local obstacle,obstacle_8.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.91383423330089,0.12185679587815833,99.91383423330089,99.99138342333009,8.6667
+PI + SAC,4. Local obstacle,obstacle_8.6667_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.83264855839143,0.0980778655500538,99.83264855839143,99.8950649298247,8.6667
+PI,4. Local obstacle,obstacle_8.6667_settling_time_s,Ổn định sau tâm gờ,s,N/A,Sample SD requires at least two episodes,1,0.5999999999999943,N/A,0.5999999999999943,0.5999999999999943,8.6667
+PID,4. Local obstacle,obstacle_8.6667_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,8.6667
+PI + SAC,4. Local obstacle,obstacle_8.6667_settling_time_s,Ổn định sau tâm gờ,s,N/A,N/A,2,0.9499999999999957,0.8061017305526645,0.9499999999999957,1.4629999999999959,8.6667
+PI,4. Local obstacle,obstacle_9.5_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.18900373859054415,0.05363276250411923,0.18900373859054415,0.22313541964493142,9.5
+PID,4. Local obstacle,obstacle_9.5_local_peak_error_m,Peak |e_y| GT,m,N/A,Sample SD requires at least two episodes,1,0.15701960265850093,N/A,0.15701960265850093,0.15701960265850093,9.5
+PI + SAC,4. Local obstacle,obstacle_9.5_local_peak_error_m,Peak |e_y| GT,m,N/A,N/A,2,0.07070669816877838,0.01374925942703039,0.07070669816877838,0.07945667328821,9.5
+PI,4. Local obstacle,obstacle_9.5_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.1296241735220909,0.03870150340443727,0.1296241735220909,0.15425365947154357,9.5
+PID,4. Local obstacle,obstacle_9.5_local_rmse_m,Local RMSE GT,m,N/A,Sample SD requires at least two episodes,1,0.1143134743932737,N/A,0.1143134743932737,0.1143134743932737,9.5
+PI + SAC,4. Local obstacle,obstacle_9.5_local_rmse_m,Local RMSE GT,m,N/A,N/A,2,0.04730695031309878,0.018176265028795515,0.04730695031309878,0.05887425454575347,9.5
+PI,4. Local obstacle,obstacle_9.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,74.41729182571899,84.14942447239702,74.41729182571899,127.96965763535842,9.5
+PID,4. Local obstacle,obstacle_9.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,Sample SD requires at least two episodes,1,6.542484718090325,N/A,6.542484718090325,6.542484718090325,9.5
+PI + SAC,4. Local obstacle,obstacle_9.5_peak_az_m_s2,Peak |a_z|,m/s²,N/A,N/A,2,23.775059780001367,25.523916045118366,23.775059780001367,40.018380486146754,9.5
+PI,4. Local obstacle,obstacle_9.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,1756.9496874065358,1967.4524285646432,1756.9496874065358,3009.028745916536,9.5
+PID,4. Local obstacle,obstacle_9.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,Sample SD requires at least two episodes,1,143.97935063188243,N/A,143.97935063188243,143.97935063188243,9.5
+PI + SAC,4. Local obstacle,obstacle_9.5_peak_jerk_m_s3,Peak |jerk z| lọc,m/s³,N/A,N/A,2,570.3595060136325,610.5214244794925,570.3595060136325,958.8929613918402,9.5
+PI,4. Local obstacle,obstacle_9.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.98916741455425,0.014731698984511312,99.98916741455425,99.99854261037956,9.5
+PID,4. Local obstacle,obstacle_9.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,Sample SD requires at least two episodes,1,99.93054355268411,N/A,99.93054355268411,99.93054355268411,9.5
+PI + SAC,4. Local obstacle,obstacle_9.5_speed_drop_pct,Sụt vận tốc so với trước gờ,%,N/A,N/A,2,99.9764114165148,0.014165955260417603,99.9764114165148,99.98542657523875,9.5
+PI,4. Local obstacle,obstacle_9.5_settling_time_s,Ổn định sau tâm gờ,s,N/A,N/A,2,1.110000000000003,0.21213203435595723,1.110000000000003,1.2449999999999986,9.5
+PID,4. Local obstacle,obstacle_9.5_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,9.5
+PI + SAC,4. Local obstacle,obstacle_9.5_settling_time_s,Ổn định sau tâm gờ,s,No full measured window or recovery censored,Sample SD requires at least two episodes,0,N/A,N/A,N/A,N/A,9.5

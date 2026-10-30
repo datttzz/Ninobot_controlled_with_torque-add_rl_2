@@ -1,0 +1,327 @@
+% Requires \usepackage{booktabs}; IEEEtran-compatible. -- means unavailable, never zero imputation.
+% Percentiles in these columns describe episode-level metric distributions; see CSV for sample counts.
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{PI, PID and PI+SAC: all completed outcomes retained.}
+\label{tab:pi-pid-sac}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+mission success pct (\%) & \textbf{0 $\pm$ 0} & 0 & 0 & \textbf{0 $\pm$ 0} & 0 & 0 & \textbf{0 $\pm$ 0} & 0 & 0 \\
+nav success pct (\%) & \textbf{100 $\pm$ 0} & 100 & 100 & \textbf{100 $\pm$ 0} & 100 & 100 & \textbf{100 $\pm$ 0} & 100 & 100 \\
+deviation violation pct (\%) & 50 $\pm$ 70.71 & 50 & 95 & \textbf{0 $\pm$ 0} & 0 & 0 & \textbf{0 $\pm$ 0} & 0 & 0 \\
+completion time s (s) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+average speed m s (m/s) & 0.221 $\pm$ 0.0005197 & 0.221 & 0.2213 & 0.2075 $\pm$ 0.02256 & 0.2075 & 0.2219 & 0.2176 $\pm$ 0.001147 & 0.2176 & 0.2183 \\
+amcl goal xy m (m) & 0.2229 $\pm$ 0.00664 & 0.2229 & 0.2271 & 0.2138 $\pm$ 0.02531 & 0.2138 & 0.2299 & \textbf{0.155 $\pm$ 0.1007} & 0.155 & 0.2191 \\
+amcl goal yaw rad (rad) & 0.2027 $\pm$ 0.02102 & 0.2027 & 0.2161 & 0.1742 $\pm$ 0.001444 & 0.1742 & 0.1751 & \textbf{0.1644 $\pm$ 0.1183} & 0.1644 & 0.2396 \\
+amcl violation pct (\%) & \textbf{0 $\pm$ 0} & 0 & 0 & \textbf{0 $\pm$ 0} & 0 & 0 & \textbf{0 $\pm$ 0} & 0 & 0 \\
+gt violation pct (\%) & 50 $\pm$ 70.71 & 50 & 95 & \textbf{0 $\pm$ 0} & 0 & 0 & \textbf{0 $\pm$ 0} & 0 & 0 \\
+gt goal xy m (m) & 0.2991 $\pm$ 0.01401 & 0.2991 & 0.308 & 0.6851 $\pm$ 0.4968 & 0.6851 & 1.001 & \textbf{0.2173 $\pm$ 0.09424} & 0.2173 & 0.2773 \\
+gt goal yaw rad (rad) & 0.2052 $\pm$ 0.006178 & 0.2052 & 0.2091 & 0.1833 $\pm$ 0.01422 & 0.1833 & 0.1924 & \textbf{0.1746 $\pm$ 0.1161} & 0.1746 & 0.2485 \\
+amcl rmse m (m) & 0.05348 $\pm$ 0.003633 & 0.05348 & 0.05579 & 0.04154 $\pm$ 0.001814 & 0.04154 & 0.04269 & \textbf{0.03232 $\pm$ 0.0007221} & 0.03232 & 0.03278 \\
+amcl p95 m (m) & 0.11 $\pm$ 0.02069 & 0.11 & 0.1232 & 0.08179 $\pm$ 0.00615 & 0.08179 & 0.08571 & \textbf{0.06948 $\pm$ 0.0006366} & 0.06948 & 0.06988 \\
+amcl max m (m) & 0.1661 $\pm$ 0.03224 & 0.1661 & 0.1866 & 0.1111 $\pm$ 0.00235 & 0.1111 & 0.1126 & \textbf{0.08427 $\pm$ 0.0001027} & 0.08427 & 0.08434 \\
+amcl heading rmse rad (rad) & 0.1447 $\pm$ 0.02395 & 0.1447 & 0.16 & 0.1175 $\pm$ 0.01967 & 0.1175 & 0.13 & \textbf{0.1001 $\pm$ 0.02} & 0.1001 & 0.1128 \\
+gt rmse m (m) & 0.075 $\pm$ 0.01846 & 0.075 & 0.08675 & 0.06614 $\pm$ 0.005136 & 0.06614 & 0.0694 & \textbf{0.04891 $\pm$ 0.0003514} & 0.04891 & 0.04913 \\
+gt p95 m (m) & 0.1435 $\pm$ 0.02893 & 0.1435 & 0.1619 & 0.1326 $\pm$ 0.00856 & 0.1326 & 0.138 & \textbf{0.0895 $\pm$ 0.007859} & 0.0895 & 0.0945 \\
+gt max m (m) & 0.189 $\pm$ 0.05363 & 0.189 & 0.2231 & 0.1489 $\pm$ 0.01168 & 0.1489 & 0.1563 & \textbf{0.1043 $\pm$ 0.003078} & 0.1043 & 0.1062 \\
+gt heading rmse rad (rad) & 0.1772 $\pm$ 0.02007 & 0.1772 & 0.1899 & 0.1225 $\pm$ 0.008971 & 0.1225 & 0.1282 & \textbf{0.1193 $\pm$ 0.00637} & 0.1193 & 0.1234 \\
+az rms m s2 (m/s2) & \textbf{3.074 $\pm$ 1.531} & 3.074 & 4.048 & 3.368 $\pm$ 1.493 & 3.368 & 4.318 & 4.875 $\pm$ 0.2009 & 4.875 & 5.003 \\
+az peak m s2 (m/s2) & \textbf{92.93 $\pm$ 57.96} & 92.93 & 129.8 & 99.5 $\pm$ 44.58 & 99.5 & 127.9 & 160.6 $\pm$ 28.31 & 160.6 & 178.6 \\
+roll rate rms rad s (rad/s) & 0.1524 $\pm$ 0.004414 & 0.1524 & 0.1552 & \textbf{0.1485 $\pm$ 0.0001306} & 0.1485 & 0.1486 & 0.1573 $\pm$ 0.007746 & 0.1573 & 0.1622 \\
+pitch rate rms rad s (rad/s) & \textbf{0.2099 $\pm$ 0.007769} & 0.2099 & 0.2148 & 0.2222 $\pm$ 0.003923 & 0.2222 & 0.2247 & 0.2145 $\pm$ 0.005743 & 0.2145 & 0.2181 \\
+jerk rms m s3 (m/s3) & \textbf{81.72 $\pm$ 41.17} & 81.72 & 107.9 & 89.38 $\pm$ 40.86 & 89.38 & 115.4 & 129.7 $\pm$ 5.068 & 129.7 & 132.9 \\
+jerk p95 m s3 (m/s3) & \textbf{69.05 $\pm$ 9.757} & 69.05 & 75.26 & 81.23 $\pm$ 12.91 & 81.23 & 89.44 & 78.92 $\pm$ 2.541 & 78.92 & 80.54 \\
+wheel rmse rad s (rad/s) & \textbf{1.258 $\pm$ 0.03595} & 1.258 & 1.281 & 1.447 $\pm$ 0.3792 & 1.447 & 1.689 & 1.305 $\pm$ 0.1145 & 1.305 & 1.378 \\
+torque rms nm (N m) & \textbf{0.41 $\pm$ 0.01359} & 0.41 & 0.4186 & 0.4939 $\pm$ 0.1213 & 0.4939 & 0.5711 & 0.4203 $\pm$ 0.05006 & 0.4203 & 0.4521 \\
+torque peak nm (N m) & \textbf{1.359 $\pm$ 0.001986} & 1.359 & 1.36 & 1.665 $\pm$ 0.3175 & 1.665 & 1.868 & 1.49 $\pm$ 0.2458 & 1.49 & 1.647 \\
+sac contribution pct (\%) & 0 $\pm$ 0 & 0 & 0 & 0 $\pm$ 0 & 0 & 0 & 41.88 $\pm$ 1.629 & 41.88 & 42.91 \\
+slew limit pct (\%) & \textbf{23.61 $\pm$ 1.075} & 23.61 & 24.29 & 37.5 $\pm$ 7.806 & 37.5 & 42.47 & 30.17 $\pm$ 2.091 & 30.17 & 31.5 \\
+saturation pct (\%) & 0.1098 $\pm$ 0.05459 & 0.1098 & 0.1446 & 4.823 $\pm$ 3.46 & 4.823 & 7.025 & \textbf{0.07599 $\pm$ 0.03235} & 0.07599 & 0.09658 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=0.5 m; full local windows only.}
+\label{tab:obstacle-1}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+local rmse m (m) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+peak az m s2 (m/s2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+peak jerk m s3 (m/s3) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+speed drop pct (\%) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+settling time s (s) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=1 m; full local windows only.}
+\label{tab:obstacle-2}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.1017 $\pm$ 0.02148 & 0.1017 & 0.1154 & \textbf{0.01671 $\pm$ 0.01007} & 0.01671 & 0.02312 & 0.05005 $\pm$ 0.04847 & 0.05005 & 0.08089 \\
+local rmse m (m) & 0.06247 $\pm$ 0.009624 & 0.06247 & 0.06859 & \textbf{0.008479 $\pm$ 0.005421} & 0.008479 & 0.01193 & 0.02949 $\pm$ 0.02678 & 0.02949 & 0.04654 \\
+peak az m s2 (m/s2) & 29.76 $\pm$ 31.38 & 29.76 & 49.73 & \textbf{24.85 $\pm$ 8.373} & 24.85 & 30.18 & 50.92 $\pm$ 34.36 & 50.92 & 72.78 \\
+peak jerk m s3 (m/s3) & 711.5 $\pm$ 731.2 & 711.5 & 1177 & \textbf{579.4 $\pm$ 194.7} & 579.4 & 703.3 & 1208 $\pm$ 804.1 & 1208 & 1720 \\
+speed drop pct (\%) & 99.74 $\pm$ 0.332 & 99.74 & 99.95 & 99.86 $\pm$ 0.1624 & 99.86 & 99.97 & \textbf{99.7 $\pm$ 0.1406} & 99.7 & 99.79 \\
+settling time s (s) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=1.5 m; full local windows only.}
+\label{tab:obstacle-3}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.1017 $\pm$ 0.02148 & 0.1017 & 0.1154 & \textbf{0.03678 $\pm$ 0.0005737} & 0.03678 & 0.03714 & 0.05556 $\pm$ 0.04079 & 0.05556 & 0.08152 \\
+local rmse m (m) & 0.08796 $\pm$ 0.01975 & 0.08796 & 0.1005 & \textbf{0.02172 $\pm$ 0.004732} & 0.02172 & 0.02474 & 0.04541 $\pm$ 0.04303 & 0.04541 & 0.0728 \\
+peak az m s2 (m/s2) & 29.13 $\pm$ 32.27 & 29.13 & 49.66 & \textbf{14.28 $\pm$ 6.579} & 14.28 & 18.47 & 86.97 $\pm$ 16.63 & 86.97 & 97.55 \\
+peak jerk m s3 (m/s3) & 711.5 $\pm$ 731.2 & 711.5 & 1177 & \textbf{338.9 $\pm$ 145.3} & 338.9 & 431.4 & 2049 $\pm$ 385.1 & 2049 & 2294 \\
+speed drop pct (\%) & \textbf{99.62 $\pm$ 0.02411} & 99.62 & 99.63 & 99.75 $\pm$ 0.04688 & 99.75 & 99.78 & 99.94 $\pm$ 0.02101 & 99.94 & 99.95 \\
+settling time s (s) & -- & -- & -- & \textbf{0.5 $\pm$ 0.02828} & 0.5 & 0.518 & 0.52 $\pm$ -- & 0.52 & 0.52 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=2.1667 m; full local windows only.}
+\label{tab:obstacle-4}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.09337 $\pm$ 0.025 & 0.09337 & 0.1093 & 0.1184 $\pm$ 0.005578 & 0.1184 & 0.122 & \textbf{0.0881 $\pm$ 0.005982} & 0.0881 & 0.09191 \\
+local rmse m (m) & 0.06098 $\pm$ 0.02437 & 0.06098 & 0.07649 & 0.05898 $\pm$ 0.002089 & 0.05898 & 0.06031 & \textbf{0.05437 $\pm$ 0.01542} & 0.05437 & 0.06418 \\
+peak az m s2 (m/s2) & \textbf{7.739 $\pm$ 1.953} & 7.739 & 8.982 & 99.5 $\pm$ 44.58 & 99.5 & 127.9 & 23.58 $\pm$ 24.46 & 23.58 & 39.15 \\
+peak jerk m s3 (m/s3) & \textbf{191.9 $\pm$ 61.88} & 191.9 & 231.3 & 2321 $\pm$ 1066 & 2321 & 2999 & 558.4 $\pm$ 558.7 & 558.4 & 914 \\
+speed drop pct (\%) & \textbf{99.71 $\pm$ 0.05913} & 99.71 & 99.75 & 99.91 $\pm$ 0.04362 & 99.91 & 99.94 & 99.96 $\pm$ 0.03253 & 99.96 & 99.98 \\
+settling time s (s) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=2.6667 m; full local windows only.}
+\label{tab:obstacle-5}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & \textbf{0.07016 $\pm$ 0.00425} & 0.07016 & 0.07287 & 0.1207 $\pm$ 0.008175 & 0.1207 & 0.1259 & 0.08156 $\pm$ 0.02114 & 0.08156 & 0.09502 \\
+local rmse m (m) & \textbf{0.04775 $\pm$ 0.0002619} & 0.04775 & 0.04792 & 0.09599 $\pm$ 0.008919 & 0.09599 & 0.1017 & 0.06105 $\pm$ 0.025 & 0.06105 & 0.07696 \\
+peak az m s2 (m/s2) & 15.43 $\pm$ 12.83 & 15.43 & 23.59 & 99.5 $\pm$ 44.58 & 99.5 & 127.9 & \textbf{9.734 $\pm$ 5.164} & 9.734 & 13.02 \\
+peak jerk m s3 (m/s3) & 360.2 $\pm$ 299.9 & 360.2 & 551.1 & 2321 $\pm$ 1066 & 2321 & 2999 & \textbf{236.8 $\pm$ 134.4} & 236.8 & 322.4 \\
+speed drop pct (\%) & 99.88 $\pm$ 0.1615 & 99.88 & 99.98 & \textbf{99.76 $\pm$ 0.04335} & 99.76 & 99.79 & 99.95 $\pm$ 0.04715 & 99.95 & 99.98 \\
+settling time s (s) & \textbf{0.64 $\pm$ --} & 0.64 & 0.64 & -- & -- & -- & 0.66 $\pm$ -- & 0.66 & 0.66 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=3.3333 m; full local windows only.}
+\label{tab:obstacle-6}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & \textbf{0.07331 $\pm$ 0.02661} & 0.07331 & 0.09025 & 0.1171 $\pm$ 0.01142 & 0.1171 & 0.1244 & 0.0876 $\pm$ 0.01223 & 0.0876 & 0.09538 \\
+local rmse m (m) & \textbf{0.04403 $\pm$ 0.01502} & 0.04403 & 0.05359 & 0.07069 $\pm$ 0.01294 & 0.07069 & 0.07892 & 0.06177 $\pm$ 0.01164 & 0.06177 & 0.06918 \\
+peak az m s2 (m/s2) & 19.33 $\pm$ 7.311 & 19.33 & 23.98 & \textbf{18.92 $\pm$ 7.56} & 18.92 & 23.73 & 75.51 $\pm$ 91.99 & 75.51 & 134.1 \\
+peak jerk m s3 (m/s3) & 462.3 $\pm$ 155.6 & 462.3 & 561.3 & \textbf{458.2 $\pm$ 152.6} & 458.2 & 555.3 & 1783 $\pm$ 2150 & 1783 & 3151 \\
+speed drop pct (\%) & 99.88 $\pm$ 0.1588 & 99.88 & 99.98 & \textbf{80.28 $\pm$ 6.616} & 80.28 & 84.49 & 94.53 $\pm$ 7.72 & 94.53 & 99.44 \\
+settling time s (s) & \textbf{0.62 $\pm$ --} & 0.62 & 0.62 & 0.66 $\pm$ -- & 0.66 & 0.66 & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=4 m; full local windows only.}
+\label{tab:obstacle-7}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.08869 $\pm$ 0.02586 & 0.08869 & 0.1051 & \textbf{0.03977 $\pm$ 0.01233} & 0.03977 & 0.04761 & 0.06949 $\pm$ 0.005664 & 0.06949 & 0.07309 \\
+local rmse m (m) & 0.06659 $\pm$ 0.02531 & 0.06659 & 0.0827 & \textbf{0.02381 $\pm$ 0.003222} & 0.02381 & 0.02586 & 0.04999 $\pm$ 0.01924 & 0.04999 & 0.06224 \\
+peak az m s2 (m/s2) & 10.87 $\pm$ 4.649 & 10.87 & 13.83 & 23.09 $\pm$ 26.51 & 23.09 & 39.96 & \textbf{7.454 $\pm$ 4.259} & 7.454 & 10.16 \\
+peak jerk m s3 (m/s3) & 264.3 $\pm$ 124.4 & 264.3 & 343.5 & 550 $\pm$ 622 & 550 & 945.8 & \textbf{183.3 $\pm$ 112.8} & 183.3 & 255 \\
+speed drop pct (\%) & 80.78 $\pm$ 15.91 & 80.78 & 90.91 & \textbf{63.14 $\pm$ 4.288} & 63.14 & 65.87 & 80.95 $\pm$ 16.29 & 80.95 & 91.32 \\
+settling time s (s) & -- & -- & -- & 0.36 $\pm$ 0 & 0.36 & 0.36 & \textbf{0.3 $\pm$ --} & 0.3 & 0.3 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=4.8333 m; full local windows only.}
+\label{tab:obstacle-8}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.0858 $\pm$ 0.01288 & 0.0858 & 0.094 & 0.1304 $\pm$ 0.008178 & 0.1304 & 0.1356 & \textbf{0.07052 $\pm$ 0.001244} & 0.07052 & 0.07131 \\
+local rmse m (m) & 0.05748 $\pm$ 0.03245 & 0.05748 & 0.07813 & 0.06842 $\pm$ 0.003121 & 0.06842 & 0.07041 & \textbf{0.05379 $\pm$ 0.00836} & 0.05379 & 0.05911 \\
+peak az m s2 (m/s2) & 9.557 $\pm$ 0.3066 & 9.557 & 9.752 & 12.57 $\pm$ 9.04 & 12.57 & 18.33 & \textbf{7.682 $\pm$ 2.002} & 7.682 & 8.956 \\
+peak jerk m s3 (m/s3) & 239.8 $\pm$ 20.08 & 239.8 & 252.5 & 263.5 $\pm$ 175.8 & 263.5 & 375.4 & \textbf{210 $\pm$ 66.73} & 210 & 252.5 \\
+speed drop pct (\%) & \textbf{99.84 $\pm$ 0.001046} & 99.84 & 99.84 & 99.86 $\pm$ 0.1413 & 99.86 & 99.95 & 99.85 $\pm$ 0.006772 & 99.85 & 99.86 \\
+settling time s (s) & \textbf{0.56 $\pm$ --} & 0.56 & 0.56 & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=5.6667 m; full local windows only.}
+\label{tab:obstacle-9}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.08055 $\pm$ 0.03359 & 0.08055 & 0.1019 & 0.1342 $\pm$ 0.00908 & 0.1342 & 0.14 & \textbf{0.07613 $\pm$ 0.006103} & 0.07613 & 0.08001 \\
+local rmse m (m) & 0.06546 $\pm$ 0.03756 & 0.06546 & 0.08937 & 0.1056 $\pm$ 0.01734 & 0.1056 & 0.1166 & \textbf{0.05556 $\pm$ 0.009156} & 0.05556 & 0.06139 \\
+peak az m s2 (m/s2) & 63.25 $\pm$ 79.59 & 63.25 & 113.9 & \textbf{6.288 $\pm$ 0.2263} & 6.288 & 6.432 & 30.33 $\pm$ 33.04 & 30.33 & 51.35 \\
+peak jerk m s3 (m/s3) & 1486 $\pm$ 1871 & 1486 & 2677 & \textbf{184.3 $\pm$ 31.36} & 184.3 & 204.2 & 732.3 $\pm$ 735.2 & 732.3 & 1200 \\
+speed drop pct (\%) & \textbf{99.55 $\pm$ 0.0376} & 99.55 & 99.58 & 99.86 $\pm$ 0.01256 & 99.86 & 99.86 & 99.76 $\pm$ 0.1472 & 99.76 & 99.85 \\
+settling time s (s) & 1.7 $\pm$ 1.131 & 1.7 & 2.42 & 0.92 $\pm$ -- & 0.92 & 0.92 & \textbf{0.66 $\pm$ 0.1131} & 0.66 & 0.732 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=6.5 m; full local windows only.}
+\label{tab:obstacle-10}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.05948 $\pm$ 0.02609 & 0.05948 & 0.07608 & 0.06362 $\pm$ 0.01673 & 0.06362 & 0.07427 & \textbf{0.05732 $\pm$ 0.01291} & 0.05732 & 0.06554 \\
+local rmse m (m) & \textbf{0.02922 $\pm$ 0.01546} & 0.02922 & 0.03906 & 0.03291 $\pm$ 0.003256 & 0.03291 & 0.03498 & 0.04009 $\pm$ 0.01403 & 0.04009 & 0.04901 \\
+peak az m s2 (m/s2) & \textbf{5.83 $\pm$ 0.499} & 5.83 & 6.147 & 15.3 $\pm$ 13.87 & 15.3 & 24.12 & 6.847 $\pm$ 0.1238 & 6.847 & 6.926 \\
+peak jerk m s3 (m/s3) & \textbf{123 $\pm$ 0.6134} & 123 & 123.4 & 394.2 $\pm$ 329.9 & 394.2 & 604.2 & 145.5 $\pm$ 1.296 & 145.5 & 146.4 \\
+speed drop pct (\%) & 87.04 $\pm$ 3.98 & 87.04 & 89.57 & \textbf{84.93 $\pm$ 3.693} & 84.93 & 87.28 & 90.98 $\pm$ 12.69 & 90.98 & 99.05 \\
+settling time s (s) & 0.53 $\pm$ 0.4667 & 0.53 & 0.827 & \textbf{0.22 $\pm$ --} & 0.22 & 0.22 & 0.48 $\pm$ -- & 0.48 & 0.48 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=7.3333 m; full local windows only.}
+\label{tab:obstacle-11}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.1139 $\pm$ 0.04125 & 0.1139 & 0.1401 & 0.1064 $\pm$ 0.01133 & 0.1064 & 0.1136 & \textbf{0.03468 $\pm$ 0.004127} & 0.03468 & 0.03731 \\
+local rmse m (m) & 0.05802 $\pm$ 0.01415 & 0.05802 & 0.06702 & 0.05218 $\pm$ 0.005578 & 0.05218 & 0.05573 & \textbf{0.01911 $\pm$ 0.003654} & 0.01911 & 0.02143 \\
+peak az m s2 (m/s2) & 61.09 $\pm$ 25.81 & 61.09 & 77.51 & \textbf{20.56 $\pm$ 15.54} & 20.56 & 30.45 & 48.44 $\pm$ 39.44 & 48.44 & 73.55 \\
+peak jerk m s3 (m/s3) & 1437 $\pm$ 616.4 & 1437 & 1829 & \textbf{481.2 $\pm$ 359.2} & 481.2 & 709.8 & 1116 $\pm$ 939.4 & 1116 & 1714 \\
+speed drop pct (\%) & 99.97 $\pm$ 0.03453 & 99.97 & 99.99 & 99.87 $\pm$ 0.0423 & 99.87 & 99.89 & \textbf{99.84 $\pm$ 0.08435} & 99.84 & 99.89 \\
+settling time s (s) & -- & -- & -- & -- & -- & -- & \textbf{0.76 $\pm$ 0.05657} & 0.76 & 0.796 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=8 m; full local windows only.}
+\label{tab:obstacle-12}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.1228 $\pm$ 0.05238 & 0.1228 & 0.1562 & 0.113 $\pm$ 0.01364 & 0.113 & 0.1217 & \textbf{0.06547 $\pm$ 0.05526} & 0.06547 & 0.1006 \\
+local rmse m (m) & 0.09394 $\pm$ 0.04266 & 0.09394 & 0.1211 & 0.08439 $\pm$ 0.01234 & 0.08439 & 0.09225 & \textbf{0.03476 $\pm$ 0.02998} & 0.03476 & 0.05384 \\
+peak az m s2 (m/s2) & \textbf{17.56 $\pm$ 9.728} & 17.56 & 23.75 & 73.53 $\pm$ 59.37 & 73.53 & 111.3 & 44.35 $\pm$ 5.562 & 44.35 & 47.89 \\
+peak jerk m s3 (m/s3) & \textbf{427.4 $\pm$ 234.7} & 427.4 & 576.7 & 1726 $\pm$ 1402 & 1726 & 2618 & 1042 $\pm$ 139.8 & 1042 & 1131 \\
+speed drop pct (\%) & 99.92 $\pm$ 0.03812 & 99.92 & 99.95 & \textbf{99.88 $\pm$ 0.07217} & 99.88 & 99.93 & 99.89 $\pm$ 0.03348 & 99.89 & 99.91 \\
+settling time s (s) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=8.6667 m; full local windows only.}
+\label{tab:obstacle-13}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.1418 $\pm$ 0.05309 & 0.1418 & 0.1756 & 0.1009 $\pm$ 0.03216 & 0.1009 & 0.1213 & \textbf{0.07727 $\pm$ 0.04126} & 0.07727 & 0.1035 \\
+local rmse m (m) & 0.06967 $\pm$ 0.03901 & 0.06967 & 0.09449 & \textbf{0.04342 $\pm$ 0.005154} & 0.04342 & 0.0467 & 0.05637 $\pm$ 0.04386 & 0.05637 & 0.08429 \\
+peak az m s2 (m/s2) & \textbf{17.56 $\pm$ 9.728} & 17.56 & 23.75 & 62.6 $\pm$ 74.82 & 62.6 & 110.2 & 146.6 $\pm$ 48.06 & 146.6 & 177.2 \\
+peak jerk m s3 (m/s3) & \textbf{427.4 $\pm$ 234.7} & 427.4 & 576.7 & 1473 $\pm$ 1760 & 1473 & 2593 & 3400 $\pm$ 1119 & 3400 & 4113 \\
+speed drop pct (\%) & 99.94 $\pm$ 0.05361 & 99.94 & 99.97 & 99.91 $\pm$ 0.1219 & 99.91 & 99.99 & \textbf{99.83 $\pm$ 0.09808} & 99.83 & 99.9 \\
+settling time s (s) & \textbf{0.6 $\pm$ --} & 0.6 & 0.6 & -- & -- & -- & 0.95 $\pm$ 0.8061 & 0.95 & 1.463 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Obstacle at world x=9.5 m; full local windows only.}
+\label{tab:obstacle-14}
+\begin{tabular}{p{0.30\textwidth}*{9}{r}}
+\toprule
+ & \multicolumn{3}{c}{PI} & \multicolumn{3}{c}{PID} & \multicolumn{3}{c}{PI+SAC} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Metric & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 & Mean $\pm$ SD & Median & P95 \\
+\midrule
+local peak error m (m) & 0.189 $\pm$ 0.05363 & 0.189 & 0.2231 & 0.157 $\pm$ -- & 0.157 & 0.157 & \textbf{0.07071 $\pm$ 0.01375} & 0.07071 & 0.07946 \\
+local rmse m (m) & 0.1296 $\pm$ 0.0387 & 0.1296 & 0.1543 & 0.1143 $\pm$ -- & 0.1143 & 0.1143 & \textbf{0.04731 $\pm$ 0.01818} & 0.04731 & 0.05887 \\
+peak az m s2 (m/s2) & 74.42 $\pm$ 84.15 & 74.42 & 128 & \textbf{6.542 $\pm$ --} & 6.542 & 6.542 & 23.78 $\pm$ 25.52 & 23.78 & 40.02 \\
+peak jerk m s3 (m/s3) & 1757 $\pm$ 1967 & 1757 & 3009 & \textbf{144 $\pm$ --} & 144 & 144 & 570.4 $\pm$ 610.5 & 570.4 & 958.9 \\
+speed drop pct (\%) & 99.99 $\pm$ 0.01473 & 99.99 & 100 & \textbf{99.93 $\pm$ --} & 99.93 & 99.93 & 99.98 $\pm$ 0.01417 & 99.98 & 99.99 \\
+settling time s (s) & \textbf{1.11 $\pm$ 0.2121} & 1.11 & 1.245 & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,3774 @@
+{
+  "analysis": {
+    "created_utc": "2026-10-28T16:54:07.545518+00:00",
+    "python": "3.12.3",
+    "numpy": "1.26.4"
+  },
+  "settings": {
+    "obstacle_x": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "window_radius_m": 0.5,
+    "max_deviation_m": 0.2,
+    "obstacle_axis": "progress"
+  },
+  "metric_units": {
+    "duration_s": "s",
+    "completion_time_s": "s",
+    "cross_track_rmse_sample_m": "m",
+    "cross_track_rmse_time_m": "m",
+    "cross_track_peak_m": "m",
+    "cross_track_iae_m_s": "m*s",
+    "cross_track_ise_m2_s": "m^2*s",
+    "cross_track_itae_m_s2": "m*s^2",
+    "within_max_deviation_pct": "%",
+    "heading_rmse_rad": "rad",
+    "acceleration_rms_m_s2": "m/s^2",
+    "acceleration_z_rms_m_s2": "m/s^2",
+    "acceleration_peak_m_s2": "m/s^2",
+    "sampled_jerk_rms_m_s3": "m/s^3",
+    "roll_peak_rad": "rad",
+    "pitch_peak_rad": "rad",
+    "gyro_rms_rad_s": "rad/s",
+    "wheel_tracking_rmse_rad_s": "rad/s",
+    "amcl_gt_position_rmse_m": "m",
+    "base_torque_rms_nm": "Nm",
+    "residual_torque_rms_nm": "Nm",
+    "total_torque_rms_nm": "Nm",
+    "total_torque_peak_nm": "Nm",
+    "final_left_torque_nm": "Nm",
+    "final_right_torque_nm": "Nm",
+    "torque_squared_integral_nm2_s": "Nm^2*s",
+    "sampled_torque_rate_rms_nm_s": "Nm/s",
+    "saturation_pct": "%",
+    "slew_limited_pct": "%",
+    "reward_total": "reward"
+  },
+  "groups": [
+    {
+      "label": "PI",
+      "paths": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134"
+      ],
+      "contexts": [
+        {
+          "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134",
+          "metadata": {
+            "mode": "baseline",
+            "seed": 1,
+            "map": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/maps/hall_01.yaml",
+            "observations": [
+              "cross_track",
+              "heading_error",
+              "remaining",
+              "roll",
+              "pitch",
+              "acc_x",
+              "acc_y",
+              "acc_z",
+              "gyro_x",
+              "gyro_y",
+              "gyro_z",
+              "speed",
+              "yaw_rate",
+              "cmd_speed",
+              "cmd_yaw_rate",
+              "wheel_left",
+              "wheel_right",
+              "base_left",
+              "base_right",
+              "previous_action_left",
+              "previous_action_right",
+              "residual_left",
+              "residual_right"
+            ],
+            "action_order": [
+              "left",
+              "right"
+            ],
+            "action_scale_nm": 0.3,
+            "model": null,
+            "deterministic": false,
+            "resume_model": null,
+            "resume_replay": null,
+            "target_timesteps": 10000,
+            "checkpoint_every": 100000,
+            "device": "cpu",
+            "device_info": "CPU",
+            "torch": "2.7.1+cu128",
+            "policy_validated": false
+          },
+          "config": {
+            "environment": {
+              "goal_x": 11.0,
+              "goal_y": 0.0,
+              "max_path_deviation": 0.2,
+              "residual_limit": 0.3,
+              "step_seconds": 0.1,
+              "max_episode_seconds": 90.0,
+              "sensor_timeout": 0.75,
+              "startup_timeout": 60.0,
+              "startup_progress_timeout": 15.0,
+              "startup_attempts": 3,
+              "headless": true
+            },
+            "reward": {
+              "progress": 20.0,
+              "cross_track": 8.0,
+              "heading": 0.5,
+              "vibration": 0.02,
+              "effort": 0.01,
+              "smoothness": 0.01,
+              "time": 0.05,
+              "success": 30.0,
+              "failure": -30.0
+            },
+            "sac": {
+              "learning_rate": 0.0003,
+              "buffer_size": 100000,
+              "learning_starts": 1000,
+              "batch_size": 256,
+              "gamma": 0.99,
+              "tau": 0.005,
+              "train_freq": 1,
+              "gradient_steps": 1,
+              "net_arch": [
+                128,
+                128
+              ]
+            }
+          },
+          "model": null
+        }
+      ],
+      "episodes": [
+        {
+          "group": "PI",
+          "episode": "episode_00001_232307_068658",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00001_232307_068658/steps.jsonl",
+          "source_sha256": "4ec3f1345c2e34c044ba54c31030bbe914e43e54da51ffb608e6129f83b04754",
+          "seed_label": 1,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 569,
+          "metrics": {
+            "duration_s": 58.655,
+            "completion_time_s": 58.655,
+            "cross_track_rmse_sample_m": 0.0523831353574274,
+            "cross_track_rmse_time_m": 0.052368188226881274,
+            "cross_track_peak_m": 0.15831665707628018,
+            "cross_track_iae_m_s": 2.4539955942364795,
+            "cross_track_ise_m2_s": 0.15762099976609475,
+            "cross_track_itae_m_s2": 87.8255537020587,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.17234219904490042,
+            "acceleration_rms_m_s2": 5.794551247342401,
+            "acceleration_z_rms_m_s2": 2.6828453960247507,
+            "acceleration_peak_m_s2": 121.89538138255907,
+            "sampled_jerk_rms_m_s3": 81.55004104547449,
+            "roll_peak_rad": 0.08089185228163248,
+            "pitch_peak_rad": 0.3262939165184782,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.4995944157119157,
+            "residual_torque_rms_nm": 0.0,
+            "total_torque_rms_nm": 0.4134596011938854,
+            "total_torque_peak_nm": 1.5759982209596455,
+            "final_left_torque_nm": 1.6777572578777676e-14,
+            "final_right_torque_nm": 3.891201400356354e-14,
+            "torque_squared_integral_nm2_s": 19.650569367140818,
+            "sampled_torque_rate_rms_nm_s": 3.276993852243384,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 205.4151694532508
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 57.47500000000003,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -1.2609679981287587,
+            "effort": 0.0,
+            "terminal": 30.0,
+            "time": -2.873749999999982,
+            "smoothness": 0.0,
+            "heading": -0.8535564422647773,
+            "progress": 219.00000326335442,
+            "vibration": -38.59655936970994
+          },
+          "notes": []
+        },
+        {
+          "group": "PI",
+          "episode": "episode_00002_232422_583346",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00002_232422_583346/steps.jsonl",
+          "source_sha256": "3428e19561907d8cb6f5e52dec823ecf8bfb84269b111483b3887bfd744801f0",
+          "seed_label": 2,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 480,
+          "metrics": {
+            "duration_s": 49.338,
+            "completion_time_s": 49.338,
+            "cross_track_rmse_sample_m": 0.05294144536976468,
+            "cross_track_rmse_time_m": 0.052855661292575865,
+            "cross_track_peak_m": 0.12787201451766306,
+            "cross_track_iae_m_s": 2.110694776206536,
+            "cross_track_ise_m2_s": 0.13520212444004123,
+            "cross_track_itae_m_s2": 59.00557503588877,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.12433286362240957,
+            "acceleration_rms_m_s2": 2.7949214192604304,
+            "acceleration_z_rms_m_s2": 1.075849451579459,
+            "acceleration_peak_m_s2": 27.50124050528493,
+            "sampled_jerk_rms_m_s3": 39.04701718812987,
+            "roll_peak_rad": 0.0816031154776888,
+            "pitch_peak_rad": 0.11193784166876888,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.4821872986376165,
+            "residual_torque_rms_nm": 0.0,
+            "total_torque_rms_nm": 0.416224353983531,
+            "total_torque_peak_nm": 1.3462552781100587,
+            "final_left_torque_nm": 3.796640494241917e-12,
+            "final_right_torque_nm": 2.8476582213785772e-12,
+            "torque_squared_integral_nm2_s": 16.76816217665549,
+            "sampled_torque_rate_rms_nm_s": 3.4840936019402013,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 234.6009180239261
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 48.39500000000011,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -1.08161699552033,
+            "effort": 0.0,
+            "terminal": 30.0,
+            "time": -2.4197499999999996,
+            "smoothness": 0.0,
+            "heading": -0.37406094898003817,
+            "progress": 216.03717980601843,
+            "vibration": -7.560833837591868
+          },
+          "notes": []
+        },
+        {
+          "group": "PI",
+          "episode": "episode_00003_232529_219570",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00003_232529_219570/steps.jsonl",
+          "source_sha256": "f28ae4987e86494a71c74a408c1efdda8f93a3ef3f1b100e5383961bd445e89a",
+          "seed_label": 3,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 501,
+          "metrics": {
+            "duration_s": 51.607000000000006,
+            "completion_time_s": 51.607000000000006,
+            "cross_track_rmse_sample_m": 0.05425936086275265,
+            "cross_track_rmse_time_m": 0.05422539948145707,
+            "cross_track_peak_m": 0.10877819747553774,
+            "cross_track_iae_m_s": 2.278938568638144,
+            "cross_track_ise_m2_s": 0.14877217223973896,
+            "cross_track_itae_m_s2": 72.78724562429757,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.11583834783190648,
+            "acceleration_rms_m_s2": 4.929296000125691,
+            "acceleration_z_rms_m_s2": 3.6377871540088917,
+            "acceleration_peak_m_s2": 102.22702344845206,
+            "sampled_jerk_rms_m_s3": 67.96105258860125,
+            "roll_peak_rad": 0.08125120144041008,
+            "pitch_peak_rad": 0.3251253928347765,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.5852022721257027,
+            "residual_torque_rms_nm": 0.0,
+            "total_torque_rms_nm": 0.4741262444150646,
+            "total_torque_peak_nm": 1.5902646555652904,
+            "final_left_torque_nm": 8.383726513743945e-12,
+            "final_right_torque_nm": 7.338544187135907e-12,
+            "torque_squared_integral_nm2_s": 22.747526033520018,
+            "sampled_torque_rate_rms_nm_s": 3.926577145230102,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 216.88710009747524
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 50.59600000000009,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -1.1901773779179117,
+            "effort": 0.0,
+            "terminal": 30.0,
+            "time": -2.5297999999999954,
+            "smoothness": 0.0,
+            "heading": -0.3394617905135154,
+            "progress": 215.53412999471942,
+            "vibration": -24.587590728812884
+          },
+          "notes": []
+        },
+        {
+          "group": "PI",
+          "episode": "episode_00004_232637_827539",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00004_232637_827539/steps.jsonl",
+          "source_sha256": "bbfd56413717af9ae6aac82cba8e1fb7dcac201e36c275e0ac7dbf1df7214753",
+          "seed_label": 4,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 577,
+          "metrics": {
+            "duration_s": 59.42400000000001,
+            "completion_time_s": 59.42400000000001,
+            "cross_track_rmse_sample_m": 0.053983058817329156,
+            "cross_track_rmse_time_m": 0.053979488341986244,
+            "cross_track_peak_m": 0.12853908554491644,
+            "cross_track_iae_m_s": 2.5651599628537483,
+            "cross_track_ise_m2_s": 0.16952984827585527,
+            "cross_track_itae_m_s2": 84.16309111812724,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.1711923610626261,
+            "acceleration_rms_m_s2": 5.023389467068705,
+            "acceleration_z_rms_m_s2": 3.79273779024795,
+            "acceleration_peak_m_s2": 93.89325192463038,
+            "sampled_jerk_rms_m_s3": 69.93357890304014,
+            "roll_peak_rad": 0.07734439036076021,
+            "pitch_peak_rad": 0.10660848953710224,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.4703031094479701,
+            "residual_torque_rms_nm": 0.0,
+            "total_torque_rms_nm": 0.391623898842741,
+            "total_torque_peak_nm": 1.3017241240159698,
+            "final_left_torque_nm": 3.822376735478402e-14,
+            "final_right_torque_nm": 6.922694286085575e-14,
+            "torque_squared_integral_nm2_s": 17.8466626820403,
+            "sampled_torque_rate_rms_nm_s": 2.9936445985645386,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 214.90595689636143
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 58.18200000000007,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -1.3562387862068428,
+            "effort": 0.0,
+            "terminal": 30.0,
+            "time": -2.909099999999986,
+            "smoothness": 0.0,
+            "heading": -0.8525648311279442,
+            "progress": 219.38766629753584,
+            "vibration": -29.363805783839766
+          },
+          "notes": []
+        },
+        {
+          "group": "PI",
+          "episode": "episode_00006_232828_054917",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00006_232828_054917/steps.jsonl",
+          "source_sha256": "03313dc50c16d37749580279369507028cb6d81115e9ac8927d63023ad16cfb1",
+          "seed_label": 5,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 560,
+          "metrics": {
+            "duration_s": 57.656,
+            "completion_time_s": 57.656,
+            "cross_track_rmse_sample_m": 0.06934811803168048,
+            "cross_track_rmse_time_m": 0.06933981062273982,
+            "cross_track_peak_m": 0.1867208758754666,
+            "cross_track_iae_m_s": 3.1470010251159746,
+            "cross_track_ise_m2_s": 0.2717967678317707,
+            "cross_track_itae_m_s2": 114.35953947206926,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.21886072241183416,
+            "acceleration_rms_m_s2": 2.4436046948529477,
+            "acceleration_z_rms_m_s2": 1.436029071505967,
+            "acceleration_peak_m_s2": 25.980530465898838,
+            "sampled_jerk_rms_m_s3": 34.27054723333711,
+            "roll_peak_rad": 0.0789730276344508,
+            "pitch_peak_rad": 0.11253327175032236,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.47839714556710017,
+            "residual_torque_rms_nm": 0.0,
+            "total_torque_rms_nm": 0.4037253225468429,
+            "total_torque_peak_nm": 1.3358376808288166,
+            "final_left_torque_nm": 6.8377082696132325e-15,
+            "final_right_torque_nm": 2.5111118676972466e-14,
+            "torque_squared_integral_nm2_s": 18.428117023571374,
+            "sampled_torque_rate_rms_nm_s": 3.1159794329251964,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 236.4119181542733
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 56.530000000000086,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -2.1743741426541647,
+            "effort": 0.0,
+            "terminal": 30.0,
+            "time": -2.8264999999999882,
+            "smoothness": 0.0,
+            "heading": -1.3538939470005162,
+            "progress": 219.51772937859016,
+            "vibration": -6.751043134662157
+          },
+          "notes": []
+        },
+        {
+          "group": "PI",
+          "episode": "episode_00007_232944_065017",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00007_232944_065017/steps.jsonl",
+          "source_sha256": "17a2f92c1f166858f13f2f427bdb7800f63016e1cf7f5a0d03ecbbc54396f54f",
+          "seed_label": 6,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 483,
+          "metrics": {
+            "duration_s": 49.67700000000001,
+            "completion_time_s": 49.67700000000001,
+            "cross_track_rmse_sample_m": 0.04506379237989556,
+            "cross_track_rmse_time_m": 0.04504305465673482,
+            "cross_track_peak_m": 0.11887753913987721,
+            "cross_track_iae_m_s": 1.7243653728894708,
+            "cross_track_ise_m2_s": 0.0987535480397347,
+            "cross_track_itae_m_s2": 46.9698081423945,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.1123269348840636,
+            "acceleration_rms_m_s2": 2.4207713145669336,
+            "acceleration_z_rms_m_s2": 1.2911775985067289,
+            "acceleration_peak_m_s2": 15.834833518132635,
+            "sampled_jerk_rms_m_s3": 34.09882560501766,
+            "roll_peak_rad": 0.08091506546381948,
+            "pitch_peak_rad": 0.3206662960095462,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.5102249067081892,
+            "residual_torque_rms_nm": 0.0,
+            "total_torque_rms_nm": 0.4352317768050251,
+            "total_torque_peak_nm": 1.4778720092183066,
+            "final_left_torque_nm": -8.940995930898077e-08,
+            "final_right_torque_nm": -8.779206953474136e-08,
+            "torque_squared_integral_nm2_s": 18.440310346903605,
+            "sampled_torque_rate_rms_nm_s": 3.529452028330281,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 236.62166020299566
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 48.674000000000106,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -0.7900283843178773,
+            "effort": 0.0,
+            "terminal": 30.0,
+            "time": -2.4337000000000004,
+            "smoothness": 0.0,
+            "heading": -0.30706821089201963,
+            "progress": 215.85717980838865,
+            "vibration": -5.704723010183081
+          },
+          "notes": []
+        },
+        {
+          "group": "PI",
+          "episode": "episode_00008_233048_911722",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00008_233048_911722/steps.jsonl",
+          "source_sha256": "35979d2444c06d9db80340fb4845ac0d1999ccd18088a22e0da5d1e059ca946b",
+          "seed_label": 7,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 471,
+          "metrics": {
+            "duration_s": 48.457,
+            "completion_time_s": 48.457,
+            "cross_track_rmse_sample_m": 0.04238653649024533,
+            "cross_track_rmse_time_m": 0.04237539925110503,
+            "cross_track_peak_m": 0.12613813703133198,
+            "cross_track_iae_m_s": 1.5580270300031183,
+            "cross_track_ise_m2_s": 0.08532865474507356,
+            "cross_track_itae_m_s2": 42.49408497703784,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.10208154910447671,
+            "acceleration_rms_m_s2": 3.4733845863487445,
+            "acceleration_z_rms_m_s2": 2.2625611672351553,
+            "acceleration_peak_m_s2": 48.7810231843873,
+            "sampled_jerk_rms_m_s3": 46.75797552160948,
+            "roll_peak_rad": 0.08098571762240221,
+            "pitch_peak_rad": 0.10103636708685161,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.5095191482290087,
+            "residual_torque_rms_nm": 0.0,
+            "total_torque_rms_nm": 0.40337370417341495,
+            "total_torque_peak_nm": 1.383716390152788,
+            "final_left_torque_nm": -6.17819704505064e-05,
+            "final_right_torque_nm": -6.178318458904774e-05,
+            "torque_squared_integral_nm2_s": 15.4636657888836,
+            "sampled_torque_rate_rms_nm_s": 3.5387802096243974,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 230.38208635250234
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 47.51900000000011,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.6826292379605889,
+            "effort": 0.0,
+            "terminal": 30.0,
+            "time": -2.375950000000002,
+            "smoothness": 0.0,
+            "heading": -0.2475892594601226,
+            "progress": 215.15401978255804,
+            "vibration": -11.465764932634995
+          },
+          "notes": []
+        }
+      ],
+      "startup_only_sessions": 1,
+      "invalid_episodes": 0,
+      "infrastructure_event_count": 1
+    },
+    {
+      "label": "PI+SAC (50k)",
+      "paths": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556"
+      ],
+      "contexts": [
+        {
+          "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556",
+          "metadata": {
+            "mode": "evaluate",
+            "seed": 1,
+            "map": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/maps/hall_01.yaml",
+            "observations": [
+              "cross_track",
+              "heading_error",
+              "remaining",
+              "roll",
+              "pitch",
+              "acc_x",
+              "acc_y",
+              "acc_z",
+              "gyro_x",
+              "gyro_y",
+              "gyro_z",
+              "speed",
+              "yaw_rate",
+              "cmd_speed",
+              "cmd_yaw_rate",
+              "wheel_left",
+              "wheel_right",
+              "base_left",
+              "base_right",
+              "previous_action_left",
+              "previous_action_right",
+              "residual_left",
+              "residual_right"
+            ],
+            "action_order": [
+              "left",
+              "right"
+            ],
+            "action_scale_nm": 0.3,
+            "model": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/model.zip",
+            "deterministic": true,
+            "resume_model": null,
+            "resume_replay": null,
+            "target_timesteps": 10000,
+            "checkpoint_every": 100000,
+            "device": "cuda",
+            "device_info": "NVIDIA GeForce RTX 4060 Laptop GPU, CUDA 12.8",
+            "torch": "2.7.1+cu128",
+            "policy_validated": false
+          },
+          "config": {
+            "environment": {
+              "goal_x": 11.0,
+              "goal_y": 0.0,
+              "max_path_deviation": 0.2,
+              "residual_limit": 0.3,
+              "step_seconds": 0.1,
+              "max_episode_seconds": 90.0,
+              "sensor_timeout": 0.75,
+              "startup_timeout": 60.0,
+              "startup_progress_timeout": 15.0,
+              "startup_attempts": 3,
+              "headless": true
+            },
+            "reward": {
+              "progress": 20.0,
+              "cross_track": 8.0,
+              "heading": 0.5,
+              "vibration": 0.02,
+              "effort": 0.01,
+              "smoothness": 0.01,
+              "time": 0.05,
+              "success": 30.0,
+              "failure": -30.0
+            },
+            "sac": {
+              "learning_rate": 0.0003,
+              "buffer_size": 100000,
+              "learning_starts": 1000,
+              "batch_size": 256,
+              "gamma": 0.99,
+              "tau": 0.005,
+              "train_freq": 1,
+              "gradient_steps": 1,
+              "net_arch": [
+                128,
+                128
+              ]
+            }
+          },
+          "model": {
+            "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/model.zip",
+            "timesteps": 50000,
+            "sha256": "dfbf139cacd3f02c8b7c08df6532049edc632090d0b4dafb4be66fc63f14b1ce"
+          }
+        }
+      ],
+      "episodes": [
+        {
+          "group": "PI+SAC (50k)",
+          "episode": "episode_00001_233156_143190",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00001_233156_143190/steps.jsonl",
+          "source_sha256": "637e2b3d8ea2c6cab8f5f1f34276eb5a8d173e49af9dd5cdfc4edb784a9d131a",
+          "seed_label": 1,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 451,
+          "metrics": {
+            "duration_s": 47.628,
+            "completion_time_s": 47.628,
+            "cross_track_rmse_sample_m": 0.032830037991187416,
+            "cross_track_rmse_time_m": 0.032862580114880253,
+            "cross_track_peak_m": 0.07421849494781285,
+            "cross_track_iae_m_s": 1.2497240588463896,
+            "cross_track_ise_m2_s": 0.049112848486263606,
+            "cross_track_itae_m_s2": 28.987289551754046,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.1062175269470368,
+            "acceleration_rms_m_s2": 3.9993090468411485,
+            "acceleration_z_rms_m_s2": 2.6897028387046893,
+            "acceleration_peak_m_s2": 74.13276131847827,
+            "sampled_jerk_rms_m_s3": 53.82856365887875,
+            "roll_peak_rad": 0.08046350292767003,
+            "pitch_peak_rad": 0.10937714690826318,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.4401567011436201,
+            "residual_torque_rms_nm": 0.17429816913578905,
+            "total_torque_rms_nm": 0.38964441122493,
+            "total_torque_peak_nm": 1.203005244685953,
+            "final_left_torque_nm": -2.7438831376838027e-06,
+            "final_right_torque_nm": -2.7602338938456805e-06,
+            "torque_squared_integral_nm2_s": 13.808887967801732,
+            "sampled_torque_rate_rms_nm_s": 3.5279909046536324,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 224.4750763451018
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 45.477000000000146,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.392902787890109,
+            "effort": -0.3146532041999418,
+            "terminal": 30.0,
+            "time": -2.2738500000000057,
+            "smoothness": -2.852254236412318,
+            "heading": -0.25653946407458417,
+            "progress": 215.11288887561918,
+            "vibration": -14.547612837940429
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (50k)",
+          "episode": "episode_00002_233301_990037",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00002_233301_990037/steps.jsonl",
+          "source_sha256": "5d78017db9242fc49c0c7958f66121852f46e5bc19cdea3009e430382f8e1d46",
+          "seed_label": 2,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 463,
+          "metrics": {
+            "duration_s": 48.980000000000004,
+            "completion_time_s": 48.980000000000004,
+            "cross_track_rmse_sample_m": 0.03482268680398733,
+            "cross_track_rmse_time_m": 0.034829720988476684,
+            "cross_track_peak_m": 0.08165223541508572,
+            "cross_track_iae_m_s": 1.3510509894038318,
+            "cross_track_ise_m2_s": 0.05667283483600109,
+            "cross_track_itae_m_s2": 32.4391351267448,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.08495378822767834,
+            "acceleration_rms_m_s2": 7.5331400115338685,
+            "acceleration_z_rms_m_s2": 2.7910806991257755,
+            "acceleration_peak_m_s2": 130.95071597262577,
+            "sampled_jerk_rms_m_s3": 103.90431347782311,
+            "roll_peak_rad": 0.08058455440899136,
+            "pitch_peak_rad": 0.10844034896265155,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.48685809808156516,
+            "residual_torque_rms_nm": 0.17209423173937247,
+            "total_torque_rms_nm": 0.42436249112170205,
+            "total_torque_peak_nm": 1.7101042180561379,
+            "final_left_torque_nm": 8.175304840662873e-12,
+            "final_right_torque_nm": 9.563344845143034e-12,
+            "torque_squared_integral_nm2_s": 16.82592396936459,
+            "sampled_torque_rate_rms_nm_s": 3.4413197130806084,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 186.4874121510308
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 46.717000000000056,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.45338267868800886,
+            "effort": -0.3097656854216103,
+            "terminal": 30.0,
+            "time": -2.3358500000000015,
+            "smoothness": -2.453728934968149,
+            "heading": -0.16858170797648697,
+            "progress": 215.2308328823222,
+            "vibration": -53.022111724237355
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (50k)",
+          "episode": "episode_00004_233443_395108",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00004_233443_395108/steps.jsonl",
+          "source_sha256": "56b4cb9e1e7b60aaffea327e57d7e94a4232efc98db1ab2fa8929b3381c915e7",
+          "seed_label": 3,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 453,
+          "metrics": {
+            "duration_s": 47.943,
+            "completion_time_s": 47.943,
+            "cross_track_rmse_sample_m": 0.03548858191586911,
+            "cross_track_rmse_time_m": 0.03548662140645923,
+            "cross_track_peak_m": 0.09372551334956913,
+            "cross_track_iae_m_s": 1.3195502728656552,
+            "cross_track_ise_m2_s": 0.057563875960520774,
+            "cross_track_itae_m_s2": 35.88103180437278,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.09828656040419909,
+            "acceleration_rms_m_s2": 6.276854703263742,
+            "acceleration_z_rms_m_s2": 4.460678012244091,
+            "acceleration_peak_m_s2": 103.33519420847787,
+            "sampled_jerk_rms_m_s3": 83.20995127197831,
+            "roll_peak_rad": 0.07929329651593832,
+            "pitch_peak_rad": 0.12044536169737938,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.4475600524403238,
+            "residual_torque_rms_nm": 0.171673201398479,
+            "total_torque_rms_nm": 0.3974977428298802,
+            "total_torque_peak_nm": 1.334770267627705,
+            "final_left_torque_nm": -4.327404451311713e-06,
+            "final_right_torque_nm": -4.3274386240364535e-06,
+            "torque_squared_integral_nm2_s": 14.445083335735472,
+            "sampled_torque_rate_rms_nm_s": 3.648700410948981,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 203.039637064159
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 45.711000000000034,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.46051100768416625,
+            "effort": -0.3042027373827437,
+            "terminal": 30.0,
+            "time": -2.2855500000000006,
+            "smoothness": -2.5080322068183163,
+            "heading": -0.22078979716037583,
+            "progress": 214.8379897111152,
+            "vibration": -36.019266897910676
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (50k)",
+          "episode": "episode_00005_233548_201204",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00005_233548_201204/steps.jsonl",
+          "source_sha256": "c7dbd974b9f84a710ec2d91e85f7511c3be8975e2a4ce7c114c068e2cc21f3ea",
+          "seed_label": 4,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 457,
+          "metrics": {
+            "duration_s": 48.266999999999996,
+            "completion_time_s": 48.266999999999996,
+            "cross_track_rmse_sample_m": 0.03984278274742518,
+            "cross_track_rmse_time_m": 0.03985014076336241,
+            "cross_track_peak_m": 0.1278853231970506,
+            "cross_track_iae_m_s": 1.4339076734531895,
+            "cross_track_ise_m2_s": 0.07321788264175005,
+            "cross_track_itae_m_s2": 41.004682419914914,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.1053230065920262,
+            "acceleration_rms_m_s2": 3.1522154281946966,
+            "acceleration_z_rms_m_s2": 1.5993441477852988,
+            "acceleration_peak_m_s2": 48.59181258237421,
+            "sampled_jerk_rms_m_s3": 42.15111670450997,
+            "roll_peak_rad": 0.08025727697996093,
+            "pitch_peak_rad": 0.1163048398157377,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.44506316628020176,
+            "residual_torque_rms_nm": 0.17423426208445048,
+            "total_torque_rms_nm": 0.40326328430926395,
+            "total_torque_peak_nm": 1.2664705830760532,
+            "final_left_torque_nm": -1.8046881743636153e-06,
+            "final_right_torque_nm": -1.8045354851431379e-06,
+            "torque_squared_integral_nm2_s": 14.995633146026348,
+            "sampled_torque_rate_rms_nm_s": 3.521693487030411,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 229.64062230623318
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 46.10600000000012,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.5857430611340011,
+            "effort": -0.31825242313559227,
+            "terminal": 30.0,
+            "time": -2.3053000000000043,
+            "smoothness": -2.7385538770652786,
+            "heading": -0.25572544709746464,
+            "progress": 215.0068075516184,
+            "vibration": -9.16261043695299
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (50k)",
+          "episode": "episode_00006_233654_641541",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00006_233654_641541/steps.jsonl",
+          "source_sha256": "838786733dd815f48b82c8e4cf4b52bd7a805d5501696dfec94867a070d3c967",
+          "seed_label": 5,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 466,
+          "metrics": {
+            "duration_s": 49.244,
+            "completion_time_s": 49.244,
+            "cross_track_rmse_sample_m": 0.03543112378243173,
+            "cross_track_rmse_time_m": 0.0354372691599143,
+            "cross_track_peak_m": 0.09145068628062393,
+            "cross_track_iae_m_s": 1.2985409334699107,
+            "cross_track_ise_m2_s": 0.058976137537390255,
+            "cross_track_itae_m_s2": 34.55661473895225,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.11185963452524812,
+            "acceleration_rms_m_s2": 7.0944132586456545,
+            "acceleration_z_rms_m_s2": 3.7459386485194526,
+            "acceleration_peak_m_s2": 123.22953176177472,
+            "sampled_jerk_rms_m_s3": 96.13680398737499,
+            "roll_peak_rad": 0.08094626747140991,
+            "pitch_peak_rad": 0.30834829297915245,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.5098091402040665,
+            "residual_torque_rms_nm": 0.16923398827857244,
+            "total_torque_rms_nm": 0.45251167702153466,
+            "total_torque_peak_nm": 1.6580306667758635,
+            "final_left_torque_nm": -2.4767390229436445e-06,
+            "final_right_torque_nm": -2.4767895176068154e-06,
+            "torque_squared_integral_nm2_s": 19.23292813251896,
+            "sampled_torque_rate_rms_nm_s": 3.8231711064395757,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 191.38397460484205
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 46.96300000000015,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.47180910029912193,
+            "effort": -0.3055562158966263,
+            "terminal": 30.0,
+            "time": -2.3481500000000026,
+            "smoothness": -2.5836839870579746,
+            "heading": -0.2938140964589017,
+            "progress": 214.66060080231665,
+            "vibration": -47.273612797762055
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (50k)",
+          "episode": "episode_00007_233801_629865",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00007_233801_629865/steps.jsonl",
+          "source_sha256": "43a8ce270d1ba87d10a6714b4a44978f980affe54c2ef69fbc4d6bd292f6b3fe",
+          "seed_label": 6,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 475,
+          "metrics": {
+            "duration_s": 50.290000000000006,
+            "completion_time_s": 50.290000000000006,
+            "cross_track_rmse_sample_m": 0.03403010529907155,
+            "cross_track_rmse_time_m": 0.03403109015462813,
+            "cross_track_peak_m": 0.09445639934586769,
+            "cross_track_iae_m_s": 1.3291195707993597,
+            "cross_track_ise_m2_s": 0.0555339351367352,
+            "cross_track_itae_m_s2": 34.77922861926551,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.10959548929027836,
+            "acceleration_rms_m_s2": 7.529967690408066,
+            "acceleration_z_rms_m_s2": 5.901952446211774,
+            "acceleration_peak_m_s2": 98.38672266666198,
+            "sampled_jerk_rms_m_s3": 101.53624332713672,
+            "roll_peak_rad": 0.07899531356852552,
+            "pitch_peak_rad": 0.32443223375064084,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.5499893811954552,
+            "residual_torque_rms_nm": 0.18096419967517705,
+            "total_torque_rms_nm": 0.48756917754968443,
+            "total_torque_peak_nm": 1.6492061351669398,
+            "final_left_torque_nm": -2.611169663457143e-06,
+            "final_right_torque_nm": -2.6520430189703764e-06,
+            "torque_squared_integral_nm2_s": 22.79865400258363,
+            "sampled_torque_rate_rms_nm_s": 4.036348576976586,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 184.7859646281196
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 47.95200000000005,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -0.4442714810938815,
+            "effort": -0.35230571570105756,
+            "terminal": 30.0,
+            "time": -2.397599999999996,
+            "smoothness": -3.0115696332806614,
+            "heading": -0.2879798424360661,
+            "progress": 215.6576557855951,
+            "vibration": -54.37796448496401
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (50k)",
+          "episode": "episode_00008_233912_080623",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00008_233912_080623/steps.jsonl",
+          "source_sha256": "0462c3bb633390ff449a1ee0bbb3429d8c9410f37356f7d1b0a1f2227200afe3",
+          "seed_label": 7,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 501,
+          "metrics": {
+            "duration_s": 52.983000000000004,
+            "completion_time_s": 52.983000000000004,
+            "cross_track_rmse_sample_m": 0.06016021618935949,
+            "cross_track_rmse_time_m": 0.060162556999235735,
+            "cross_track_peak_m": 0.1880680609041394,
+            "cross_track_iae_m_s": 2.0946519643900556,
+            "cross_track_ise_m2_s": 0.1830832315943621,
+            "cross_track_itae_m_s2": 56.23475245673752,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.16675868315247597,
+            "acceleration_rms_m_s2": 1.7657989901232904,
+            "acceleration_z_rms_m_s2": 1.0775443754672611,
+            "acceleration_peak_m_s2": 10.881811229722537,
+            "sampled_jerk_rms_m_s3": 23.55037066637164,
+            "roll_peak_rad": 0.08032425349328665,
+            "pitch_peak_rad": 0.11820866746296162,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.45009021822767636,
+            "residual_torque_rms_nm": 0.19776103974051923,
+            "total_torque_rms_nm": 0.4086222849656543,
+            "total_torque_peak_nm": 1.415849105663356,
+            "final_left_torque_nm": 8.478104935732003e-13,
+            "final_right_torque_nm": 9.825127954226523e-13,
+            "torque_squared_integral_nm2_s": 16.891572784996185,
+            "sampled_torque_rate_rms_nm_s": 3.4802398491495588,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 233.65917198457225
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 50.58200000000007,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -1.4646658527548975,
+            "effort": -0.4442527652340995,
+            "terminal": 30.0,
+            "time": -2.529099999999995,
+            "smoothness": -4.03444511617931,
+            "heading": -0.7033037215650608,
+            "progress": 215.98927957012185,
+            "vibration": -3.1543401298162164
+          },
+          "notes": []
+        }
+      ],
+      "startup_only_sessions": 1,
+      "invalid_episodes": 0,
+      "infrastructure_event_count": 1
+    },
+    {
+      "label": "PI+SAC (70k)",
+      "paths": [
+        "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376"
+      ],
+      "contexts": [
+        {
+          "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376",
+          "metadata": {
+            "mode": "evaluate",
+            "seed": 1,
+            "map": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/maps/hall_01.yaml",
+            "observations": [
+              "cross_track",
+              "heading_error",
+              "remaining",
+              "roll",
+              "pitch",
+              "acc_x",
+              "acc_y",
+              "acc_z",
+              "gyro_x",
+              "gyro_y",
+              "gyro_z",
+              "speed",
+              "yaw_rate",
+              "cmd_speed",
+              "cmd_yaw_rate",
+              "wheel_left",
+              "wheel_right",
+              "base_left",
+              "base_right",
+              "previous_action_left",
+              "previous_action_right",
+              "residual_left",
+              "residual_right"
+            ],
+            "action_order": [
+              "left",
+              "right"
+            ],
+            "action_scale_nm": 0.3,
+            "model": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/model.zip",
+            "deterministic": true,
+            "resume_model": null,
+            "resume_replay": null,
+            "target_timesteps": 10000,
+            "checkpoint_every": 100000,
+            "device": "cuda",
+            "device_info": "NVIDIA GeForce RTX 4060 Laptop GPU, CUDA 12.8",
+            "torch": "2.7.1+cu128",
+            "policy_validated": false
+          },
+          "config": {
+            "environment": {
+              "goal_x": 11.0,
+              "goal_y": 0.0,
+              "max_path_deviation": 0.2,
+              "residual_limit": 0.3,
+              "step_seconds": 0.1,
+              "max_episode_seconds": 90.0,
+              "sensor_timeout": 0.75,
+              "startup_timeout": 60.0,
+              "startup_progress_timeout": 15.0,
+              "startup_attempts": 3,
+              "headless": true
+            },
+            "reward": {
+              "progress": 20.0,
+              "cross_track": 8.0,
+              "heading": 0.5,
+              "vibration": 0.02,
+              "effort": 0.01,
+              "smoothness": 0.01,
+              "time": 0.05,
+              "success": 30.0,
+              "failure": -30.0
+            },
+            "sac": {
+              "learning_rate": 0.0003,
+              "buffer_size": 100000,
+              "learning_starts": 1000,
+              "batch_size": 256,
+              "gamma": 0.99,
+              "tau": 0.005,
+              "train_freq": 1,
+              "gradient_steps": 1,
+              "net_arch": [
+                128,
+                128
+              ]
+            }
+          },
+          "model": {
+            "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/model.zip",
+            "timesteps": 70000,
+            "sha256": "bab34bc5eaf55e91a1f52a2dcc019c145250d1ead54534aca64b30ab30b966e6"
+          }
+        }
+      ],
+      "episodes": [
+        {
+          "group": "PI+SAC (70k)",
+          "episode": "episode_00001_234229_229989",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00001_234229_229989/steps.jsonl",
+          "source_sha256": "03564913b327fb85b6e14b27ff3511f5d4db975f47eb7f6ef469a88f24974439",
+          "seed_label": 1,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 453,
+          "metrics": {
+            "duration_s": 47.913000000000004,
+            "completion_time_s": 47.913000000000004,
+            "cross_track_rmse_sample_m": 0.040253567024520064,
+            "cross_track_rmse_time_m": 0.040249281989648944,
+            "cross_track_peak_m": 0.07660792088080803,
+            "cross_track_iae_m_s": 1.595080804120094,
+            "cross_track_ise_m2_s": 0.0739888546895612,
+            "cross_track_itae_m_s2": 42.392360890882244,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.10278998314825313,
+            "acceleration_rms_m_s2": 3.8208895269364036,
+            "acceleration_z_rms_m_s2": 2.6876060042972822,
+            "acceleration_peak_m_s2": 50.69001827891442,
+            "sampled_jerk_rms_m_s3": 52.52217148476932,
+            "roll_peak_rad": 0.08104547924684716,
+            "pitch_peak_rad": 0.12009547608424657,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.4200088435441854,
+            "residual_torque_rms_nm": 0.182165183536157,
+            "total_torque_rms_nm": 0.38314926894410983,
+            "total_torque_peak_nm": 1.2771336428656608,
+            "final_left_torque_nm": 3.0850873994011514e-12,
+            "final_right_torque_nm": 2.2712954963577336e-12,
+            "torque_squared_integral_nm2_s": 13.409606325237544,
+            "sampled_torque_rate_rms_nm_s": 3.5234371868132364,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 225.20379363146054
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 45.6720000000001,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.59191083751649,
+            "effort": -0.3446921630589305,
+            "terminal": 30.0,
+            "time": -2.2836000000000034,
+            "smoothness": -2.979178799075525,
+            "heading": -0.24128016659497725,
+            "progress": 214.97994590173704,
+            "vibration": -13.335490304030683
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (70k)",
+          "episode": "episode_00002_234334_875367",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00002_234334_875367/steps.jsonl",
+          "source_sha256": "84c7476fc4978cebf969d4fa2843eb8cb5d62dc739bd725da74896c34b7e9a6b",
+          "seed_label": 2,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 458,
+          "metrics": {
+            "duration_s": 48.44800000000001,
+            "completion_time_s": 48.44800000000001,
+            "cross_track_rmse_sample_m": 0.04429557253830012,
+            "cross_track_rmse_time_m": 0.044282034893032396,
+            "cross_track_peak_m": 0.09352697882039357,
+            "cross_track_iae_m_s": 1.7681280434975597,
+            "cross_track_ise_m2_s": 0.09064646024175499,
+            "cross_track_itae_m_s2": 47.5808544811318,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.10991389091384755,
+            "acceleration_rms_m_s2": 2.1734384362563333,
+            "acceleration_z_rms_m_s2": 0.9577707547389175,
+            "acceleration_peak_m_s2": 13.327843569872948,
+            "sampled_jerk_rms_m_s3": 28.477575831928643,
+            "roll_peak_rad": 0.07774939478966554,
+            "pitch_peak_rad": 0.11952956961017641,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.44530293051030645,
+            "residual_torque_rms_nm": 0.17962555541424874,
+            "total_torque_rms_nm": 0.40592063859025157,
+            "total_torque_peak_nm": 1.3080500204170278,
+            "final_left_torque_nm": 4.756263987749573e-12,
+            "final_right_torque_nm": 3.985708502934263e-12,
+            "torque_squared_integral_nm2_s": 15.23379025511808,
+            "sampled_torque_rate_rms_nm_s": 3.5859342431071375,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 234.209485179998
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 46.227000000000125,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -0.7251716819340401,
+            "effort": -0.3398895650703434,
+            "terminal": 30.0,
+            "time": -2.3113500000000036,
+            "smoothness": -3.297917247741261,
+            "heading": -0.27923565926158356,
+            "progress": 215.53042340855436,
+            "vibration": -4.367374074549006
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (70k)",
+          "episode": "episode_00003_234441_109574",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00003_234441_109574/steps.jsonl",
+          "source_sha256": "b3af7144fd47ebc633a43fb2181c536ff6bfe2942cba18a781fcda609a77d9a0",
+          "seed_label": 3,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 454,
+          "metrics": {
+            "duration_s": 48.03,
+            "completion_time_s": 48.03,
+            "cross_track_rmse_sample_m": 0.04391033086583651,
+            "cross_track_rmse_time_m": 0.04391214789367627,
+            "cross_track_peak_m": 0.11112578452408117,
+            "cross_track_iae_m_s": 1.670702388717937,
+            "cross_track_ise_m2_s": 0.08838063576364309,
+            "cross_track_itae_m_s2": 45.722716176999725,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.1336574542648413,
+            "acceleration_rms_m_s2": 1.9446379349910445,
+            "acceleration_z_rms_m_s2": 0.9038246302535948,
+            "acceleration_peak_m_s2": 16.407741500428568,
+            "sampled_jerk_rms_m_s3": 26.446899870528856,
+            "roll_peak_rad": 0.0791163510145484,
+            "pitch_peak_rad": 0.10848175259267497,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.45078816195324,
+            "residual_torque_rms_nm": 0.17648069911351197,
+            "total_torque_rms_nm": 0.4010771495885218,
+            "total_torque_peak_nm": 1.2789808789336417,
+            "final_left_torque_nm": 2.8783969575565528e-11,
+            "final_right_torque_nm": 3.120063996557561e-11,
+            "torque_squared_integral_nm2_s": 14.745978476694834,
+            "sampled_torque_rate_rms_nm_s": 3.532083157075352,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 235.32535201488716
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 45.8340000000001,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -0.7070450861091444,
+            "effort": -0.318879040108664,
+            "terminal": 30.0,
+            "time": -2.2917000000000027,
+            "smoothness": -2.9261183901462244,
+            "heading": -0.4093965087011517,
+            "progress": 215.44502343486388,
+            "vibration": -3.4665323949116966
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (70k)",
+          "episode": "episode_00004_234547_566979",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00004_234547_566979/steps.jsonl",
+          "source_sha256": "fe94982ced704909eff7a7984ed47bd19374809c793a0ff3dde608d5c102700c",
+          "seed_label": 4,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 459,
+          "metrics": {
+            "duration_s": 48.513000000000005,
+            "completion_time_s": 48.513000000000005,
+            "cross_track_rmse_sample_m": 0.04579904932558039,
+            "cross_track_rmse_time_m": 0.045834687962341164,
+            "cross_track_peak_m": 0.10485117705110039,
+            "cross_track_iae_m_s": 1.7719798881575863,
+            "cross_track_ise_m2_s": 0.09725319640367588,
+            "cross_track_itae_m_s2": 40.83561971600437,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.10110303002724469,
+            "acceleration_rms_m_s2": 4.231398877224292,
+            "acceleration_z_rms_m_s2": 2.3208483508502566,
+            "acceleration_peak_m_s2": 53.55413086216217,
+            "sampled_jerk_rms_m_s3": 59.864162868400605,
+            "roll_peak_rad": 0.07875936239360577,
+            "pitch_peak_rad": 0.11444373030415153,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.4518789278371277,
+            "residual_torque_rms_nm": 0.18381650015874765,
+            "total_torque_rms_nm": 0.4204055141809165,
+            "total_torque_peak_nm": 1.3448579703713062,
+            "final_left_torque_nm": -4.95216289353418e-05,
+            "final_right_torque_nm": -4.952107192473093e-05,
+            "torque_squared_integral_nm2_s": 16.36372337120562,
+            "sampled_torque_rate_rms_nm_s": 3.616468294023428,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 222.02435826027397
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 46.293000000000085,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -0.7780255712294071,
+            "effort": -0.35394954968901426,
+            "terminal": 30.0,
+            "time": -2.314650000000001,
+            "smoothness": -3.0399689099590304,
+            "heading": -0.23659941867859036,
+            "progress": 215.32483100699568,
+            "vibration": -16.577279297165934
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (70k)",
+          "episode": "episode_00005_234653_583623",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00005_234653_583623/steps.jsonl",
+          "source_sha256": "929e635859fcbb71e9c35468632a41395bdcb099945568534c904578a90efcdd",
+          "seed_label": 5,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 458,
+          "metrics": {
+            "duration_s": 48.442,
+            "completion_time_s": 48.442,
+            "cross_track_rmse_sample_m": 0.04255955395030434,
+            "cross_track_rmse_time_m": 0.04254213151568811,
+            "cross_track_peak_m": 0.12146738876672636,
+            "cross_track_iae_m_s": 1.5823548007340495,
+            "cross_track_ise_m2_s": 0.08375363960754267,
+            "cross_track_itae_m_s2": 44.467577305291655,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.10002040841308915,
+            "acceleration_rms_m_s2": 2.1217232478668113,
+            "acceleration_z_rms_m_s2": 1.193235182320589,
+            "acceleration_peak_m_s2": 15.69206923397902,
+            "sampled_jerk_rms_m_s3": 28.662918857390018,
+            "roll_peak_rad": 0.08107310742172728,
+            "pitch_peak_rad": 0.1199003307667385,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.4432468603317378,
+            "residual_torque_rms_nm": 0.18595195086725913,
+            "total_torque_rms_nm": 0.4095162413444723,
+            "total_torque_peak_nm": 1.3209999446601555,
+            "final_left_torque_nm": -1.5169630853725284e-07,
+            "final_right_torque_nm": -1.495429611714041e-07,
+            "torque_squared_integral_nm2_s": 15.521634544857601,
+            "sampled_torque_rate_rms_nm_s": 3.5886761193148398,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 234.17991853489713
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 46.277000000000086,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.6700291168603414,
+            "effort": -0.3595130676135658,
+            "terminal": 30.0,
+            "time": -2.3138500000000013,
+            "smoothness": -3.3086046996433507,
+            "heading": -0.23147945365051525,
+            "progress": 215.22990712081503,
+            "vibration": -4.1665122481500045
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (70k)",
+          "episode": "episode_00006_234800_587344",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00006_234800_587344/steps.jsonl",
+          "source_sha256": "27a7ff201c5ecbf9d3a027f65271c0c0c1332596480df1a249d92d4cc036c547",
+          "seed_label": 6,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 457,
+          "metrics": {
+            "duration_s": 48.363,
+            "completion_time_s": 48.363,
+            "cross_track_rmse_sample_m": 0.04131589477199509,
+            "cross_track_rmse_time_m": 0.041329195466772044,
+            "cross_track_peak_m": 0.09763964340378166,
+            "cross_track_iae_m_s": 1.6138324311498866,
+            "cross_track_ise_m2_s": 0.07869740177985908,
+            "cross_track_itae_m_s2": 41.615942063131214,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.11424749488220667,
+            "acceleration_rms_m_s2": 2.1337919312039912,
+            "acceleration_z_rms_m_s2": 1.1931895590855666,
+            "acceleration_peak_m_s2": 16.096881377291858,
+            "sampled_jerk_rms_m_s3": 29.598915506848197,
+            "roll_peak_rad": 0.08154902418622222,
+            "pitch_peak_rad": 0.11144087956310864,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.44848116365744395,
+            "residual_torque_rms_nm": 0.18031200800053235,
+            "total_torque_rms_nm": 0.40409853933063977,
+            "total_torque_peak_nm": 1.3141448303212906,
+            "final_left_torque_nm": -3.8079883572234543e-06,
+            "final_right_torque_nm": -3.8080660983995917e-06,
+            "torque_squared_integral_nm2_s": 15.047039074907865,
+            "sampled_torque_rate_rms_nm_s": 3.49858088322632,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 234.49289120927216
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 46.07300000000012,
+          "reference_hashes": [
+            "7a4c36bd8445a6d1c40600d41c1dfa334bf464b9bf1f2025ca8d3c8c1b59a12d"
+          ],
+          "reward_components": {
+            "cross_track": -0.6295792142388728,
+            "effort": -0.34073943046067506,
+            "terminal": 30.0,
+            "time": -2.3036500000000033,
+            "smoothness": -3.127240811355464,
+            "heading": -0.3006836878859473,
+            "progress": 215.3902543977193,
+            "vibration": -4.195470044505848
+          },
+          "notes": []
+        },
+        {
+          "group": "PI+SAC (70k)",
+          "episode": "episode_00007_234907_799854",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00007_234907_799854/steps.jsonl",
+          "source_sha256": "58d3582f9be09e36124c6909c80cd31dcbf720d161e56b4e9d5efecec4b01484",
+          "seed_label": 7,
+          "outcome": "SUCCEEDED",
+          "reason": "Original path completed",
+          "samples": 518,
+          "metrics": {
+            "duration_s": 54.778999999999996,
+            "completion_time_s": 54.778999999999996,
+            "cross_track_rmse_sample_m": 0.047732699905719406,
+            "cross_track_rmse_time_m": 0.04771825568708159,
+            "cross_track_peak_m": 0.13158404780176047,
+            "cross_track_iae_m_s": 1.9419689298631295,
+            "cross_track_ise_m2_s": 0.11910015487989473,
+            "cross_track_itae_m_s2": 64.58061648329098,
+            "within_max_deviation_pct": 100.0,
+            "heading_rmse_rad": 0.13617058215872677,
+            "acceleration_rms_m_s2": 3.863105094613969,
+            "acceleration_z_rms_m_s2": 1.75967950351983,
+            "acceleration_peak_m_s2": 62.955021309464705,
+            "sampled_jerk_rms_m_s3": 52.57036766573278,
+            "roll_peak_rad": 0.07774500319070377,
+            "pitch_peak_rad": 0.2959414054833091,
+            "gyro_rms_rad_s": null,
+            "wheel_tracking_rmse_rad_s": null,
+            "amcl_gt_position_rmse_m": null,
+            "base_torque_rms_nm": 0.5213187821509739,
+            "residual_torque_rms_nm": 0.18985986159143947,
+            "total_torque_rms_nm": 0.48511151872141167,
+            "total_torque_peak_nm": 1.6838509945075035,
+            "final_left_torque_nm": 6.487685895385087e-14,
+            "final_right_torque_nm": 1.1265112894489401e-13,
+            "torque_squared_integral_nm2_s": 24.61820454521796,
+            "sampled_torque_rate_rms_nm_s": 3.711455062454227,
+            "saturation_pct": null,
+            "slew_limited_pct": null,
+            "reward_total": 224.3855762407513
+          },
+          "coverage": {
+            "cross_track": 1.0,
+            "acceleration": 1.0,
+            "base_torque": 1.0,
+            "residual_applied": 1.0,
+            "total_torque": 1.0
+          },
+          "integration_time_s": 52.3050000000001,
+          "reference_hashes": [
+            "f4fed479380ffb8cd901293877584209ae5d26e45e524f28fb8ec3fe8d3fffe2"
+          ],
+          "reward_components": {
+            "cross_track": -0.9528012390391579,
+            "effort": -0.4264121452187942,
+            "terminal": 30.0,
+            "time": -2.6152499999999925,
+            "smoothness": -3.503973647379904,
+            "heading": -0.48493083376704216,
+            "progress": 217.98050216099935,
+            "vibration": -15.611558054843108
+          },
+          "notes": []
+        }
+      ],
+      "startup_only_sessions": 0,
+      "invalid_episodes": 0,
+      "infrastructure_event_count": 0
+    }
+  ],
+  "summaries": [
+    {
+      "label": "PI",
+      "n_runs": 1,
+      "n_completed": 7,
+      "n_success": 7,
+      "n_failed": 0,
+      "n_time_limit": 0,
+      "n_incomplete": 0,
+      "n_invalid": 0,
+      "startup_only_sessions": 1,
+      "infrastructure_events": 1,
+      "success_rate_pct": 100.0,
+      "success_wilson95_low_pct": 64.56695649333126,
+      "success_wilson95_high_pct": 100,
+      "metrics": {
+        "duration_s": {
+          "n": 7,
+          "mean": 53.54485714285715,
+          "std": 4.828369684430119
+        },
+        "completion_time_s": {
+          "n": 7,
+          "mean": 53.54485714285715,
+          "std": 4.828369684430119
+        },
+        "cross_track_rmse_sample_m": {
+          "n": 7,
+          "mean": 0.052909349615585036,
+          "std": 0.00861944299097136
+        },
+        "cross_track_rmse_time_m": {
+          "n": 7,
+          "mean": 0.052883857410497156,
+          "std": 0.008621399043743903
+        },
+        "cross_track_peak_m": {
+          "n": 7,
+          "mean": 0.13646321523729618,
+          "std": 0.026840049014018614
+        },
+        "cross_track_iae_m_s": {
+          "n": 7,
+          "mean": 2.26259747570621,
+          "std": 0.5353817497058683
+        },
+        "cross_track_ise_m2_s": {
+          "n": 7,
+          "mean": 0.15242915933404416,
+          "std": 0.060912106045763935
+        },
+        "cross_track_itae_m_s2": {
+          "n": 7,
+          "mean": 72.51498543883912,
+          "std": 25.35562860387737
+        },
+        "within_max_deviation_pct": {
+          "n": 7,
+          "mean": 100.0,
+          "std": 0.0
+        },
+        "heading_rmse_rad": {
+          "n": 7,
+          "mean": 0.14528213970888815,
+          "std": 0.04296420955613537
+        },
+        "acceleration_rms_m_s2": {
+          "n": 7,
+          "mean": 3.839988389937979,
+          "std": 1.390322084712944
+        },
+        "acceleration_z_rms_m_s2": {
+          "n": 7,
+          "mean": 2.3112839470155575,
+          "std": 1.1126346000473935
+        },
+        "acceleration_peak_m_s2": {
+          "n": 7,
+          "mean": 62.301897775620745,
+          "std": 42.84806916203353
+        },
+        "sampled_jerk_rms_m_s3": {
+          "n": 7,
+          "mean": 53.374148297887146,
+          "std": 19.43536088965306
+        },
+        "roll_peak_rad": {
+          "n": 7,
+          "mean": 0.08028062432588058,
+          "std": 0.0015435647872930162
+        },
+        "pitch_peak_rad": {
+          "n": 7,
+          "mean": 0.200600225057978,
+          "std": 0.11553173988852806
+        },
+        "gyro_rms_rad_s": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "wheel_tracking_rmse_rad_s": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "amcl_gt_position_rmse_m": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "base_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.5050611852039291,
+          "std": 0.0386033814633911
+        },
+        "residual_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "total_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.41968070028007215,
+          "std": 0.027581630264629967
+        },
+        "total_torque_peak_nm": {
+          "n": 7,
+          "mean": 1.4302383369786966,
+          "std": 0.11815820304286327
+        },
+        "final_left_torque_nm": {
+          "n": 7,
+          "mean": -8.838766881087046e-06,
+          "std": 2.334578215667213e-05
+        },
+        "final_right_torque_nm": {
+          "n": 7,
+          "mean": -8.838709477018571e-06,
+          "std": 2.3346342000685804e-05
+        },
+        "torque_squared_integral_nm2_s": {
+          "n": 7,
+          "mean": 18.47785905981646,
+          "std": 2.309979187546788
+        },
+        "sampled_torque_rate_rms_nm_s": {
+          "n": 7,
+          "mean": 3.409360124122586,
+          "std": 0.3110955431230722
+        },
+        "saturation_pct": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "slew_limited_pct": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "reward_total": {
+          "n": 7,
+          "mean": 225.03211559725497,
+          "std": 12.501376996901435
+        }
+      },
+      "reward_components": {
+        "cross_track": {
+          "n": 7,
+          "mean": -1.2194332746723535,
+          "std": 0.4872968483661112
+        },
+        "effort": {
+          "n": 7,
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "heading": {
+          "n": 7,
+          "mean": -0.6183136328912763,
+          "std": 0.4129203311190977
+        },
+        "progress": {
+          "n": 7,
+          "mean": 217.21255833302357,
+          "std": 1.9796100568432748
+        },
+        "smoothness": {
+          "n": 7,
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "terminal": {
+          "n": 7,
+          "mean": 30.0,
+          "std": 0.0
+        },
+        "time": {
+          "n": 7,
+          "mean": -2.624078571428565,
+          "std": 0.23558362785703524
+        },
+        "vibration": {
+          "n": 7,
+          "mean": -17.718617256776383,
+          "std": 13.074031146592162
+        }
+      }
+    },
+    {
+      "label": "PI+SAC (50k)",
+      "n_runs": 1,
+      "n_completed": 7,
+      "n_success": 7,
+      "n_failed": 0,
+      "n_time_limit": 0,
+      "n_incomplete": 0,
+      "n_invalid": 0,
+      "startup_only_sessions": 1,
+      "infrastructure_events": 1,
+      "success_rate_pct": 100.0,
+      "success_wilson95_low_pct": 64.56695649333126,
+      "success_wilson95_high_pct": 100,
+      "metrics": {
+        "duration_s": {
+          "n": 7,
+          "mean": 49.33357142857143,
+          "std": 1.8414829945040567
+        },
+        "completion_time_s": {
+          "n": 7,
+          "mean": 49.33357142857143,
+          "std": 1.8414829945040567
+        },
+        "cross_track_rmse_sample_m": {
+          "n": 7,
+          "mean": 0.03894364781847597,
+          "std": 0.009606664071060481
+        },
+        "cross_track_rmse_time_m": {
+          "n": 7,
+          "mean": 0.03895142565527954,
+          "std": 0.009603351297913084
+        },
+        "cross_track_peak_m": {
+          "n": 7,
+          "mean": 0.10735095906287848,
+          "std": 0.03936969293598186
+        },
+        "cross_track_iae_m_s": {
+          "n": 7,
+          "mean": 1.4395064947469132,
+          "std": 0.29426029866101483
+        },
+        "cross_track_ise_m2_s": {
+          "n": 7,
+          "mean": 0.07630867802757473,
+          "std": 0.04764261449295386
+        },
+        "cross_track_itae_m_s2": {
+          "n": 7,
+          "mean": 37.697533531105975,
+          "std": 8.942094983549888
+        },
+        "within_max_deviation_pct": {
+          "n": 7,
+          "mean": 100.0,
+          "std": 0.0
+        },
+        "heading_rmse_rad": {
+          "n": 7,
+          "mean": 0.11185638416270613,
+          "std": 0.02582552228775246
+        },
+        "acceleration_rms_m_s2": {
+          "n": 7,
+          "mean": 5.335957018430067,
+          "std": 2.3423683248646814
+        },
+        "acceleration_z_rms_m_s2": {
+          "n": 7,
+          "mean": 3.180891595436906,
+          "std": 1.6673274216047802
+        },
+        "acceleration_peak_m_s2": {
+          "n": 7,
+          "mean": 84.21550710573077,
+          "std": 42.85868246927859
+        },
+        "sampled_jerk_rms_m_s3": {
+          "n": 7,
+          "mean": 72.04533758486764,
+          "std": 32.059923917026325
+        },
+        "roll_peak_rad": {
+          "n": 7,
+          "mean": 0.08012349505225468,
+          "std": 0.000710089215669295
+        },
+        "pitch_peak_rad": {
+          "n": 7,
+          "mean": 0.1722224130823981,
+          "std": 0.09869218698846592
+        },
+        "gyro_rms_rad_s": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "wheel_tracking_rmse_rad_s": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "amcl_gt_position_rmse_m": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "base_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.4756466796532727,
+          "std": 0.04174623356324573
+        },
+        "residual_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.17717987029319424,
+          "std": 0.009782728460380944
+        },
+        "total_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.4233530098603785,
+          "std": 0.03511960254985905
+        },
+        "total_torque_peak_nm": {
+          "n": 7,
+          "mean": 1.4624908887217154,
+          "std": 0.20762768023002925
+        },
+        "final_left_torque_nm": {
+          "n": 7,
+          "mean": -1.994839346663512e-06,
+          "std": 1.560394097197123e-06
+        },
+        "final_right_torque_nm": {
+          "n": 7,
+          "mean": -2.003004284820689e-06,
+          "std": 1.564480736255986e-06
+        },
+        "torque_squared_integral_nm2_s": {
+          "n": 7,
+          "mean": 16.999811905575275,
+          "std": 3.1459152513775117
+        },
+        "sampled_torque_rate_rms_nm_s": {
+          "n": 7,
+          "mean": 3.639923435468479,
+          "std": 0.21689441958508845
+        },
+        "saturation_pct": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "slew_limited_pct": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "reward_total": {
+          "n": 7,
+          "mean": 207.6388370120084,
+          "std": 21.211652006145478
+        }
+      },
+      "reward_components": {
+        "cross_track": {
+          "n": 7,
+          "mean": -0.610469424220598,
+          "std": 0.3811409159436311
+        },
+        "effort": {
+          "n": 7,
+          "mean": -0.33556982099595306,
+          "std": 0.05062942738647335
+        },
+        "heading": {
+          "n": 7,
+          "mean": -0.3123905823955629,
+          "std": 0.17755564086783077
+        },
+        "progress": {
+          "n": 7,
+          "mean": 215.21372216838694,
+          "std": 0.4652881281203582
+        },
+        "smoothness": {
+          "n": 7,
+          "mean": -2.883181141683144,
+          "std": 0.5444615581316763
+        },
+        "terminal": {
+          "n": 7,
+          "mean": 30.0,
+          "std": 0.0
+        },
+        "time": {
+          "n": 7,
+          "mean": -2.353628571428572,
+          "std": 0.0879438876838622
+        },
+        "vibration": {
+          "n": 7,
+          "mean": -31.07964561565482,
+          "std": 21.773129991784472
+        }
+      }
+    },
+    {
+      "label": "PI+SAC (70k)",
+      "n_runs": 1,
+      "n_completed": 7,
+      "n_success": 7,
+      "n_failed": 0,
+      "n_time_limit": 0,
+      "n_incomplete": 0,
+      "n_invalid": 0,
+      "startup_only_sessions": 0,
+      "infrastructure_events": 0,
+      "success_rate_pct": 100.0,
+      "success_wilson95_low_pct": 64.56695649333126,
+      "success_wilson95_high_pct": 100,
+      "metrics": {
+        "duration_s": {
+          "n": 7,
+          "mean": 49.21257142857143,
+          "std": 2.4651575241853423
+        },
+        "completion_time_s": {
+          "n": 7,
+          "mean": 49.21257142857143,
+          "std": 2.4651575241853423
+        },
+        "cross_track_rmse_sample_m": {
+          "n": 7,
+          "mean": 0.043695238340322275,
+          "std": 0.0025797266907378524
+        },
+        "cross_track_rmse_time_m": {
+          "n": 7,
+          "mean": 0.043695390772605786,
+          "std": 0.002580559449766794
+        },
+        "cross_track_peak_m": {
+          "n": 7,
+          "mean": 0.10525756303552167,
+          "std": 0.018288815910856383
+        },
+        "cross_track_iae_m_s": {
+          "n": 7,
+          "mean": 1.7062924694628918,
+          "std": 0.12988838923494234
+        },
+        "cross_track_ise_m2_s": {
+          "n": 7,
+          "mean": 0.09026004905227596,
+          "std": 0.014861119651300226
+        },
+        "cross_track_itae_m_s2": {
+          "n": 7,
+          "mean": 46.742241016676,
+          "std": 8.21799865122019
+        },
+        "within_max_deviation_pct": {
+          "n": 7,
+          "mean": 100.0,
+          "std": 0.0
+        },
+        "heading_rmse_rad": {
+          "n": 7,
+          "mean": 0.1139861205440299,
+          "std": 0.015177459753244723
+        },
+        "acceleration_rms_m_s2": {
+          "n": 7,
+          "mean": 2.898426435584692,
+          "std": 1.0150215490650736
+        },
+        "acceleration_z_rms_m_s2": {
+          "n": 7,
+          "mean": 1.5737362835808624,
+          "std": 0.7013379036288765
+        },
+        "acceleration_peak_m_s2": {
+          "n": 7,
+          "mean": 32.67481516173053,
+          "std": 21.90718601626387
+        },
+        "sampled_jerk_rms_m_s3": {
+          "n": 7,
+          "mean": 39.73471601222835,
+          "std": 14.503310016136952
+        },
+        "roll_peak_rad": {
+          "n": 7,
+          "mean": 0.07957681746333145,
+          "std": 0.0016258705222575952
+        },
+        "pitch_peak_rad": {
+          "n": 7,
+          "mean": 0.1414047349149151,
+          "std": 0.06829504676928219
+        },
+        "gyro_rms_rad_s": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "wheel_tracking_rmse_rad_s": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "amcl_gt_position_rmse_m": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "base_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.4544322385692879,
+          "std": 0.03141775180795312
+        },
+        "residual_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.18260167981169947,
+          "std": 0.004418486816908666
+        },
+        "total_torque_rms_nm": {
+          "n": 7,
+          "mean": 0.41561126724290337,
+          "std": 0.03261362751261293
+        },
+        "total_torque_peak_nm": {
+          "n": 7,
+          "mean": 1.3611454688680837,
+          "std": 0.14425266919356441
+        },
+        "final_left_torque_nm": {
+          "n": 7,
+          "mean": -7.640182415843527e-06,
+          "std": 1.852164863107387e-05
+        },
+        "final_right_torque_nm": {
+          "n": 7,
+          "mean": -7.639806202000975e-06,
+          "std": 1.8521581211537422e-05
+        },
+        "torque_squared_integral_nm2_s": {
+          "n": 7,
+          "mean": 16.419996656177073,
+          "std": 3.7232986878420338
+        },
+        "sampled_torque_rate_rms_nm_s": {
+          "n": 7,
+          "mean": 3.5795192780020773,
+          "std": 0.07169808318409579
+        },
+        "saturation_pct": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "slew_limited_pct": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "reward_total": {
+          "n": 7,
+          "mean": 229.9744821530772,
+          "std": 5.80041065578882
+        }
+      },
+      "reward_components": {
+        "cross_track": {
+          "n": 7,
+          "mean": -0.7220803924182077,
+          "std": 0.11888895721040178
+        },
+        "effort": {
+          "n": 7,
+          "mean": -0.35486785160285533,
+          "std": 0.034067843588744685
+        },
+        "heading": {
+          "n": 7,
+          "mean": -0.3119436755056868,
+          "std": 0.0981179501044051
+        },
+        "progress": {
+          "n": 7,
+          "mean": 215.69726963309782,
+          "std": 1.0222985964696996
+        },
+        "smoothness": {
+          "n": 7,
+          "mean": -3.1690003579001087,
+          "std": 0.20885915913392203
+        },
+        "terminal": {
+          "n": 7,
+          "mean": 30.0,
+          "std": 0.0
+        },
+        "time": {
+          "n": 7,
+          "mean": -2.34772142857143,
+          "std": 0.11855213992565242
+        },
+        "vibration": {
+          "n": 7,
+          "mean": -8.817173774022326,
+          "std": 6.030712482452834
+        }
+      }
+    }
+  ],
+  "windows": [
+    {
+      "group": "PI",
+      "episode": "episode_00001_232307_068658",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00001_232307_068658/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.05099302237296621,
+        "cross_track_peak_m": 0.07604251856794197,
+        "acceleration_rms_m_s2": 2.195970174186519,
+        "acceleration_z_rms_m_s2": 1.5797873450948736,
+        "acceleration_peak_m_s2": 8.772753655391286,
+        "total_torque_rms_nm": 0.4479182055637123,
+        "total_torque_peak_nm": 1.0471098999670625
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00001_232307_068658",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00001_232307_068658/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 40,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.04255502721896008,
+        "cross_track_peak_m": 0.06431001314287688,
+        "acceleration_rms_m_s2": 1.4637983882485763,
+        "acceleration_z_rms_m_s2": 1.1908785429116946,
+        "acceleration_peak_m_s2": 7.285812615484655,
+        "total_torque_rms_nm": 0.302550705529775,
+        "total_torque_peak_nm": 0.9994383714482229
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00001_232307_068658",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00001_232307_068658/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 53,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.04234903322863839,
+        "cross_track_peak_m": 0.06492288960493209,
+        "acceleration_rms_m_s2": 2.3051757972891664,
+        "acceleration_z_rms_m_s2": 1.727645508638444,
+        "acceleration_peak_m_s2": 7.8957262694523385,
+        "total_torque_rms_nm": 0.6714034613122329,
+        "total_torque_peak_nm": 1.5759982209596455
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00002_232422_583346",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00002_232422_583346/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.07065436795773081,
+        "cross_track_peak_m": 0.09922858349285013,
+        "acceleration_rms_m_s2": 2.6267995611834984,
+        "acceleration_z_rms_m_s2": 0.6554364558617022,
+        "acceleration_peak_m_s2": 12.332540068670667,
+        "total_torque_rms_nm": 0.5525801752900035,
+        "total_torque_peak_nm": 1.1175176596709369
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00002_232422_583346",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00002_232422_583346/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.05596286017746666,
+        "cross_track_peak_m": 0.07533640533653418,
+        "acceleration_rms_m_s2": 2.712100546815879,
+        "acceleration_z_rms_m_s2": 1.4464101637422413,
+        "acceleration_peak_m_s2": 10.159724990088694,
+        "total_torque_rms_nm": 0.4177956710156237,
+        "total_torque_peak_nm": 1.1163578392660696
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00002_232422_583346",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00002_232422_583346/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 46,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.03963779590971004,
+        "cross_track_peak_m": 0.10477901079342944,
+        "acceleration_rms_m_s2": 4.372415137403702,
+        "acceleration_z_rms_m_s2": 0.9673332274458897,
+        "acceleration_peak_m_s2": 27.50124050528493,
+        "total_torque_rms_nm": 0.5409790613003177,
+        "total_torque_peak_nm": 1.3462552781100587
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00003_232529_219570",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00003_232529_219570/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 46,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.07448854388298466,
+        "cross_track_peak_m": 0.10459077948440743,
+        "acceleration_rms_m_s2": 3.2330854465485643,
+        "acceleration_z_rms_m_s2": 1.6635577096208163,
+        "acceleration_peak_m_s2": 10.188094060211615,
+        "total_torque_rms_nm": 0.5268752454742264,
+        "total_torque_peak_nm": 1.0882547731875247
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00003_232529_219570",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00003_232529_219570/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 40,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.011506764050336675,
+        "cross_track_peak_m": 0.02520216328700542,
+        "acceleration_rms_m_s2": 1.7174078578864749,
+        "acceleration_z_rms_m_s2": 1.0094506241281667,
+        "acceleration_peak_m_s2": 7.25667244772864,
+        "total_torque_rms_nm": 0.26795050049705205,
+        "total_torque_peak_nm": 0.6818802924825527
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00003_232529_219570",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00003_232529_219570/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 60,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.07317875568198515,
+        "cross_track_peak_m": 0.10715907099851217,
+        "acceleration_rms_m_s2": 1.991058405058095,
+        "acceleration_z_rms_m_s2": 1.4628245382508933,
+        "acceleration_peak_m_s2": 9.690274212155897,
+        "total_torque_rms_nm": 0.7854354170805231,
+        "total_torque_peak_nm": 1.5902646555652904
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00004_232637_827539",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00004_232637_827539/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.07342156777902763,
+        "cross_track_peak_m": 0.10962045914793955,
+        "acceleration_rms_m_s2": 1.7389930623992513,
+        "acceleration_z_rms_m_s2": 0.6934044253316041,
+        "acceleration_peak_m_s2": 7.737697955173278,
+        "total_torque_rms_nm": 0.44747452541777644,
+        "total_torque_peak_nm": 0.9500000000000006
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00004_232637_827539",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00004_232637_827539/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 47,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.07000119033765395,
+        "cross_track_peak_m": 0.11919382559194547,
+        "acceleration_rms_m_s2": 1.8879755659523307,
+        "acceleration_z_rms_m_s2": 0.9930990266135724,
+        "acceleration_peak_m_s2": 5.974692734597782,
+        "total_torque_rms_nm": 0.5139866766406546,
+        "total_torque_peak_nm": 1.2914094521600923
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00004_232637_827539",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00004_232637_827539/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 46,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.024616990905597186,
+        "cross_track_peak_m": 0.047689712030397846,
+        "acceleration_rms_m_s2": 2.1837130080708897,
+        "acceleration_z_rms_m_s2": 0.80825787272821,
+        "acceleration_peak_m_s2": 10.539519842457167,
+        "total_torque_rms_nm": 0.4741342326866537,
+        "total_torque_peak_nm": 1.1460115218022358
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00006_232828_054917",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00006_232828_054917/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 45,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.0712174039959145,
+        "cross_track_peak_m": 0.10478825257798827,
+        "acceleration_rms_m_s2": 4.500270683199357,
+        "acceleration_z_rms_m_s2": 2.9465366587382813,
+        "acceleration_peak_m_s2": 25.980530465898838,
+        "total_torque_rms_nm": 0.5401326402424779,
+        "total_torque_peak_nm": 1.1951719824710234
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00006_232828_054917",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00006_232828_054917/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.026347786453440426,
+        "cross_track_peak_m": 0.06106134616517651,
+        "acceleration_rms_m_s2": 2.5980362179274885,
+        "acceleration_z_rms_m_s2": 1.387570189076498,
+        "acceleration_peak_m_s2": 12.708685479512738,
+        "total_torque_rms_nm": 0.31379938983813843,
+        "total_torque_peak_nm": 0.9111907994673476
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00006_232828_054917",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00006_232828_054917/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.06423860135277504,
+        "cross_track_peak_m": 0.15837234760572264,
+        "acceleration_rms_m_s2": 1.9832860068022502,
+        "acceleration_z_rms_m_s2": 1.0615391076541132,
+        "acceleration_peak_m_s2": 8.593033638641028,
+        "total_torque_rms_nm": 0.46390157377028196,
+        "total_torque_peak_nm": 1.09120807156015
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00007_232944_065017",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00007_232944_065017/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 42,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.04402374164319524,
+        "cross_track_peak_m": 0.0836008697947754,
+        "acceleration_rms_m_s2": 2.35747221128926,
+        "acceleration_z_rms_m_s2": 1.7351182341805529,
+        "acceleration_peak_m_s2": 8.123446624577278,
+        "total_torque_rms_nm": 0.4570782511474338,
+        "total_torque_peak_nm": 1.1558594463433476
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00007_232944_065017",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00007_232944_065017/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 48,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.06689679184844127,
+        "cross_track_peak_m": 0.11887753913987721,
+        "acceleration_rms_m_s2": 1.8757219847357793,
+        "acceleration_z_rms_m_s2": 0.9907424602170736,
+        "acceleration_peak_m_s2": 5.886983812731363,
+        "total_torque_rms_nm": 0.5383718367676779,
+        "total_torque_peak_nm": 1.39830285799423
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00007_232944_065017",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00007_232944_065017/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 51,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.02350744503983601,
+        "cross_track_peak_m": 0.05602618375125368,
+        "acceleration_rms_m_s2": 2.700468217915092,
+        "acceleration_z_rms_m_s2": 1.312921817696212,
+        "acceleration_peak_m_s2": 12.163675705914782,
+        "total_torque_rms_nm": 0.6383635626547666,
+        "total_torque_peak_nm": 1.4778720092183066
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00008_233048_911722",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00008_233048_911722/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.03732873711155304,
+        "cross_track_peak_m": 0.05207506573435314,
+        "acceleration_rms_m_s2": 1.8305996119050567,
+        "acceleration_z_rms_m_s2": 1.1347122232129336,
+        "acceleration_peak_m_s2": 7.270434893481784,
+        "total_torque_rms_nm": 0.44541458460098693,
+        "total_torque_peak_nm": 1.1500148840064666
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00008_233048_911722",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00008_233048_911722/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.06733311430940038,
+        "cross_track_peak_m": 0.12613813703133198,
+        "acceleration_rms_m_s2": 1.5290434519780436,
+        "acceleration_z_rms_m_s2": 0.8530764982808903,
+        "acceleration_peak_m_s2": 4.56340971397708,
+        "total_torque_rms_nm": 0.48046024194708226,
+        "total_torque_peak_nm": 1.272714521496485
+      }
+    },
+    {
+      "group": "PI",
+      "episode": "episode_00008_233048_911722",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00008_233048_911722/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 40,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.059186275474105744,
+        "cross_track_peak_m": 0.09755691683089629,
+        "acceleration_rms_m_s2": 2.4549170124232527,
+        "acceleration_z_rms_m_s2": 1.8431442996423344,
+        "acceleration_peak_m_s2": 9.278042723394405,
+        "total_torque_rms_nm": 0.3637113768761793,
+        "total_torque_peak_nm": 1.0416358312912732
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00001_233156_143190",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00001_233156_143190/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 41,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.04353851001828702,
+        "cross_track_peak_m": 0.07421849494781285,
+        "acceleration_rms_m_s2": 2.7400963999568626,
+        "acceleration_z_rms_m_s2": 1.250167344747559,
+        "acceleration_peak_m_s2": 10.413235957742453,
+        "total_torque_rms_nm": 0.4600527380971031,
+        "total_torque_peak_nm": 1.1514021941522095
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00001_233156_143190",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00001_233156_143190/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 39,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.029177631997987685,
+        "cross_track_peak_m": 0.03925749624844382,
+        "acceleration_rms_m_s2": 1.9663009531736213,
+        "acceleration_z_rms_m_s2": 1.780512023602214,
+        "acceleration_peak_m_s2": 9.47782751099584,
+        "total_torque_rms_nm": 0.2994386404014873,
+        "total_torque_peak_nm": 0.7470170064186638
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00001_233156_143190",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00001_233156_143190/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.019982383272746217,
+        "cross_track_peak_m": 0.03205703529693271,
+        "acceleration_rms_m_s2": 1.118805986599767,
+        "acceleration_z_rms_m_s2": 0.34168598274484197,
+        "acceleration_peak_m_s2": 3.2688379740138824,
+        "total_torque_rms_nm": 0.5318623112713509,
+        "total_torque_peak_nm": 1.203005244685953
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00002_233301_990037",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00002_233301_990037/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 43,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.02396273085386142,
+        "cross_track_peak_m": 0.04276977744254826,
+        "acceleration_rms_m_s2": 2.559959404837544,
+        "acceleration_z_rms_m_s2": 1.5262138149085145,
+        "acceleration_peak_m_s2": 6.743196138022762,
+        "total_torque_rms_nm": 0.5208506766214845,
+        "total_torque_peak_nm": 1.1779604710752665
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00002_233301_990037",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00002_233301_990037/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 42,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.017956655063217176,
+        "cross_track_peak_m": 0.0379453040444272,
+        "acceleration_rms_m_s2": 2.36448598921546,
+        "acceleration_z_rms_m_s2": 1.0461057697101834,
+        "acceleration_peak_m_s2": 130.95071597262577,
+        "total_torque_rms_nm": 0.3423209586219782,
+        "total_torque_peak_nm": 0.8836612812155413
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00002_233301_990037",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00002_233301_990037/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 49,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.027433911217575633,
+        "cross_track_peak_m": 0.06459900186874723,
+        "acceleration_rms_m_s2": 3.4734683923400476,
+        "acceleration_z_rms_m_s2": 0.8246696465114676,
+        "acceleration_peak_m_s2": 21.07849810249243,
+        "total_torque_rms_nm": 0.7137273647107883,
+        "total_torque_peak_nm": 1.7101042180561379
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00004_233443_395108",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00004_233443_395108/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 40,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.03652628916793063,
+        "cross_track_peak_m": 0.05322720381417776,
+        "acceleration_rms_m_s2": 2.6044947381332,
+        "acceleration_z_rms_m_s2": 1.0786821121743633,
+        "acceleration_peak_m_s2": 12.488980068056224,
+        "total_torque_rms_nm": 0.4530829724022788,
+        "total_torque_peak_nm": 1.1317524606204319
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00004_233443_395108",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00004_233443_395108/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 38,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.01676983070405098,
+        "cross_track_peak_m": 0.026964839632676593,
+        "acceleration_rms_m_s2": 10.67277179043816,
+        "acceleration_z_rms_m_s2": 6.696714207509145,
+        "acceleration_peak_m_s2": 63.59822591993636,
+        "total_torque_rms_nm": 0.29648686141809283,
+        "total_torque_peak_nm": 0.9889323003586361
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00004_233443_395108",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00004_233443_395108/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.03886652743656675,
+        "cross_track_peak_m": 0.06239059479645137,
+        "acceleration_rms_m_s2": 3.3675307347845256,
+        "acceleration_z_rms_m_s2": 1.4185019788380073,
+        "acceleration_peak_m_s2": 15.287987759558474,
+        "total_torque_rms_nm": 0.5487213791392677,
+        "total_torque_peak_nm": 1.334770267627705
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00005_233548_201204",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00005_233548_201204/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 45,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.031870858334855735,
+        "cross_track_peak_m": 0.04702607180502222,
+        "acceleration_rms_m_s2": 3.286270875616238,
+        "acceleration_z_rms_m_s2": 1.0981218148483611,
+        "acceleration_peak_m_s2": 12.617962915309521,
+        "total_torque_rms_nm": 0.5236158438489036,
+        "total_torque_peak_nm": 1.1566631089745494
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00005_233548_201204",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00005_233548_201204/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 39,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.013578429647493215,
+        "cross_track_peak_m": 0.024154246621293174,
+        "acceleration_rms_m_s2": 3.3285177516066176,
+        "acceleration_z_rms_m_s2": 2.885164783524756,
+        "acceleration_peak_m_s2": 18.602620617804025,
+        "total_torque_rms_nm": 0.29226007575402096,
+        "total_torque_peak_nm": 0.6770643270782708
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00005_233548_201204",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00005_233548_201204/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.03011221380011727,
+        "cross_track_peak_m": 0.051550871637322526,
+        "acceleration_rms_m_s2": 7.7311160207485985,
+        "acceleration_z_rms_m_s2": 2.920866387643996,
+        "acceleration_peak_m_s2": 48.59181258237421,
+        "total_torque_rms_nm": 0.5570146217146362,
+        "total_torque_peak_nm": 1.2664705830760532
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00006_233654_641541",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00006_233654_641541/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 40,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.041493999465516955,
+        "cross_track_peak_m": 0.06703274782824356,
+        "acceleration_rms_m_s2": 2.2181370430377987,
+        "acceleration_z_rms_m_s2": 1.7690660239945482,
+        "acceleration_peak_m_s2": 6.239728838150579,
+        "total_torque_rms_nm": 0.4677239635257826,
+        "total_torque_peak_nm": 1.1593053658215804
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00006_233654_641541",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00006_233654_641541/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 43,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.045101056407836695,
+        "cross_track_peak_m": 0.08076010929182045,
+        "acceleration_rms_m_s2": 6.817864226521797,
+        "acceleration_z_rms_m_s2": 3.7347498268565245,
+        "acceleration_peak_m_s2": 40.75827842561369,
+        "total_torque_rms_nm": 0.5300503788933782,
+        "total_torque_peak_nm": 1.3739688917664619
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00006_233654_641541",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00006_233654_641541/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 53,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.04426879929211662,
+        "cross_track_peak_m": 0.09004071760972665,
+        "acceleration_rms_m_s2": 1.5483771389023049,
+        "acceleration_z_rms_m_s2": 0.9511348151672311,
+        "acceleration_peak_m_s2": 5.742059296785831,
+        "total_torque_rms_nm": 0.7361461350326906,
+        "total_torque_peak_nm": 1.6580306667758635
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00007_233801_629865",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00007_233801_629865/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 40,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.029964503760142792,
+        "cross_track_peak_m": 0.05817973483127181,
+        "acceleration_rms_m_s2": 2.351145644513808,
+        "acceleration_z_rms_m_s2": 1.3384216662909498,
+        "acceleration_peak_m_s2": 5.995931111624952,
+        "total_torque_rms_nm": 0.457578109501795,
+        "total_torque_peak_nm": 1.1424456521331972
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00007_233801_629865",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00007_233801_629865/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.03512574006027791,
+        "cross_track_peak_m": 0.0731556175656134,
+        "acceleration_rms_m_s2": 1.776004258316362,
+        "acceleration_z_rms_m_s2": 0.7698194939921609,
+        "acceleration_peak_m_s2": 6.340099184077896,
+        "total_torque_rms_nm": 0.5266197742329666,
+        "total_torque_peak_nm": 1.293077994138553
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00007_233801_629865",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00007_233801_629865/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 45,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.024336561262860074,
+        "cross_track_peak_m": 0.046100440249290386,
+        "acceleration_rms_m_s2": 14.86551302548065,
+        "acceleration_z_rms_m_s2": 10.718253246462105,
+        "acceleration_peak_m_s2": 94.94477357320662,
+        "total_torque_rms_nm": 0.4883541187908567,
+        "total_torque_peak_nm": 1.3672252745397686
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00008_233912_080623",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00008_233912_080623/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 48,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.12998957325564842,
+        "cross_track_peak_m": 0.1880680609041394,
+        "acceleration_rms_m_s2": 1.4719910302264283,
+        "acceleration_z_rms_m_s2": 0.8889745888542593,
+        "acceleration_peak_m_s2": 5.994679615512486,
+        "total_torque_rms_nm": 0.5231137726172393,
+        "total_torque_peak_nm": 1.1132411669718225
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00008_233912_080623",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00008_233912_080623/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 37,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.026138396822350588,
+        "cross_track_peak_m": 0.04963823032576459,
+        "acceleration_rms_m_s2": 0.9264849557803102,
+        "acceleration_z_rms_m_s2": 0.5252984961446228,
+        "acceleration_peak_m_s2": 2.6466200406032447,
+        "total_torque_rms_nm": 0.3116020629882456,
+        "total_torque_peak_nm": 0.7039732761768817
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "episode": "episode_00008_233912_080623",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00008_233912_080623/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 43,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.0416204613162472,
+        "cross_track_peak_m": 0.08340508735181018,
+        "acceleration_rms_m_s2": 1.8414934635623856,
+        "acceleration_z_rms_m_s2": 1.149760006987559,
+        "acceleration_peak_m_s2": 5.903095642261859,
+        "total_torque_rms_nm": 0.5065703994890957,
+        "total_torque_peak_nm": 1.1522604770531382
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00001_234229_229989",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00001_234229_229989/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 42,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.048022815650222664,
+        "cross_track_peak_m": 0.065221636284901,
+        "acceleration_rms_m_s2": 2.5900861437673752,
+        "acceleration_z_rms_m_s2": 1.3468629215522647,
+        "acceleration_peak_m_s2": 9.509116398629825,
+        "total_torque_rms_nm": 0.47872294252436565,
+        "total_torque_peak_nm": 1.2771336428656608
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00001_234229_229989",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00001_234229_229989/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 39,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.02071922173237556,
+        "cross_track_peak_m": 0.04708966550459734,
+        "acceleration_rms_m_s2": 2.5738077123779495,
+        "acceleration_z_rms_m_s2": 2.0017031992879346,
+        "acceleration_peak_m_s2": 13.136673144042753,
+        "total_torque_rms_nm": 0.2781489874565288,
+        "total_torque_peak_nm": 0.7627093319994352
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00001_234229_229989",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00001_234229_229989/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 41,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.0517560165732431,
+        "cross_track_peak_m": 0.0707021953273258,
+        "acceleration_rms_m_s2": 1.6324566143384667,
+        "acceleration_z_rms_m_s2": 1.2274192705385485,
+        "acceleration_peak_m_s2": 7.3977754701603216,
+        "total_torque_rms_nm": 0.42237826591420385,
+        "total_torque_peak_nm": 1.0837672512513223
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00002_234334_875367",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00002_234334_875367/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 41,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.060777179488979295,
+        "cross_track_peak_m": 0.09352697882039357,
+        "acceleration_rms_m_s2": 2.393242942876185,
+        "acceleration_z_rms_m_s2": 0.6392046787818023,
+        "acceleration_peak_m_s2": 9.974223215565834,
+        "total_torque_rms_nm": 0.49065378795418485,
+        "total_torque_peak_nm": 1.1497452951173992
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00002_234334_875367",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00002_234334_875367/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 41,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.019914296864630324,
+        "cross_track_peak_m": 0.03752021185885865,
+        "acceleration_rms_m_s2": 1.9858849086037385,
+        "acceleration_z_rms_m_s2": 0.6495283315161497,
+        "acceleration_peak_m_s2": 10.202767908154502,
+        "total_torque_rms_nm": 0.3518723162898146,
+        "total_torque_peak_nm": 1.1482273805640217
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00002_234334_875367",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00002_234334_875367/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 43,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.05781956008281942,
+        "cross_track_peak_m": 0.07700754306488722,
+        "acceleration_rms_m_s2": 2.2163106389612506,
+        "acceleration_z_rms_m_s2": 1.3671871222329766,
+        "acceleration_peak_m_s2": 7.407044874086028,
+        "total_torque_rms_nm": 0.4461292579774606,
+        "total_torque_peak_nm": 1.2876763878655502
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00003_234441_109574",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00003_234441_109574/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 41,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.04029847685695243,
+        "cross_track_peak_m": 0.07265549337185168,
+        "acceleration_rms_m_s2": 2.8978365200480583,
+        "acceleration_z_rms_m_s2": 1.229483248959998,
+        "acceleration_peak_m_s2": 13.137725535845766,
+        "total_torque_rms_nm": 0.48120292575276513,
+        "total_torque_peak_nm": 1.1202729901503088
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00003_234441_109574",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00003_234441_109574/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 40,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.05394960644581381,
+        "cross_track_peak_m": 0.08159033511281111,
+        "acceleration_rms_m_s2": 1.0279644996593396,
+        "acceleration_z_rms_m_s2": 0.375532380088744,
+        "acceleration_peak_m_s2": 3.0197516591881204,
+        "total_torque_rms_nm": 0.3496707460935042,
+        "total_torque_peak_nm": 0.9199369446901942
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00003_234441_109574",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00003_234441_109574/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.043649845929574466,
+        "cross_track_peak_m": 0.09764622117672606,
+        "acceleration_rms_m_s2": 1.7434158836906706,
+        "acceleration_z_rms_m_s2": 0.6508292585210915,
+        "acceleration_peak_m_s2": 8.947363125423013,
+        "total_torque_rms_nm": 0.4814687689706256,
+        "total_torque_peak_nm": 1.1674210536442957
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00004_234547_566979",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00004_234547_566979/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.08141233640415302,
+        "cross_track_peak_m": 0.10485117705110039,
+        "acceleration_rms_m_s2": 2.924543131957196,
+        "acceleration_z_rms_m_s2": 1.1465571913706407,
+        "acceleration_peak_m_s2": 8.030765829480032,
+        "total_torque_rms_nm": 0.5515802712432666,
+        "total_torque_peak_nm": 1.1570080560353564
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00004_234547_566979",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00004_234547_566979/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 42,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.049736694818262005,
+        "cross_track_peak_m": 0.06374505079583659,
+        "acceleration_rms_m_s2": 3.126808027900809,
+        "acceleration_z_rms_m_s2": 2.131113792345597,
+        "acceleration_peak_m_s2": 9.906733465001523,
+        "total_torque_rms_nm": 0.40510275659169265,
+        "total_torque_peak_nm": 1.1908489715548518
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00004_234547_566979",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00004_234547_566979/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 47,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.02482797426831003,
+        "cross_track_peak_m": 0.04798048280932177,
+        "acceleration_rms_m_s2": 4.198973130926118,
+        "acceleration_z_rms_m_s2": 3.7643072100428205,
+        "acceleration_peak_m_s2": 24.569782911807916,
+        "total_torque_rms_nm": 0.52754475355059,
+        "total_torque_peak_nm": 1.2498449511875238
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00005_234653_583623",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00005_234653_583623/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 44,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.026497285359933564,
+        "cross_track_peak_m": 0.036752249563924325,
+        "acceleration_rms_m_s2": 2.8395881311830333,
+        "acceleration_z_rms_m_s2": 1.5959191415836727,
+        "acceleration_peak_m_s2": 11.699396799302635,
+        "total_torque_rms_nm": 0.49774441195407454,
+        "total_torque_peak_nm": 1.1600000000000008
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00005_234653_583623",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00005_234653_583623/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 42,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.04680159294623575,
+        "cross_track_peak_m": 0.08184394456505327,
+        "acceleration_rms_m_s2": 2.2257069379866348,
+        "acceleration_z_rms_m_s2": 0.7848421933213117,
+        "acceleration_peak_m_s2": 11.14174051122354,
+        "total_torque_rms_nm": 0.41429131932742047,
+        "total_torque_peak_nm": 1.189945830111957
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00005_234653_583623",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00005_234653_583623/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 48,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.062016045392508413,
+        "cross_track_peak_m": 0.12146738876672636,
+        "acceleration_rms_m_s2": 2.088033634831609,
+        "acceleration_z_rms_m_s2": 0.3797900188530614,
+        "acceleration_peak_m_s2": 7.203944637670993,
+        "total_torque_rms_nm": 0.5798492720815891,
+        "total_torque_peak_nm": 1.3209999446601555
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00006_234800_587344",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00006_234800_587344/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 39,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.05706485545200151,
+        "cross_track_peak_m": 0.09763964340378166,
+        "acceleration_rms_m_s2": 2.043583889091602,
+        "acceleration_z_rms_m_s2": 1.2899893238179365,
+        "acceleration_peak_m_s2": 5.978198510488517,
+        "total_torque_rms_nm": 0.44648594948903186,
+        "total_torque_peak_nm": 1.1151001372470317
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00006_234800_587344",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00006_234800_587344/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 41,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.05559428665595032,
+        "cross_track_peak_m": 0.08215193767310237,
+        "acceleration_rms_m_s2": 3.509068899642546,
+        "acceleration_z_rms_m_s2": 1.4437645951311504,
+        "acceleration_peak_m_s2": 16.096881377291858,
+        "total_torque_rms_nm": 0.45938753749095074,
+        "total_torque_peak_nm": 1.1795561027449628
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00006_234800_587344",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00006_234800_587344/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 51,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.03376537892080653,
+        "cross_track_peak_m": 0.04835627744373405,
+        "acceleration_rms_m_s2": 2.236027298377668,
+        "acceleration_z_rms_m_s2": 1.2565537153926807,
+        "acceleration_peak_m_s2": 8.60652168645594,
+        "total_torque_rms_nm": 0.5543806223222446,
+        "total_torque_peak_nm": 1.3141448303212906
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00007_234907_799854",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00007_234907_799854/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 3.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 38,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.04388278882081038,
+        "cross_track_peak_m": 0.06393785040146127,
+        "acceleration_rms_m_s2": 2.346409076679596,
+        "acceleration_z_rms_m_s2": 1.1293135357496076,
+        "acceleration_peak_m_s2": 11.58259551902368,
+        "total_torque_rms_nm": 0.3825322981869871,
+        "total_torque_peak_nm": 1.0930877609507754
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00007_234907_799854",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00007_234907_799854/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 6.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 45,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.06528091946623069,
+        "cross_track_peak_m": 0.10151896637977732,
+        "acceleration_rms_m_s2": 3.281899466713561,
+        "acceleration_z_rms_m_s2": 1.6362276925502017,
+        "acceleration_peak_m_s2": 18.40558910765551,
+        "total_torque_rms_nm": 0.5725588760225157,
+        "total_torque_peak_nm": 1.2647834540451384
+      }
+    },
+    {
+      "group": "PI+SAC (70k)",
+      "episode": "episode_00007_234907_799854",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_234228_634376/episode_00007_234907_799854/steps.jsonl",
+      "outcome": "SUCCEEDED",
+      "obstacle": 9.0,
+      "axis": "progress",
+      "radius_m": 0.5,
+      "samples": 53,
+      "coordinate_available": true,
+      "center_crossed": true,
+      "window_complete": true,
+      "metrics": {
+        "cross_track_rmse_time_m": 0.0207931284486506,
+        "cross_track_peak_m": 0.04892150199223621,
+        "acceleration_rms_m_s2": 1.523665218673307,
+        "acceleration_z_rms_m_s2": 1.0138013689901089,
+        "acceleration_peak_m_s2": 5.75535739084742,
+        "total_torque_rms_nm": 0.7888199605909838,
+        "total_torque_peak_nm": 1.6838509945075035
+      }
+    }
+  ],
+  "audit": [
+    {
+      "group": "PI",
+      "kind": "startup_retry",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134",
+      "detail": {
+        "attempt": 1,
+        "max_attempts": 3,
+        "reason": "/velocity_smoother did not activate: inactive (id=2); see /home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00005_232754_439379/navigation.log",
+        "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00005_232754_439379",
+        "goal_submitted": false
+      }
+    },
+    {
+      "group": "PI",
+      "kind": "session_without_samples",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00005_232754_439379",
+      "detail": "No trajectory recorded; not classified as a robot failure"
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "kind": "startup_retry",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556",
+      "detail": {
+        "attempt": 1,
+        "max_attempts": 3,
+        "reason": "/controller_server did not activate: inactive (id=2); see /home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00003_233406_596730/navigation.log",
+        "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00003_233406_596730",
+        "goal_submitted": false
+      }
+    },
+    {
+      "group": "PI+SAC (50k)",
+      "kind": "session_without_samples",
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00003_233406_596730",
+      "detail": "No trajectory recorded; not classified as a robot failure"
+    }
+  ],
+  "notices": [
+    "Same seed labels do not control Gazebo/AMCL noise; no paired-significance claim is made.",
+    "Matching map paths does not verify historical map/Nav2/actuator contents.",
+    "Spatial windows and sampled IMU peaks are not contact or obstacle-clearance sensors.",
+    "Obstacle centers must use the selected pose coordinate frame; no SDF-world to AMCL-map transform is inferred.",
+    "Failure/time-limit metrics remain included; incomplete/invalid/startup-only sessions are listed separately.",
+    "Torque is a command proxy; squared torque integral is not energy consumption.",
+    "Missing signals remain N/A; historical logs cannot recover unsaved sensors."
+  ],
+  "confounders": []
+}

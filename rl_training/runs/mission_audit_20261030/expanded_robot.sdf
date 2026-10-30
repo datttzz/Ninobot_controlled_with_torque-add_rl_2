@@ -1,0 +1,577 @@
+<sdf version='1.11'>
+  <model name='nino'>
+    <link name='base_footprint'>
+      <inertial>
+        <pose>0.060360668396744303 0 0.14986131978047601 0 0 0</pose>
+        <mass>3.7594075243999998</mass>
+        <inertia>
+          <ixx>0.0296011172863186</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.00077613479760071241</ixz>
+          <iyy>0.048480098547879921</iyy>
+          <iyz>0</iyz>
+          <izz>0.071909330461561297</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 0.0625 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__laser_collision_1'>
+        <pose>0.10000000000000001 0 0.24249999999999999 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.037499999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+        <pose>0 0 0.0625 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.225000009 0.524999976 1 1</diffuse>
+          <ambient>0.225000009 0.524999976 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__laser_visual_1'>
+        <pose>0.10000000000000001 0 0.24249999999999999 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.037499999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.00374999992 0.798749983 0.278750002 1</diffuse>
+          <ambient>0.00374999992 0.798749983 0.278750002 1</ambient>
+        </material>
+      </visual>
+      <sensor name='imu_sensor' type='imu'>
+        <topic>imu/data</topic>
+        <update_rate>50</update_rate>
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.00020000000000000001</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.00020000000000000001</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.00020000000000000001</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.017000000000000001</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.017000000000000001</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.017000000000000001</stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+        <pose>0.050000000000000003 0 0.16250000000000001 0 0 0</pose>
+      </sensor>
+      <sensor name='gpu_lidar' type='gpu_lidar'>
+        <topic>scan</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.1415926535897931</min_angle>
+              <max_angle>3.1415926535897931</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.080000000000000002</min>
+            <max>12</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.0050000000000000001</stddev>
+          </noise>
+        </lidar>
+        <pose>0.10000000000000001 0 0.24249999999999999 0 0 0</pose>
+      </sensor>
+    </link>
+    <joint name='caster_left_swivel_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.24362 0.087999999999999995 0.041000000000000002 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>caster_bracket_left_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>2</effort>
+          <velocity>20</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.080000000000000002</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='caster_bracket_left_link'>
+      <pose relative_to='caster_left_swivel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0016273079 0 -0.0041294432999999997 0 0 0</pose>
+        <mass>0.082160427499999994</mass>
+        <inertia>
+          <ixx>1.1152579999999999e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>-8.202e-07</ixz>
+          <iyy>1.1707930000000001e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.7775439999999999e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='caster_bracket_left_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/caster_bracket_front1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='caster_bracket_left_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/caster_bracket_front1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.599999964 0.625 0.649999976 1</diffuse>
+          <ambient>0.599999964 0.625 0.649999976 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='caster_left_wheel_joint' type='revolute'>
+      <pose relative_to='caster_bracket_left_link'>-0.016 0 -0.025000000000000001 1.5707963267948959 0 0</pose>
+      <parent>caster_bracket_left_link</parent>
+      <child>caster_left_wheel_link</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>30</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='caster_left_wheel_link'>
+      <pose relative_to='caster_left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0131302038</mass>
+        <inertia>
+          <ixx>1.3176999999999999e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.3176999999999999e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.89555e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='caster_left_wheel_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.021000000000000001</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.34999999999999998</mu>
+              <mu2>0.34999999999999998</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='caster_left_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/caster_wheel_front.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.0625 0.0625 0.0625 1</diffuse>
+          <ambient>0.0625 0.0625 0.0625 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='caster_right_swivel_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.24362 -0.087999999999999995 0.041000000000000002 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>caster_bracket_right_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>2</effort>
+          <velocity>20</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.080000000000000002</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='caster_bracket_right_link'>
+      <pose relative_to='caster_right_swivel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0016273079 0 -0.0041294432999999997 0 0 0</pose>
+        <mass>0.082160427499999994</mass>
+        <inertia>
+          <ixx>1.1152579999999999e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>-8.202e-07</ixz>
+          <iyy>1.1707930000000001e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.7775439999999999e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='caster_bracket_right_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/caster_bracket_front1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='caster_bracket_right_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/caster_bracket_front1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.599999964 0.625 0.649999976 1</diffuse>
+          <ambient>0.599999964 0.625 0.649999976 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='caster_right_wheel_joint' type='revolute'>
+      <pose relative_to='caster_bracket_right_link'>-0.016 0 -0.025000000000000001 1.5707963267948959 0 0</pose>
+      <parent>caster_bracket_right_link</parent>
+      <child>caster_right_wheel_link</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>30</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='caster_right_wheel_link'>
+      <pose relative_to='caster_right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0131302038</mass>
+        <inertia>
+          <ixx>1.3176999999999999e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.3176999999999999e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.89555e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='caster_right_wheel_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.021000000000000001</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.34999999999999998</mu>
+              <mu2>0.34999999999999998</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='caster_right_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/caster_wheel_front.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.0625 0.0625 0.0625 1</diffuse>
+          <ambient>0.0625 0.0625 0.0625 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='left_wheel_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0 0.19350000000000001 0.0625 1.5707963267948959 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>left_wheel_link</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>12</effort>
+          <velocity>24</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_wheel_link'>
+      <pose relative_to='left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0.022131670400000001 0 0 0</pose>
+        <mass>0.41943923109999998</mass>
+        <inertia>
+          <ixx>0.00043046654999999998</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00043046654999999998</iyy>
+          <iyz>0</iyz>
+          <izz>0.00076090197000000005</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_wheel_link_collision'>
+        <pose>0 0 0.0235 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.047</length>
+            <radius>0.0625</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000000</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='left_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/left_wheel_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.0625 0.0625 0.0625 1</diffuse>
+          <ambient>0.0625 0.0625 0.0625 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='right_wheel_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0 -0.19350000000000001 0.0625 1.5707963267948959 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>right_wheel_link</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>12</effort>
+          <velocity>24</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_wheel_link'>
+      <pose relative_to='right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 -0.022131670400000001 0 0 0</pose>
+        <mass>0.41943923109999998</mass>
+        <inertia>
+          <ixx>0.00043046654999999998</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00043046654999999998</iyy>
+          <iyz>0</iyz>
+          <izz>0.00076090197000000005</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_wheel_link_collision'>
+        <pose>0 0 -0.0235 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.047</length>
+            <radius>0.0625</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000000</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://nino_description/meshes/right_wheel_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.0625 0.0625 0.0625 1</diffuse>
+          <ambient>0.0625 0.0625 0.0625 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name='gz::sim::systems::OdometryPublisher' filename='gz-sim-odometry-publisher-system'>
+      <odom_topic>/ground_truth/odom</odom_topic>
+      <odom_frame>world</odom_frame>
+      <robot_base_frame>base_footprint</robot_base_frame>
+      <odom_publish_frequency>100</odom_publish_frequency>
+      <dimensions>3</dimensions>
+      <gaussian_noise>0</gaussian_noise>
+    </plugin>
+    <plugin name='gz_ros2_control::GazeboSimROS2ControlPlugin' filename='libgz_ros2_control-system.so'>
+      <parameters>/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/install/nino_control/share/nino_control/config/controllers.yaml</parameters>
+    </plugin>
+    <frame name='imu_to_base_link' attached_to='base_link'>
+      <pose>0.050000000000000003 0 0.10000000000000001 0 0 0</pose>
+    </frame>
+    <frame name='imu_link' attached_to='imu_to_base_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='laser_to_base_link' attached_to='base_link'>
+      <pose>0.10000000000000001 0 0.17999999999999999 0 0 0</pose>
+    </frame>
+    <frame name='laser' attached_to='laser_to_base_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='base_footprint_joint' attached_to='base_footprint'>
+      <pose>0 0 0.0625 0 0 0</pose>
+    </frame>
+    <frame name='base_link' attached_to='base_footprint_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>

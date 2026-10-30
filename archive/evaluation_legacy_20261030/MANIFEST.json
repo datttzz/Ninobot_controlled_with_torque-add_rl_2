@@ -1,0 +1,128 @@
+[
+  {
+    "original": "evaluate_and_compare.py",
+    "archive": "archive/evaluation_legacy_20261030/evaluate_and_compare.py",
+    "sha256": "8889417f93bcf74755326d4a8065f5e62d0d531865ddeb4ab9745567c3088aba",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/benchmark_suite.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/benchmark_suite.py",
+    "sha256": "b75d055d45637286e99d87620b7390c6caea7737fdf8f386092b2b0bef55f789",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/benchmark_report.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/benchmark_report.py",
+    "sha256": "9f3d0ef1db0c8b89029628226641b34efd744fd7146294c608cece1279627a18",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/compare_runs.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/compare_runs.py",
+    "sha256": "80ed2edf391ccf09f0b716279b50e2e072c0d66b969dd0f0f31c728010da9e04",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/evaluation_report.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/evaluation_report.py",
+    "sha256": "79b360df98fae3af7f013563ff46339d962fc225a3b2577e293fb63e7699ba4a",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/periodic_evaluation.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/periodic_evaluation.py",
+    "sha256": "e470eb030a8a5ac6e892bac8f0c9e637b131d9702876ffb9bcf1a09874739cc7",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/tests/test_benchmark_suite.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/tests/test_benchmark_suite.py",
+    "sha256": "aaaca6b6f0330abeababe40f2eb6dee569515ba7f91ce1c943b8476e10d57885",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/tests/test_comparison.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/tests/test_comparison.py",
+    "sha256": "0a59de4545effe1faa891e86f2bee5a32d4e891413f2df8f153dacfc75d316fe",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/tests/test_evaluation_report.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/tests/test_evaluation_report.py",
+    "sha256": "fd560eb900c089d5d71b5b5b636aee5afd33151799b9a6a62df76a714fa9509b",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/tests/test_periodic_evaluation.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/tests/test_periodic_evaluation.py",
+    "sha256": "4fc149c82f94ba52ae2f5186ac4e24c9f3c59be844e1281148f2894fb137c67b",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/BENCHMARK_SUITE.md",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/BENCHMARK_SUITE.md",
+    "sha256": "3ff6fb236b282422e4fb8ae5d9f9f15736df2bf05505e5b3766cbca9449b8781",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/BENCHMARK_LOG_SURVEY.md",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/BENCHMARK_LOG_SURVEY.md",
+    "sha256": "017c5087fac316be6b65dfec6d531c6ef70df1a67a0498fe7cea3eb3e2b31b7d",
+    "action": "moved_to_archive"
+  },
+  {
+    "original": "rl_training/long_run.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/long_run.py",
+    "sha256": "7299f0ca80b502005872186c964e496e6ea54d1da2dbdec2dd0360c784395153",
+    "action": "backup_before_edit"
+  },
+  {
+    "original": "rl_training/README.md",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/README.md",
+    "sha256": "02fd62effa35c07f74a619f8a898b7c26027478adb9dddf911c4be969569169b",
+    "action": "backup_before_edit"
+  },
+  {
+    "original": "rl_training/ABLATION_SUITE.md",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/ABLATION_SUITE.md",
+    "sha256": "4a1f8dc0673fd2b2e4b8322f31a1c6418543066e806bdbf8ae57a9a3e797825b",
+    "action": "backup_before_edit"
+  },
+  {
+    "original": "rl_training/tests/test_ablation_suite.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/tests/test_ablation_suite.py",
+    "sha256": "89766a35472a568133c81d6e28d9bf8e5bc47137e4e7a32c4c2f3580498a0565",
+    "action": "backup_before_edit"
+  },
+  {
+    "original": "rl_training/tests/test_dashboard.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/tests/test_dashboard.py",
+    "sha256": "c34f6de1f209f495f9c56d20c1775a788d6d2872202edaa2101393e8840399d6",
+    "action": "backup_before_edit"
+  },
+  {
+    "original": "rl_training/dashboard.py",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/dashboard.py",
+    "sha256": "e4350e28eb0632a6eb993e97eee11538a7b6e9070ae165802a5d7c57b772abe5",
+    "action": "backup_before_edit"
+  },
+  {
+    "original": "rl_training/dashboard/index.html",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/dashboard/index.html",
+    "sha256": "418a1dcbd17a4ce6e95e2a723d1daddde0b93ed9e1f4cd280829d3edb60f68b4",
+    "action": "backup_before_edit"
+  },
+  {
+    "original": "HUONG_DAN_CHAY_TREN_LAPTOP.md",
+    "archive": "archive/evaluation_legacy_20261030/HUONG_DAN_CHAY_TREN_LAPTOP.md",
+    "sha256": "abab75821d5fc909292786143d8cf10f01fb3f6429b5b9df0027f1a4f86543df",
+    "action": "backup_before_edit"
+  },
+  {
+    "original": "rl_training/README_WSL_LICH_SU.md",
+    "archive": "archive/evaluation_legacy_20261030/rl_training/README_WSL_LICH_SU.md",
+    "sha256": "35851d99284931a76c3defcb4cd6a412d7e16c656ca2309d6fcf065600151f48",
+    "action": "backup_before_pointer"
+  }
+]

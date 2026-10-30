@@ -1,0 +1,163 @@
+{
+  "topic_counts": {
+    "/tf_static": 1,
+    "/clock": 69136,
+    "/imu/data": 3457,
+    "/joint_states": 33887,
+    "/scan": 692,
+    "/ground_truth/odom": 6913,
+    "/wheel_control_status": 3456,
+    "/odom": 3456,
+    "/tf": 5472,
+    "/map": 1,
+    "/episode/state": 5,
+    "/cmd_vel": 1306,
+    "/initialpose": 1,
+    "/particle_cloud": 107,
+    "/amcl_pose": 107,
+    "/episode/reference_path": 1
+  },
+  "static_tf": [
+    {
+      "parent": "base_footprint",
+      "child": "base_link",
+      "xyz": [
+        0.0,
+        0.0,
+        0.0625
+      ],
+      "q": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "parent": "base_link",
+      "child": "imu_link",
+      "xyz": [
+        0.05,
+        0.0,
+        0.1
+      ],
+      "q": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "parent": "base_link",
+      "child": "laser",
+      "xyz": [
+        0.1,
+        0.0,
+        0.18
+      ],
+      "q": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "initial_pose": [
+    {
+      "frame": "map",
+      "pose": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "states": [
+    {
+      "receipt_ns": 1793328527710470077,
+      "episode_id": 0,
+      "state": "IDLE",
+      "reason": "",
+      "planning_requests": 0,
+      "path_sha256": ""
+    },
+    {
+      "receipt_ns": 1793328532066784609,
+      "episode_id": 1,
+      "state": "PLANNING",
+      "reason": "",
+      "planning_requests": 0,
+      "path_sha256": ""
+    },
+    {
+      "receipt_ns": 1793328532083269834,
+      "episode_id": 1,
+      "state": "FOLLOWING",
+      "reason": "",
+      "planning_requests": 0,
+      "path_sha256": "135a717f31f5945dadae48bb56c1aa7f36ef354d462e14c17fbe2ec134dadaf3"
+    },
+    {
+      "receipt_ns": 1793328592936936760,
+      "episode_id": 1,
+      "state": "STOPPING",
+      "reason": "Original path completed",
+      "planning_requests": 0,
+      "path_sha256": "135a717f31f5945dadae48bb56c1aa7f36ef354d462e14c17fbe2ec134dadaf3"
+    },
+    {
+      "receipt_ns": 1793328593189490108,
+      "episode_id": 1,
+      "state": "SUCCEEDED",
+      "reason": "Original path completed",
+      "planning_requests": 0,
+      "path_sha256": "135a717f31f5945dadae48bb56c1aa7f36ef354d462e14c17fbe2ec134dadaf3"
+    }
+  ],
+  "last_gt": [
+    10.927924053900309,
+    0.06976430666216861,
+    -0.2514802820862962
+  ],
+  "last_odom_world": [
+    11.332738495042753,
+    -2.0954202812254987,
+    -0.6920150706811258
+  ],
+  "last_estimated_world": [
+    10.950615786208045,
+    0.012368618136520567,
+    -0.24730236390491833
+  ],
+  "last_odom_error": [
+    0.40481444114244347,
+    -2.1651845878876674,
+    -0.4405347885948296
+  ],
+  "last_map_correction_effect": [
+    -0.3821227088347072,
+    2.1077888993620193,
+    0.44471270677620744
+  ],
+  "last_final_error": [
+    0.022691732307736245,
+    -0.05739568852564804,
+    0.00417791818137786
+  ],
+  "last_raw_amcl_error": [
+    0.02262423972303118,
+    -0.05752263114057293,
+    0.0018649327289111395
+  ],
+  "decomposition_max_numeric_error": 4.371503159461554e-16,
+  "map_odom_header_minus_scan_stamp_median_s": 1.0,
+  "odom_tf_max_gap_s": 0.023000000000010346,
+  "gt_max_gap_s": 0.010000000000005116,
+  "amcl_publish_gaps_s": [
+    0.1999999999999993,
+    0.5,
+    4.3
+  ]
+}

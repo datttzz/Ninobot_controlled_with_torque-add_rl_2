@@ -1,0 +1,335 @@
+{
+  "all_raw_six_preserved": true,
+  "operating_PID_unchanged": true,
+  "frozen_profile_unchanged": true,
+  "same_reference": true,
+  "reference_hashes": [
+    "990a576f10e7fd2918e24bde2405e3fe3a26a29f41055a0f109077ef1df3bef1"
+  ],
+  "active_gazebo": [],
+  "active_jobs": [],
+  "invariants": [
+    {
+      "trial": "screen_p025_i010_d0002_t050",
+      "only_PID": true,
+      "no_checkpoint": true,
+      "deterministic": true,
+      "same_nav2": true,
+      "protected_controller": {
+        "wheel_radius": true,
+        "wheel_separation": true,
+        "max_wheel_speed": true,
+        "max_wheel_acceleration": true,
+        "max_wheel_torque": true,
+        "max_velocity_control_torque": true,
+        "max_effort_rate": true,
+        "command_timeout": true,
+        "torque_command_timeout": true,
+        "integral_limit": true
+      },
+      "all_residual_zero": true
+    },
+    {
+      "trial": "screen_p030_i010_d0002_t080",
+      "only_PID": true,
+      "no_checkpoint": true,
+      "deterministic": true,
+      "same_nav2": true,
+      "protected_controller": {
+        "wheel_radius": true,
+        "wheel_separation": true,
+        "max_wheel_speed": true,
+        "max_wheel_acceleration": true,
+        "max_wheel_torque": true,
+        "max_velocity_control_torque": true,
+        "max_effort_rate": true,
+        "command_timeout": true,
+        "torque_command_timeout": true,
+        "integral_limit": true
+      },
+      "all_residual_zero": true
+    },
+    {
+      "trial": "screen_p030_i010_d0005_t050",
+      "only_PID": true,
+      "no_checkpoint": true,
+      "deterministic": true,
+      "same_nav2": true,
+      "protected_controller": {
+        "wheel_radius": true,
+        "wheel_separation": true,
+        "max_wheel_speed": true,
+        "max_wheel_acceleration": true,
+        "max_wheel_torque": true,
+        "max_velocity_control_torque": true,
+        "max_effort_rate": true,
+        "command_timeout": true,
+        "torque_command_timeout": true,
+        "integral_limit": true
+      },
+      "all_residual_zero": true
+    },
+    {
+      "trial": "screen_p035_i010_d0002_t080",
+      "only_PID": true,
+      "no_checkpoint": true,
+      "deterministic": true,
+      "same_nav2": true,
+      "protected_controller": {
+        "wheel_radius": true,
+        "wheel_separation": true,
+        "max_wheel_speed": true,
+        "max_wheel_acceleration": true,
+        "max_wheel_torque": true,
+        "max_velocity_control_torque": true,
+        "max_effort_rate": true,
+        "command_timeout": true,
+        "torque_command_timeout": true,
+        "integral_limit": true
+      },
+      "all_residual_zero": true
+    },
+    {
+      "trial": "screen_p025_i012_d0005_t080",
+      "only_PID": true,
+      "no_checkpoint": true,
+      "deterministic": true,
+      "same_nav2": true,
+      "protected_controller": {
+        "wheel_radius": true,
+        "wheel_separation": true,
+        "max_wheel_speed": true,
+        "max_wheel_acceleration": true,
+        "max_wheel_torque": true,
+        "max_velocity_control_torque": true,
+        "max_effort_rate": true,
+        "command_timeout": true,
+        "torque_command_timeout": true,
+        "integral_limit": true
+      },
+      "all_residual_zero": true
+    },
+    {
+      "trial": "screen_p040_i010_d0005_t080",
+      "only_PID": true,
+      "no_checkpoint": true,
+      "deterministic": true,
+      "same_nav2": true,
+      "protected_controller": {
+        "wheel_radius": true,
+        "wheel_separation": true,
+        "max_wheel_speed": true,
+        "max_wheel_acceleration": true,
+        "max_wheel_torque": true,
+        "max_velocity_control_torque": true,
+        "max_effort_rate": true,
+        "command_timeout": true,
+        "torque_command_timeout": true,
+        "integral_limit": true
+      },
+      "all_residual_zero": true
+    },
+    {
+      "trial": "verification",
+      "only_PID": true,
+      "no_checkpoint": true,
+      "deterministic": true,
+      "same_nav2": true,
+      "protected_controller": {
+        "wheel_radius": true,
+        "wheel_separation": true,
+        "max_wheel_speed": true,
+        "max_wheel_acceleration": true,
+        "max_wheel_torque": true,
+        "max_velocity_control_torque": true,
+        "max_effort_rate": true,
+        "command_timeout": true,
+        "torque_command_timeout": true,
+        "integral_limit": true
+      },
+      "all_residual_zero": true
+    }
+  ],
+  "freshness": [
+    {
+      "trial": "screen_p025_i010_d0002_t050",
+      "episode": 1,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.0009999999999976694,
+        "age_max_s": 0.02200000000000557
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.0009999999999976694,
+        "age_max_s": 0.009000000000000341
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 1.532107773982716e-14
+      },
+      "reset_samples": 0
+    },
+    {
+      "trial": "screen_p030_i010_d0002_t080",
+      "episode": 1,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.0010000000000012221,
+        "age_max_s": 0.021000000000000796
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.0,
+        "age_max_s": 0.011000000000002785
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 2.0650148258027912e-14
+      },
+      "reset_samples": 0
+    },
+    {
+      "trial": "screen_p030_i010_d0005_t050",
+      "episode": 1,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.0049999999999954525,
+        "age_max_s": 0.01899999999999835
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.001999999999995339,
+        "age_max_s": 0.006000000000000227
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 2.9753977059954195e-14
+      },
+      "reset_samples": 0
+    },
+    {
+      "trial": "screen_p035_i010_d0002_t080",
+      "episode": 1,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.010000000000005116,
+        "age_max_s": 0.019000000000001904
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.001999999999995339,
+        "age_max_s": 0.012000000000004007
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 2.4646951146678475e-14
+      },
+      "reset_samples": 0
+    },
+    {
+      "trial": "screen_p025_i012_d0005_t080",
+      "episode": 1,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.003999999999990678,
+        "age_max_s": 0.006999999999999673
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.0049999999999954525,
+        "age_max_s": 0.008000000000000895
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 3.086420008457935e-14
+      },
+      "reset_samples": 0
+    },
+    {
+      "trial": "screen_p040_i010_d0005_t080",
+      "episode": 1,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.0049999999999954525,
+        "age_max_s": 0.013999999999995794
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.006000000000000227,
+        "age_max_s": 0.009000000000007446
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 5.551115123125783e-15
+      },
+      "reset_samples": 0
+    },
+    {
+      "trial": "verification",
+      "episode": 1,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.001999999999995339,
+        "age_max_s": 0.02200000000000557
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.001999999999995339,
+        "age_max_s": 0.01200000000000756
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 1.1102230246251565e-16
+      },
+      "reset_samples": 0
+    },
+    {
+      "trial": "verification",
+      "episode": 2,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.0049999999999954525,
+        "age_max_s": 0.016000000000005343
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.001999999999995339,
+        "age_max_s": 0.012000000000004007
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 7.549516567451064e-15
+      },
+      "reset_samples": 0
+    },
+    {
+      "trial": "verification",
+      "episode": 3,
+      "amcl_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.012999999999998124,
+        "age_max_s": 0.020000000000003126
+      },
+      "gt_stamp_s": {
+        "backwards": 0,
+        "age_min_s": 0.003999999999997783,
+        "age_max_s": 0.010000000000005116
+      },
+      "quaternion_norm_max_error": {
+        "amcl_quaternion": 1.1102230246251565e-16,
+        "ground_truth_quaternion": 1.5765166949677223e-14
+      },
+      "reset_samples": 0
+    }
+  ],
+  "tests": {
+    "related_tests_passed": 38,
+    "all_suite_rerun": false
+  },
+  "GUI_dry_run_only": true,
+  "prior_SAC_files_preserved": {
+    "rl_training/runs/train_20261027_135837_606611/model.zip": true,
+    "rl_training/runs/train_20261027_173345_545739/model.zip": true
+  }
+}

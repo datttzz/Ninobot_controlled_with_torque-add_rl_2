@@ -1,0 +1,688 @@
+{
+  "thresholds": {
+    "xy_m": 0.25,
+    "yaw_rad": 0.25,
+    "max_deviation_m": 0.2
+  },
+  "numeric_policy": "float64 <=, no rounding or permissive epsilon; displayed rounded values never used for classification",
+  "nav2_succeeded": 6,
+  "amcl_pass": 6,
+  "gt_pass": 0,
+  "full_pass": 0,
+  "episodes": [
+    {
+      "controller": "PI",
+      "episode": "episode_00001_013040_879619",
+      "outcome": "SUCCEEDED",
+      "terminal_time_s": 49.206,
+      "terminal_amcl_stamp_s": 58.984,
+      "terminal_gt_stamp_s": 58.99,
+      "amcl_goal_xy_m": 0.227581027493156,
+      "amcl_goal_yaw_rad": 0.18787903935544448,
+      "gt_goal_xy_m": 0.28921385375481545,
+      "gt_goal_yaw_rad": 0.20078888730644526,
+      "amcl_max_m": 0.14331874870080075,
+      "gt_max_m": 0.15107964853011382,
+      "nav2_succeeded": true,
+      "amcl_task_pass": true,
+      "gt_task_pass": false,
+      "full_pass": false,
+      "failure_reasons": "gt_goal_xy_m=0.289214 > 0.25",
+      "amcl_max_time_s": 43.422,
+      "amcl_max_source_stamp_s": 53.204,
+      "gt_max_time_s": 43.30200000000001,
+      "gt_max_source_stamp_s": 53.08
+    },
+    {
+      "controller": "PI",
+      "episode": "episode_00002_013147_999792",
+      "outcome": "SUCCEEDED",
+      "terminal_time_s": 49.593,
+      "terminal_amcl_stamp_s": 59.181000000000004,
+      "terminal_gt_stamp_s": 59.18,
+      "amcl_goal_xy_m": 0.21819130511803972,
+      "amcl_goal_yaw_rad": 0.2175990598564685,
+      "gt_goal_xy_m": 0.30902267402909317,
+      "gt_goal_yaw_rad": 0.20952568288721507,
+      "amcl_max_m": 0.18891376650845348,
+      "gt_max_m": 0.22692782865097444,
+      "nav2_succeeded": true,
+      "amcl_task_pass": true,
+      "gt_task_pass": false,
+      "full_pass": false,
+      "failure_reasons": "gt_goal_xy_m=0.309023 > 0.25; gt_max_m=0.226928 > 0.2",
+      "amcl_max_time_s": 43.724000000000004,
+      "amcl_max_source_stamp_s": 53.301,
+      "gt_max_time_s": 43.324000000000005,
+      "gt_max_source_stamp_s": 52.91
+    },
+    {
+      "controller": "PID",
+      "episode": "episode_00001_013257_380013",
+      "outcome": "SUCCEEDED",
+      "terminal_time_s": 52.857000000000006,
+      "terminal_amcl_stamp_s": 60.352000000000004,
+      "terminal_gt_stamp_s": 60.36,
+      "amcl_goal_xy_m": 0.19587130301883945,
+      "amcl_goal_yaw_rad": 0.17517532250704893,
+      "gt_goal_xy_m": 1.0363754110789007,
+      "gt_goal_yaw_rad": 0.1933905382422026,
+      "amcl_max_m": 0.1094629631882669,
+      "gt_max_m": 0.14059574242615097,
+      "nav2_succeeded": true,
+      "amcl_task_pass": true,
+      "gt_task_pass": false,
+      "full_pass": false,
+      "failure_reasons": "gt_goal_xy_m=1.03638 > 0.25",
+      "amcl_max_time_s": 36.224000000000004,
+      "amcl_max_source_stamp_s": 43.712,
+      "gt_max_time_s": 25.124,
+      "gt_max_source_stamp_s": 32.62
+    },
+    {
+      "controller": "PID",
+      "episode": "episode_00002_013405_461162",
+      "outcome": "SUCCEEDED",
+      "terminal_time_s": 48.197,
+      "terminal_amcl_stamp_s": 56.463,
+      "terminal_gt_stamp_s": 56.47,
+      "amcl_goal_xy_m": 0.2316622140693055,
+      "amcl_goal_yaw_rad": 0.1731334969502893,
+      "gt_goal_xy_m": 0.3337884862855813,
+      "gt_goal_yaw_rad": 0.17327611285480157,
+      "amcl_max_m": 0.11278659679222071,
+      "gt_max_m": 0.15711512668595334,
+      "nav2_succeeded": true,
+      "amcl_task_pass": true,
+      "gt_task_pass": false,
+      "full_pass": false,
+      "failure_reasons": "gt_goal_xy_m=0.333788 > 0.25",
+      "amcl_max_time_s": 36.125,
+      "amcl_max_source_stamp_s": 44.403000000000006,
+      "gt_max_time_s": 45.125,
+      "gt_max_source_stamp_s": 53.4
+    },
+    {
+      "controller": "PI_SAC",
+      "episode": "episode_00001_013512_310484",
+      "outcome": "SUCCEEDED",
+      "terminal_time_s": 49.928,
+      "terminal_amcl_stamp_s": 59.12500000000001,
+      "terminal_gt_stamp_s": 59.13,
+      "amcl_goal_xy_m": 0.22618479603924238,
+      "amcl_goal_yaw_rad": 0.08075381271016552,
+      "gt_goal_xy_m": 0.28394041457590574,
+      "gt_goal_yaw_rad": 0.09247452866726737,
+      "amcl_max_m": 0.08419818251774037,
+      "gt_max_m": 0.10644423265460176,
+      "nav2_succeeded": true,
+      "amcl_task_pass": true,
+      "gt_task_pass": false,
+      "full_pass": false,
+      "failure_reasons": "gt_goal_xy_m=0.28394 > 0.25",
+      "amcl_max_time_s": 30.201999999999998,
+      "amcl_max_source_stamp_s": 39.404,
+      "gt_max_time_s": 40.762,
+      "gt_max_source_stamp_s": 49.97
+    },
+    {
+      "controller": "PI_SAC",
+      "episode": "episode_00002_013619_404705",
+      "outcome": "SUCCEEDED",
+      "terminal_time_s": 50.105000000000004,
+      "terminal_amcl_stamp_s": 59.205000000000005,
+      "terminal_gt_stamp_s": 59.21,
+      "amcl_goal_xy_m": 0.08379904696627345,
+      "amcl_goal_yaw_rad": 0.24799172525664231,
+      "gt_goal_xy_m": 0.15066558960819518,
+      "gt_goal_yaw_rad": 0.25669270825282514,
+      "amcl_max_m": 0.08434336017923877,
+      "gt_max_m": 0.10209081723416917,
+      "nav2_succeeded": true,
+      "amcl_task_pass": true,
+      "gt_task_pass": false,
+      "full_pass": false,
+      "failure_reasons": "gt_goal_yaw_rad=0.256693 > 0.25",
+      "amcl_max_time_s": 15.602,
+      "amcl_max_source_stamp_s": 24.704,
+      "gt_max_time_s": 45.662000000000006,
+      "gt_max_source_stamp_s": 54.77
+    }
+  ],
+  "details": [
+    {
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/fixed3_integration_20261030/PI/episode_00001_013040_879619",
+      "raw_sha256": "68f6965d0e2c1c971c010355698a0d3b9ae4b6196671ffed012659c15fe9d373",
+      "first_sample_time_s": 0.02200000000000024,
+      "samples": 2460,
+      "requested_goal": [
+        11.0,
+        0.0
+      ],
+      "reference_goal": [
+        11.0,
+        0.0
+      ],
+      "max_events": {
+        "amcl": {
+          "index": 2170,
+          "episode_time_s": 43.422,
+          "source_stamp_s": 53.204,
+          "signed_error_m": -0.14331874870080075,
+          "x": 9.617623839332103,
+          "y": -0.14331874870080075
+        },
+        "gt": {
+          "index": 2164,
+          "episode_time_s": 43.30200000000001,
+          "source_stamp_s": 53.08,
+          "signed_error_m": -0.15107964853011382,
+          "x": 9.467079339302856,
+          "y": -0.15107964853011382
+        }
+      },
+      "timestamp_checks": {
+        "simulation_time": {
+          "samples": 2460,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.02400000000000091
+        },
+        "amcl_stamp_s": {
+          "samples": 2460,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.021000000000000796
+        },
+        "gt_stamp_s": {
+          "samples": 2460,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.030000000000001137
+        },
+        "control_stamp_s": {
+          "samples": 2460,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.021000000000000796
+        },
+        "imu_stamp_s": {
+          "samples": 2459,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.020000000000003126
+        }
+      },
+      "endpoint_at_each_sources_own_stamp": true,
+      "cross_track_checks": {
+        "amcl": 1.3877787807814457e-17,
+        "gt": 1.3877787807814457e-17
+      },
+      "terminal_stability": {
+        "amcl_x_delta_last_50hz": -3.552713678800501e-14,
+        "amcl_y_delta_last_50hz": 5.329070518200751e-15,
+        "amcl_yaw_delta_last_50hz": 1.4876988529977098e-14,
+        "gt_x_delta_last_50hz": 0.0,
+        "gt_y_delta_last_50hz": 0.0,
+        "gt_yaw_delta_last_50hz": 0.0
+      },
+      "amcl_minus_gt_stamp_s": [
+        -0.006000000000000227,
+        0.0040000000000048885
+      ],
+      "quaternion_evidence_available": false,
+      "episode_state_available": false,
+      "source_note": "AMCL = latest TF map->base_footprint, fused localization + encoder odometry; GT = Gazebo model world pose"
+    },
+    {
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/fixed3_integration_20261030/PI/episode_00002_013147_999792",
+      "raw_sha256": "d64161dce9b47e6ace93fa5d7a054d493a3b7297e85cac150e5841c21bfa086f",
+      "first_sample_time_s": 0.023999999999999133,
+      "samples": 2480,
+      "requested_goal": [
+        11.0,
+        0.0
+      ],
+      "reference_goal": [
+        11.0,
+        0.0
+      ],
+      "max_events": {
+        "amcl": {
+          "index": 2185,
+          "episode_time_s": 43.724000000000004,
+          "source_stamp_s": 53.301,
+          "signed_error_m": -0.18891376650845348,
+          "x": 9.590569883400367,
+          "y": -0.18891376650845348
+        },
+        "gt": {
+          "index": 2165,
+          "episode_time_s": 43.324000000000005,
+          "source_stamp_s": 52.91,
+          "signed_error_m": -0.22692782865097444,
+          "x": 9.419983419986554,
+          "y": -0.22692782865097444
+        }
+      },
+      "timestamp_checks": {
+        "simulation_time": {
+          "samples": 2480,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.02300000000000324
+        },
+        "amcl_stamp_s": {
+          "samples": 2480,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 1,
+          "max_gap_s": 0.03999999999999915
+        },
+        "gt_stamp_s": {
+          "samples": 2480,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.030000000000001137
+        },
+        "control_stamp_s": {
+          "samples": 2480,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 7,
+          "max_gap_s": 0.04000000000000625
+        },
+        "imu_stamp_s": {
+          "samples": 2479,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 1,
+          "max_gap_s": 0.03999999999999915
+        }
+      },
+      "endpoint_at_each_sources_own_stamp": true,
+      "cross_track_checks": {
+        "amcl": 2.7755575615628914e-17,
+        "gt": 2.7755575615628914e-17
+      },
+      "terminal_stability": {
+        "amcl_x_delta_last_50hz": -4.583000645652646e-13,
+        "amcl_y_delta_last_50hz": 1.0125233984581428e-13,
+        "amcl_yaw_delta_last_50hz": 5.889733145636455e-14,
+        "gt_x_delta_last_50hz": 0.0,
+        "gt_y_delta_last_50hz": 0.0,
+        "gt_yaw_delta_last_50hz": 0.0
+      },
+      "amcl_minus_gt_stamp_s": [
+        -0.01899999999999835,
+        0.009000000000000341
+      ],
+      "quaternion_evidence_available": false,
+      "episode_state_available": false,
+      "source_note": "AMCL = latest TF map->base_footprint, fused localization + encoder odometry; GT = Gazebo model world pose"
+    },
+    {
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/fixed3_integration_20261030/PID/episode_00001_013257_380013",
+      "raw_sha256": "ee3bc126f6dd6fc7eac2a78ca461f1069cee1b87718295aac1a593b2324ebf39",
+      "first_sample_time_s": 0.02400000000000002,
+      "samples": 2643,
+      "requested_goal": [
+        11.0,
+        0.0
+      ],
+      "reference_goal": [
+        11.0,
+        0.0
+      ],
+      "max_events": {
+        "amcl": {
+          "index": 1810,
+          "episode_time_s": 36.224000000000004,
+          "source_stamp_s": 43.712,
+          "signed_error_m": -0.1094629631882669,
+          "x": 8.093354159672366,
+          "y": -0.1094629631882669
+        },
+        "gt": {
+          "index": 1255,
+          "episode_time_s": 25.124,
+          "source_stamp_s": 32.62,
+          "signed_error_m": 0.14059574242615097,
+          "x": 5.428522408763663,
+          "y": 0.14059574242615097
+        }
+      },
+      "timestamp_checks": {
+        "simulation_time": {
+          "samples": 2643,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.02200000000000024
+        },
+        "amcl_stamp_s": {
+          "samples": 2643,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.020000000000003126
+        },
+        "gt_stamp_s": {
+          "samples": 2643,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.02999999999999403
+        },
+        "control_stamp_s": {
+          "samples": 2643,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 22,
+          "max_gap_s": 0.04000000000000625
+        },
+        "imu_stamp_s": {
+          "samples": 2642,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.020000000000003126
+        }
+      },
+      "endpoint_at_each_sources_own_stamp": true,
+      "cross_track_checks": {
+        "amcl": 1.3877787807814457e-17,
+        "gt": 1.3877787807814457e-17
+      },
+      "terminal_stability": {
+        "amcl_x_delta_last_50hz": -3.730349362740526e-14,
+        "amcl_y_delta_last_50hz": -3.552713678800501e-15,
+        "amcl_yaw_delta_last_50hz": 1.479372180313021e-14,
+        "gt_x_delta_last_50hz": 0.0,
+        "gt_y_delta_last_50hz": 0.0,
+        "gt_yaw_delta_last_50hz": 0.0
+      },
+      "amcl_minus_gt_stamp_s": [
+        -0.017999999999993577,
+        -0.007999999999995566
+      ],
+      "quaternion_evidence_available": false,
+      "episode_state_available": false,
+      "source_note": "AMCL = latest TF map->base_footprint, fused localization + encoder odometry; GT = Gazebo model world pose"
+    },
+    {
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/fixed3_integration_20261030/PID/episode_00002_013405_461162",
+      "raw_sha256": "a8e48ca1cf601d44e750f1aafce4f24025ea4dd64cb2de8255f41809b9b05f63",
+      "first_sample_time_s": 0.025000000000000355,
+      "samples": 2410,
+      "requested_goal": [
+        11.0,
+        0.0
+      ],
+      "reference_goal": [
+        11.0,
+        0.0
+      ],
+      "max_events": {
+        "amcl": {
+          "index": 1805,
+          "episode_time_s": 36.125,
+          "source_stamp_s": 44.403000000000006,
+          "signed_error_m": -0.11278659679222071,
+          "x": 8.128554646045744,
+          "y": -0.1127865967922207
+        },
+        "gt": {
+          "index": 2255,
+          "episode_time_s": 45.125,
+          "source_stamp_s": 53.4,
+          "signed_error_m": 0.15711512668595334,
+          "x": 10.020648070610845,
+          "y": 0.15711512668595334
+        }
+      },
+      "timestamp_checks": {
+        "simulation_time": {
+          "samples": 2410,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.022999999999999687
+        },
+        "amcl_stamp_s": {
+          "samples": 2410,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 29,
+          "max_gap_s": 0.05999999999999872
+        },
+        "gt_stamp_s": {
+          "samples": 2410,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.020000000000003126
+        },
+        "control_stamp_s": {
+          "samples": 2410,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 23,
+          "max_gap_s": 0.04000000000000625
+        },
+        "imu_stamp_s": {
+          "samples": 2409,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.020000000000003126
+        }
+      },
+      "endpoint_at_each_sources_own_stamp": true,
+      "cross_track_checks": {
+        "amcl": 1.3877787807814457e-17,
+        "gt": 2.7755575615628914e-17
+      },
+      "terminal_stability": {
+        "amcl_x_delta_last_50hz": 0.0,
+        "amcl_y_delta_last_50hz": 0.0,
+        "amcl_yaw_delta_last_50hz": 0.0,
+        "gt_x_delta_last_50hz": 0.0,
+        "gt_y_delta_last_50hz": 0.0,
+        "gt_yaw_delta_last_50hz": 0.0
+      },
+      "amcl_minus_gt_stamp_s": [
+        -0.036999999999999034,
+        0.003000000000007219
+      ],
+      "quaternion_evidence_available": false,
+      "episode_state_available": false,
+      "source_note": "AMCL = latest TF map->base_footprint, fused localization + encoder odometry; GT = Gazebo model world pose"
+    },
+    {
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/fixed3_integration_20261030/PI_SAC/episode_00001_013512_310484",
+      "raw_sha256": "c68bcf9395469fe43ce8acf483fcd8b9404c416a3f6e02ea6654e85b7bbdb145",
+      "first_sample_time_s": 0.021999999999998465,
+      "samples": 2497,
+      "requested_goal": [
+        11.0,
+        0.0
+      ],
+      "reference_goal": [
+        11.0,
+        0.0
+      ],
+      "max_events": {
+        "amcl": {
+          "index": 1509,
+          "episode_time_s": 30.201999999999998,
+          "source_stamp_s": 39.404,
+          "signed_error_m": -0.08419818251774037,
+          "x": 6.473911391153941,
+          "y": -0.08419818251774036
+        },
+        "gt": {
+          "index": 2037,
+          "episode_time_s": 40.762,
+          "source_stamp_s": 49.97,
+          "signed_error_m": 0.10644423265460176,
+          "x": 8.628315369027222,
+          "y": 0.10644423265460176
+        }
+      },
+      "timestamp_checks": {
+        "simulation_time": {
+          "samples": 2497,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.02200000000000557
+        },
+        "amcl_stamp_s": {
+          "samples": 2497,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 1,
+          "max_gap_s": 0.021000000000000796
+        },
+        "gt_stamp_s": {
+          "samples": 2497,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 1,
+          "max_gap_s": 0.030000000000001137
+        },
+        "control_stamp_s": {
+          "samples": 2497,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 1,
+          "max_gap_s": 0.021000000000000796
+        },
+        "imu_stamp_s": {
+          "samples": 2496,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.020000000000003126
+        }
+      },
+      "endpoint_at_each_sources_own_stamp": true,
+      "cross_track_checks": {
+        "amcl": 1.3877787807814457e-17,
+        "gt": 1.3877787807814457e-17
+      },
+      "terminal_stability": {
+        "amcl_x_delta_last_50hz": 0.0,
+        "amcl_y_delta_last_50hz": 0.0,
+        "amcl_yaw_delta_last_50hz": 0.0,
+        "gt_x_delta_last_50hz": 0.0,
+        "gt_y_delta_last_50hz": 0.0,
+        "gt_yaw_delta_last_50hz": 0.0
+      },
+      "amcl_minus_gt_stamp_s": [
+        -0.006000000000000227,
+        0.005000000000002558
+      ],
+      "quaternion_evidence_available": false,
+      "episode_state_available": false,
+      "source_note": "AMCL = latest TF map->base_footprint, fused localization + encoder odometry; GT = Gazebo model world pose"
+    },
+    {
+      "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/fixed3_integration_20261030/PI_SAC/episode_00002_013619_404705",
+      "raw_sha256": "3b6c36a9060b31ae148215606cfa397660d3d77c5cdff9ff3bae2131398281e8",
+      "first_sample_time_s": 0.02200000000000024,
+      "samples": 2506,
+      "requested_goal": [
+        11.0,
+        0.0
+      ],
+      "reference_goal": [
+        11.0,
+        0.0
+      ],
+      "max_events": {
+        "amcl": {
+          "index": 779,
+          "episode_time_s": 15.602,
+          "source_stamp_s": 24.704,
+          "signed_error_m": -0.08434336017923877,
+          "x": 3.466538283697058,
+          "y": -0.08434336017923877
+        },
+        "gt": {
+          "index": 2282,
+          "episode_time_s": 45.662000000000006,
+          "source_stamp_s": 54.77,
+          "signed_error_m": 0.10209081723416917,
+          "x": 10.325343668050222,
+          "y": 0.10209081723416917
+        }
+      },
+      "timestamp_checks": {
+        "simulation_time": {
+          "samples": 2506,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.02200000000000557
+        },
+        "amcl_stamp_s": {
+          "samples": 2506,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 1,
+          "max_gap_s": 0.021000000000000796
+        },
+        "gt_stamp_s": {
+          "samples": 2506,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 1,
+          "max_gap_s": 0.020000000000003126
+        },
+        "control_stamp_s": {
+          "samples": 2506,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 1,
+          "max_gap_s": 0.021000000000000796
+        },
+        "imu_stamp_s": {
+          "samples": 2505,
+          "nonfinite": 0,
+          "backwards": 0,
+          "duplicates": 0,
+          "max_gap_s": 0.020000000000003126
+        }
+      },
+      "endpoint_at_each_sources_own_stamp": true,
+      "cross_track_checks": {
+        "amcl": 1.3877787807814457e-17,
+        "gt": 1.3877787807814457e-17
+      },
+      "terminal_stability": {
+        "amcl_x_delta_last_50hz": 0.0,
+        "amcl_y_delta_last_50hz": 0.0,
+        "amcl_yaw_delta_last_50hz": 0.0,
+        "gt_x_delta_last_50hz": 0.0,
+        "gt_y_delta_last_50hz": 0.0,
+        "gt_yaw_delta_last_50hz": 0.0
+      },
+      "amcl_minus_gt_stamp_s": [
+        -0.006999999999999673,
+        -0.0049999999999954525
+      ],
+      "quaternion_evidence_available": false,
+      "episode_state_available": false,
+      "source_note": "AMCL = latest TF map->base_footprint, fused localization + encoder odometry; GT = Gazebo model world pose"
+    }
+  ]
+}

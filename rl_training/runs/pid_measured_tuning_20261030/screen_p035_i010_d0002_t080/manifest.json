@@ -1,0 +1,1232 @@
+{
+  "version": 2,
+  "purpose": "calibration",
+  "episodes": 1,
+  "seed": 5101,
+  "device": "cpu",
+  "config": {
+    "environment": {
+      "goal_x": 11.0,
+      "goal_y": 0.0,
+      "max_path_deviation": 0.2,
+      "residual_limit": 0.3,
+      "step_seconds": 0.1,
+      "max_episode_seconds": 90.0,
+      "sensor_timeout": 0.75,
+      "startup_timeout": 60.0,
+      "startup_progress_timeout": 15.0,
+      "startup_attempts": 3,
+      "headless": true,
+      "resource_guard": {
+        "deadline_monotonic": 5001.414102181
+      }
+    },
+    "reward": {
+      "progress": 20.0,
+      "cross_track": 8.0,
+      "heading": 0.5,
+      "vibration": 0.02,
+      "effort": 0.01,
+      "smoothness": 0.01,
+      "time": 0.05,
+      "success": 30.0,
+      "failure": -30.0
+    },
+    "sac": {
+      "learning_rate": 0.0003,
+      "buffer_size": 100000,
+      "learning_starts": 1000,
+      "batch_size": 256,
+      "gamma": 0.99,
+      "tau": 0.005,
+      "train_freq": 1,
+      "gradient_steps": 1,
+      "net_arch": [
+        128,
+        128
+      ]
+    }
+  },
+  "controller": {
+    "use_sim_time": true,
+    "left_wheel_joint": "left_wheel_joint",
+    "right_wheel_joint": "right_wheel_joint",
+    "wheel_radius": 0.0625,
+    "wheel_separation": 0.34273666,
+    "velocity_kp": 0.3,
+    "velocity_ki": 0.1,
+    "integral_limit": 4.0,
+    "max_wheel_speed": 12.0,
+    "max_wheel_acceleration": 12.0,
+    "max_wheel_torque": 12.0,
+    "max_velocity_control_torque": 2.0,
+    "max_effort_rate": 10.0,
+    "command_timeout": 0.5,
+    "torque_command_timeout": 0.25,
+    "control_rate": 1000.0,
+    "odom_publish_rate": 50.0,
+    "torque_status_publish_rate": 50.0,
+    "odom_topic": "/odom",
+    "odom_frame_id": "odom",
+    "base_frame_id": "base_footprint",
+    "publish_odom_tf": true,
+    "velocity_kd": 0.0,
+    "derivative_filter_seconds": 0.05
+  },
+  "groups": [
+    {
+      "label": "PID",
+      "mode": "PID",
+      "gains": {
+        "derivative_filter_seconds": 0.08,
+        "velocity_kd": 0.0002,
+        "velocity_ki": 0.1,
+        "velocity_kp": 0.35
+      },
+      "checkpoint": null
+    }
+  ],
+  "map": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/maps/hall_01.yaml",
+  "nav2_config": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_navigation/config/nav2.yaml",
+  "reference": {
+    "frame_id": "map",
+    "poses": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 0.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 1.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 2.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 3.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 4.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 5.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 6.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 7.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 8.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 9.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.0,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.05,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.1,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.15,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.2,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.25,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.3,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.35,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.4,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.45,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.5,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.55,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.6,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.65,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.7,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.75,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.8,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.85,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.9,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 10.95,
+        "y": 0.0,
+        "yaw": 0.0
+      },
+      {
+        "x": 11.0,
+        "y": 0.0,
+        "yaw": 0.0
+      }
+    ]
+  },
+  "reference_geometry_sha256": "990a576f10e7fd2918e24bde2405e3fe3a26a29f41055a0f109077ef1df3bef1",
+  "sources": {
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/maps/hall_01.yaml": "715591109a58b45993fce9b9a87c4b9e12e7febffab9c2df03d62fd54998960b",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/maps/hall_01.pgm": "c38721ff425ad62b0637f51797373eeaf5ccba812980db7d21b5a281605dc604",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_navigation/config/nav2.yaml": "557a612ed8b8fe1ba14e9adbf1e2519d7477bf94b7a34c4e720944b5523d9d16",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_control/config/effort_drive.yaml": "b27e69a986dc506ff1d2c538e3d4f9fcf1ac547da0227b28acc6ca6345da8920",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_description/worlds/long_hall.sdf": "952ab4a17820a8ea5e6860ab0d455657a23c087a8c23a9a8f9f322ab76fb36ca",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_control/nino_control/effort_drive.py": "6933bd28af7dee2c149194e25d8962390f239acb0ddf249775a2658d5c0f5a39",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_control/nino_control/derivative.py": "df5306e78801b200bcaa1bce14a6ad581463a20bc6ebce7fccdd8a557fb9c07b",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_navigation/scripts/episode_manager.py": "24bba585d6f6d166a8a3e4469bb9cd7d33d0fa85da7426f3a97bf3957d9b9e00",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/ros_env.py": "788f178fe23136ed958e4d067027d1e4b05a86c472510072d4f8533566c2164d",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/ablation_suite.py": "8ed05c7c7a2e50bdb7336554ba444770736b199499d643a7e0950575c23a86f6",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_pi_pid_sac.py": "15353fa1d506077429f5e7b7c1ce2a82d5d13d72c897225c527ebee84ebab5dd",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_description/urdf/nino.urdf.xacro": "c4084e7c851c06cbd57b88df3831e437550b6998173975c37f8fecb7f7baf31e",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_description/launch/sim.launch.py": "ac166a83b2179f1d6e1f53769c0c62e9dc9276bd5489eb618155fe4ee973ed91",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_description/scripts/gz_sim_clean": "df320478c6fc02818010e3477071a6dabdb75f8c961226ae410270050efedf77",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_navigation/launch/navigation.launch.py": "f0824a301153314774981ce3677fdaa163b0aee5e914ef136252264297042543",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_navigation/launch/fixed_path.launch.py": "5ce40b20bedbfb6d5fc8c2a3f897a578af4711d2da68f3e744a3cebe6aecd771",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/src/nino_navigation/config/episode.yaml": "aaa2cb5fba7dcdbbc47872d5b87cb9f53fd11d1e6cc6c9bf4f5ca0cf4255122b",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/experiment_guard.py": "1955fcdb1bd788a1d537591fbec4cf39edd4f8a22d1857f8fdc1408899235dd8"
+  },
+  "ros_domain_id": "78",
+  "gz_partition": "nino_mission_pid_tuning",
+  "discovery_range": "LOCALHOST",
+  "caveats": [
+    "Seeds only label Gym resets, not Gazebo/AMCL physical noise.",
+    "Same spawn/map/reference/Nav2/limits; localization and physics can vary.",
+    "Default reference is a map-frame centreline, not a collision-free planner certificate.",
+    "Legacy SAC metadata has no historical wheel-gain/config hash.",
+    "Benchmark sensors logged at 50 Hz, latest samples with delivery times; no interpolation across missing data."
+  ]
+}

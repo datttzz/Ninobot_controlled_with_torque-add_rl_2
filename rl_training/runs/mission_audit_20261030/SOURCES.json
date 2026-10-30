@@ -1,0 +1,14 @@
+{
+  "src/nino_description/launch/sim.launch.py": "ac166a83b2179f1d6e1f53769c0c62e9dc9276bd5489eb618155fe4ee973ed91",
+  "src/nino_description/urdf/nino.urdf.xacro": "c4084e7c851c06cbd57b88df3831e437550b6998173975c37f8fecb7f7baf31e",
+  "src/nino_navigation/config/nav2.yaml": "557a612ed8b8fe1ba14e9adbf1e2519d7477bf94b7a34c4e720944b5523d9d16",
+  "src/nino_navigation/config/episode.yaml": "aaa2cb5fba7dcdbbc47872d5b87cb9f53fd11d1e6cc6c9bf4f5ca0cf4255122b",
+  "src/nino_navigation/scripts/episode_manager.py": "24bba585d6f6d166a8a3e4469bb9cd7d33d0fa85da7426f3a97bf3957d9b9e00",
+  "src/nino_navigation/scripts/path_deviation.py": "5254767592a99628680d670a4338b46ab26dd842d0824b8480a752c094d7fd20",
+  "maps/hall_01.yaml": "715591109a58b45993fce9b9a87c4b9e12e7febffab9c2df03d62fd54998960b",
+  "maps/hall_01.pgm": "c38721ff425ad62b0637f51797373eeaf5ccba812980db7d21b5a281605dc604",
+  "src/nino_description/worlds/long_hall.sdf": "952ab4a17820a8ea5e6860ab0d455657a23c087a8c23a9a8f9f322ab76fb36ca",
+  "rl_training/mission_measurement.py": "6c26a84ffbf3aa5839b6f5ff6e2dccfd61c737b43ae693b490468e9f309ab7bb",
+  "rl_training/audit_mission_measurements.py": "6755aa231923198b299811aac7997ce151ae86b26cfab4c8da1d0eea0e1e586a",
+  "rl_training/ros_env.py": "788f178fe23136ed958e4d067027d1e4b05a86c472510072d4f8533566c2164d"
+}

@@ -1,0 +1,66 @@
+{
+  "full_tests_log": "........................................................................ [ 54%]\n.............................................................            [100%]\n133 passed in 43.84s",
+  "integration": {
+    "episodes_per_controller": 2,
+    "total": 6,
+    "mode": "headless",
+    "seeds": [
+      1001,
+      1002
+    ],
+    "nav_success": {
+      "PI": 100.0,
+      "PID": 100.0,
+      "PI_SAC": 100.0
+    },
+    "strict_success": {
+      "PI": 0.0,
+      "PID": 0.0,
+      "PI_SAC": 0.0
+    }
+  },
+  "checkpoint_steps": 50000,
+  "models_unchanged": {
+    "train_20261027_135837_606611": "dfbf139cacd3f02c8b7c08df6532049edc632090d0b4dafb4be66fc63f14b1ce",
+    "train_20261027_173345_545739": "bab34bc5eaf55e91a1f52a2dcc019c145250d1ead54534aca64b30ab30b966e6"
+  },
+  "pi_gains_unchanged": true,
+  "limits_unchanged": true,
+  "nav2_unchanged": true,
+  "no_running_gazebo": true,
+  "raw_telemetry_hashes_unchanged": true,
+  "pid_profile_updated": false,
+  "tuning_elapsed_seconds": 838.4668292999268,
+  "tuning_global_budget_60min_respected": true,
+  "browser": {
+    "offline": true,
+    "interactive_episode_selected": "1",
+    "svg_polylines": {
+      "trajectory": 7,
+      "error": 6,
+      "az": 3,
+      "jerk": 4,
+      "torque": 6
+    },
+    "browser": "Google Chrome headless",
+    "preview": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/fixed3_verified_20261030/validation/preview.png"
+  },
+  "latex": {
+    "booktabs_structure_checked": true,
+    "compiled": false,
+    "reason": "pdflatex is not installed"
+  },
+  "limitations": [
+    "Only two evaluation episodes per controller; no 7-10 episode study or statistical significance claim",
+    "No PID candidate met all predeclared criteria; PID is an unvalidated existing profile",
+    "No hardware robot or GUI re-test in this headless validation",
+    "Sensor/torque extrema are sampled telemetry; actuator limit counters cover controller cycles",
+    "Same Gym labels do not control Gazebo/AMCL noise"
+  ],
+  "excluded_runs": [
+    "fixed3_gt_smoke_20261030: PI-only sensor smoke",
+    "fixed3_measured_smoke_20261030: duplicate timestamp-key SyntaxError, no sim started",
+    "fixed3_measured_smoke_retry_20261030: three 3-second smokes, retained separately",
+    "pid_tuning_20261030_fixed3: explicitly interrupted for safety reset fix; retained with interruption note"
+  ]
+}

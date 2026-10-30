@@ -1,0 +1,27 @@
+{
+  "episodes": 1,
+  "seed": 8101,
+  "purpose": "localization diagnosis only",
+  "controller": "frozen PID 0.35/0.10/0.0002/tau .08",
+  "residual": false,
+  "changes": "passive rosbag only; no gain/nav2/URDF edits",
+  "time_limit_sim_s": 90,
+  "topics": [
+    "/clock",
+    "/odom",
+    "/amcl_pose",
+    "/tf",
+    "/tf_static",
+    "/scan",
+    "/ground_truth/odom",
+    "/joint_states",
+    "/imu/data",
+    "/cmd_vel",
+    "/episode/state",
+    "/episode/reference_path",
+    "/wheel_control_status",
+    "/initialpose",
+    "/particle_cloud",
+    "/map"
+  ]
+}

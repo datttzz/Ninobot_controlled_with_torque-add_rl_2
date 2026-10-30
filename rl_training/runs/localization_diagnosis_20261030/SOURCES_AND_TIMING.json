@@ -1,0 +1,101 @@
+{
+  "encoder_reintegration_endpoint_minus_raw_odom": [
+    0.0030398738490351462,
+    0.010404455915008715,
+    0.0010401460737701207
+  ],
+  "encoder_reintegration_rms_error": [
+    0.0021244718066474374,
+    0.0060764470499865275,
+    0.0010686912561827628
+  ],
+  "configured_radius_m": 0.0625,
+  "collision_cylinder_radius_m": 0.0625,
+  "configured_separation_m": 0.34273666,
+  "collision_center_separation_m": 0.34,
+  "separation_difference_pct": 0.8048999999999973,
+  "yaw_change_if_only_use_collision_track_rad": -0.005561657168164587,
+  "sensor_delivery_relative_latest_recorded_clock": {
+    "/joint_states": {
+      "median_s": 0.0,
+      "p95_s": 0.0,
+      "min_s": 0.0,
+      "max_s": 0.0010000000000047748
+    },
+    "/scan": {
+      "median_s": 0.006999999999997897,
+      "p95_s": 0.01099999999999568,
+      "min_s": 0.001,
+      "max_s": 0.02600000000001046
+    },
+    "/ground_truth/odom": {
+      "median_s": 0.0,
+      "p95_s": 0.0,
+      "min_s": 0.0,
+      "max_s": 0.0
+    },
+    "/odom": {
+      "median_s": 0.0,
+      "p95_s": 0.0,
+      "min_s": 0.0,
+      "max_s": 0.001999999999995339
+    },
+    "/initialpose": {
+      "median_s": 4.134,
+      "p95_s": 4.134,
+      "min_s": 4.134,
+      "max_s": 4.134
+    },
+    "/particle_cloud": {
+      "median_s": 0.0,
+      "p95_s": 0.0009999999999989128,
+      "min_s": 0.0,
+      "max_s": 0.0010000000000047748
+    },
+    "/amcl_pose": {
+      "median_s": 0.009000000000000341,
+      "p95_s": 0.012000000000000188,
+      "min_s": 0.006000000000000227,
+      "max_s": 0.015999999999998238
+    },
+    "map_odom_future_header": {
+      "median_s": 0.9930000000000003,
+      "p95_s": 0.9949999999999974,
+      "min_s": 0.9739999999999895,
+      "max_s": 0.9960000000000022
+    }
+  },
+  "region_method": "Moving >.05m/s; base or front caster x within .15m of SDF bump center; descriptive windows, not measured contact",
+  "regions": [
+    {
+      "region": "near_bump_or_caster",
+      "seconds": 33.53999999999999,
+      "distance_m": 7.5332673260047684,
+      "net_yaw_drift_rad": -0.22020919519871032,
+      "abs_yaw_drift_rad": 2.140969718473057,
+      "abs_yaw_drift_per_m": 0.28420201033918574,
+      "net_odom_error_x_change_m": 0.26953264455654286,
+      "net_odom_error_y_change_m": -1.194897992105575
+    },
+    {
+      "region": "outside_windows",
+      "seconds": 14.499999999999996,
+      "distance_m": 3.399845365696562,
+      "net_yaw_drift_rad": -0.01725006692706094,
+      "abs_yaw_drift_rad": 0.10736405891015877,
+      "abs_yaw_drift_per_m": 0.03157910062423147,
+      "net_odom_error_x_change_m": -0.18800188632465376,
+      "net_odom_error_y_change_m": -0.9035834338921084
+    },
+    {
+      "region": "low_translation_or_in_place_rotation",
+      "seconds": 21.064000000000004,
+      "distance_m": 0.18200208091962825,
+      "net_yaw_drift_rad": -0.20307552646905838,
+      "abs_yaw_drift_rad": 1.0126670614565025,
+      "abs_yaw_drift_per_m": 5.564041116121603,
+      "net_odom_error_x_change_m": 0.32328368291055365,
+      "net_odom_error_y_change_m": -0.0667031618899842
+    }
+  ]
+}

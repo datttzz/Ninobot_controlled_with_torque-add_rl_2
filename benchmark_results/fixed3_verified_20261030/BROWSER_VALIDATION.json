@@ -1,0 +1,13 @@
+{
+  "offline": true,
+  "interactive_episode_selected": "1",
+  "svg_polylines": {
+    "trajectory": 7,
+    "error": 6,
+    "az": 3,
+    "jerk": 4,
+    "torque": 6
+  },
+  "browser": "Google Chrome headless",
+  "preview": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/fixed3_verified_20261030/validation/preview.png"
+}

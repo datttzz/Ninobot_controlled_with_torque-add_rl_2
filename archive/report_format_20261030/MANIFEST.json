@@ -1,0 +1,5 @@
+{
+  "original": "benchmark_pi_pid_sac.py",
+  "sha256": "e63c70aff98f070ff6e465602220d8ff2f31f3916530a7da7b6e20e83fa7c162",
+  "purpose": "Preserve analysis before explicit CSV N/A and terminal-condition explanations"
+}

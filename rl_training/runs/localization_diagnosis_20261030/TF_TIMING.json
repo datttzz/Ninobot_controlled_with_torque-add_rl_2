@@ -1,0 +1,24 @@
+{
+  "recorded_tf_rms_error": [
+    0.0929674363694958,
+    0.06763691080002002,
+    0.11330956045156182
+  ],
+  "causal_latest_correction_offline_rms": [
+    0.07808316439885053,
+    0.05846931113450099,
+    0.078593579062724
+  ],
+  "reconstruction_vs_actual_telemetry_rms": [
+    1.4973847042132748e-15,
+    5.027695639889216e-16,
+    7.979741823666442e-16
+  ],
+  "reconstruction_vs_actual_telemetry_max": [
+    7.105427357601002e-15,
+    3.1086244689504383e-15,
+    1.2101430968414206e-14
+  ],
+  "meaning": "Postdated TF headers reproduce delayed correction effect; alternate only reprocesses captured trajectory, not a closed-loop validation",
+  "runtime_config_changed": false
+}

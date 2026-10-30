@@ -1,0 +1,5 @@
+# Gain khóa trước 3 lượt xác minh; chỉ được deploy nếu state.profile_updated=true.
+derivative_filter_seconds: 0.08
+velocity_kd: 0.0002
+velocity_ki: 0.1
+velocity_kp: 0.35

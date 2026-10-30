@@ -1,0 +1,42 @@
+{
+  "world_to_map": [
+    0.05427699581220683,
+    0.03509553460289797,
+    -0.0015133506511752267
+  ],
+  "map_to_world": [
+    -0.054223821828939804,
+    -0.03517763451008209,
+    0.0015133506511752267
+  ],
+  "method": "Static world GT spawn + raw laser + fixed extrinsics against existing occupancy map, no AMCL pose fit",
+  "independent_scan_fits": [
+    [
+      0.054275137629488754,
+      0.03509553460289797,
+      -0.0016207161215225415
+    ],
+    [
+      0.05427699581220683,
+      0.03500334438039512,
+      -0.001445486497791761
+    ],
+    [
+      0.05474144402961077,
+      0.03519452235249023,
+      -0.0015133506511752267
+    ]
+  ],
+  "scan_stamps_s": [
+    1.5,
+    2.5,
+    3.5
+  ],
+  "map_resolution_m": 0.05,
+  "conservative_translation_resolution_bound_m": 0.05,
+  "conservative_rotation_resolution_bound_rad": 0.0036,
+  "rms_before_m": 0.10876094653973702,
+  "rms_after_m": 0.10643193216916734,
+  "status": "Independent static registration with raster/map uncertainty; not exact survey ground truth",
+  "fixed_for_all_episodes": true
+}

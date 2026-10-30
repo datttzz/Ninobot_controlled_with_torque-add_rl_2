@@ -1,0 +1,38 @@
+[
+  {
+    "group": "PI",
+    "kind": "startup_retry",
+    "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134",
+    "detail": {
+      "attempt": 1,
+      "max_attempts": 3,
+      "reason": "/velocity_smoother did not activate: inactive (id=2); see /home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00005_232754_439379/navigation.log",
+      "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00005_232754_439379",
+      "goal_submitted": false
+    }
+  },
+  {
+    "group": "PI",
+    "kind": "session_without_samples",
+    "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/baseline_20261027_232307_060134/episode_00005_232754_439379",
+    "detail": "No trajectory recorded; not classified as a robot failure"
+  },
+  {
+    "group": "PI+SAC (50k)",
+    "kind": "startup_retry",
+    "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556",
+    "detail": {
+      "attempt": 1,
+      "max_attempts": 3,
+      "reason": "/controller_server did not activate: inactive (id=2); see /home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00003_233406_596730/navigation.log",
+      "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00003_233406_596730",
+      "goal_submitted": false
+    }
+  },
+  {
+    "group": "PI+SAC (50k)",
+    "kind": "session_without_samples",
+    "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/evaluate_20261027_233155_548556/episode_00003_233406_596730",
+    "detail": "No trajectory recorded; not classified as a robot failure"
+  }
+]

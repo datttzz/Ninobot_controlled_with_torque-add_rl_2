@@ -1,0 +1,114 @@
+{
+  "result": {
+    "controller": "PID",
+    "episode": "episode_00001_071805_354718",
+    "outcome": "SUCCEEDED",
+    "terminal_time_s": 48.286,
+    "terminal_amcl_stamp_s": 55.501000000000005,
+    "terminal_gt_stamp_s": 55.5,
+    "amcl_goal_xy_m": 0.2103409764687034,
+    "amcl_goal_yaw_rad": 0.2115162404908328,
+    "gt_goal_xy_m": 0.33561617553775275,
+    "gt_goal_yaw_rad": 0.18943808109543764,
+    "amcl_max_m": 0.10380836979334329,
+    "gt_max_m": 0.17629477305913874,
+    "nav2_succeeded": true,
+    "amcl_task_pass": true,
+    "gt_task_pass": false,
+    "full_pass": false,
+    "failure_reasons": "gt_goal_xy_m=0.335616 > 0.25",
+    "amcl_max_time_s": 35.683,
+    "amcl_max_source_stamp_s": 42.901,
+    "gt_max_time_s": 45.723,
+    "gt_max_source_stamp_s": 52.94
+  },
+  "detail": {
+    "source": "rl_training/runs/mission_audit_20261030/integration_PID/PID/episode_00001_071805_354718",
+    "raw_sha256": "7684c7a3287839e5774ef3dcebedda56db3b007fffc11db31a530601e872ac41",
+    "first_sample_time_s": 0.023000000000000576,
+    "samples": 2415,
+    "requested_goal": [
+      11.0,
+      0.0
+    ],
+    "reference_goal": [
+      11.0,
+      0.0
+    ],
+    "max_events": {
+      "amcl": {
+        "index": 1783,
+        "episode_time_s": 35.683,
+        "source_stamp_s": 42.901,
+        "signed_error_m": -0.10380836979334329,
+        "x": 8.018495884611559,
+        "y": -0.10380836979334329
+      },
+      "gt": {
+        "index": 2285,
+        "episode_time_s": 45.723,
+        "source_stamp_s": 52.94,
+        "signed_error_m": 0.17629477305913874,
+        "x": 10.174182161265158,
+        "y": 0.17629477305913874
+      }
+    },
+    "timestamp_checks": {
+      "simulation_time": {
+        "samples": 2415,
+        "nonfinite": 0,
+        "backwards": 0,
+        "duplicates": 0,
+        "max_gap_s": 0.022999999999996135
+      },
+      "amcl_stamp_s": {
+        "samples": 2415,
+        "nonfinite": 0,
+        "backwards": 0,
+        "duplicates": 14,
+        "max_gap_s": 0.04000000000000625
+      },
+      "gt_stamp_s": {
+        "samples": 2415,
+        "nonfinite": 0,
+        "backwards": 0,
+        "duplicates": 1,
+        "max_gap_s": 0.030000000000001137
+      },
+      "control_stamp_s": {
+        "samples": 2415,
+        "nonfinite": 0,
+        "backwards": 0,
+        "duplicates": 11,
+        "max_gap_s": 0.04000000000000625
+      },
+      "imu_stamp_s": {
+        "samples": 2414,
+        "nonfinite": 0,
+        "backwards": 0,
+        "duplicates": 3,
+        "max_gap_s": 0.03999999999999915
+      }
+    },
+    "endpoint_at_each_sources_own_stamp": true,
+    "cross_track_checks": {
+      "amcl": 1.3877787807814457e-17,
+      "gt": 2.7755575615628914e-17
+    },
+    "terminal_stability": {
+      "amcl_x_delta_last_50hz": 0.0,
+      "amcl_y_delta_last_50hz": 0.0,
+      "amcl_yaw_delta_last_50hz": 0.0,
+      "gt_x_delta_last_50hz": 0.0,
+      "gt_y_delta_last_50hz": 0.0,
+      "gt_yaw_delta_last_50hz": 0.0
+    },
+    "amcl_minus_gt_stamp_s": [
+      -0.01899999999999835,
+      0.0010000000000047748
+    ],
+    "quaternion_evidence_available": true,
+    "episode_state_available": true,
+    "source_note": "AMCL = latest TF map->base_footprint, fused localization + encoder odometry; GT = Gazebo model world pose"
+  }
+}
