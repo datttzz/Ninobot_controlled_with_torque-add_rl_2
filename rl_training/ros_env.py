@@ -75,7 +75,6 @@ class Bridge(Node):
             ('/wheel_torque_applied', Float64MultiArray, 'total', 1),
             ('/wheel_residual_applied', Float64MultiArray, 'residual', 1),
             ('/wheel_control_status', String, 'control_status', 1),
-            ('/ground_truth/odom', Odometry, 'ground_truth', 1),
         ]:
             self.create_subscription(kind, topic, lambda m, k=key: self.receive(k, m), qos)
         latch = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL)
@@ -300,8 +299,7 @@ class NinoResidualEnv(gym.Env):
                 simulation.append('effort_drive_config:='+self.cfg['effort_drive_config'])
             self._start('simulation', simulation)
             startup_stage = 'simulation odometry/IMU'
-            self._wait(lambda: 'odom' in self.bridge.data and 'imu' in self.bridge.data
-                       and (not self.cfg.get('benchmark_controller') or 'ground_truth' in self.bridge.data))
+            self._wait(lambda: 'odom' in self.bridge.data and 'imu' in self.bridge.data)
             # Let control/bridge discovery settle before lifecycle bringup.
             settle = monotonic()
             self._wait(lambda: monotonic()-settle > 2.0)
@@ -461,18 +459,11 @@ class NinoResidualEnv(gym.Env):
                     amcl_stamp_s=stamp*1e-9,
                     imu_stamp_s=imu.header.stamp.sec+imu.header.stamp.nanosec*1e-9,
                     gyro=[w.x, w.y, w.z], wheel_velocity=[left, right])
-        if 'ground_truth' in data and monotonic()-received['ground_truth'] <= self.cfg['sensor_timeout']:
-            gt = data['ground_truth']
-            if self.cfg.get('benchmark_controller'):
-                info.update(pose_evidence(transform, gt, b.get_clock().now().nanoseconds*1e-9, state))
-            info.update(ground_truth_x=gt.pose.pose.position.x,
-                        ground_truth_y=gt.pose.pose.position.y,
-                        gt_stamp_s=gt.header.stamp.sec+gt.header.stamp.nanosec*1e-9,
-                        ground_truth_frame=gt.header.frame_id,
-                        ground_truth_yaw=atan2(2*(gt.pose.pose.orientation.w*gt.pose.pose.orientation.z
-                            + gt.pose.pose.orientation.x*gt.pose.pose.orientation.y),
-                            1-2*(gt.pose.pose.orientation.y**2+gt.pose.pose.orientation.z**2)),
-                        ground_truth_speed=float(np.hypot(gt.twist.twist.linear.x, gt.twist.twist.linear.y)))
+        info.update(pose_evidence(transform, b.get_clock().now().nanoseconds*1e-9, state),
+                    odom_stamp_s=data['odom'].header.stamp.sec+data['odom'].header.stamp.nanosec*1e-9,
+                    body_speed_m_s=float(v.linear.x), body_yaw_rate_rad_s=float(v.angular.z),
+                    body_velocity_source='encoder-derived /odom estimate',
+                    torque_source='controller command after limiter; not measured torque')
         if 'control_status' in data and monotonic()-received['control_status'] <= self.cfg['sensor_timeout']:
             status = json.loads(data['control_status'].data)
             info.update(wheel_target=status['wheel_target'], saturated=status['saturated'],
@@ -511,66 +502,60 @@ class NinoResidualEnv(gym.Env):
             return
         data, received, _, reference_hash, state = self.bridge.snapshot()
         if any(monotonic()-received.get(k, 0) > self.cfg['sensor_timeout'] for k in
-               ('imu', 'ground_truth', 'control_status', 'base', 'total', 'residual')):
+               ('imu', 'odom', 'control_status', 'base', 'total', 'residual')):
             return
         try:
             transform = self.bridge.tf.lookup_transform('map', 'base_footprint', Time())
         except TransformException:
             return
         p, q = transform.transform.translation, transform.transform.rotation
-        imu, gt = data['imu'], data['ground_truth']
-        a, o, g = imu.linear_acceleration, imu.orientation, gt.pose.pose
+        imu, odom = data['imu'], data['odom']
+        a, o = imu.linear_acceleration, imu.orientation
         acceleration, roll, pitch = imu_features([a.x,a.y,a.z], [o.x,o.y,o.z,o.w])
         status = json.loads(data['control_status'].data)
         row = dict(simulation_time=now, simulation_origin_clock_s=self.start_sim,
                    pose_samples_synchronized=False, outcome=None, seed_label=self.seed_label,
                    imu_stamp_s=imu.header.stamp.sec+imu.header.stamp.nanosec*1e-9,
-                   gt_stamp_s=gt.header.stamp.sec+gt.header.stamp.nanosec*1e-9,
                    amcl_stamp_s=Time.from_msg(transform.header.stamp).nanoseconds*1e-9,
                    control_stamp_s=status['stamp_s'],
                    amcl_x=p.x, amcl_y=p.y,
                    amcl_yaw=atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z)),
-                   ground_truth_x=g.position.x, ground_truth_y=g.position.y,
-                   ground_truth_yaw=atan2(2*(g.orientation.w*g.orientation.z+g.orientation.x*g.orientation.y),
-                                          1-2*(g.orientation.y**2+g.orientation.z**2)),
-                   ground_truth_frame=gt.header.frame_id,
-                   ground_truth_speed=float(np.hypot(gt.twist.twist.linear.x,gt.twist.twist.linear.y)),
+                   odom_stamp_s=odom.header.stamp.sec+odom.header.stamp.nanosec*1e-9,
+                   body_speed_m_s=float(odom.twist.twist.linear.x),
+                   body_yaw_rate_rad_s=float(odom.twist.twist.angular.z),
+                   body_velocity_source='encoder-derived /odom estimate',
+                   torque_source='controller command after limiter; not measured torque',
                    acceleration=acceleration.tolist(), roll=roll, pitch=pitch,
                    gyro=[imu.angular_velocity.x,imu.angular_velocity.y,imu.angular_velocity.z],
                    base_torque=list(data['base'].data), total_torque=list(data['total'].data),
                    residual_applied=list(data['residual'].data),
                    reference_geometry_sha256=reference_hash,
-                   sensor_stamps_s={k: received[k] for k in ('imu','ground_truth','control_status')})
+                   sensor_stamps_s={k: received[k] for k in ('imu','odom','control_status')})
         row.update({key: status[key] for key in ('wheel_target','wheel_velocity','saturated',
                    'slew_limited','control_cycles','slew_cycles','saturation_cycles','derivative_alpha')})
         row.update({key: status.get(key) for key in
                     ('feedback_valid', 'feedback_status', 'feedback_stamp_s',
                      'direct_torque_without_feedback')})
-        row.update(pose_evidence(transform, gt, clock_s, state))
+        row.update(pose_evidence(transform, clock_s, state))
         self._write_telemetry(row)
 
     def _terminal_pose_support(self, terminal_clock_s):
-        """Ghi mẫu thụ động bao terminal; không đổi outcome/reward hay dùng pose tốt nhất."""
+        """Ghi TF thụ động bao terminal cố định, không chọn pose tốt nhất."""
         support=[]
         def ready():
-            data,_,_,_,state=self.bridge.snapshot()
-            if 'ground_truth' not in data:return False
+            _,_,_,_,state=self.bridge.snapshot()
             try:tr=self.bridge.tf.lookup_transform('map','base_footprint',Time())
             except TransformException:return False
-            gt=data['ground_truth'];p,q=tr.transform.translation,tr.transform.rotation;g=gt.pose.pose
+            p,q=tr.transform.translation,tr.transform.rotation
             row=dict(support_only=True,amcl_stamp_s=Time.from_msg(tr.header.stamp).nanoseconds*1e-9,
-                gt_stamp_s=gt.header.stamp.sec+gt.header.stamp.nanosec*1e-9,
-                amcl_x=p.x,amcl_y=p.y,amcl_yaw=atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z)),
-                ground_truth_x=g.position.x,ground_truth_y=g.position.y,
-                ground_truth_yaw=atan2(2*(g.orientation.w*g.orientation.z+g.orientation.x*g.orientation.y),
-                                      1-2*(g.orientation.y**2+g.orientation.z**2)),ground_truth_frame=gt.header.frame_id)
-            row.update(pose_evidence(tr,gt,self.bridge.get_clock().now().nanoseconds*1e-9,state))
-            if not support or any(row[k]!=support[-1][k] for k in ('amcl_stamp_s','gt_stamp_s')):
+                amcl_x=p.x,amcl_y=p.y,amcl_yaw=atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z)))
+            row.update(pose_evidence(tr,self.bridge.get_clock().now().nanoseconds*1e-9,state))
+            if not support or row['amcl_stamp_s']!=support[-1]['amcl_stamp_s']:
                 support.append(row)
-            return row['amcl_stamp_s']>=terminal_clock_s and row['gt_stamp_s']>=terminal_clock_s
+            return row['amcl_stamp_s']>=terminal_clock_s
         try:
             self._wait(ready,timeout=.5)
-            status='source_samples_bracket_terminal'
+            status='amcl_samples_bracket_terminal'
         except RosWaitTimeout:
             status='missing_terminal_bracket_no_extrapolation'
         return support,status

@@ -1,9 +1,9 @@
-"""Metric mỗi nguồn và so AMCL–GT đồng bộ được giữ riêng."""
+"""Phép đo pose AMCL và terminal theo timestamp nguồn, không ngoại suy."""
 import math
 import numpy as np
-from .localization_math import compose,interpolate_pose,wrap
+from .localization_math import interpolate_pose
 
-# TF/odom ghi ~50 Hz, GT ~100 Hz, telemetry 50 Hz: tối đa 5 chu kỳ logger.
+# TF/odom và telemetry ~50 Hz: tối đa 5 chu kỳ logger.
 # Không ngoại suy hoặc bắc qua một khoảng mất dữ liệu dài hơn 0.10 s.
 POSE_MAX_GAP_S = .10
 
@@ -48,26 +48,25 @@ def terminal_pose(rows,prefix,stamp_key,max_gap=POSE_MAX_GAP_S):
     return value,None
 
 
-def synchronized_comparison(rows,map_to_world,max_gap=POSE_MAX_GAP_S):
-    """Dùng timestamp GT trong giao hai nguồn; không coi cùng hàng là cùng thời điểm."""
-    result=dict(max_gap_s=max_gap,time_basis='absolute ROS source stamps',samples=0,coverage=0.,
-                rmse_xy_m=None,rmse_yaw_rad=None,reason=None)
-    if map_to_world is None:
-        result['reason']='Missing verified map→world registration';return result
-    a=source_pose(rows,'amcl','amcl_stamp_s',max_gap)['samples']
-    g=source_pose(rows,'ground_truth','gt_stamp_s',max_gap)['samples']
-    if len(a)<2 or len(g)<2:
-        result['reason']='Missing finite AMCL/GT source timestamps';return result
-    times=g[:,0];ap=compose(map_to_world,interpolate_pose(a,times,max_gap=max_gap))
-    gp=interpolate_pose(g,times,max_gap=max_gap);valid=np.isfinite(ap).all(axis=1)&np.isfinite(gp).all(axis=1)
-    error=ap-gp;error[:,2]=wrap(error[:,2]);delta=np.diff(times,prepend=times[0])
-    good=valid&np.r_[False,valid[:-1]]&(delta<=max_gap);weights=np.where(good,delta,0.)
-    overlap=max(0,min(a[-1,0],g[-1,0])-max(a[0,0],g[0,0]))
-    result.update(samples=int(valid.sum()),coverage=float(weights.sum()/overlap) if overlap else 0.,
-                  t_ros_s=times[valid].tolist(),error_x_m=error[valid,0].tolist(),
-                  error_y_m=error[valid,1].tolist(),error_yaw_rad=error[valid,2].tolist())
-    if weights.sum()>0:
-        result['rmse_xy_m']=float(np.sqrt(np.sum(np.where(valid,np.sum(error[:,:2]**2,axis=1),0.)*weights)/weights.sum()))
-        result['rmse_yaw_rad']=float(np.sqrt(np.sum(np.where(valid,error[:,2]**2,0.)*weights)/weights.sum()))
-    else:result['reason']='Insufficient common timed coverage; no extrapolation/gap filling'
+def signal_timing(rows,stamp_key,max_gap=POSE_MAX_GAP_S):
+    """Trọng số cho IMU/controller/odom từ timestamp nguồn, không dùng giờ nhận."""
+    timing=[dict(time=row.get(stamp_key),v_x=0.,v_y=0.,v_yaw=0.) for row in rows]
+    return source_pose(timing,'v','time',max_gap)
+
+
+def resample_signal(times,values,targets,max_gap=POSE_MAX_GAP_S):
+    """Nội suy tín hiệu tuyến tính cho plot/window, không bắc gap hoặc ngoại suy."""
+    times=np.asarray(times,dtype=float);values=np.asarray(values,dtype=float)
+    targets=np.asarray(targets,dtype=float);result=np.full(len(targets),np.nan)
+    finite_time=times[np.isfinite(times)]
+    if np.any(np.diff(finite_time)<0):raise ValueError('Signal timestamp moved backwards')
+    good=np.isfinite(times)&np.isfinite(values)
+    if good.sum()<2:return result
+    t,v=times[good],values[good]
+    _,rev=np.unique(t[::-1],return_index=True);keep=np.sort(len(t)-1-rev);t,v=t[keep],v[keep]
+    if len(t)<2:return result
+    right=np.minimum(np.searchsorted(t,targets),len(t)-1);left=np.maximum(right-1,0)
+    exact=(targets==t[right])|(targets==t[left])
+    valid=np.isfinite(targets)&(targets>=t[0])&(targets<=t[-1])&((t[right]-t[left]<=max_gap)|exact)
+    result[valid]=np.interp(targets[valid],t,v)
     return result

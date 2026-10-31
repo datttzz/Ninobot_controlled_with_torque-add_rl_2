@@ -3,28 +3,16 @@ import math
 import numpy as np
 import pytest
 from benchmark_pi_pid_sac import episode_metrics
-from rl_training.pose_measurements import source_pose,terminal_pose,synchronized_comparison
+from rl_training.pose_measurements import source_pose,terminal_pose,resample_signal
 from rl_training.tests.test_fixed3_metrics import rows,REF
 
 
-def test_default_missing_registration_is_na_but_amcl_and_nav_remain():
-    data=rows();data[-1]['outcome']='SUCCEEDED';result=episode_metrics(data,REF)
-    assert result['metrics']['gt_rmse_m'] is None
-    assert result['metrics']['amcl_rmse_m'] is not None
-    assert result['task_status']['nav2_succeeded'] is True
-    assert result['task_status']['amcl_task_pass'] is True
-    assert result['task_status']['gt_task_pass'] is None
-    assert result['amcl_gt_comparison']['rmse_xy_m'] is None
-
-
-def test_shifted_source_stamps_compare_at_shared_time_not_row():
-    data=[]
-    for t in np.arange(10.,10.101,.02):
-        data.append(dict(amcl_stamp_s=t,amcl_x=t,amcl_y=0.,amcl_yaw=0.,
-                         gt_stamp_s=t-.01,ground_truth_x=t-.01,ground_truth_y=0.,ground_truth_yaw=0.))
-    comparison=synchronized_comparison(data,[0,0,0])
-    assert comparison['samples']>=3 and comparison['rmse_xy_m']<1e-12
-    assert data[0]['amcl_x']!=data[0]['ground_truth_x']
+def test_source_weights_ignore_row_clock_offset():
+    data=rows();data[-1]['outcome']='SUCCEEDED'
+    for row in data:row['simulation_time']+=10
+    result=episode_metrics(data,REF)
+    assert result['metrics']['amcl_rmse_m']==pytest.approx(math.sqrt(.0325))
+    assert result['task_status']['mission_pass'] is True
 
 
 def test_duplicate_gap_backwards_and_angle_wrap():
@@ -40,19 +28,24 @@ def test_duplicate_gap_backwards_and_angle_wrap():
     assert reason is None and abs(abs(p[2])-math.pi)<.02
 
 
-def test_terminal_uses_fixed_event_with_support_not_best_pose():
+def test_terminal_needs_fixed_clock_bracket_not_best_pose():
     data=rows();data[-1]['outcome']='SUCCEEDED';data[-1]['terminal_clock_s']=.05
-    result=episode_metrics(data,REF,map_to_world=[0,0,0])
+    result=episode_metrics(data,REF)
     assert result['metrics']['amcl_goal_xy_m'] is None
-    assert 'not bracketed' in result['missing_reasons']['amcl_goal_xy_m']
-    support=deepcopy(data[-1]);support.update(amcl_stamp_s=.06,gt_stamp_s=.06,amcl_x=.4,ground_truth_x=.4)
+    support=deepcopy(data[-1]);support.update(amcl_stamp_s=.06,amcl_x=.4)
     data[-1]['terminal_support']=[support]
-    result=episode_metrics(data,REF,map_to_world=[0,0,0])
+    result=episode_metrics(data,REF)
     assert result['metrics']['amcl_goal_xy_m']==pytest.approx(math.hypot(.3,.2))
     assert result['metrics']['mission_success_pct']==0.
-    assert result['metrics']['amcl_max_m']==.2 # Không thêm mẫu support sau terminal vào trajectory metrics.
+    assert result['metrics']['amcl_max_m']==.2
 
 
-def test_missing_absolute_terminal_never_substitutes_elapsed_time():
+def test_relative_clock_is_not_absolute_terminal():
     data=rows();data[-1].pop('simulation_clock_s')
     assert terminal_pose(data,'amcl','amcl_stamp_s')[0] is None
+
+
+def test_signal_interpolation_rejects_gap_backwards_and_extrapolation():
+    assert resample_signal([0,.02,.02,.04],[0,1,2,4],[.03])[0]==pytest.approx(3)
+    assert np.isnan(resample_signal([0,.5],[0,1],[-.1,.25,.6])).all()
+    with pytest.raises(ValueError):resample_signal([.1,0],[0,1],[.05])

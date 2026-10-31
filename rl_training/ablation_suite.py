@@ -16,7 +16,6 @@ import zipfile
 import yaml
 
 from .experiment_guard import active_jobs, ResourceGuard, ResourceStop
-from .frame_registration import load_registration, registration_from_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
 PI_GAINS = dict(velocity_kp=0.30, velocity_ki=0.10, velocity_kd=0.0,
@@ -177,7 +176,6 @@ def make_plan(args):
     map_path = resolved(args.map)
     map_data = yaml.safe_load(map_path.read_text())
     map_image = resolved(map_path.parent/Path(map_data['image']).expanduser())
-    registration = load_registration(getattr(args,'registration',None),map_path)
     reference = reference_data(args.reference_path, config)
     sources = [map_path, map_image, resolved(args.nav2_config), control_path,
                ROOT/'src/nino_description/worlds/long_hall.sdf',
@@ -186,9 +184,8 @@ def make_plan(args):
                ROOT/'src/nino_navigation/scripts/episode_manager.py',
                ROOT/'rl_training/ros_env.py', ROOT/'rl_training/ablation_suite.py',
                ROOT/'benchmark_pi_pid_sac.py']
-    sources += [ROOT/'rl_training/frame_registration.py',ROOT/'rl_training/pose_measurements.py',
+    sources += [ROOT/'rl_training/pose_measurements.py',
                 ROOT/'rl_training/localization_math.py']
-    if registration:sources.append(Path(registration['path']))
     sources += list((ROOT/'src/nino_description/urdf').rglob('*.xacro'))
     sources += [ROOT/p for p in ('src/nino_description/launch/sim.launch.py',
                                  'src/nino_description/scripts/gz_sim_clean',
@@ -196,10 +193,9 @@ def make_plan(args):
                                  'src/nino_navigation/launch/fixed_path.launch.py',
                                  'src/nino_navigation/config/episode.yaml',
                                  'rl_training/experiment_guard.py')]
-    return dict(version=2, purpose=purpose, episodes=args.episodes, seed=args.seed, device=args.device,
+    return dict(version=3, purpose=purpose, episodes=args.episodes, seed=args.seed, device=args.device,
                 config=config, controller=control, groups=groups,
                 map=str(map_path), nav2_config=str(resolved(args.nav2_config)),
-                registration=registration,
                 reference=reference, reference_geometry_sha256=geometry_hash(reference),
                 sources={str(p): sha(p) for p in sources},
                 ros_domain_id=os.environ.get('ROS_DOMAIN_ID'),
@@ -223,7 +219,6 @@ def group_spec(plan, group, output):
                                  benchmark_controller={k: float(v) for k, v in controller.items()
                                                        if isinstance(v, (int, float)) and not isinstance(v, bool)})
     return dict(group=group, run=str(folder), config=config, map=plan['map'],
-                registration=plan.get('registration'),
                 purpose=plan['purpose'],
                 episodes=plan['episodes'], seed=plan['seed'], device=plan['device'],
                 nav2_sha256=sha(plan['nav2_config']),
@@ -316,12 +311,9 @@ def worker(spec_path):
         calibration=json.loads(calibration_path.read_text()) if calibration_path.exists() else {}
         selected=calibration.get('selected') or {}
         pid_evidence=dict(record=str(calibration_path) if calibration else None,
-            selected_profile_matches=bool(selected) and all(selected.get(k)==v for k,v in group['gains'].items()),
+            selected_profile_matches=calibration.get('measurement_basis')=='AMCL_IMU_ENCODER_v1' and bool(selected) and all(selected.get(k)==v for k,v in group['gains'].items()),
             tuning_dir=calibration.get('tuning_dir'),profile_updated=calibration.get('profile_updated',False))
-        registration=registration_from_metadata(spec,spec['map'])
         metadata = dict(pid_calibration=pid_evidence if group['mode']=='PID' else None,
-                        registration=registration,
-                        map_to_world=registration['map_to_world'] if registration else None,
                         mode='evaluate' if model is not None else 'baseline',
                         experiment_purpose=spec['purpose'],
                         controller_mode=group['mode'], seed=spec['seed'], map=spec['map'],
@@ -333,10 +325,13 @@ def worker(spec_path):
                         config_snapshot_sha256=sha(folder/'config.yaml'),
                         controller_snapshot_sha256=sha(folder/'controller.yaml'),
                         reference_geometry_sha256=spec['reference_geometry_sha256'],
-                        telemetry_schema='nino-benchmark-v3-source-stamps-terminal-support',
+                        telemetry_schema='nino-benchmark-v4-amcl-imu-encoder-terminal-support',
                         acceleration_convention='body acceleration minus quaternion gravity 9.80665 m/s2',
                         sources=spec['sources'], controller=spec['controller'],
-                        pose_source='AMCL map->base_footprint; ground_truth_* separately in Gazebo frame',
+                        pose_source='TF map->base_footprint: AMCL + encoder odometry estimate',
+                        measurement_basis='AMCL_IMU_ENCODER_v1',
+                        body_velocity_source='encoder-derived /odom estimate; not slip-free speed',
+                        torque_source='controller command after limiter; not measured joint torque',
                         seed_scope='Gym only; not Gazebo/AMCL noise', device=device, device_info=description)
         save_json(folder/'metadata.json', metadata)
         env = NinoResidualEnv(spec['config'], spec['map'], folder, residual_enabled=model is not None)
@@ -517,7 +512,6 @@ def main(argv=None):
     parser.add_argument('--nav2-config', default=str(ROOT/'src/nino_navigation/config/nav2.yaml'))
     parser.add_argument('--pid-config', default=str(ROOT/'rl_training/config/pid.yaml'), help='YAML gain đã hiệu chỉnh riêng; không thay PI nền của SAC')
     parser.add_argument('--reference-path', help='JSON map-frame x/y/yaw; mặc định đường thẳng từ (0,0) tới goal')
-    parser.add_argument('--registration', help='File map→world độc lập đã xác minh; thiếu thì metric map/world là N/A')
     parser.add_argument('--gui', action='store_true', help='Mở Gazebo GUI, vẫn chạy các nhóm tuần tự')
     parser.add_argument('--purpose', choices=['evaluation', 'smoke', 'calibration'], default='evaluation',
                         help='smoke giới hạn 3 giây mô phỏng; chỉ kiểm tra kỹ thuật, không kết luận chất lượng')

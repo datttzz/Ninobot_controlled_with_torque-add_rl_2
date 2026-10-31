@@ -11,12 +11,10 @@ import math
 from pathlib import Path
 import statistics
 import zipfile
-import xml.etree.ElementTree as ET
 
 import numpy as np
 import yaml
-from rl_training.frame_registration import load_registration,registration_from_metadata,transform
-from rl_training.pose_measurements import source_pose,terminal_pose,synchronized_comparison,POSE_MAX_GAP_S
+from rl_training.pose_measurements import source_pose,terminal_pose,signal_timing,resample_signal,POSE_MAX_GAP_S
 from rl_training.mission_measurement import mission_conditions
 
 ROOT = Path(__file__).resolve().parent
@@ -26,25 +24,18 @@ JERK_CUTOFF_HZ = 5.0
 MAX_DEVIATION = 0.20
 # key: nhóm, tên tiếng Việt, đơn vị, hướng tốt hơn. None: chỉ mô tả, không xếp hạng.
 METRICS = {
- 'mission_success_pct':('1. Hoàn thành','Đến đích theo đủ điều kiện AMCL và GT','%','max'),
+ 'mission_success_pct':('1. Hoàn thành','Nav2 thành công và đạt điều kiện AMCL','%','max'),
  'nav_success_pct':('1. Hoàn thành','Nav2 thông báo SUCCEEDED','%','max'),
- 'deviation_violation_pct':('1. Hoàn thành','Lượt vi phạm lệch đường AMCL hoặc GT','%','min'),
+ 'deviation_violation_pct':('1. Hoàn thành','Lượt vi phạm lệch đường AMCL','%','min'),
  'completion_time_s':('1. Hoàn thành','Thời gian hoàn thành, chỉ lượt đạt chuẩn','s','min'),
- 'average_speed_m_s':('1. Hoàn thành','Vận tốc trung bình từ GT','m/s',None),
+ 'average_speed_m_s':('1. Hoàn thành','Trung bình |v_x| từ odometry encoder (ước lượng)','m/s',None),
  'amcl_goal_xy_m':('1. Hoàn thành','Sai số vị trí AMCL cuối lượt','m','min'),
  'amcl_goal_yaw_rad':('1. Hoàn thành','Sai số hướng AMCL cuối lượt','rad','min'),
  'amcl_violation_pct':('1. Hoàn thành','Lượt AMCL vượt giới hạn lệch đường','%','min'),
- 'gt_violation_pct':('1. Hoàn thành','Lượt GT vượt giới hạn lệch đường','%','min'),
- 'gt_goal_xy_m':('1. Hoàn thành','Sai số vị trí GT cuối lượt','m','min'),
- 'gt_goal_yaw_rad':('1. Hoàn thành','Sai số hướng GT tại đích','rad','min'),
  'amcl_rmse_m':('2. Bám đường','AMCL: RMSE ngang cân thời gian','m','min'),
  'amcl_p95_m':('2. Bám đường','AMCL: P95 |e_y| cân thời gian','m','min'),
  'amcl_max_m':('2. Bám đường','AMCL: Max |e_y|','m','min'),
  'amcl_heading_rmse_rad':('2. Bám đường','AMCL: RMSE lỗi hướng','rad','min'),
- 'gt_rmse_m':('2. Bám đường','Ground truth: RMSE ngang cân thời gian','m','min'),
- 'gt_p95_m':('2. Bám đường','Ground truth: P95 |e_y| cân thời gian','m','min'),
- 'gt_max_m':('2. Bám đường','Ground truth: Max |e_y|','m','min'),
- 'gt_heading_rmse_rad':('2. Bám đường','Ground truth: RMSE lỗi hướng','rad','min'),
  'az_rms_m_s2':('3. IMU','RMS a_z đã trừ trọng lực','m/s²','min'),
  'az_peak_m_s2':('3. IMU','Peak |a_z| đã trừ trọng lực','m/s²','min'),
  'roll_rate_rms_rad_s':('3. IMU','RMS vận tốc góc roll, body p','rad/s','min'),
@@ -52,14 +43,14 @@ METRICS = {
  'jerk_rms_m_s3':('3. IMU','RMS jerk z, lọc 5 Hz','m/s³','min'),
  'jerk_p95_m_s3':('3. IMU','P95 |jerk z|, lọc 5 Hz','m/s³','min'),
  'wheel_rmse_rad_s':('5. Chấp hành','RMSE bám vận tốc hai bánh','rad/s','min'),
- 'torque_rms_nm':('5. Chấp hành','RMS mô-men tổng, trung bình hai bánh','N·m','min'),
- 'torque_peak_nm':('5. Chấp hành','Peak |mô-men tổng| trên hai bánh','N·m','min'),
+ 'torque_rms_nm':('5. Chấp hành','RMS lệnh mô-men tổng, trung bình hai bánh','N·m','min'),
+ 'torque_peak_nm':('5. Chấp hành','Peak |lệnh mô-men tổng| trên hai bánh','N·m','min'),
  'sac_contribution_pct':('5. Chấp hành','Đóng góp |SAC| / (|PI| + |SAC|)','%',None),
  'slew_limit_pct':('5. Chấp hành','Chu kỳ chạm giới hạn slew trên hai bánh','%','min'),
  'saturation_pct':('5. Chấp hành','Chu kỳ bão hòa mô-men trên hai bánh','%','min'),
 }
 WINDOW_METRICS = {
- 'local_peak_error_m':('Peak |e_y| GT','m'), 'local_rmse_m':('Local RMSE GT','m'),
+ 'local_peak_error_m':('Peak |e_y| AMCL','m'), 'local_rmse_m':('Local RMSE AMCL','m'),
  'peak_az_m_s2':('Peak |a_z|','m/s²'), 'peak_jerk_m_s3':('Peak |jerk z| lọc','m/s³'),
  'speed_drop_pct':('Sụt vận tốc so với trước gờ','%'), 'settling_time_s':('Ổn định sau tâm gờ','s'),
 }
@@ -153,17 +144,6 @@ def filtered_jerk(acceleration,times,cutoff=JERK_CUTOFF_HZ):
     return jerk
 
 
-def obstacle_positions(world=None):
-    path=Path(world) if world else ROOT/'src/nino_description/worlds/long_hall.sdf'
-    tree=ET.parse(path)
-    # Chỉ collision của cable_bumps; không đếm visual, tường hoặc đèn.
-    model=tree.find(".//model[@name='cable_bumps']")
-    if model is None:return []
-    offset=float((model.findtext('pose') or '0 0 0 0 0 0').split()[0])
-    return sorted(offset+float(p.findtext('pose').split()[0]) for p in model.findall('.//collision')
-                  if p.get('name','').startswith('cable_'))
-
-
 def window_metrics(t,x,error,az,jerk,speed,weights,centers,radius=0.5):
     results=[]
     for center in centers:
@@ -199,7 +179,8 @@ def window_metrics(t,x,error,az,jerk,speed,weights,centers,radius=0.5):
     return results
 
 
-def episode_metrics(rows, reference, centers=(), radius=0.5, map_to_world=None):
+def episode_metrics(rows, reference, centers=(), radius=0.5):
+    """Đánh giá theo AMCL/IMU/encoder; không coi định vị là vị trí thực độc lập."""
     if len(rows)<2:raise ValueError('Cần ít nhất hai mẫu telemetry')
     t=array(rows,'simulation_time');delta=np.diff(t,prepend=0)
     if not np.all(np.isfinite(t)) or np.any(delta<0) or t[-1]<=t[0]:
@@ -207,51 +188,40 @@ def episode_metrics(rows, reference, centers=(), radius=0.5, map_to_world=None):
     if any(r.get('outcome') for r in rows[:-1]):raise ValueError('Terminal sample xuất hiện giữa episode')
     if any(delta[i]==0 and (i!=len(rows)-1 or not rows[i].get('outcome')) for i in range(1,len(t))):
         raise ValueError('Timestamp lặp ngoài terminal sample')
-    weights=delta.copy();outcome=rows[-1].get('outcome') or 'INCOMPLETE'
+    outcome=rows[-1].get('outcome') or 'INCOMPLETE'
     if outcome not in ('SUCCEEDED','FAILED','TIME_LIMIT','INCOMPLETE'):raise ValueError('Outcome không hợp lệ')
-    amcl_x,amcl_y,amcl_yaw=(array(rows,k) for k in ('amcl_x','amcl_y','amcl_yaw'))
-    gt_x,gt_y,gt_yaw=(array(rows,k) for k in ('ground_truth_x','ground_truth_y','ground_truth_yaw'))
+    if reference.get('frame_id')!='map':raise ValueError('Reference phải nằm trong map')
+    if any(r.get('amcl_frame','map')!='map' or r.get('amcl_child_frame','base_footprint')!='base_footprint' for r in rows):
+        raise ValueError('Pose phải là TF map→base_footprint')
+    x,y,yaw=(array(rows,k) for k in ('amcl_x','amcl_y','amcl_yaw'))
     points=np.array([[p['x'],p['y']] for p in reference['poses']],dtype=float)
-    frames={r.get('ground_truth_frame') for r in rows if r.get('ground_truth_frame')}
-    if map_to_world is not None:map_to_world=transform(map_to_world)
-    registered=map_to_world is not None and frames=={'world'}
-    ex,ey,theta=map_to_world if registered else (0.0,0.0,0.0);c,s=math.cos(theta),math.sin(theta)
-    world_points=points@np.array([[c,s],[-s,c]])+np.array([ex,ey])
-    amcl_error,amcl_heading,amcl_s=projection(amcl_x,amcl_y,amcl_yaw,points)
-    # Log cũ chỉ có lỗi đã tính; giữ nguyên nguồn AMCL, không coi là ground truth.
-    if not np.isfinite(amcl_error).any():amcl_error=array(rows,'cross_track')
-    if not np.isfinite(amcl_heading).any():amcl_heading=wrap(array(rows,'heading_error'))
-    gt_error,gt_heading,gt_s=projection(gt_x,gt_y,gt_yaw,world_points)
-    if not registered:gt_error[:]=np.nan;gt_heading[:]=np.nan;gt_s[:]=np.nan
-    sources={'amcl':source_pose(rows,'amcl','amcl_stamp_s'),
-             'gt':source_pose(rows,'ground_truth','gt_stamp_s')}
-    amcl_error[~sources['amcl']['valid']]=np.nan;amcl_heading[~sources['amcl']['valid']]=np.nan
-    gt_error[~sources['gt']['valid']]=np.nan;gt_heading[~sources['gt']['valid']]=np.nan
-    frames={r.get('ground_truth_frame') for r in rows if r.get('ground_truth_frame')}
-    if frames and frames!={'world'}:raise ValueError('GT frame phải là world; cần đăng ký transform trước')
+    if len(points)<2 or not np.isfinite(points).all():raise ValueError('Reference không hợp lệ')
+    error,heading,progress=projection(x,y,yaw,points)
+    source=source_pose(rows,'amcl','amcl_stamp_s');pose_weights=source['weights']
+    error[~source['valid']]=np.nan;heading[~source['valid']]=np.nan
+    imu=signal_timing(rows,'imu_stamp_s');control=signal_timing(rows,'control_stamp_s')
+    odom=signal_timing(rows,'odom_stamp_s')
+    imu_weights,control_weights=imu['weights'],control['weights']
     metrics={k:None for k in METRICS}
-    for label,error,heading in [('amcl',amcl_error,amcl_heading),('gt',gt_error,gt_heading)]:
-        source_weights=sources[label]['weights']
-        metrics[label+'_rmse_m']=rms(error,source_weights)
-        metrics[label+'_p95_m']=percentile(np.abs(error),weights=source_weights)
-        metrics[label+'_max_m']=peak(error)
-        metrics[label+'_heading_rmse_rad']=rms(wrap(heading),source_weights)
-    acc=array(rows,'acceleration',3);gyro=array(rows,'gyro',3);az=acc[:,2]
-    imu_t=array(rows,'imu_stamp_s')
-    # Không dùng timestamp vòng lặp thay timestamp IMU bị thiếu.
-    jerk=filtered_jerk(az,imu_t)
-    metrics.update(az_rms_m_s2=rms(az,weights),az_peak_m_s2=peak(az),
-                   roll_rate_rms_rad_s=rms(gyro[:,0],weights),pitch_rate_rms_rad_s=rms(gyro[:,1],weights),
-                   jerk_rms_m_s3=rms(jerk,weights),jerk_p95_m_s3=percentile(np.abs(jerk),weights=weights))
+    metrics.update(amcl_rmse_m=rms(error,pose_weights),amcl_p95_m=percentile(np.abs(error),weights=pose_weights),
+                   amcl_max_m=peak(error),amcl_heading_rmse_rad=rms(wrap(heading),pose_weights))
+    acc=array(rows,'acceleration',3);gyro=array(rows,'gyro',3);az=acc[:,2].copy()
+    imu_t=array(rows,'imu_stamp_s');jerk=filtered_jerk(az,imu_t)
+    az[~imu['valid']]=np.nan;gyro[~imu['valid']]=np.nan;jerk[~imu['valid']]=np.nan
+    metrics.update(az_rms_m_s2=rms(az,imu_weights),az_peak_m_s2=peak(az),
+                   roll_rate_rms_rad_s=rms(gyro[:,0],imu_weights),pitch_rate_rms_rad_s=rms(gyro[:,1],imu_weights),
+                   jerk_rms_m_s3=rms(jerk,imu_weights),jerk_p95_m_s3=percentile(np.abs(jerk),weights=imu_weights))
     measured,target=array(rows,'wheel_velocity',2),array(rows,'wheel_target',2)
-    metrics['wheel_rmse_rad_s']=rms(np.sqrt(np.mean((measured-target)**2,axis=1)),weights)
+    measured[~control['valid']]=np.nan;target[~control['valid']]=np.nan
+    metrics['wheel_rmse_rad_s']=rms(np.sqrt(np.mean((measured-target)**2,axis=1)),control_weights)
     total,base,residual=(array(rows,k,2) for k in ('total_torque','base_torque','residual_applied'))
-    metrics['torque_rms_nm']=rms(np.sqrt(np.mean(total**2,axis=1)),weights)
+    for signal in (total,base,residual):signal[~control['valid']]=np.nan
+    metrics['torque_rms_nm']=rms(np.sqrt(np.mean(total**2,axis=1)),control_weights)
     metrics['torque_peak_nm']=peak(total.flatten())
     numerator=np.sum(np.abs(residual),axis=1);denominator=np.sum(np.abs(base)+np.abs(residual),axis=1)
     ratio=np.divide(numerator,denominator,out=np.full(len(t),np.nan),where=denominator>1e-6)
     ratio[~np.all(np.isfinite(base)&np.isfinite(residual),axis=1)]=np.nan
-    contribution=weighted(ratio,weights)
+    contribution=weighted(ratio,control_weights)
     metrics['sac_contribution_pct']=100*contribution if contribution is not None else None
     cycles=array(rows,'control_cycles')
     cycle_values=cycles[np.isfinite(cycles)]
@@ -264,123 +234,85 @@ def episode_metrics(rows, reference, centers=(), radius=0.5, map_to_world=None):
             metrics[out]=100*float(np.sum(difference))/(2*(cycles[-1]-cycles[0]))
         else:
             flags=array(rows,'slew_limited' if key=='slew_cycles' else 'saturated',2)
-            value=weighted(np.mean(flags,axis=1),weights)
+            value=weighted(np.mean(flags,axis=1),control_weights)
             metrics[out]=100*value if value is not None else None
-    speed=array(rows,'ground_truth_speed')
-    good=np.isfinite(gt_x)&np.isfinite(gt_y)
-    own_gt=sources['gt']['samples']
-    if len(own_gt)>1 and sources['gt']['complete'] and frames=={'world'}:
-        metrics['average_speed_m_s']=float(np.hypot(np.diff(own_gt[:,1]),np.diff(own_gt[:,2])).sum()/(own_gt[-1,0]-own_gt[0,0]))
-    goal=points[-1];world_goal=world_points[-1]
-    terminal_amcl,amcl_terminal_reason=terminal_pose(rows,'amcl','amcl_stamp_s')
-    terminal_gt,gt_terminal_reason=terminal_pose(rows,'ground_truth','gt_stamp_s')
-    amcl_xy=math.hypot(*(terminal_amcl[:2]-goal)) if terminal_amcl is not None else math.nan
-    amcl_yaw_error=abs(float(wrap(terminal_amcl[2]-reference['poses'][-1]['yaw']))) if terminal_amcl is not None else math.nan
-    gt_xy=math.hypot(*(terminal_gt[:2]-world_goal)) if terminal_gt is not None else math.nan
-    gt_yaw_error=abs(float(wrap(terminal_gt[2]-reference['poses'][-1]['yaw']-theta))) if terminal_gt is not None else math.nan
-    metrics['amcl_goal_xy_m']=amcl_xy if math.isfinite(amcl_xy) else None
-    metrics['amcl_goal_yaw_rad']=amcl_yaw_error if math.isfinite(amcl_yaw_error) else None
-    for label,error in [('amcl',amcl_error),('gt',gt_error)]:
-        maximum=peak(error)
-        metrics[label+'_violation_pct']=100.0 if maximum is not None and maximum>MAX_DEVIATION else 0.0 if sources[label]['complete'] and maximum is not None else None
-    metrics['gt_goal_xy_m']=gt_xy if math.isfinite(gt_xy) else None
-    metrics['gt_goal_yaw_rad']=gt_yaw_error if math.isfinite(gt_yaw_error) else None
-    metrics['nav_success_pct']=100.0 if outcome=='SUCCEEDED' else 0.0
-    if not registered:metrics['gt_goal_xy_m']=metrics['gt_goal_yaw_rad']=None
-    errors_complete=all(sources[label]['complete'] for label in ('amcl','gt'))
-    violation=any(peak(e) is not None and peak(e)>MAX_DEVIATION for e in (amcl_error,gt_error))
-    metrics['deviation_violation_pct']=100.0 if violation else 0.0 if errors_complete else None
-    checked=registered and errors_complete and all(math.isfinite(v) for v in (amcl_xy,amcl_yaw_error,gt_xy,gt_yaw_error))
-    if checked:
-        success=outcome=='SUCCEEDED' and not violation and amcl_xy<=0.25 and gt_xy<=0.25 and amcl_yaw_error<=0.25 and gt_yaw_error<=0.25
-        metrics['mission_success_pct']=100.0 if success else 0.0
-        if success:metrics['completion_time_s']=float(t[-1])
+    speed=array(rows,'body_speed_m_s');odom_t=array(rows,'odom_stamp_s')
+    metrics['average_speed_m_s']=weighted(np.abs(speed),odom['weights'])
+    terminal,terminal_reason=terminal_pose(rows,'amcl','amcl_stamp_s')
+    if terminal is not None:
+        metrics['amcl_goal_xy_m']=float(np.linalg.norm(terminal[:2]-points[-1]))
+        metrics['amcl_goal_yaw_rad']=abs(float(wrap(terminal[2]-reference['poses'][-1]['yaw'])))
+    maximum=metrics['amcl_max_m']
+    violation=100. if maximum is not None and maximum>MAX_DEVIATION else 0. if source['complete'] and maximum is not None else None
+    metrics['amcl_violation_pct']=metrics['deviation_violation_pct']=violation
+    metrics['nav_success_pct']=100. if outcome=='SUCCEEDED' else 0.
+    checked_max=maximum if source['complete'] or violation==100. else None
+    status=mission_conditions(outcome,metrics['amcl_goal_xy_m'],metrics['amcl_goal_yaw_rad'],checked_max)
+    if status['mission_pass'] is not None:metrics['mission_success_pct']=100. if status['mission_pass'] else 0.
+    if status['mission_pass'] is True:metrics['completion_time_s']=float(t[-1])
     hashes={r.get('reference_geometry_sha256') for r in rows if r.get('reference_geometry_sha256')}
     if len(hashes)>1:raise ValueError('Reference thay đổi trong episode')
-    _,_,centers_s=projection(np.asarray(centers),np.zeros(len(centers)),np.zeros(len(centers)),world_points)
-    if not registered:centers_s[:]=np.nan
-    gt_clock=array(rows,'gt_stamp_s')
-    windows=window_metrics(gt_clock,gt_s,gt_error,az,jerk,speed,sources['gt']['weights'],centers_s,radius)
-    for w,world_x in zip(windows,centers):w['center_world_x_m']=world_x
-    trace=dict(reference_world_x=world_points[:,0].tolist() if registered else [],
-               reference_world_y=world_points[:,1].tolist() if registered else [],
-               amcl_world_x=(c*amcl_x-s*amcl_y+ex).tolist() if registered else [None]*len(t),
-               amcl_world_y=(s*amcl_x+c*amcl_y+ey).tolist() if registered else [None]*len(t),
-               t=t.tolist(),s=gt_s.tolist(),amcl_s=amcl_s.tolist(),x=gt_x.tolist() if registered else [None]*len(t),y=gt_y.tolist() if registered else [None]*len(t),amcl_x=amcl_x.tolist(),amcl_y=amcl_y.tolist(),
-               error=gt_error.tolist(),amcl_error=amcl_error.tolist(),az=az.tolist(),jerk=jerk.tolist(),
-               torque_left=total[:,0].tolist(),torque_right=total[:,1].tolist())
-    missing=missing_reasons(metrics,rows,registered)
-    for label,reason in [('amcl',amcl_terminal_reason),('gt',gt_terminal_reason)]:
-        if reason:
-            for suffix in ('goal_xy_m','goal_yaw_rad'):missing[label+'_'+suffix]=reason
-    status_max={label:metrics[label+'_max_m'] if sources[label]['complete'] or
-                (metrics[label+'_max_m'] is not None and metrics[label+'_max_m']>MAX_DEVIATION) else None
-                for label in ('amcl','gt')}
-    task_status=mission_conditions(outcome,metrics['amcl_goal_xy_m'],metrics['amcl_goal_yaw_rad'],status_max['amcl'],
-                                  metrics['gt_goal_xy_m'],metrics['gt_goal_yaw_rad'],status_max['gt'])
-    if task_status['full_pass'] is not None:
-        metrics['mission_success_pct']=100.0 if task_status['full_pass'] else 0.0
-    comparison=synchronized_comparison(rows,map_to_world if registered else None)
-    source_info={}
-    for label in ('amcl','gt'):
-        source=sources[label];last=source['samples'][-1].tolist() if len(source['samples']) else None
-        source_info[label]=dict(time_basis='own absolute ROS source timestamps',coverage=source['coverage'],
-              duplicates=source['duplicates'],complete=source['complete'],last_source_pose=last,reason=source['reason'])
-        if last is not None and (label=='amcl' or registered):
-            target=goal if label=='amcl' else world_goal
-            target_yaw=reference['poses'][-1]['yaw']+(theta if label=='gt' else 0.)
-            source_info[label].update(last_source_goal_xy_m=math.hypot(last[1]-target[0],last[2]-target[1]),
-                                     last_source_goal_yaw_rad=abs(float(wrap(last[3]-target_yaw))))
-    return dict(outcome=outcome,reason=rows[-1].get('reason',''),mission_failure_reasons=mission_reasons(metrics,outcome),metrics=metrics,windows=windows,
-                task_status=task_status,source_measurements=source_info,amcl_gt_comparison=comparison,
+    pose_t=array(rows,'amcl_stamp_s')
+    # centers là map X với map Y=0, do người dùng chỉ định; không suy từ world.
+    _,_,centers_s=projection(np.asarray(centers),np.zeros(len(centers)),np.zeros(len(centers)),points)
+    az_on_pose=resample_signal(imu_t,az,pose_t);jerk_on_pose=resample_signal(imu_t,jerk,pose_t)
+    speed_on_pose=resample_signal(odom_t,np.abs(speed),pose_t)
+    windows=window_metrics(pose_t,progress,error,az_on_pose,jerk_on_pose,speed_on_pose,pose_weights,centers_s,radius)
+    for w,map_x in zip(windows,centers):w.update(center_map_x_m=map_x,map_y_m=0.,pose_source='AMCL estimate')
+    trace=dict(reference_map_x=points[:,0].tolist(),reference_map_y=points[:,1].tolist(),
+               t=t.tolist(),s=progress.tolist(),x=x.tolist(),y=y.tolist(),error=error.tolist(),
+               az=az_on_pose.tolist(),jerk=jerk_on_pose.tolist(),
+               torque_left=resample_signal(array(rows,'control_stamp_s'),total[:,0],pose_t).tolist(),
+               torque_right=resample_signal(array(rows,'control_stamp_s'),total[:,1],pose_t).tolist())
+    missing=missing_reasons(metrics,rows)
+    if terminal_reason:
+        for key in ('amcl_goal_xy_m','amcl_goal_yaw_rad'):missing[key]=terminal_reason
+    if not source['complete'] and status['mission_pass'] is None:
+        missing['mission_success_pct']='Incomplete AMCL source-time coverage or missing terminal bracket'
+    last=source['samples'][-1].tolist() if len(source['samples']) else None
+    return dict(outcome=outcome,reason=rows[-1].get('reason',''),task_status=status,
+                mission_failure_reasons=mission_reasons(metrics,outcome),metrics=metrics,windows=windows,
+                measurement_basis='AMCL_IMU_ENCODER_v1',
+                source_measurements=dict(amcl=dict(time_basis='own absolute ROS timestamps',coverage=source['coverage'],
+                    duplicates=source['duplicates'],complete=source['complete'],last_source_pose=last,reason=source['reason'])),
                 terminal_measurement=dict(clock_s=rows[-1].get('terminal_clock_s',rows[-1].get('simulation_clock_s')),
-                    amcl_reason=amcl_terminal_reason,gt_reason=gt_terminal_reason,max_gap_s=POSE_MAX_GAP_S),
+                    amcl_reason=terminal_reason,max_gap_s=POSE_MAX_GAP_S),
                 duration_s=float(t[-1]),samples=len(rows),reference_hashes=sorted(hashes),trace=trace,
-                schema={key:dict(present_samples=sum(key in row and row[key] is not None for row in rows),total_samples=len(rows))
-                        for key in ('simulation_time','imu_stamp_s','amcl_x','amcl_y','amcl_yaw','ground_truth_x','ground_truth_y',
-                                    'ground_truth_yaw','acceleration','gyro','wheel_target','wheel_velocity',
-                                    'base_torque','residual_applied','total_torque','control_cycles','slew_cycles','saturation_cycles')},
-                missing_reasons=missing,
-                coverage=dict(amcl=sources['amcl']['coverage'],
-                    ground_truth=sources['gt']['coverage'] if registered else 0.,
-                    az=float(np.sum(weights[np.isfinite(az)])/np.sum(weights)),
-                    jerk=float(np.sum(weights[np.isfinite(jerk)])/np.sum(weights))))
+                schema=schema_audit(rows),missing_reasons=missing,
+                coverage=dict(amcl=source['coverage'],imu=imu['coverage'],controller=control['coverage'],odom=odom['coverage'],
+                    az=float(imu_weights[np.isfinite(az)].sum()/imu_weights.sum()) if imu_weights.sum() else 0.,
+                    jerk=float(imu_weights[np.isfinite(jerk)].sum()/imu_weights.sum()) if imu_weights.sum() else 0.))
 
 
 def mission_reasons(metrics,outcome):
     reasons=[]
     if outcome!='SUCCEEDED':reasons.append('Nav2 outcome is '+str(outcome))
-    for key,limit in [('amcl_goal_xy_m',.25),('gt_goal_xy_m',.25),
-                      ('amcl_goal_yaw_rad',.25),('gt_goal_yaw_rad',.25),
-                      ('amcl_max_m',MAX_DEVIATION),('gt_max_m',MAX_DEVIATION)]:
+    for key,limit in [('amcl_goal_xy_m',.25),('amcl_goal_yaw_rad',.25),('amcl_max_m',MAX_DEVIATION)]:
         value=metrics.get(key)
         if value is None:reasons.append('missing '+key)
         elif value>limit:reasons.append(f'{key}={value:.6g} > {limit:g}')
     return reasons
 
 
-def missing_reasons(metrics,rows,registered):
+def missing_reasons(metrics,rows):
     audit=schema_audit(rows);result={}
     signals={
-      'az_rms_m_s2':['acceleration'],'az_peak_m_s2':['acceleration'],
-      'roll_rate_rms_rad_s':['gyro'],'pitch_rate_rms_rad_s':['gyro'],
+      'az_rms_m_s2':['acceleration','imu_stamp_s'],'az_peak_m_s2':['acceleration','imu_stamp_s'],
+      'roll_rate_rms_rad_s':['gyro','imu_stamp_s'],'pitch_rate_rms_rad_s':['gyro','imu_stamp_s'],
       'jerk_rms_m_s3':['acceleration','imu_stamp_s'],'jerk_p95_m_s3':['acceleration','imu_stamp_s'],
-      'wheel_rmse_rad_s':['wheel_target','wheel_velocity'],
-      'torque_rms_nm':['total_torque'],'torque_peak_nm':['total_torque'],
-      'sac_contribution_pct':['base_torque','residual_applied'],
-      'average_speed_m_s':['ground_truth_x','ground_truth_y']}
+      'wheel_rmse_rad_s':['wheel_target','wheel_velocity','control_stamp_s'],
+      'torque_rms_nm':['total_torque','control_stamp_s'],'torque_peak_nm':['total_torque','control_stamp_s'],
+      'sac_contribution_pct':['base_torque','residual_applied','control_stamp_s'],
+      'average_speed_m_s':['body_speed_m_s','odom_stamp_s']}
     for key,value in metrics.items():
         if value is not None:continue
-        if key.startswith('gt_') and not registered:
-            reason='No verified map/world registration or GT world-frame label; GT is not AMCL'
-        elif key=='completion_time_s':reason='No verified successful completion under all goal/deviation conditions'
+        if key=='completion_time_s':reason='No successful completion under Nav2 + AMCL goal/deviation conditions'
         elif key=='sac_contribution_pct' and all(audit[k]['valid_samples'] for k in signals[key]):
-            reason='No finite torque samples with |PI|+|SAC| > 1e-6 Nm; zero/near-zero denominators excluded'
+            reason='No finite torque samples with |PI|+|SAC| > 1e-6 Nm; near-zero denominators excluded'
         else:
-            required=signals.get(key,[])
-            if key.startswith('gt_') or key=='mission_success_pct':required+=['ground_truth_x','ground_truth_y','ground_truth_yaw']
+            required=signals.get(key,['amcl_x','amcl_y','amcl_yaw','amcl_stamp_s'])
             absent=[k for k in required if not audit[k]['valid_samples']]
-            reason=('Missing/invalid signal: '+', '.join(absent)) if absent else 'Insufficient valid timed samples; inspect schema, timestamps, registration and terminal outcome'
+            reason=('Missing/invalid signal: '+', '.join(absent)) if absent else 'Insufficient valid source timestamps/coverage or terminal samples'
         result[key]=reason
     return result
 
@@ -431,8 +363,8 @@ def checkpoint_evidence(metadata):
 def schema_audit(rows):
     sizes={'acceleration':3,'gyro':3,'wheel_target':2,'wheel_velocity':2,'total_torque':2,
            'base_torque':2,'residual_applied':2,'slew_cycles':2,'saturation_cycles':2}
-    fields=['simulation_time','imu_stamp_s','amcl_x','amcl_y','amcl_yaw','ground_truth_x','ground_truth_y',
-            'ground_truth_yaw','acceleration','gyro','wheel_target','wheel_velocity','base_torque',
+    fields=['simulation_time','imu_stamp_s','amcl_stamp_s','control_stamp_s','odom_stamp_s',
+            'body_speed_m_s','amcl_x','amcl_y','amcl_yaw','acceleration','gyro','wheel_target','wheel_velocity','base_torque',
             'residual_applied','total_torque','control_cycles','slew_cycles','saturation_cycles']
     audit={}
     for key in fields:
@@ -451,13 +383,11 @@ def schema_audit(rows):
     return audit
 
 
-def load_group(folder,label,centers,radius,registration_path=None):
+def load_group(folder,label,centers,radius):
     folder=Path(folder).expanduser().resolve()
     if not folder.is_dir():raise ValueError(f'Không tìm thấy thư mục {folder}')
     metadata=read_json(folder/'metadata.json',{})
     config=yaml.safe_load((folder/'config.yaml').read_text()) if (folder/'config.yaml').exists() else {}
-    registration=(load_registration(registration_path,metadata.get('map')) if registration_path else
-                  registration_from_metadata(metadata,metadata.get('map')))
     proof=checkpoint_evidence(metadata) if label=='PI_SAC' else None
     for filename,key in [('config.yaml','config_snapshot_sha256'),('controller.yaml','controller_snapshot_sha256')]:
         if metadata.get(key) and hashlib.sha256((folder/filename).read_bytes()).hexdigest()!=metadata[key]:
@@ -490,14 +420,12 @@ def load_group(folder,label,centers,radius,registration_path=None):
         try:
             rows=read_rows(path)
             schema=schema_audit(rows)
-            record=episode_metrics(rows,reference,centers,radius,registration['map_to_world'] if registration else None)
-            record['registration']=registration
+            record=episode_metrics(rows,reference,centers,radius)
             record['schema']=schema
             if record['reference_hashes'] and metadata.get('reference_geometry_sha256') and record['reference_hashes']!=[metadata['reference_geometry_sha256']]:
                 raise ValueError('Telemetry reference hash differs from run metadata')
             if label!='PI_SAC' and np.any(np.nan_to_num(array(rows,'residual_applied',2))!=0):
                 raise ValueError('Baseline có residual SAC khác 0')
-            if registration is None:audit.append(dict(kind='missing_frame_registration',source=str(path),reason='GT metrics N/A: missing verified registration, legacy identity is not proof'))
             record.update(episode=directory.name,source=str(path),source_sha256=hashlib.sha256(path.read_bytes()).hexdigest())
             episodes.append(record)
         except (ValueError,KeyError,TypeError,json.JSONDecodeError) as exc:
@@ -509,7 +437,7 @@ def load_group(folder,label,centers,radius,registration_path=None):
         if (folder/name).exists():audit.append(dict(kind=name,detail=read_json(folder/name)))
     complete=[e for e in episodes if e['outcome']!='INCOMPLETE']
     return dict(label=label,path=str(folder),metadata=metadata,config=config,reference=reference,
-                checkpoint_proof=proof,controller=controller,registration=registration,
+                checkpoint_proof=proof,controller=controller,
                 episodes=episodes,audit=audit,complete_count=len(complete),
                 summary={k:stats(e['metrics'][k] for e in complete) for k in METRICS})
 
@@ -558,7 +486,7 @@ def make_html(groups,centers,output,notices):
     for center in centers:
         for key,(name,unit) in WINDOW_METRICS.items():
             values=[stats(w[key] for e in g['episodes'] if e['outcome']!='INCOMPLETE'
-                          for w in e['windows'] if w['center_world_x_m']==center and w['full_window']) for g in groups]
+                          for w in e['windows'] if w['center_map_x_m']==center and w['full_window']) for g in groups]
             valid=[v['mean'] for v in values if v['mean'] is not None];best=min(valid) if valid and not any(n.startswith('CONFOUND') for n in notices) else None
             cells=[]
             for v in values:
@@ -578,25 +506,26 @@ def make_html(groups,centers,output,notices):
     page='''<!doctype html><html lang="vi"><meta charset="utf-8"><title>PI / PID / PI + SAC</title>
 <style>body{font:15px system-ui;margin:24px auto;max-width:1280px;padding:0 18px;color:#213047;background:#f7f9fc}h1{font-size:28px}table{border-collapse:collapse;width:100%;background:white;margin:16px 0}td,th{border-bottom:1px solid #dce3ec;padding:9px;text-align:left}th{font-size:13px}small{display:block;color:#677489;font-size:11px;margin-top:4px}strong{color:#006c4c}section{background:white;padding:15px;margin:16px 0;border-radius:8px}svg{width:100%;height:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.warning{background:#fff0c5;padding:12px}.scroll{overflow:auto}select{padding:6px}</style>
 <h1>Đối sánh PI / PID / PI + SAC</h1><p>Mean ± sample SD; Median và P95 qua các episode ở dòng nhỏ. n là số lượt có dữ liệu cho từng metric. Lượt FAILED/TIME_LIMIT vẫn giữ; thời gian hoàn thành chỉ xét lượt đạt chuẩn.</p>
-<div class="warning">NOTICES</div><section><label>Chọn lượt tương ứng theo thứ tự log: <select id="episode"></select></label><p>Màu: <span style="color:#2463a4">PI</span> · <span style="color:#d67b17">PID</span> · <span style="color:#14866b">PI + SAC</span>. Đường liền GT, nét đứt AMCL. Cùng nhãn seed không bảo đảm cùng nhiễu Gazebo/AMCL.</p>
+<div class="warning">NOTICES</div><section><label>Chọn lượt tương ứng theo thứ tự log: <select id="episode"></select></label><p>Màu: <span style="color:#2463a4">PI</span> · <span style="color:#d67b17">PID</span> · <span style="color:#14866b">PI + SAC</span>. Quỹ đạo và lỗi ngang theo ước lượng AMCL trong map. Cùng nhãn seed không bảo đảm cùng nhiễu Gazebo/AMCL.</p>
 <h3>Quỹ đạo 2D (m)</h3><svg id="trajectory" viewBox="0 0 1000 280"></svg>
 <h3>Lỗi ngang e_y theo tiến độ dọc đường s (m)</h3><svg id="error" viewBox="0 0 1000 280"></svg>
 <h3>a_z đã trừ trọng lực theo s (m/s²)</h3><svg id="az" viewBox="0 0 1000 280"></svg>
 <h3>Jerk z lọc 5 Hz theo s (m/s³)</h3><svg id="jerk" viewBox="0 0 1000 280"></svg>
 <h3>Mô-men tổng trái/phải theo s (N·m)</h3><svg id="torque" viewBox="0 0 1000 280"></svg></section>
-<div class="scroll"><table>HEADERROWS</table></div><h2>4. Cửa sổ ±0.5 m dọc đường quanh tâm gờ</h2><p>Chỉ cửa sổ đầy đủ được tổng hợp tại đây. CSV giữ cả cửa sổ thiếu và trạng thái settling bị kiểm duyệt. Vạch gờ là tâm hình học, không phải cảm biến tiếp xúc bánh.</p><div class="scroll"><table>HEADERWINDOWS</table></div>
+<div class="scroll"><table>HEADERROWS</table></div><h2>4. Cửa sổ ±0.5 m dọc đường quanh tâm gờ</h2><p>Chỉ cửa sổ đầy đủ được tổng hợp tại đây. CSV giữ cả cửa sổ thiếu và trạng thái settling bị kiểm duyệt. Vạch gờ do người dùng chỉ định trong map, không phải phép đo tiếp xúc bánh.</p><div class="scroll"><table>HEADERWINDOWS</table></div>
 <h2>Từng lượt và lỗi hạ tầng</h2><table><tr><th>Nhóm</th><th>Episode</th><th>Nav outcome</th><th>Đạt đủ chuẩn (%)</th><th>Lý do</th></tr>EPISODES</table><details><summary>Audit, checkpoint/config, schema và lý do N/A</summary><pre>AUDIT</pre></details>
 <section><h2>Phương pháp</h2><p>METHODS</p><p>Giá trị in đậm là mean nhỏ nhất (thời gian/lỗi/rung/torque/giới hạn), hoặc lớn nhất (thành công). Vận tốc và đóng góp SAC chỉ mô tả, không có hướng tối ưu phổ quát. Không suy luận ý nghĩa thống kê từ thứ hạng.</p><p>HTML này nhúng toàn bộ dữ liệu/biểu đồ, không dùng CDN hay Internet.</p></section>
 <script id="data" type="application/json">PAYLOAD</script><script>
 const D=JSON.parse(document.getElementById('data').textContent),NS='http://www.w3.org/2000/svg';
 function el(tag,attr,text){let e=document.createElementNS(NS,tag);for(let[k,v]of Object.entries(attr||{}))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e}
 function draw(id,series,marks,equal){let svg=document.getElementById(id);svg.replaceChildren();let xmin=Infinity,xmax=-Infinity,ymin=Infinity,ymax=-Infinity;for(let s of series)for(let p of s.points)if(Number.isFinite(p[0])&&Number.isFinite(p[1])){xmin=Math.min(xmin,p[0]);xmax=Math.max(xmax,p[0]);ymin=Math.min(ymin,p[1]);ymax=Math.max(ymax,p[1])}if(!Number.isFinite(xmin)){svg.append(el('text',{x:50,y:100},'N/A: thiếu tín hiệu'));return}if(xmax===xmin)xmax=xmin+1;if(ymax===ymin){ymin-=.1;ymax+=.1}let pad=(ymax-ymin)*.1;ymin-=pad;ymax+=pad;if(equal){let cy=(ymin+ymax)/2,span=Math.max(ymax-ymin,(xmax-xmin)*210/890);ymin=cy-span/2;ymax=cy+span/2}let X=x=>65+(x-xmin)/(xmax-xmin)*890,Y=y=>240-(y-ymin)/(ymax-ymin)*210;for(let i=0;i<=5;i++){let x=xmin+(xmax-xmin)*i/5,y=ymin+(ymax-ymin)*i/5;svg.append(el('line',{x1:65,y1:Y(y),x2:955,y2:Y(y),stroke:'#e0e6ef'}));svg.append(el('text',{x:10,y:Y(y)+4,'font-size':11},y.toFixed(3)));svg.append(el('text',{x:X(x),y:262,'font-size':11},x.toFixed(2)))}if(marks)for(let x of D.centers)if(Number.isFinite(x)&&x>=xmin&&x<=xmax)svg.append(el('line',{x1:X(x),x2:X(x),y1:30,y2:240,stroke:'#bbb','stroke-dasharray':'3 4'}));for(let s of series){let points=[];function flush(){if(points.length>1)svg.append(el('polyline',{points:points.join(' '),fill:'none',stroke:s.color,'stroke-width':1.4,'stroke-dasharray':s.dash?'5 4':''}));points=[]}for(let p of s.points){if(Number.isFinite(p[0])&&Number.isFinite(p[1]))points.push(X(p[0])+','+Y(p[1]));else flush()}flush()}}
-function render(){let index=Number(document.getElementById('episode').value),plots={trajectory:[],error:[],az:[],jerk:[],torque:[]};for(let g of D.groups){let tr=g.traces[index];if(!tr)continue;function add(plot,x,y,dash=false){plots[plot].push({color:g.color,dash,points:x.map((v,i)=>[v,y[i]])})}add('trajectory',tr.x,tr.y);add('trajectory',tr.amcl_world_x,tr.amcl_world_y,true);add('error',tr.s,tr.error);add('error',tr.amcl_s,tr.amcl_error,true);add('az',tr.s,tr.az);add('jerk',tr.s,tr.jerk);add('torque',tr.s,tr.torque_left);add('torque',tr.s,tr.torque_right,true)}let guide=D.groups.map(g=>g.traces[index]).find(tr=>tr&&tr.reference_world_x?.length);if(guide)plots.trajectory.unshift({color:'#222',dash:true,points:guide.reference_world_x.map((x,i)=>[x,guide.reference_world_y[i]])});for(let[id,series]of Object.entries(plots))draw(id,series,id!=='trajectory',id==='trajectory')}
+function render(){let index=Number(document.getElementById('episode').value),plots={trajectory:[],error:[],az:[],jerk:[],torque:[]};for(let g of D.groups){let tr=g.traces[index];if(!tr)continue;function add(plot,x,y,dash=false){plots[plot].push({color:g.color,dash,points:x.map((v,i)=>[v,y[i]])})}add('trajectory',tr.x,tr.y);add('error',tr.s,tr.error);add('az',tr.s,tr.az);add('jerk',tr.s,tr.jerk);add('torque',tr.s,tr.torque_left);add('torque',tr.s,tr.torque_right,true)}let guide=D.groups.map(g=>g.traces[index]).find(tr=>tr&&tr.reference_map_x?.length);if(guide)plots.trajectory.unshift({color:'#222',dash:true,points:guide.reference_map_x.map((x,i)=>[x,guide.reference_map_y[i]])});for(let[id,series]of Object.entries(plots))draw(id,series,id!=='trajectory',id==='trajectory')}
 let menu=document.getElementById('episode'),count=Math.max(0,...D.groups.map(g=>g.traces.length));for(let i=0;i<count;i++){let o=document.createElement('option');o.value=i;o.textContent='Lượt '+(i+1);menu.append(o)}menu.onchange=render;render();
 </script></html>'''
-    methods=('Thành công chính: Nav2 SUCCEEDED, cả AMCL và GT có xy≤0.25 m, yaw≤0.25 rad và max lệch ngang≤0.20 m. '
-      'GT world và reference map cần file đăng ký độc lập đã xác minh, convention p_world=R(theta)*p_map+translation; thiếu nguồn thì N/A. Identity không được suy từ spawn/initialpose. '
-      'RMSE và P95 trong episode cân theo dt; thống kê Mean/SD/Median/P95 sau đó cân đều mỗi episode. '
+    methods=('Đánh giá theo định vị và cảm biến: Nav2 SUCCEEDED, AMCL có xy≤0.25 m, |yaw|≤0.25 rad và max lệch ngang≤0.20 m. '
+      'Pose là TF map→base_footprint do AMCL + odometry cung cấp; không gọi là vị trí thực. Terminal nội suy tại clock cố định, không ngoại suy. '
+      'Vận tốc thân từ odometry encoder là ước lượng; không dùng để chứng minh xe không trượt. '
+      'RMSE và P95 trong episode cân theo dt nguồn pose/IMU/controller tương ứng; thống kê Mean/SD/Median/P95 sau đó cân đều mỗi episode. '
       'a_z là trục Z thân xe đã trừ vector trọng lực theo quaternion IMU; gyro p/q là vận tốc góc body. '
       'Jerk là sai phân a_z trên timestamp IMU rồi lọc nhân quả bậc một 5 Hz; gap>0.1 s reset, mẫu lặp bỏ qua. '
       'Tỷ lệ limiter dùng chênh counter ở vòng điều khiển, nếu thiếu dùng cờ lấy mẫu và ghi trong metadata nguồn. '
@@ -610,10 +539,11 @@ let menu=document.getElementById('episode'),count=Math.max(0,...D.groups.map(g=>
     output.write_text(page)
 
 
-def build_report(pi_dir,pid_dir,sac_dir,output,centers=None,registration=None):
-    centers=obstacle_positions() if centers is None else sorted(centers)
-    groups=[load_group(folder,label,centers,0.5,registration) for label,folder in zip(GROUPS,(pi_dir,pid_dir,sac_dir))]
-    notices=[]
+def build_report(pi_dir,pid_dir,sac_dir,output,centers=None):
+    centers=[] if centers is None else sorted(centers)
+    groups=[load_group(folder,label,centers,0.5) for label,folder in zip(GROUPS,(pi_dir,pid_dir,sac_dir))]
+    notices=['Đánh giá theo định vị AMCL + IMU + encoder; không chứng minh vị trí thực hoặc không trượt bánh.']
+    if not centers:notices.append('N/A cửa sổ gờ: chưa cung cấp tâm gờ trong map bằng --obstacle-x (map Y=0); không suy tọa độ từ world.')
     if len({str(Path(p).resolve()) for p in (pi_dir,pid_dir,sac_dir)})!=3:raise ValueError('Three distinct input directories are required')
     signatures=[]
     for g in groups:
@@ -622,7 +552,7 @@ def build_report(pi_dir,pid_dir,sac_dir,output,centers=None,registration=None):
         nav=env.pop('nav2_params_file',None);env.pop('reference_path_file',None)
         nav_hash=hashlib.sha256(Path(nav).read_bytes()).hexdigest() if nav and Path(nav).is_file() else None
         limits={k:v for k,v in g['controller'].items() if k not in ('velocity_kp','velocity_ki','velocity_kd','derivative_filter_seconds')}
-        signatures.append(json.dumps([env,limits,nav_hash,g['metadata'].get('map'),g.get('registration'),g['reference']],sort_keys=True))
+        signatures.append(json.dumps([env,limits,nav_hash,g['metadata'].get('map'),g['reference']],sort_keys=True))
         if not nav_hash or not limits:notices.append('CONFOUND: '+g['label']+' lacks Nav2/actuator evidence; identical conditions cannot be verified.')
         if g['label']=='PI_SAC' and not g['checkpoint_proof']['verified']:notices.append('SAC checkpoint/config not fully verified: '+str(g['checkpoint_proof'].get('reason')))
     if len(set(signatures))>1:notices.append('CONFOUND: environment/Nav2/frame/actuator/reference conditions differ; best-value highlighting is disabled.')
@@ -632,7 +562,7 @@ def build_report(pi_dir,pid_dir,sac_dir,output,centers=None,registration=None):
         if g['metadata'].get('experiment_purpose')=='smoke':notices.append(LABELS[g['label']]+': smoke ngắn, không phải đánh giá chất lượng.')
         if g['label']=='PID' and not (g['metadata'].get('pid_calibration') or {}).get('selected_profile_matches'):
             notices.append('PID profile chưa được xác nhận đạt tiêu chí hiệu chỉnh; không gọi là PID tối ưu.')
-        if any(e['coverage']['ground_truth']<1 for e in g['episodes']):notices.append(LABELS[g['label']]+': ground truth thiếu mẫu; xem coverage, không suy ra từ AMCL.')
+        if any(e['coverage']['amcl']<1 for e in g['episodes']):notices.append(LABELS[g['label']]+': AMCL thiếu coverage timestamp nguồn; xem audit.')
         if not g['complete_count']:notices.append(LABELS[g['label']]+': chưa có episode hoàn tất.')
     notices.append('PID dùng profile đã ghi trong metadata; kiểm tra hồ sơ hiệu chỉnh. Báo cáo không chứng minh tối ưu toàn cục hay tự động tốt hơn PI.')
     output=Path(output).expanduser().resolve();output.mkdir(parents=True,exist_ok=False)
@@ -651,8 +581,8 @@ def build_report(pi_dir,pid_dir,sac_dir,output,centers=None,registration=None):
         for center in centers:
             for key in WINDOW_METRICS:
                 value=stats(w[key] for e in g['episodes'] if e['outcome']!='INCOMPLETE' for w in e['windows']
-                            if w['full_window'] and w['center_world_x_m']==center)
-                window_summary.append(dict(group=LABELS[g['label']],center_world_x_m=center,metric=key,missing_reason='No full measured window or recovery not observed; inspect obstacle_windows.csv' if not value['n'] else None,**value))
+                            if w['full_window'] and w['center_map_x_m']==center)
+                window_summary.append(dict(group=LABELS[g['label']],center_map_x_m=center,metric=key,missing_reason='No full measured window or recovery not observed; inspect obstacle_windows.csv' if not value['n'] else None,**value))
     write_csv(output/'obstacle_summary.csv',window_summary)
     # Mean/SD, Median, P95 cho cả ba controller; booktabs dùng được với IEEEtran.
     def table_latex(entries,caption,label):
@@ -682,15 +612,15 @@ def build_report(pi_dir,pid_dir,sac_dir,output,centers=None,registration=None):
         entries=[]
         for key,(_,unit) in WINDOW_METRICS.items():
             values=[stats(w[key] for e in g['episodes'] if e['outcome']!='INCOMPLETE'
-                       for w in e['windows'] if w['center_world_x_m']==center and w['full_window']) for g in groups]
+                       for w in e['windows'] if w['center_map_x_m']==center and w['full_window']) for g in groups]
             entries.append((key,unit,'min',values))
             for g,value in zip(groups,values):
                 rows.append(dict(group=LABELS[g['label']],section='4. Local obstacle',metric=f'obstacle_{center:g}_{key}',
-                    description=WINDOW_METRICS[key][0],unit=unit,center_world_x_m=center,missing_reason='No full measured window or recovery censored' if not value['n'] else None,std_reason='Sample SD requires at least two episodes' if value['n']<2 else None,**value))
-        tex+=table_latex(entries,f'Obstacle at world x={center:g} m; full local windows only.',f'tab:obstacle-{index+1}')
+                    description=WINDOW_METRICS[key][0],unit=unit,center_map_x_m=center,missing_reason='No full measured window or recovery censored' if not value['n'] else None,std_reason='Sample SD requires at least two episodes' if value['n']<2 else None,**value))
+        tex+=table_latex(entries,f'Obstacle at map x={center:g} m; full local windows only.',f'tab:obstacle-{index+1}')
     write_csv(output/'summary.csv',rows)
     (output/'comparison_table.tex').write_text('\n'.join(tex)+'\n')
-    report=dict(created_utc=datetime.now(timezone.utc).isoformat(),analysis_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),groups=groups,obstacles_world_x_m=centers,
+    report=dict(created_utc=datetime.now(timezone.utc).isoformat(),analysis_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),groups=groups,obstacles_map_x_m=centers,
                 jerk_cutoff_hz=JERK_CUTOFF_HZ,notices=notices,
                 definitions={k:dict(section=v[0],description=v[1],unit=v[2],direction=v[3]) for k,v in METRICS.items()})
     (output/'report_data.json').write_text(json.dumps(clean(report),ensure_ascii=False,indent=2,allow_nan=False))
@@ -705,11 +635,10 @@ def main(argv=None):
     parser.add_argument('--pid-dir',required=True,type=Path)
     parser.add_argument('--sac-dir',required=True,type=Path)
     parser.add_argument('--output-dir',required=True,type=Path)
-    parser.add_argument('--obstacle-x',nargs='+',type=float,help='Tọa độ world X; mặc định đọc cable_bumps trong SDF')
-    parser.add_argument('--registration',help='Nguồn đăng ký độc lập chung; không tin legacy identity thiếu provenance')
+    parser.add_argument('--obstacle-x',nargs='+',type=float,help='Tâm gờ trong map X (map Y=0); thiếu thì cửa sổ gờ N/A, không suy từ world')
     args=parser.parse_args(argv)
     if args.obstacle_x and not all(math.isfinite(x) for x in args.obstacle_x):parser.error('Tọa độ gờ phải hữu hạn')
-    try:build_report(args.pi_dir,args.pid_dir,args.sac_dir,args.output_dir,args.obstacle_x,args.registration)
+    try:build_report(args.pi_dir,args.pid_dir,args.sac_dir,args.output_dir,args.obstacle_x)
     except (ValueError,FileExistsError,FileNotFoundError,KeyError) as exc:parser.error(str(exc))
     print('Report:',args.output_dir.resolve()/'report_PI_PID_SAC.html')
 

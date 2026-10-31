@@ -190,8 +190,7 @@ Kiểm tra đồng hồ, lệnh tự thoát sau một bản tin:
 ros2 topic echo /clock --once
 ```
 
-Bản bridge hiện tại của dự án này không có `/ground_truth/odom` như bài PID
-trước, nên không lấy việc thiếu topic đó làm dấu hiệu mô phỏng bị lỗi.
+Pipeline hiện tại dùng TF map→base_footprint cho pose ước lượng AMCL, `/imu/data` cho IMU, `/joint_states` cho encoder và `/odom` cho vận tốc ước lượng. Mô-men ghi từ lệnh controller, không phải cảm biến lực.
 
 ### 6.3. Cho xe chạy chậm
 

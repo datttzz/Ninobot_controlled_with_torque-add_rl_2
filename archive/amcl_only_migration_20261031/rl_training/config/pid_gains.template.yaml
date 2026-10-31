@@ -1,0 +1,7 @@
+# Điền gain đã hiệu chỉnh bằng các lượt riêng, không tính vào báo cáo chính.
+# Đây là mẫu nhập liệu, KHÔNG phải bộ PID đã tối ưu.
+velocity_kp: 0.30
+velocity_ki: 0.10
+velocity_kd: null
+# Thời hằng lọc cần được kiểm tra cùng Kd; đơn vị giây.
+derivative_filter_seconds: null

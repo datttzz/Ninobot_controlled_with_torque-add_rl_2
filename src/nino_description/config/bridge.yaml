@@ -20,10 +20,3 @@
   direction: GZ_TO_ROS
   qos_profile: SENSOR_DATA
   frame_id: laser
-
-# Pose vật lý từ Gazebo, độc lập encoder và AMCL.
-- ros_topic_name: /ground_truth/odom
-  gz_topic_name: /ground_truth/odom
-  ros_type_name: nav_msgs/msg/Odometry
-  gz_type_name: gz.msgs.Odometry
-  direction: GZ_TO_ROS

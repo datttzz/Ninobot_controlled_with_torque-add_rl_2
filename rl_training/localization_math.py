@@ -33,14 +33,3 @@ def interpolate_pose(samples, times, max_gap=.1):
     good=(times>=t[0])&(times<=t[-1])&(((t[right]-t[left])<=max_gap)|exact)
     result[~good]=np.nan
     return result
-
-
-def aligned_errors(amcl, gt, map_to_world=None):
-    """So sánh tại cùng timestamp GT; transform duy nhất cố định cho toàn lượt."""
-    if map_to_world is None:raise ValueError('Missing explicit map→world registration')
-    gt=np.asarray(gt,dtype=float);times=np.unique(gt[:,0])
-    a=compose(map_to_world,interpolate_pose(amcl,times))
-    g=interpolate_pose(gt,times)
-    valid=np.isfinite(a).all(axis=1)&np.isfinite(g).all(axis=1)
-    error=a-g;error[:,2]=wrap(error[:,2])
-    return times[valid],a[valid],g[valid],error[valid]

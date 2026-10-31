@@ -33,7 +33,7 @@ def test_active_job_detection_excludes_parent_and_matches_script_args(tmp_path,m
 
 
 def measurement(**values):
-    metrics=dict(mission_success_pct=100,nav_success_pct=100,gt_rmse_m=.05,amcl_rmse_m=.04,
+    metrics=dict(mission_success_pct=100,nav_success_pct=100,amcl_rmse_m=.04,
                  slew_limit_pct=20,saturation_pct=.05,wheel_rmse_rad_s=1.,torque_peak_nm=1.)
     metrics.update(values)
     return dict(episodes=2,metrics={key:dict(mean=value,p95=value) for key,value in metrics.items()})
@@ -41,7 +41,7 @@ def measurement(**values):
 
 def test_selection_requires_all_predeclared_constraints():
     baseline=measurement()
-    candidate=measurement(wheel_rmse_rad_s=.9,gt_rmse_m=.052,amcl_rmse_m=.043,
+    candidate=measurement(wheel_rmse_rad_s=.9,amcl_rmse_m=.043,
                           slew_limit_pct=20.5,saturation_pct=.1)
     assert eligibility(candidate,baseline)==[]
     candidate['metrics']['slew_limit_pct']['mean']=22

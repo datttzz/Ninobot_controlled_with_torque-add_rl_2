@@ -397,7 +397,7 @@ laptop; cần thực hiện mục 6 để kết luận từ dữ liệu đối c
 Các giới hạn còn lại:
 
 - Chưa chứng minh policy tốt hơn PI trên nhiều seed/nhiều địa hình.
-- Định vị AMCL có thể bỏ sót trượt thực; chưa dùng ground truth làm chuẩn đo.
+- Đánh giá theo AMCL + IMU + encoder; AMCL có thể bỏ sót sai lệch thực. Vận tốc encoder/odom là ước lượng, không chứng minh bánh không trượt.
 - Observation chưa chứa đầy đủ lịch sử IMU, tích phân PI hoặc thông tin gờ phía trước.
 - Mẫu reward/IMU lấy tại ranh giới step, chưa phải toàn bộ IMU 50 Hz.
 - Một môi trường tại một thời điểm; không mở nhiều Gazebo để tăng tốc train hiện tại.
