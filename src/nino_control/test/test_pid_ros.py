@@ -43,7 +43,9 @@ def test_default_pi_arithmetic_is_unchanged():
     node = EffortDrive()
     try:
         assert node.kd == 0
-        node.have_wheel_state = True
+        message=JointState(name=[node.left_joint,node.right_joint],velocity=[0.,0.])
+        message.header.stamp=node.get_clock().now().to_msg()
+        node._joint_state_callback(message)
         node.max_effort_rate = 1e6  # Cô lập công thức PI trong kiểm thử này.
         command = Twist()
         command.linear.x = 0.1

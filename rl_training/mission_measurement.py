@@ -16,13 +16,20 @@ def mission_conditions(outcome, amcl_xy, amcl_yaw, amcl_max, gt_xy, gt_yaw, gt_m
     """
     def independent(xy, yaw, maximum):
         values = (xy, yaw, maximum)
+        # Một vi phạm đã quan sát vẫn là fail dù thiếu phép đo điều kiện khác.
+        for value, limit in zip(values, (XY_LIMIT, YAW_LIMIT, DEVIATION_LIMIT)):
+            if value is not None and math.isfinite(value) and abs(value) > limit:
+                return False
         if any(v is None or not math.isfinite(v) for v in values):
             return None
         return xy <= XY_LIMIT and abs(yaw) <= YAW_LIMIT and maximum <= DEVIATION_LIMIT
 
     amcl = independent(amcl_xy, amcl_yaw, amcl_max)
     gt = independent(gt_xy, gt_yaw, gt_max)
-    full = None if amcl is None or gt is None else outcome == 'SUCCEEDED' and amcl and gt
+    if outcome in ('FAILED', 'TIME_LIMIT') or amcl is False or gt is False:
+        full = False
+    else:
+        full = None if amcl is None or gt is None or outcome != 'SUCCEEDED' else amcl and gt
     return dict(nav2_succeeded=outcome == 'SUCCEEDED', amcl_task_pass=amcl,
                 gt_task_pass=gt, full_pass=full)
 

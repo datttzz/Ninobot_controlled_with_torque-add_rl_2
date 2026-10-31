@@ -16,7 +16,7 @@ def test_wrap_and_common_time_without_extrapolation():
     assert np.isnan(out[[0,2]]).all()
     assert abs(out[1,2])==pytest.approx(np.pi)
     g=np.array([[.2,.2,0,0],[.5,.5,0,0],[.8,.8,0,0]])
-    t,_,_,error=aligned_errors(a,g)
+    t,_,_,error=aligned_errors(a,g,[0,0,0])
     assert not len(t) # Không nội suy qua gap 1 giây như cảm biến bình thường.
 
 

@@ -15,29 +15,29 @@ REF=dict(frame_id='map',poses=[dict(x=0.,y=0.,yaw=0.),dict(x=1.,y=0.,yaw=0.)])
 
 
 def rows():
-    return [dict(simulation_time=t,imu_stamp_s=t,amcl_x=x,amcl_y=e,amcl_yaw=0.,
+    return [dict(simulation_time=t,simulation_clock_s=t,amcl_stamp_s=t,gt_stamp_s=t,imu_stamp_s=t,amcl_x=x,amcl_y=e,amcl_yaw=0.,
       ground_truth_x=x,ground_truth_y=e,ground_truth_yaw=0.,ground_truth_frame='world',
       ground_truth_speed=.2,acceleration=[0.,0.,az],gyro=[0.,0.,0.],
       wheel_velocity=[1.,1.],wheel_target=[2.,2.],base_torque=[.2,.2],
       total_torque=[.3,.3],residual_applied=[.1,.1],outcome=None,
-      reference_geometry_sha256='same') for t,x,e,az in [(0.,0.,0.,0.),(1.,.5,.1,1.),(4.,1.,.2,2.)]]
+      reference_geometry_sha256='same') for t,x,e,az in [(0.,0.,0.,0.),(.01,.5,.1,1.),(.04,1.,.2,2.)]]
 
 
 def test_time_weighted_rmse_percentile_and_actuators():
     data=rows();data[-1]['outcome']='SUCCEEDED'
-    result=metrics.episode_metrics(data,REF)['metrics']
+    result=metrics.episode_metrics(data,REF,map_to_world=[0,0,0])['metrics']
     assert result['gt_rmse_m']==pytest.approx(math.sqrt((.1**2+3*.2**2)/4))
     assert result['gt_p95_m']==.2
     assert result['wheel_rmse_rad_s']==1.
     assert result['torque_rms_nm']==pytest.approx(.3)
     assert result['sac_contribution_pct']==pytest.approx(100/3)
     assert result['mission_success_pct']==100
-    assert result['completion_time_s']==4
+    assert result['completion_time_s']==.04
 
 
 def test_failed_run_is_kept_and_has_no_completion_time():
     data=rows();data[-1]['outcome']='FAILED';data[-1]['amcl_y']=.3
-    result=metrics.episode_metrics(data,REF)
+    result=metrics.episode_metrics(data,REF,map_to_world=[0,0,0])
     assert result['outcome']=='FAILED'
     assert result['metrics']['mission_success_pct']==0
     assert result['metrics']['deviation_violation_pct']==100
@@ -78,8 +78,8 @@ def test_bad_timestamps_rejected(times):
 
 def test_terminal_duplicate_has_no_extra_time_weight():
     data=rows();terminal=deepcopy(data[-1]);terminal['outcome']='SUCCEEDED'
-    a=metrics.episode_metrics(data+[terminal],REF)
-    data[-1]['outcome']='SUCCEEDED';b=metrics.episode_metrics(data,REF)
+    a=metrics.episode_metrics(data+[terminal],REF,map_to_world=[0,0,0])
+    data[-1]['outcome']='SUCCEEDED';b=metrics.episode_metrics(data,REF,map_to_world=[0,0,0])
     assert a['metrics']['gt_rmse_m']==b['metrics']['gt_rmse_m']
 
 
@@ -116,12 +116,15 @@ def test_checkpoint_is_verified_from_bytes_and_metadata(tmp_path):
 
 def test_three_group_exports_keep_failure_schema_and_metadata(tmp_path):
     import csv,hashlib,yaml,zipfile
+    from rl_training.frame_registration import load_registration,ROOT
+    from rl_training.tests.test_frame_registration import write_registration
+    registration=load_registration(write_registration(tmp_path,[0,0,0]),ROOT/'maps/hall_01.yaml')
     inputs=[]
     for label,mode,kd in [('PI','PI',0.),('PID','PID',.001),('PI_SAC','SAC',0.)]:
         folder=tmp_path/label;folder.mkdir();inputs.append(folder)
         (tmp_path/'reference_path.json').write_text(json.dumps(REF))
         metadata=dict(controller_mode=mode,mode='evaluate' if label=='PI_SAC' else 'baseline',
-                      deterministic=True,map_to_world=[0,0,0],gains=dict(velocity_kd=kd))
+                      deterministic=True,registration=registration,map=str(ROOT/'maps/hall_01.yaml'),map_to_world=[0,0,0],gains=dict(velocity_kd=kd))
         if label=='PI_SAC':
             model=tmp_path/'chosen.zip'
             with zipfile.ZipFile(model,'w') as archive:archive.writestr('data',json.dumps(dict(ent_coef='auto',num_timesteps=1234)))
@@ -158,7 +161,7 @@ def test_csv_writes_explicit_na_with_no_zero_imputation(tmp_path):
 
 def test_terminal_condition_reasons_explain_nav_success_without_mission_success():
     data=rows();data[-1]['outcome']='SUCCEEDED';data[-1]['ground_truth_x']=.5
-    result=metrics.episode_metrics(data,REF)
+    result=metrics.episode_metrics(data,REF,map_to_world=[0,0,0])
     assert result['metrics']['nav_success_pct']==100
     assert result['metrics']['mission_success_pct']==0
     assert any('gt_goal_xy_m' in reason for reason in result['mission_failure_reasons'])

@@ -21,6 +21,7 @@ def inverse(a):
 def interpolate_pose(samples, times, max_gap=.1):
     """Nx4 [stamp,x,y,yaw]; nội suy góc đã unwrap, không ngoại suy hoặc bắc qua gap."""
     data=np.asarray(samples,dtype=float);times=np.asarray(times,dtype=float)
+    if not np.isfinite(max_gap) or max_gap<=0:raise ValueError('max_gap must be finite and positive')
     if len(data)<2 or data.shape[1]!=4 or not np.isfinite(data).all():
         raise ValueError('Need finite timestamp/x/y/yaw samples')
     if np.any(np.diff(data[:,0])<0):raise ValueError('Pose timestamps moved backwards')
@@ -34,8 +35,9 @@ def interpolate_pose(samples, times, max_gap=.1):
     return result
 
 
-def aligned_errors(amcl, gt, map_to_world=(0.,0.,0.)):
+def aligned_errors(amcl, gt, map_to_world=None):
     """So sánh tại cùng timestamp GT; transform duy nhất cố định cho toàn lượt."""
+    if map_to_world is None:raise ValueError('Missing explicit map→world registration')
     gt=np.asarray(gt,dtype=float);times=np.unique(gt[:,0])
     a=compose(map_to_world,interpolate_pose(amcl,times))
     g=interpolate_pose(gt,times)

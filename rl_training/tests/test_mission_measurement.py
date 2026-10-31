@@ -5,6 +5,13 @@ import pytest
 from rl_training.mission_measurement import mission_conditions, pose_evidence
 
 
+def test_observed_violation_remains_failure_when_terminal_is_missing():
+    result=mission_conditions('SUCCEEDED',None,None,.15,None,None,.206)
+    assert result['amcl_task_pass'] is None
+    assert result['gt_task_pass'] is False and result['full_pass'] is False
+    assert mission_conditions('FAILED',None,None,None,None,None,None)['full_pass'] is False
+
+
 def test_independent_checks_are_not_nav2_status():
     result=mission_conditions('SUCCEEDED',.20,.20,.15,.30,.20,.15)
     assert result==dict(nav2_succeeded=True,amcl_task_pass=True,gt_task_pass=False,full_pass=False)

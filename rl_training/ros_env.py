@@ -459,6 +459,7 @@ class NinoResidualEnv(gym.Env):
         # Telemetry bổ sung không thay đổi observation hay công thức reward.
         info.update(amcl_x=p.x, amcl_y=p.y, amcl_yaw=yaw,
                     amcl_stamp_s=stamp*1e-9,
+                    imu_stamp_s=imu.header.stamp.sec+imu.header.stamp.nanosec*1e-9,
                     gyro=[w.x, w.y, w.z], wheel_velocity=[left, right])
         if 'ground_truth' in data and monotonic()-received['ground_truth'] <= self.cfg['sensor_timeout']:
             gt = data['ground_truth']
@@ -480,6 +481,9 @@ class NinoResidualEnv(gym.Env):
                         saturation_cycles=status['saturation_cycles'])
             # Mục tiêu và vận tốc trong cùng callback của controller.
             info['wheel_velocity'] = status['wheel_velocity']
+            info.update({key: status.get(key) for key in
+                         ('feedback_valid', 'feedback_status', 'feedback_stamp_s',
+                          'direct_torque_without_feedback')})
         elif self.cfg.get('benchmark_controller'):
             raise ObservationNotReady('Waiting for fresh controller diagnostics')
         return np.clip(observation, -10, 10), info
@@ -501,7 +505,8 @@ class NinoResidualEnv(gym.Env):
         # 50 Hz độc lập actor: ghi cảm biến mới nhất, không đổi observation/reward.
         if self.telemetry is None or self.finished or self.result_future.done():
             return
-        now = self.bridge.get_clock().now().nanoseconds*1e-9-self.start_sim
+        clock_s = self.bridge.get_clock().now().nanoseconds*1e-9
+        now = clock_s-self.start_sim
         if now >= self.cfg['max_episode_seconds']:
             return
         data, received, _, reference_hash, state = self.bridge.snapshot()
@@ -517,7 +522,8 @@ class NinoResidualEnv(gym.Env):
         a, o, g = imu.linear_acceleration, imu.orientation, gt.pose.pose
         acceleration, roll, pitch = imu_features([a.x,a.y,a.z], [o.x,o.y,o.z,o.w])
         status = json.loads(data['control_status'].data)
-        row = dict(simulation_time=now, outcome=None, seed_label=self.seed_label,
+        row = dict(simulation_time=now, simulation_origin_clock_s=self.start_sim,
+                   pose_samples_synchronized=False, outcome=None, seed_label=self.seed_label,
                    imu_stamp_s=imu.header.stamp.sec+imu.header.stamp.nanosec*1e-9,
                    gt_stamp_s=gt.header.stamp.sec+gt.header.stamp.nanosec*1e-9,
                    amcl_stamp_s=Time.from_msg(transform.header.stamp).nanoseconds*1e-9,
@@ -537,8 +543,37 @@ class NinoResidualEnv(gym.Env):
                    sensor_stamps_s={k: received[k] for k in ('imu','ground_truth','control_status')})
         row.update({key: status[key] for key in ('wheel_target','wheel_velocity','saturated',
                    'slew_limited','control_cycles','slew_cycles','saturation_cycles','derivative_alpha')})
-        row.update(pose_evidence(transform, gt, self.bridge.get_clock().now().nanoseconds*1e-9, state))
+        row.update({key: status.get(key) for key in
+                    ('feedback_valid', 'feedback_status', 'feedback_stamp_s',
+                     'direct_torque_without_feedback')})
+        row.update(pose_evidence(transform, gt, clock_s, state))
         self._write_telemetry(row)
+
+    def _terminal_pose_support(self, terminal_clock_s):
+        """Ghi mẫu thụ động bao terminal; không đổi outcome/reward hay dùng pose tốt nhất."""
+        support=[]
+        def ready():
+            data,_,_,_,state=self.bridge.snapshot()
+            if 'ground_truth' not in data:return False
+            try:tr=self.bridge.tf.lookup_transform('map','base_footprint',Time())
+            except TransformException:return False
+            gt=data['ground_truth'];p,q=tr.transform.translation,tr.transform.rotation;g=gt.pose.pose
+            row=dict(support_only=True,amcl_stamp_s=Time.from_msg(tr.header.stamp).nanoseconds*1e-9,
+                gt_stamp_s=gt.header.stamp.sec+gt.header.stamp.nanosec*1e-9,
+                amcl_x=p.x,amcl_y=p.y,amcl_yaw=atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z)),
+                ground_truth_x=g.position.x,ground_truth_y=g.position.y,
+                ground_truth_yaw=atan2(2*(g.orientation.w*g.orientation.z+g.orientation.x*g.orientation.y),
+                                      1-2*(g.orientation.y**2+g.orientation.z**2)),ground_truth_frame=gt.header.frame_id)
+            row.update(pose_evidence(tr,gt,self.bridge.get_clock().now().nanoseconds*1e-9,state))
+            if not support or any(row[k]!=support[-1][k] for k in ('amcl_stamp_s','gt_stamp_s')):
+                support.append(row)
+            return row['amcl_stamp_s']>=terminal_clock_s and row['gt_stamp_s']>=terminal_clock_s
+        try:
+            self._wait(ready,timeout=.5)
+            status='source_samples_bracket_terminal'
+        except RosWaitTimeout:
+            status='missing_terminal_bracket_no_extrapolation'
+        return support,status
 
     def _fresh_observation(self, residual=None):
         # CUDA/optimizer work can delay the single-threaded ROS executor. A
@@ -597,6 +632,10 @@ class NinoResidualEnv(gym.Env):
             info.update(outcome=outcome, reward_terms=terms, simulation_time=now-self.start_sim,
                         step_duration=dt,
                         action=self.last_action.tolist(), commanded_residual=physical.tolist())
+            if self.telemetry is not None and (terminated or truncated):
+                info.update(terminal_clock_s=now,simulation_origin_clock_s=self.start_sim,
+                            pose_samples_synchronized=False)
+                info['terminal_support'],info['terminal_sync_status']=self._terminal_pose_support(now)
             self.records.write(json.dumps(info)+'\n')
             self.records.flush()
             if self.telemetry is not None and (terminated or truncated):

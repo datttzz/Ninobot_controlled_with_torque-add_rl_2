@@ -19,6 +19,7 @@ from benchmark_pi_pid_sac import episode_metrics, filtered_jerk, read_rows, rms,
 from rl_training.ablation_suite import active_gazebo, save_json, sha
 from rl_training.experiment_guard import active_jobs, ResourceGuard, ResourceStop
 from rl_training.mission_measurement import mission_conditions
+from rl_training.frame_registration import load_registration,registration_from_metadata
 
 # Nhánh gain thấp hơn/nhẹ D hơn dựa trên tuning cũ: tăng Kp/Kd đã tăng limiter.
 # Tập cố định trước khi chạy; không tạo ứng viên mới sau khi xem kết quả.
@@ -32,15 +33,19 @@ CANDIDATES=[
 ]
 
 
-def measurement(folder):
+def measurement(folder,registration=None):
     folder=Path(folder);ref=json.loads((folder.parent/'reference_path.json').read_text())
+    metadata=json.loads((folder/'metadata.json').read_text())
+    registration=registration_from_metadata(dict(registration=registration) if registration else metadata,metadata['map'],required=True)
     episodes=[]
     for session in sorted(folder.glob('episode_*')):
         raw=session/'telemetry.jsonl'
         if not raw.exists():continue
         rows=read_rows(raw)
         if not rows or rows[-1].get('outcome') is None:continue
-        result=episode_metrics(rows,ref,map_to_world=(0,0,0));m=result['metrics']
+        result=episode_metrics(rows,ref,map_to_world=registration['map_to_world']);m=result['metrics']
+        if m['mission_success_pct'] is None:
+            raise ValueError('GT tuning blocked: missing source/terminal coverage; no extrapolation')
         status=mission_conditions(result['outcome'],m['amcl_goal_xy_m'],m['amcl_goal_yaw_rad'],
                    m['amcl_max_m'],m['gt_goal_xy_m'],m['gt_goal_yaw_rad'],m['gt_max_m'])
         t=np.array([r['simulation_time'] for r in rows]);weights=np.diff(t,prepend=0)
@@ -88,14 +93,17 @@ def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-root',type=Path,required=True)
     parser.add_argument('--budget-minutes',type=float,default=60.)
+    parser.add_argument('--registration',help='Nguồn map→world độc lập bắt buộc cho GT tuning')
     args=parser.parse_args(argv)
     if not 0<args.budget_minutes<=60:parser.error('Tối đa 60 phút')
+    registration=load_registration(args.registration,ROOT/'maps/hall_01.yaml',required=True)
     if active_jobs() or active_gazebo():parser.error('Đang có job/Gazebo khác; không chạy trùng')
     out=args.output_root.resolve();out.mkdir(parents=True,exist_ok=False)
     start=time();deadline=monotonic()+args.budget_minutes*60-45
     guard=ResourceGuard(out,dict(deadline_monotonic=deadline))
     protocol=dict(created_utc=datetime.now(timezone.utc).isoformat(),start_unix=start,
        budget_minutes=args.budget_minutes,deadline_monotonic=deadline,candidates=CANDIDATES,
+       registration=registration,
        groups=['PID'],residual_enabled=False,screening=dict(episodes=1,seed=5101,max_seconds=90),
        selection=dict(max_finalists=2,additional_episodes=2,seed=5201),verification=dict(episodes=3,seed=6101),
        hard_criteria=dict(all_full_task_pass=True,xy_m=.25,yaw_rad=.25,max_deviation_m=.20,
@@ -125,6 +133,7 @@ def main(argv=None):
         cmd=[sys.executable,str(ROOT/'run_ablation_suite.py'),'--modes','PID','--pid-config',str(profile),
              '--episodes',str(episodes),'--seed',str(seed),'--purpose',purpose,'--device','cpu',
              '--max-episode-seconds','90','--deadline-monotonic',str(deadline),'--output-root',str(folder)]
+        cmd+=['--registration',registration['path']]
         state['current_trial']=name;state['trials'][name]=dict(state='RUNNING',command=cmd);persist()
         print('PID only:',name,flush=True)
         with (out/(name+'.log')).open('w') as log:
@@ -139,7 +148,7 @@ def main(argv=None):
         if child.returncode or active_gazebo():
             state['trials'][name].update(state='INFRASTRUCTURE_ERROR',exit_code=child.returncode);persist()
             raise RuntimeError('Lỗi hạ tầng: '+str(out/(name+'.log')))
-        measured=measurement(folder/'PID');reasons=rejection_reasons(measured)
+        measured=measurement(folder/'PID',registration);reasons=rejection_reasons(measured)
         state['trials'][name].update(state='COMPLETE',measurement=measured,rejection_reasons=reasons);persist()
         return measured
     try:

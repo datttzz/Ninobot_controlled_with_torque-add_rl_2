@@ -42,6 +42,7 @@ def test_residual_adapter_gates_stop_failure_and_timeout():
         command.linear.x = linear
         deadline = monotonic()+0.15
         while monotonic() < deadline:
+            joint.header.stamp=probe.get_clock().now().to_msg()
             joints.publish(joint)
             cmd.publish(command)
             if repeat:

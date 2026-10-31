@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "convention": "p_world = R(theta) * p_map + translation",
+  "frames": {
+    "source": "map",
+    "target": "world",
+    "robot_point": "base_footprint"
+  },
+  "map_to_world": [
+    -0.054223821828939804,
+    -0.03517763451008209,
+    0.0015133506511752267
+  ],
+  "assets": {
+    "map_yaml_sha256": "715591109a58b45993fce9b9a87c4b9e12e7febffab9c2df03d62fd54998960b",
+    "map_image_sha256": "c38721ff425ad62b0637f51797373eeaf5ccba812980db7d21b5a281605dc604",
+    "world_sdf_sha256": "952ab4a17820a8ea5e6860ab0d455657a23c087a8c23a9a8f9f322ab76fb36ca",
+    "robot_xacro_sha256": "c4084e7c851c06cbd57b88df3831e437550b6998173975c37f8fecb7f7baf31e"
+  },
+  "source": {
+    "independent_of_amcl": true,
+    "method": "Static world GT spawn + raw laser + fixed extrinsics against existing occupancy map, no AMCL pose fit",
+    "files": [
+      {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/localization_diagnosis_20261030/REGISTRATION.json",
+        "sha256": "378bb4d0ccdf757fa8209f0fc4ba04015070be7da679eed89edc060d6081969a"
+      },
+      {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/localization_diagnosis_20261030/BEFORE.json",
+        "sha256": "da204c304f09238cf307a00cc402b34318013dca89be41815d4558d15d1451f4"
+      },
+      {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/localization_diagnosis_20261030/capture_episode/PID/metadata.json",
+        "sha256": "6e1bf42eb1336d11edf813a02094a7465f3fd1e930dab90d0b2b20b6bf6dfe3c"
+      },
+      {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/localization_diagnosis_20261030/bag/bag_0.db3",
+        "sha256": "e2207c964b24bedb0490a0c35d8098b25471b5bd225b7578786711109b583b8d"
+      }
+    ]
+  },
+  "verification": {
+    "status": "verified_independent_estimate",
+    "checks": [
+      "Map/image/world/robot hashes match capture metadata",
+      "Inverse world_to_map agrees with map_to_world to 1e-12",
+      "Raw bag and independent stationary scan evidence retained",
+      "Same model origin/base_footprint and measured laser extrinsics checked in prior diagnosis"
+    ],
+    "scope": "Independent estimate for this map/world/robot, NOT exact survey calibration"
+  },
+  "uncertainty": {
+    "translation_resolution_m": 0.05,
+    "rotation_resolution_rad": 0.0036,
+    "meaning": "Raster-scale reading uncertainty; not a probabilistic confidence bound"
+  }
+}

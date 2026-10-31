@@ -169,6 +169,9 @@ class EffortDrive(Node):
         self.applied_effort = [0.0, 0.0]
         self.wheel_velocity = [0.0, 0.0]
         self.have_wheel_state = False
+        self.last_joint_stamp_ns = None
+        self.feedback_status = 'missing'
+        self.odometry_resume_pending = True
         self.target_velocity = [0.0, 0.0]
         self.error_integral = [0.0, 0.0]
         self.control_cycles = 0
@@ -228,38 +231,50 @@ class EffortDrive(Node):
             derivative.reset()
         self.residual.clear()
 
+    def _invalidate_feedback(self, reason):
+        """Không đóng dấu mới cho tốc độ cũ; dùng chung cho PI và PID."""
+        if self.feedback_status != reason:
+            self.get_logger().warning('Wheel feedback unavailable: '+reason)
+        self.feedback_status = reason
+        self.have_wheel_state = False
+        self.odometry_resume_pending = True
+        self.error_integral = [0.0, 0.0]
+        self.target_velocity = [0.0, 0.0]
+        self.residual.clear()
+        for derivative in self.derivatives:
+            derivative.reset()
+
     def _joint_state_callback(self, message: JointState) -> None:
         velocity_by_name = dict(zip(message.name, message.velocity))
         if self.left_joint not in velocity_by_name or self.right_joint not in velocity_by_name:
+            self._invalidate_feedback('missing_joint')
             return
-        if self.kd > 0:
-            stamp = message.header.stamp.sec+message.header.stamp.nanosec*1e-9
-            age = self.get_clock().now().nanoseconds*1e-9-stamp
-            if not -0.1 <= age <= 0.25:
-                self.error_integral = [0.0, 0.0]
-                self.have_wheel_state = False
-                for derivative in self.derivatives: derivative.reset()
-                return
-            if any(d.stamp is not None and stamp < d.stamp for d in self.derivatives):
-                self.error_integral = [0.0, 0.0]
-                for derivative in self.derivatives: derivative.reset()
-                self.have_wheel_state = False
-                return
-            if all(d.stamp == stamp for d in self.derivatives): return
-        self.wheel_velocity[0] = float(velocity_by_name[self.left_joint])
-        self.wheel_velocity[1] = float(velocity_by_name[self.right_joint])
-        if not all(isfinite(v) for v in self.wheel_velocity):
-            self.have_wheel_state = False
-            if self.kd > 0:
-                self.error_integral = [0.0, 0.0]
-                for derivative in self.derivatives: derivative.reset()
+        measured = [float(velocity_by_name[self.left_joint]), float(velocity_by_name[self.right_joint])]
+        if not all(isfinite(v) for v in measured):
+            self._invalidate_feedback('nonfinite')
             return
+        stamp_ns = message.header.stamp.sec*1000000000+message.header.stamp.nanosec
+        age = (self.get_clock().now().nanoseconds-stamp_ns)*1e-9
+        if not -0.1 <= age <= 0.25:
+            self._invalidate_feedback('source_stamp_stale_or_future')
+            return
+        if self.last_joint_stamp_ns is not None:
+            if stamp_ns == self.last_joint_stamp_ns:
+                return  # Không làm mới tuổi dữ liệu, D hoặc mốc odometry.
+            if stamp_ns < self.last_joint_stamp_ns:
+                self._invalidate_feedback('backwards_joint_stamp')
+                return
+            if (stamp_ns-self.last_joint_stamp_ns)*1e-9 > 0.25:
+                self._invalidate_feedback('joint_gap')
+        self.wheel_velocity = measured
+        self.last_joint_stamp_ns = stamp_ns
         if self.kd > 0:
             for derivative, velocity in zip(self.derivatives, self.wheel_velocity):
-                derivative.update(velocity, stamp)
+                derivative.update(velocity, stamp_ns*1e-9)
                 if derivative.status in ('gap','invalid','backwards'):
                     self.error_integral = [0.0, 0.0]
         self.have_wheel_state = True
+        self.feedback_status = 'fresh'
 
     def _control_update(self) -> None:
         now = self.get_clock().now()
@@ -267,19 +282,15 @@ class EffortDrive(Node):
         dt = (now_ns - self.last_control_ns) * 1.0e-9
         self.last_control_ns = now_ns
         if dt <= 0.0 or dt > 0.25:
-            if self.kd > 0:
-                self.error_integral = [0.0, 0.0]
-                self.have_wheel_state = False
-                for derivative in self.derivatives:
-                    derivative.reset()
+            self._invalidate_feedback('control_clock_jump_or_gap')
+            if dt <= 0.0:
+                self.last_joint_stamp_ns = None  # Cho phép epoch ROS mới sau rewind.
             dt = 1.0 / self.control_rate
 
-        if self.kd > 0 and self.have_wheel_state:
-            stamps = [d.stamp for d in self.derivatives if d.stamp is not None]
-            if stamps and now_ns*1e-9-min(stamps)>0.25:
-                self.have_wheel_state = False
-                self.error_integral = [0.0, 0.0]
-                for derivative in self.derivatives: derivative.reset()
+        if self.have_wheel_state:
+            age = (now_ns-self.last_joint_stamp_ns)*1e-9 if self.last_joint_stamp_ns is not None else float('inf')
+            if not -0.1 <= age <= 0.25:
+                self._invalidate_feedback('feedback_timeout')
 
         torque_override_active = (
             self.last_torque_ns > 0
@@ -369,10 +380,17 @@ class EffortDrive(Node):
                 control_cycles=self.control_cycles, slew_cycles=self.slew_cycles,
                 saturation_cycles=self.saturation_cycles,
                 slew_limited=slew_limited, velocity_kp=self.kp, velocity_ki=self.ki,
-                velocity_kd=self.kd, derivative_alpha=[d.alpha for d in self.derivatives]))))
+                velocity_kd=self.kd, derivative_alpha=[d.alpha for d in self.derivatives],
+                feedback_valid=self.have_wheel_state, feedback_status=self.feedback_status,
+                feedback_stamp_s=self.last_joint_stamp_ns*1e-9 if self.last_joint_stamp_ns is not None else None,
+                direct_torque_without_feedback=torque_override_active and not self.have_wheel_state))))
             self.last_torque_status_publish_ns = now_ns
 
         if self.have_wheel_state:
+            if self.odometry_resume_pending:
+                # Mẫu đầu/recovery chỉ tái lập mốc; không tích phân qua mất feedback.
+                self.odometry_resume_pending = False
+                return
             self.x, self.y, self.yaw, linear, angular = integrate_wheel_odometry(
                 self.x,
                 self.y,

@@ -23,6 +23,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from localization_math import aligned_errors,compose,inverse,interpolate_pose,wrap
 sys.path.insert(0,str(ROOT))
+from rl_training.frame_registration import load_registration
 from benchmark_pi_pid_sac import obstacle_positions,read_rows
 
 
@@ -338,7 +339,7 @@ def scan_observability(bag,field,reg,out):
     return rows
 
 
-def tf_timing(bag,reg,out):
+def tf_timing(bag,reg,out,telemetry_folder=None):
     o=bag['odom'];t=o[:,0];g=interpolate_pose(bag['gt'],t);T=reg['map_to_world']
     mo=interpolate_pose(bag['tf_map_odom'],t,max_gap=2.)
     current=compose(T,compose(mo,o[:,1:]))
@@ -359,7 +360,7 @@ def tf_timing(bag,reg,out):
     fig.suptitle('TF timing diagnostic only: offline alternate is NOT a controller rerun')
     fig.tight_layout();fig.savefig(out/'tf_timing_vs_raw_amcl.png',dpi=180);plt.close(fig)
     # Chứng minh reconstruction đúng pose thực mà controller đã đọc qua TF.
-    rawfile=next((out/'capture_episode/PID').glob('episode_*/telemetry.jsonl'))
+    rawfile=next((telemetry_folder or out/'capture_episode/PID').glob('episode_*/telemetry.jsonl'))
     telemetry=read_rows(rawfile);tt=np.array([r['amcl_stamp_s'] for r in telemetry])
     po=interpolate_pose(bag['odom'],tt);pm=interpolate_pose(bag['tf_map_odom'],tt,max_gap=2.)
     expected=compose(pm,po);logged=np.array([[r['amcl_x'],r['amcl_y'],r['amcl_yaw']] for r in telemetry])
@@ -375,13 +376,20 @@ def tf_timing(bag,reg,out):
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output-dir',type=Path,required=True);args=parser.parse_args()
-    out=args.output_dir.resolve();field=MapField();bag=extract_bag(out/'bag');reg=registration(bag,field,out)
-    analyze_old(out/'old_nominal',[0,0,0],'NOMINAL identity (not calibrated)')
-    analyze_old(out/'old_registered',reg['map_to_world'],'one fixed independent static registration; raster uncertainty ~5cm')
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-dir',type=Path,required=True)
+    parser.add_argument('--bag-dir',type=Path,required=True)
+    parser.add_argument('--registration',required=True,help='Cùng file đăng ký độc lập dùng cho runner/audit/metrics')
+    args=parser.parse_args()
+    evidence=load_registration(args.registration,ROOT/'maps/hall_01.yaml',required=True)
+    out=args.output_dir.resolve();out.mkdir(parents=True,exist_ok=False)
+    field=MapField();bag=extract_bag(args.bag_dir)
+    reg=dict(map_to_world=evidence['map_to_world'],world_to_map=inverse(evidence['map_to_world']).tolist(),registration=evidence)
+    save_json(out/'USED_REGISTRATION.json',evidence)
+    analyze_old(out/'old_registered',reg['map_to_world'],'shared independent registration; source/raster uncertainty retained')
     findings=analyze_bag(bag,field,reg,out)
     sources=source_checks(bag,out);scans=scan_observability(bag,field,reg,out)
-    timing=tf_timing(bag,reg,out)
+    timing=tf_timing(bag,reg,out,args.bag_dir.parent/'capture_episode/PID')
     print(json.dumps(dict(registration=reg,bag_findings=findings,sources=sources,scans=scans,timing=timing),indent=2))
 
 

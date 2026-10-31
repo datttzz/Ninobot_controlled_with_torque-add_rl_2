@@ -16,6 +16,7 @@ sys.path.insert(0,str(ROOT))
 from rl_training.ablation_suite import active_gazebo,save_json,sha
 from rl_training.experiment_guard import active_jobs,ResourceGuard,ResourceStop
 from benchmark_pi_pid_sac import episode_metrics,read_rows,stats
+from rl_training.frame_registration import load_registration,registration_from_metadata
 
 CANDIDATES=[
  dict(name='p035_d0005_t050',velocity_kp=.35,velocity_ki=.10,velocity_kd=.0005,derivative_filter_seconds=.05),
@@ -33,17 +34,21 @@ CRITERIA=dict(wheel_rmse_min_improvement_fraction=.05,max_gt_rmse_increase_m=.00
               selection='Eligible held-out candidates: lowest wheel RMSE, then GT RMSE, then slew fraction')
 
 
-def measure(folder,label):
+def measure(folder,label,registration=None):
     folder=Path(folder)/label
+    metadata=json.loads((folder/'metadata.json').read_text())
+    registration=registration_from_metadata(dict(registration=registration) if registration else metadata,metadata['map'],required=True)
     reference=json.loads((folder.parent/'reference_path.json').read_text())
     episodes=[]
     for session in sorted(folder.glob('episode_*')):
         path=session/'telemetry.jsonl'
         if not path.exists():continue
-        metrics=episode_metrics(read_rows(path),reference,map_to_world=(0,0,0))
+        metrics=episode_metrics(read_rows(path),reference,map_to_world=registration['map_to_world'])
         if metrics['outcome']=='INCOMPLETE':continue
         if metrics['coverage']['ground_truth']<.99 or metrics['coverage']['az']<.99:
             raise ValueError('Insufficient measured GT/IMU coverage')
+        if metrics['metrics']['mission_success_pct'] is None:
+            raise ValueError('GT tuning blocked: missing synchronized terminal measurement')
         episodes.append(metrics)
     if not episodes:raise ValueError('No complete calibration episodes')
     return dict(episodes=len(episodes),outcomes=[e['outcome'] for e in episodes],
@@ -75,17 +80,21 @@ def main(argv=None):
     parser.add_argument('--output-root',required=True,type=Path)
     parser.add_argument('--budget-minutes',type=float,default=60.)
     parser.add_argument('--resume',action='store_true')
+    parser.add_argument('--registration',help='Nguồn map→world độc lập bắt buộc cho GT tuning')
     args=parser.parse_args(argv)
     if not 0<args.budget_minutes<=60:parser.error('Budget must be >0 and <=60 minutes')
+    registration=load_registration(args.registration,ROOT/'maps/hall_01.yaml',required=True)
     jobs=active_jobs()
     if jobs or active_gazebo():parser.error(f'Jobs/Gazebo active: {jobs}, {active_gazebo()}')
     output=args.output_root.resolve()
     if args.resume:
         protocol=json.loads((output/'protocol.json').read_text())
+        if protocol.get('registration')!=registration:parser.error('Registration differs/missing in original tuning protocol')
     else:
         output.mkdir(parents=True,exist_ok=False)
         protocol=dict(created_utc=datetime.now(timezone.utc).isoformat(),start_unix=time(),
            budget_seconds=args.budget_minutes*60,deadline_monotonic=monotonic()+args.budget_minutes*60-60,
+           registration=registration,
            boot_id=Path('/proc/sys/kernel/random/boot_id').read_text().strip(),
            candidates=CANDIDATES,criteria=CRITERIA,
            screening=dict(episodes=1,seed=201,max_episode_seconds=30),
@@ -118,6 +127,7 @@ def main(argv=None):
           '--episodes',str(episodes),'--seed',str(seed),'--max-episode-seconds',str(seconds),
           '--purpose','calibration','--device','cpu','--deadline-monotonic',str(deadline),
           '--output-root',str(directory)]
+        command+=['--registration',registration['path']]
         if gains:command+=['--pid-config',str(gain_path)]
         if directory.exists():command+=['--resume']
         state['current_trial']=name;state['trials'][name]=dict(state='running',command=command);persist()
@@ -138,7 +148,7 @@ def main(argv=None):
         if code or active_gazebo():
             state['trials'][name].update(state='infrastructure_error',exit_code=code);persist()
             raise RuntimeError('Trial infrastructure error; inspect '+str(output/(name+'.log')))
-        value=measure(directory,mode)
+        value=measure(directory,mode,registration)
         state['trials'][name].update(state='complete',measurement=value);persist()
         return value
     try:
