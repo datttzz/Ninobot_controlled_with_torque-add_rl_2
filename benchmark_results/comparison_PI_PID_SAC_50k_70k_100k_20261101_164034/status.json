@@ -1,0 +1,38 @@
+{
+  "state": "COMPLETE",
+  "completed": [
+    "baselines",
+    "sac_50000",
+    "sac_70000",
+    "sac_100000"
+  ],
+  "current": null,
+  "attempts": [
+    {
+      "group": "baselines",
+      "attempt": 1,
+      "exit_code": 0,
+      "utc": "2026-11-01T09:47:36.317626+00:00"
+    },
+    {
+      "group": "sac_50000",
+      "attempt": 1,
+      "exit_code": 0,
+      "utc": "2026-11-01T09:50:53.432253+00:00"
+    },
+    {
+      "group": "sac_70000",
+      "attempt": 1,
+      "exit_code": 0,
+      "utc": "2026-11-01T09:54:11.560380+00:00"
+    },
+    {
+      "group": "sac_100000",
+      "attempt": 1,
+      "exit_code": 0,
+      "utc": "2026-11-01T09:56:52.108680+00:00"
+    }
+  ],
+  "updated_utc": "2026-11-01T09:56:57.887338+00:00",
+  "report": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/report_PI_PID_SAC_50k_70k_100k.html"
+}

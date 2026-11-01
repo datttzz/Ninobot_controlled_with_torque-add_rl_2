@@ -19,5 +19,11 @@ bags/
 .coverage
 htmlcov/
 
+# Giữ luồng dữ liệu và nhật ký benchmark thô tại máy theo GIT_DATA_POLICY.md.
+benchmark_results/**/steps.jsonl
+benchmark_results/**/telemetry.jsonl
+benchmark_results/**/*.log
+benchmark_results/**/.suite.lock
+
 # Bản chụp đầu ra terminal, không phải mã nguồn.
 /idual SAC training, periodic evaluation and dashboard

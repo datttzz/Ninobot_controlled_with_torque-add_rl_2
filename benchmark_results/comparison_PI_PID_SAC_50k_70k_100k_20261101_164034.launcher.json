@@ -1,0 +1,23 @@
+{
+  "pid": 8053,
+  "output": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034",
+  "log": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034.launcher.log",
+  "command": [
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/.venv/bin/python",
+    "-u",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/compare_pi_pid_sac_checkpoints.py",
+    "--output-root",
+    "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034",
+    "--episodes",
+    "3",
+    "--seed",
+    "1",
+    "--device",
+    "cuda"
+  ],
+  "resources": {
+    "memory_available_gb": 16.981590270996094,
+    "disk_free_gb": 4.351432800292969,
+    "max_temperature_c": 64.05
+  }
+}

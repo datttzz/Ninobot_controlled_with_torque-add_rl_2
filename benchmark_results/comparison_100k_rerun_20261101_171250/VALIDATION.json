@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-11-01T10:17:36.655039+00:00",
+  "new_episodes": 3,
+  "new_task_passes": 3,
+  "new_nav_successes": 3,
+  "new_infrastructure_events": 0,
+  "retained_original_100k_episodes": 3,
+  "combined_task_passes": "5/6",
+  "reference_episodes_reused": 12,
+  "old_report_unchanged": true,
+  "model_unchanged": true,
+  "offline_browser": {
+    "groups": 5,
+    "svg_polylines": {
+      "trajectory": 6,
+      "error": 16,
+      "az": 5,
+      "jerk": 5,
+      "torque": 10
+    },
+    "external_assets": 0
+  },
+  "all_simulations_stopped": true,
+  "limitations": [
+    "Only 3 new trials; model unchanged",
+    "Reference PI/PID/50k/70k results reused, not rerun",
+    "Seeds do not control Gazebo/AMCL noise",
+    "AMCL pose is estimated, not independent ground truth"
+  ]
+}

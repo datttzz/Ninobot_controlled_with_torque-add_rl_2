@@ -1,0 +1,66 @@
+{
+  "state": "PASS",
+  "checks": [
+    {
+      "check": "monitor_matches_reward_terms",
+      "group": "50k",
+      "episodes": 10,
+      "tolerance": 1e-05
+    },
+    {
+      "check": "monitor_matches_reward_terms",
+      "group": "70k",
+      "episodes": 10,
+      "tolerance": 1e-05
+    },
+    {
+      "check": "monitor_matches_reward_terms",
+      "group": "100k",
+      "episodes": 10,
+      "tolerance": 1e-05
+    },
+    {
+      "check": "result_matches_reward_terms",
+      "group": "50k",
+      "episodes": 3,
+      "tolerance": 1e-07
+    },
+    {
+      "check": "result_matches_reward_terms",
+      "group": "70k",
+      "episodes": 3,
+      "tolerance": 1e-07
+    },
+    {
+      "check": "result_matches_reward_terms",
+      "group": "100k đợt đầu",
+      "episodes": 3,
+      "tolerance": 1e-07
+    },
+    {
+      "check": "result_matches_reward_terms",
+      "group": "100k chạy lại",
+      "episodes": 3,
+      "tolerance": 1e-07
+    }
+  ],
+  "common_reward_weights": true,
+  "matched_evaluation_conditions": true,
+  "source_episodes": 42,
+  "combined_100k_is_derived": true,
+  "training_performed": false,
+  "evaluation_performed": false,
+  "caveats": [
+    "Training-window episodes are not controlled evaluation",
+    "Small evaluation sample; no significance claim",
+    "No old failures removed"
+  ],
+  "browser_offline": {
+    "svg_figures": 3,
+    "svg_paths": 248,
+    "tables": 3,
+    "external_assets": 0
+  },
+  "known_value_checks": "sum of weighted terms; retain terminal failure; sample SD; reject missing/nonfinite values: passed",
+  "source_hashes_unchanged": true
+}

@@ -1,0 +1,1689 @@
+{
+  "training": [
+    {
+      "label": "50k",
+      "kind": "train_last_window",
+      "episodes": [
+        {
+          "episode": "episode_00044_144445_979076",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00044_144445_979076/steps.jsonl",
+          "source_sha256": "3174c26465fa9f29f536bc39cf22ddbba01b5c1362bde7cd103ad05b58e76879",
+          "steps": 401,
+          "duration_s": 49.17900000000001,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.49372183859862,
+            "cross_track": -0.54014011776878,
+            "heading": -0.21102012653855795,
+            "vibration": -16.606702948598045,
+            "effort": -0.3190126901325366,
+            "smoothness": -2.8626104591801846,
+            "time": -2.0205500000000085,
+            "terminal": 30.0
+          },
+          "total": 222.9336854963805
+        },
+        {
+          "episode": "episode_00046_144631_512082",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00046_144631_512082/steps.jsonl",
+          "source_sha256": "47db4013a9b01c2a07e62cc6da4d5e36e754852ff1084781088d5d9afc7b8eed",
+          "steps": 391,
+          "duration_s": 47.833,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.14133299374052,
+            "cross_track": -0.29082313980686747,
+            "heading": -0.21387497578768025,
+            "vibration": -3.6046348065294955,
+            "effort": -0.2731922465432436,
+            "smoothness": -2.480512154668104,
+            "time": -1.974050000000002,
+            "terminal": 30.0
+          },
+          "total": 236.30424567040512
+        },
+        {
+          "episode": "episode_00047_144734_751231",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00047_144734_751231/steps.jsonl",
+          "source_sha256": "e743b155f1de0a4c9830463f3fd9229cbe9a5af5f1cf420038c1af664405ab58",
+          "steps": 393,
+          "duration_s": 47.797000000000004,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.0118928755559,
+            "cross_track": -0.38896361457558,
+            "heading": -0.14884323001978325,
+            "vibration": -3.430255525113446,
+            "effort": -0.24250233914411573,
+            "smoothness": -3.12291117310313,
+            "time": -1.980050050000004,
+            "terminal": 30.0
+          },
+          "total": 235.69836694359984
+        },
+        {
+          "episode": "episode_00048_144839_798137",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00048_144839_798137/steps.jsonl",
+          "source_sha256": "b4da77d381e4c84610fa62ded1304cb14795a90e7115e6d18608c28a4147ebbe",
+          "steps": 388,
+          "duration_s": 47.559000000000005,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.33315705810367,
+            "cross_track": -0.4159903700143361,
+            "heading": -0.22258624484004066,
+            "vibration": -80.86396789195017,
+            "effort": -0.26852512055799654,
+            "smoothness": -2.734917045995826,
+            "time": -1.9557000000000058,
+            "terminal": 30.0
+          },
+          "total": 158.8714703847453
+        },
+        {
+          "episode": "episode_00049_144945_860172",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00049_144945_860172/steps.jsonl",
+          "source_sha256": "2832ecc7aec9d408bd5e9cc56343f0291938a8a376e0cdd89a94f3309f2734ab",
+          "steps": 414,
+          "duration_s": 50.479,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 216.8818634050938,
+            "cross_track": -0.6577330135473357,
+            "heading": -0.5374410406282679,
+            "vibration": -46.016414012144274,
+            "effort": -0.2751279762606257,
+            "smoothness": -3.557777920541121,
+            "time": -2.0907000000000036,
+            "terminal": 30.0
+          },
+          "total": 193.7466694419722
+        },
+        {
+          "episode": "episode_00050_145054_156940",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00050_145054_156940/steps.jsonl",
+          "source_sha256": "d8679dcf030efa80b50b6ed13d260c3d12ba4471355c0cbc652a796c169650f8",
+          "steps": 390,
+          "duration_s": 47.712,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.30231166326797,
+            "cross_track": -0.5258919597441702,
+            "heading": -0.2257798390307298,
+            "vibration": -4.262783325365375,
+            "effort": -0.28271458028517116,
+            "smoothness": -3.5520686051191297,
+            "time": -1.9639000500000041,
+            "terminal": 30.0
+          },
+          "total": 234.4891733037234
+        },
+        {
+          "episode": "episode_00051_145159_349081",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00051_145159_349081/steps.jsonl",
+          "source_sha256": "264bb76315ca9e8fa696401414b231ff22e314e6371d7ad09611a08ddda3debb",
+          "steps": 403,
+          "duration_s": 49.248999999999995,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 214.93046889497268,
+            "cross_track": -0.4897124867219943,
+            "heading": -0.3203465965736531,
+            "vibration": -25.153389302610144,
+            "effort": -0.2936337952594618,
+            "smoothness": -2.3614460951814547,
+            "time": -2.033000000000003,
+            "terminal": 30.0
+          },
+          "total": 214.27894061862597
+        },
+        {
+          "episode": "episode_00052_145313_512187",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00052_145313_512187/steps.jsonl",
+          "source_sha256": "0b20c88578786afb0f7aaa74296017130c27f3c9a22a0844018b9ce16cd4a3a3",
+          "steps": 397,
+          "duration_s": 48.20100000000001,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.1739309122056,
+            "cross_track": -0.3626703291437076,
+            "heading": -0.23701177426374148,
+            "vibration": -76.96643036414224,
+            "effort": -0.28447157440054693,
+            "smoothness": -2.5557608252973294,
+            "time": -2.001850000000001,
+            "terminal": 30.0
+          },
+          "total": 162.76573604495803
+        },
+        {
+          "episode": "episode_00054_145503_457155",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00054_145503_457155/steps.jsonl",
+          "source_sha256": "2ca2a420dbbc8a5ce58bd1702f5192ac1445f228fbf05f87f45f088cf01f3e71",
+          "steps": 401,
+          "duration_s": 48.72,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.108941679434,
+            "cross_track": -0.48467561094977385,
+            "heading": -0.3272657409637162,
+            "vibration": -4.240198435295089,
+            "effort": -0.2938538660011629,
+            "smoothness": -2.6931850190637854,
+            "time": -2.0218500000000033,
+            "terminal": 30.0
+          },
+          "total": 235.04791300716047
+        },
+        {
+          "episode": "episode_00055_145609_968620",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/episode_00055_145609_968620/steps.jsonl",
+          "source_sha256": "da86a67dfe5b03282f35b02aab31e07cae0ce93e51a80e8c9f39777e136ba76b",
+          "steps": 399,
+          "duration_s": 48.48500000000001,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 214.88896460417567,
+            "cross_track": -0.40392418004900843,
+            "heading": -0.21264405624811258,
+            "vibration": -78.82569399051133,
+            "effort": -0.2697714209788392,
+            "smoothness": -2.8144511681205766,
+            "time": -2.016100000000005,
+            "terminal": 30.0
+          },
+          "total": 160.3463797882678
+        }
+      ],
+      "total": {
+        "n": 10,
+        "mean": 205.44825806998386,
+        "std": 33.55376771803953,
+        "median": 218.60631305750323,
+        "minimum": 158.8714703847453,
+        "maximum": 236.30424567040512
+      },
+      "components": {
+        "progress": {
+          "n": 10,
+          "mean": 215.32665859251483,
+          "std": 0.5773405385283866,
+          "median": 215.15763195297308,
+          "minimum": 214.88896460417567,
+          "maximum": 216.8818634050938
+        },
+        "cross_track": {
+          "n": 10,
+          "mean": -0.4560524822321554,
+          "std": 0.105103023627997,
+          "median": -0.450332990482055,
+          "minimum": -0.6577330135473357,
+          "maximum": -0.29082313980686747
+        },
+        "heading": {
+          "n": 10,
+          "mean": -0.2656813624894283,
+          "std": 0.10905725797403674,
+          "median": -0.22418304193538524,
+          "minimum": -0.5374410406282679,
+          "maximum": -0.14884323001978325
+        },
+        "vibration": {
+          "n": 10,
+          "mean": -33.99704706022596,
+          "std": 33.673608583704215,
+          "median": -20.880046125604096,
+          "minimum": -80.86396789195017,
+          "maximum": -3.430255525113446
+        },
+        "effort": {
+          "n": 10,
+          "mean": -0.28028056095637,
+          "std": 0.020107572167063104,
+          "median": -0.2789212782728984,
+          "minimum": -0.3190126901325366,
+          "maximum": -0.24250233914411573
+        },
+        "smoothness": {
+          "n": 10,
+          "mean": -2.873564046627064,
+          "std": 0.4168424191916304,
+          "median": -2.774684107058201,
+          "minimum": -3.557777920541121,
+          "maximum": -2.3614460951814547
+        },
+        "time": {
+          "n": 10,
+          "mean": -2.0057750100000042,
+          "std": 0.0401129509288791,
+          "median": -2.008975000000003,
+          "minimum": -2.0907000000000036,
+          "maximum": -1.9557000000000058
+        },
+        "terminal": {
+          "n": 10,
+          "mean": 30.0,
+          "std": 0.0,
+          "median": 30.0,
+          "minimum": 30.0,
+          "maximum": 30.0
+        }
+      },
+      "nav_successes": 10,
+      "checkpoint": {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/model.zip",
+        "sha256": "dfbf139cacd3f02c8b7c08df6532049edc632090d0b4dafb4be66fc63f14b1ce",
+        "timesteps": 50000,
+        "stats_window_size": 100
+      },
+      "source_run": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611",
+      "config_sha256": "07d7133f9f81e3e5fbed9a974677b2779d72ffef41bd38a65db2b5e00a18b53f",
+      "monitor_sha256": "14ea829eab91efaed6050a871a25b0aca1bc23ece15c52292719363b8cb1c9ab"
+    },
+    {
+      "label": "70k",
+      "kind": "train_last_window",
+      "episodes": [
+        {
+          "episode": "episode_00027_180214_498187",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00027_180214_498187/steps.jsonl",
+          "source_sha256": "f86528bdc8cbbe863895be25888dcb4f9016efe4820d8ef4eb21d1db12a36489",
+          "steps": 409,
+          "duration_s": 49.656000000000006,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.58379726999922,
+            "cross_track": -0.5742865064292142,
+            "heading": -0.2379251429641745,
+            "vibration": -27.19700609698274,
+            "effort": -0.2535321753495471,
+            "smoothness": -3.5314602515148,
+            "time": -2.0650999999999997,
+            "terminal": 30.0
+          },
+          "total": 211.72448709675874
+        },
+        {
+          "episode": "episode_00028_180324_327547",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00028_180324_327547/steps.jsonl",
+          "source_sha256": "6664030a7288af4abed7dad52810dfbc95f964ad4ddefb06b50590d5aff1c89c",
+          "steps": 393,
+          "duration_s": 48.202000000000005,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.48684827177485,
+            "cross_track": -0.3647083403105684,
+            "heading": -0.17501836910266796,
+            "vibration": -101.49312012947964,
+            "effort": -0.22230775451519041,
+            "smoothness": -3.0696547486774217,
+            "time": -1.9813500000000008,
+            "terminal": 30.0
+          },
+          "total": 138.18068892968935
+        },
+        {
+          "episode": "episode_00029_180431_145804",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00029_180431_145804/steps.jsonl",
+          "source_sha256": "c7f071c2ed68536270a28b03199f45bd9f92c939d1967a7b45ffcb4273a09e86",
+          "steps": 405,
+          "duration_s": 49.014,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.47867857087525,
+            "cross_track": -0.49872809865170825,
+            "heading": -0.28021478222348095,
+            "vibration": -16.25408749540296,
+            "effort": -0.23594612812757887,
+            "smoothness": -3.161904618659173,
+            "time": -2.0396000000000036,
+            "terminal": 30.0
+          },
+          "total": 223.00819744781035
+        },
+        {
+          "episode": "episode_00030_180543_563542",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00030_180543_563542/steps.jsonl",
+          "source_sha256": "140827b996751d439daf69f8002e5efd3beeb14f8dc087118f3d0f5316fb5d81",
+          "steps": 403,
+          "duration_s": 48.882000000000005,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.05352325393244,
+            "cross_track": -0.7386348936696953,
+            "heading": -0.35253123030219313,
+            "vibration": -18.545818123456908,
+            "effort": -0.2586600713594588,
+            "smoothness": -3.302664329144791,
+            "time": -2.0344000000000038,
+            "terminal": 30.0
+          },
+          "total": 219.8208146059994
+        },
+        {
+          "episode": "episode_00031_180651_368004",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00031_180651_368004/steps.jsonl",
+          "source_sha256": "e3dcb7554b56067cc455cb7c2afea645bf525b3a356f0c76134f8033310d4bfe",
+          "steps": 399,
+          "duration_s": 48.445,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 214.94705865049806,
+            "cross_track": -0.7138575836214974,
+            "heading": -0.42114172934395927,
+            "vibration": -13.177318009178283,
+            "effort": -0.2985045494916292,
+            "smoothness": -3.3118366790769507,
+            "time": -2.0140999999999996,
+            "terminal": 30.0
+          },
+          "total": 225.01030009978575
+        },
+        {
+          "episode": "episode_00032_180756_992804",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00032_180756_992804/steps.jsonl",
+          "source_sha256": "ab1739ad10c80194a583be08a375c09312d3c464594996bbc0837c19f20fb91f",
+          "steps": 407,
+          "duration_s": 49.221000000000004,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.74353630199312,
+            "cross_track": -0.6745089819238619,
+            "heading": -0.2823988896471609,
+            "vibration": -78.7392106119007,
+            "effort": -0.2714842793690439,
+            "smoothness": -3.290598034040704,
+            "time": -2.0503500500000045,
+            "terminal": 30.0
+          },
+          "total": 160.43498545511164
+        },
+        {
+          "episode": "episode_00033_180904_014023",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00033_180904_014023/steps.jsonl",
+          "source_sha256": "968d8ed4d0f3053b584f19d4b2a3efb3a9f1c5e3ad5d5b1281b393d43aab8ac0",
+          "steps": 400,
+          "duration_s": 49.105000000000004,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.67637157857158,
+            "cross_track": -0.5890177289914436,
+            "heading": -0.2675627325913777,
+            "vibration": -3.5497063912287725,
+            "effort": -0.2519182126614361,
+            "smoothness": -3.5322266467937244,
+            "time": -2.017250000000003,
+            "terminal": 30.0
+          },
+          "total": 235.46868986630483
+        },
+        {
+          "episode": "episode_00034_181011_228165",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00034_181011_228165/steps.jsonl",
+          "source_sha256": "924252f9aec05d1b4a3e543cc11f9024701b5178adba9e4f7e24a4f59c0ea8ce",
+          "steps": 437,
+          "duration_s": 53.30900000000001,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 219.65670141425866,
+            "cross_track": -0.5355923054211855,
+            "heading": -0.4444723478419488,
+            "vibration": -22.644570808185133,
+            "effort": -0.2940196657305575,
+            "smoothness": -3.6280896306221257,
+            "time": -2.2021000000000086,
+            "terminal": 30.0
+          },
+          "total": 219.9078566564577
+        },
+        {
+          "episode": "episode_00035_181133_230325",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00035_181133_230325/steps.jsonl",
+          "source_sha256": "4287b9b1ffa42d48f85c28189373db9ad3a80f1a848bcc55e1fa5c4c8655a456",
+          "steps": 398,
+          "duration_s": 49.026,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 216.07763643729524,
+            "cross_track": -0.8437073128867979,
+            "heading": -0.25337686492878864,
+            "vibration": -102.740962441912,
+            "effort": -0.2916011733488936,
+            "smoothness": -3.4373332933288476,
+            "time": -2.008750000000006,
+            "terminal": 30.0
+          },
+          "total": 136.5019053508899
+        },
+        {
+          "episode": "episode_00036_181237_425501",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/episode_00036_181237_425501/steps.jsonl",
+          "source_sha256": "75d490e390ce532c7c028ee14f9cdb9b7d973013e6e61b885e1b0c041794f205",
+          "steps": 413,
+          "duration_s": 50.028,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.57929282829556,
+            "cross_track": -0.8549969476356589,
+            "heading": -0.30813524324681935,
+            "vibration": -41.62642492084526,
+            "effort": -0.291688547121919,
+            "smoothness": -3.0481351941509547,
+            "time": -2.0864500000000024,
+            "terminal": 30.0
+          },
+          "total": 197.36346197529494
+        }
+      ],
+      "total": {
+        "n": 10,
+        "mean": 196.74213874841027,
+        "std": 37.504683592429764,
+        "median": 215.77265085137907,
+        "minimum": 136.5019053508899,
+        "maximum": 235.46868986630483
+      },
+      "components": {
+        "progress": {
+          "n": 10,
+          "mean": 215.9283444577494,
+          "std": 1.3493405857596155,
+          "median": 215.5815450491474,
+          "minimum": 214.94705865049806,
+          "maximum": 219.65670141425866
+        },
+        "cross_track": {
+          "n": 10,
+          "mean": -0.6388038699541632,
+          "std": 0.15550718960630383,
+          "median": -0.6317633554576527,
+          "minimum": -0.8549969476356589,
+          "maximum": -0.3647083403105684
+        },
+        "heading": {
+          "n": 10,
+          "mean": -0.3022777332192571,
+          "std": 0.08281321180133513,
+          "median": -0.2813068359353209,
+          "minimum": -0.4444723478419488,
+          "maximum": -0.17501836910266796
+        },
+        "vibration": {
+          "n": 10,
+          "mean": -42.596822502857236,
+          "std": 37.55163415066108,
+          "median": -24.920788452583935,
+          "minimum": -102.740962441912,
+          "maximum": -3.5497063912287725
+        },
+        "effort": {
+          "n": 10,
+          "mean": -0.26696625570752547,
+          "std": 0.026661614569963386,
+          "median": -0.2650721753642513,
+          "minimum": -0.2985045494916292,
+          "maximum": -0.22230775451519041
+        },
+        "smoothness": {
+          "n": 10,
+          "mean": -3.3313903426009492,
+          "std": 0.19998708813037072,
+          "median": -3.307250504110871,
+          "minimum": -3.6280896306221257,
+          "maximum": -3.0481351941509547
+        },
+        "time": {
+          "n": 10,
+          "mean": -2.049945005000003,
+          "std": 0.06129925891386733,
+          "median": -2.0370000000000035,
+          "minimum": -2.2021000000000086,
+          "maximum": -1.9813500000000008
+        },
+        "terminal": {
+          "n": 10,
+          "mean": 30.0,
+          "std": 0.0,
+          "median": 30.0,
+          "minimum": 30.0,
+          "maximum": 30.0
+        }
+      },
+      "nav_successes": 10,
+      "checkpoint": {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/model.zip",
+        "sha256": "bab34bc5eaf55e91a1f52a2dcc019c145250d1ead54534aca64b30ab30b966e6",
+        "timesteps": 70000,
+        "stats_window_size": 100
+      },
+      "source_run": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739",
+      "config_sha256": "07d7133f9f81e3e5fbed9a974677b2779d72ffef41bd38a65db2b5e00a18b53f",
+      "monitor_sha256": "bdf71893dcb22e1414d5b83704d2de062f3c5769340c9822a994cd7d1a93c719"
+    },
+    {
+      "label": "100k",
+      "kind": "train_last_window",
+      "episodes": [
+        {
+          "episode": "episode_00004_115409_551028",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00004_115409_551028/steps.jsonl",
+          "source_sha256": "9b4ebeb766982b7f5b315676386be54f0b75153d2af8f0d86295e973ef58beb9",
+          "steps": 398,
+          "duration_s": 49.044000000000004,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.36144694860994,
+            "cross_track": -0.5806738306408032,
+            "heading": -0.22688451879960486,
+            "vibration": -20.40953425296024,
+            "effort": -0.24386002916541447,
+            "smoothness": -2.480165791045583,
+            "time": -2.0083000000000073,
+            "terminal": 30.0
+          },
+          "total": 219.4120285259983
+        },
+        {
+          "episode": "episode_00005_115515_902646",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00005_115515_902646/steps.jsonl",
+          "source_sha256": "cceac75c3c46f766094f8fc02b3bd445a59e491745a1726fbb92a82f4448ccfc",
+          "steps": 397,
+          "duration_s": 48.691,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.13470685999422,
+            "cross_track": -0.6386668472263081,
+            "heading": -0.2474228603845582,
+            "vibration": -18.073438263501977,
+            "effort": -0.23233174831883047,
+            "smoothness": -2.8438517177745233,
+            "time": -2.001850000000002,
+            "terminal": 30.0
+          },
+          "total": 221.09714542278803
+        },
+        {
+          "episode": "episode_00006_115620_860382",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00006_115620_860382/steps.jsonl",
+          "source_sha256": "285bda993b6c985c42d89f19b472ca4133771d24c2aa6244b4defcb435c1267c",
+          "steps": 393,
+          "duration_s": 47.914,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.65953394414473,
+            "cross_track": -0.5159954655996537,
+            "heading": -0.1900985782029615,
+            "vibration": -68.28212087398362,
+            "effort": -0.22746738194980282,
+            "smoothness": -2.8182408753763433,
+            "time": -1.9842000000000057,
+            "terminal": 30.0
+          },
+          "total": 171.64141076903235
+        },
+        {
+          "episode": "episode_00007_115725_663237",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00007_115725_663237/steps.jsonl",
+          "source_sha256": "9507ed62a3182edcbc59d8df46ec963f224dd0a6d02797a9ec8537e0b87a5ec7",
+          "steps": 398,
+          "duration_s": 49.028999999999996,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.01666769355506,
+            "cross_track": -0.8358516665571264,
+            "heading": -0.322875124977262,
+            "vibration": -11.517305511872106,
+            "effort": -0.2545875180887009,
+            "smoothness": -2.9865988490206656,
+            "time": -2.005250050000004,
+            "terminal": 30.0
+          },
+          "total": 227.0941989730392
+        },
+        {
+          "episode": "episode_00008_115831_235792",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00008_115831_235792/steps.jsonl",
+          "source_sha256": "be3fd42ef520de9f474d761b418e25e3b8e89a084433da10a474a771431f9390",
+          "steps": 409,
+          "duration_s": 50.06100000000001,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.06437689835028,
+            "cross_track": -0.7342605492540386,
+            "heading": -0.24670198266280055,
+            "vibration": -144.10179060237027,
+            "effort": -0.2566352722958738,
+            "smoothness": -3.235345810168656,
+            "time": -2.063250000000004,
+            "terminal": 30.0
+          },
+          "total": 94.42639268159863
+        },
+        {
+          "episode": "episode_00009_115937_835230",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00009_115937_835230/steps.jsonl",
+          "source_sha256": "80ebf2601ad33d8adec339faaf2678725c8d92b6935ef33d19d0d7a5efa16bf5",
+          "steps": 445,
+          "duration_s": 54.911,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 217.06957828914338,
+            "cross_track": -1.0610746520871241,
+            "heading": -0.5279750529334949,
+            "vibration": -6.713299426710798,
+            "effort": -0.25676061029866326,
+            "smoothness": -3.1438121922366555,
+            "time": -2.243850000000001,
+            "terminal": 30.0
+          },
+          "total": 233.12280635487664
+        },
+        {
+          "episode": "episode_00010_120049_238039",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00010_120049_238039/steps.jsonl",
+          "source_sha256": "ba7f57a1b2a506fedb041f26a085d6ae879dd61d0c11584e03bb875ad6e12f92",
+          "steps": 419,
+          "duration_s": 51.611000000000004,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.45383265861886,
+            "cross_track": -0.7834109826210902,
+            "heading": -0.2702789439308214,
+            "vibration": -56.591476390386326,
+            "effort": -0.27194155662134906,
+            "smoothness": -3.1251459058805633,
+            "time": -2.113200000000003,
+            "terminal": 30.0
+          },
+          "total": 182.2983788791787
+        },
+        {
+          "episode": "episode_00012_120236_612788",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00012_120236_612788/steps.jsonl",
+          "source_sha256": "f4953d37297dd01d78b67e199574fbd5d929ed236c2fb53a7156716eaeebef0e",
+          "steps": 398,
+          "duration_s": 49.015,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.50825968469786,
+            "cross_track": -0.7352368790806808,
+            "heading": -0.3009357031656402,
+            "vibration": -148.79544904482177,
+            "effort": -0.2534864520252613,
+            "smoothness": -2.84218260722977,
+            "time": -2.0055000500000015,
+            "terminal": 30.0
+          },
+          "total": 90.57546894837475
+        },
+        {
+          "episode": "episode_00013_120342_419644",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00013_120342_419644/steps.jsonl",
+          "source_sha256": "e9d64aaf6bbe2fab41eb2afc6aae777f982dd5c9ac9486569492a6ec6c800070",
+          "steps": 384,
+          "duration_s": 47.427,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 214.95513787913185,
+            "cross_track": -0.4613810944902725,
+            "heading": -0.16921303580836983,
+            "vibration": -124.41691651145217,
+            "effort": -0.24282083819199746,
+            "smoothness": -2.2705497218456,
+            "time": -1.934200050000005,
+            "terminal": 30.0
+          },
+          "total": 115.46005662734343
+        },
+        {
+          "episode": "episode_00014_120446_991692",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/episode_00014_120446_991692/steps.jsonl",
+          "source_sha256": "1c24acac8bfe54aa24426ea9553eaccde8608a479509d180931de49824ea3535",
+          "steps": 389,
+          "duration_s": 47.666000000000004,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 214.786125268995,
+            "cross_track": -0.6097557354772055,
+            "heading": -0.2600492752767873,
+            "vibration": -34.77764121925376,
+            "effort": -0.28226781234914455,
+            "smoothness": -2.530268782618514,
+            "time": -1.9610000000000034,
+            "terminal": 30.0
+          },
+          "total": 204.36514244401957
+        }
+      ],
+      "total": {
+        "n": 10,
+        "mean": 175.94930296262496,
+        "std": 56.04749975693659,
+        "median": 193.33176066159913,
+        "minimum": 90.57546894837475,
+        "maximum": 233.12280635487664
+      },
+      "components": {
+        "progress": {
+          "n": 10,
+          "mean": 215.40096661252412,
+          "std": 0.6477015864827248,
+          "median": 215.24807690430208,
+          "minimum": 214.786125268995,
+          "maximum": 217.06957828914338
+        },
+        "cross_track": {
+          "n": 10,
+          "mean": -0.6956307703034303,
+          "std": 0.17478674665559762,
+          "median": -0.6864636982401733,
+          "minimum": -1.0610746520871241,
+          "maximum": -0.4613810944902725
+        },
+        "heading": {
+          "n": 10,
+          "mean": -0.27624350761423005,
+          "std": 0.09970340698906922,
+          "median": -0.25373606783067276,
+          "minimum": -0.5279750529334949,
+          "maximum": -0.16921303580836983
+        },
+        "vibration": {
+          "n": 10,
+          "mean": -63.367897209731304,
+          "std": 56.00150731309571,
+          "median": -45.68455880482004,
+          "minimum": -148.79544904482177,
+          "maximum": -6.713299426710798
+        },
+        "effort": {
+          "n": 10,
+          "mean": -0.2522159219305038,
+          "std": 0.01668532116201493,
+          "median": -0.25403698505698113,
+          "minimum": -0.28226781234914455,
+          "maximum": -0.22746738194980282
+        },
+        "smoothness": {
+          "n": 10,
+          "mean": -2.8276162253196873,
+          "std": 0.3162359794773465,
+          "median": -2.8430171625021465,
+          "minimum": -3.235345810168656,
+          "maximum": -2.2705497218456
+        },
+        "time": {
+          "n": 10,
+          "mean": -2.032060015000004,
+          "std": 0.08958520393520081,
+          "median": -2.0053750500000027,
+          "minimum": -2.243850000000001,
+          "maximum": -1.934200050000005
+        },
+        "terminal": {
+          "n": 10,
+          "mean": 30.0,
+          "std": 0.0,
+          "median": 30.0,
+          "minimum": 30.0,
+          "maximum": 30.0
+        }
+      },
+      "nav_successes": 10,
+      "checkpoint": {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/model.zip",
+        "sha256": "89c9b688684d3689f0572a6dbc743a887c58c345db8fecd12e32023664a40081",
+        "timesteps": 100000,
+        "stats_window_size": 100
+      },
+      "source_run": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278",
+      "config_sha256": "07d7133f9f81e3e5fbed9a974677b2779d72ffef41bd38a65db2b5e00a18b53f",
+      "monitor_sha256": "dc8bf624916a64be65cc62de5c415d2cc1584aea1573716d7c75044a5ba19bb9"
+    }
+  ],
+  "evaluation": [
+    {
+      "label": "50k",
+      "kind": "evaluate",
+      "episodes": [
+        {
+          "episode": "episode_00001_164739_018146",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_50000/PI_SAC/episode_00001_164739_018146/steps.jsonl",
+          "source_sha256": "c18400bf9ad99a8a89b47f1af0495f0b3f3e4e77ee1c5c961bfcdf334d2fd459",
+          "steps": 457,
+          "duration_s": 48.419000000000004,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.59873435663226,
+            "cross_track": -0.5064947790080886,
+            "heading": -0.2723187855741764,
+            "vibration": -5.40826399156017,
+            "effort": -0.33225635517221885,
+            "smoothness": -2.476810836837438,
+            "time": -2.310500000000002,
+            "terminal": 30.0
+          },
+          "total": 234.29208960848018
+        },
+        {
+          "episode": "episode_00002_164844_882511",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_50000/PI_SAC/episode_00002_164844_882511/steps.jsonl",
+          "source_sha256": "f46feb945ffa6762c0dfd3e40ba6d3b06688abbd884e3f2af0020685f9d71819",
+          "steps": 451,
+          "duration_s": 47.646,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.30943567269688,
+            "cross_track": -0.26943425743481664,
+            "heading": -0.24932699209112327,
+            "vibration": -4.1348990318746095,
+            "effort": -0.321726921922621,
+            "smoothness": -2.1198389096122856,
+            "time": -2.2797000000000045,
+            "terminal": 30.0
+          },
+          "total": 235.9345095597614
+        },
+        {
+          "episode": "episode_00003_164949_714747",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_50000/PI_SAC/episode_00003_164949_714747/steps.jsonl",
+          "source_sha256": "b13e64b3c48e8d48bd567a8dee3b0c3f69f2992b4e4b0c07c98d27c86b4b0cc7",
+          "steps": 458,
+          "duration_s": 48.487,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.79719165633247,
+            "cross_track": -0.35812790203748723,
+            "heading": -0.22779220920521528,
+            "vibration": -2.961791042138325,
+            "effort": -0.3134851075996852,
+            "smoothness": -2.4856501152065857,
+            "time": -2.3286500000000054,
+            "terminal": 30.0
+          },
+          "total": 237.12169528014516
+        }
+      ],
+      "total": {
+        "n": 3,
+        "mean": 235.78276481612892,
+        "std": 1.4208929990307932,
+        "median": 235.9345095597614,
+        "minimum": 234.29208960848018,
+        "maximum": 237.12169528014516
+      },
+      "components": {
+        "progress": {
+          "n": 3,
+          "mean": 215.56845389522053,
+          "std": 0.2452838246818607,
+          "median": 215.59873435663226,
+          "minimum": 215.30943567269688,
+          "maximum": 215.79719165633247
+        },
+        "cross_track": {
+          "n": 3,
+          "mean": -0.37801897949346414,
+          "std": 0.11977547304819,
+          "median": -0.35812790203748723,
+          "minimum": -0.5064947790080886,
+          "maximum": -0.26943425743481664
+        },
+        "heading": {
+          "n": 3,
+          "mean": -0.24981266229017166,
+          "std": 0.0222672608877229,
+          "median": -0.24932699209112327,
+          "minimum": -0.2723187855741764,
+          "maximum": -0.22779220920521528
+        },
+        "vibration": {
+          "n": 3,
+          "mean": -4.168318021857702,
+          "std": 1.2235788060978428,
+          "median": -4.1348990318746095,
+          "minimum": -5.40826399156017,
+          "maximum": -2.961791042138325
+        },
+        "effort": {
+          "n": 3,
+          "mean": -0.32248946156484165,
+          "std": 0.009408827444841701,
+          "median": -0.321726921922621,
+          "minimum": -0.33225635517221885,
+          "maximum": -0.3134851075996852
+        },
+        "smoothness": {
+          "n": 3,
+          "mean": -2.360766620552103,
+          "std": 0.2086963215644852,
+          "median": -2.476810836837438,
+          "minimum": -2.4856501152065857,
+          "maximum": -2.1198389096122856
+        },
+        "time": {
+          "n": 3,
+          "mean": -2.3062833333333375,
+          "std": 0.02474592559055619,
+          "median": -2.310500000000002,
+          "minimum": -2.3286500000000054,
+          "maximum": -2.2797000000000045
+        },
+        "terminal": {
+          "n": 3,
+          "mean": 30.0,
+          "std": 0.0,
+          "median": 30.0,
+          "minimum": 30.0,
+          "maximum": 30.0
+        }
+      },
+      "nav_successes": 3,
+      "checkpoint": {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_135837_606611/model.zip",
+        "sha256": "dfbf139cacd3f02c8b7c08df6532049edc632090d0b4dafb4be66fc63f14b1ce",
+        "timesteps": 50000,
+        "stats_window_size": 100
+      },
+      "source_run": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_50000/PI_SAC",
+      "metadata_sha256": "765159a02e27491c979d66023d4610145096e571b64c0d548b45b73a078d2a47",
+      "result_sha256": "aaceab741097806479b3ad04da9414351ce37c9b79563c237d8ba10eab8f84c0"
+    },
+    {
+      "label": "70k",
+      "kind": "evaluate",
+      "episodes": [
+        {
+          "episode": "episode_00001_165055_799021",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_70000/PI_SAC/episode_00001_165055_799021/steps.jsonl",
+          "source_sha256": "79087e079f43bba6ad8db8fe86539521837419593ed830e3690b82598823be5f",
+          "steps": 462,
+          "duration_s": 48.67100000000001,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.50082507413697,
+            "cross_track": -0.9386664068982021,
+            "heading": -0.33778114819598937,
+            "vibration": -6.361512415493647,
+            "effort": -0.28206045386256784,
+            "smoothness": -3.325989382435771,
+            "time": -2.3364000000000056,
+            "terminal": 30.0
+          },
+          "total": 231.9184152672508
+        },
+        {
+          "episode": "episode_00002_165201_439885",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_70000/PI_SAC/episode_00002_165201_439885/steps.jsonl",
+          "source_sha256": "657bdfe5870f58aba385d18bfaccbea6e28b12f7c5e47e77887eff8cf0df6b6d",
+          "steps": 458,
+          "duration_s": 48.432,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.39655069327375,
+            "cross_track": -0.5078791260096865,
+            "heading": -0.2361458744293143,
+            "vibration": -39.102764022182804,
+            "effort": -0.3292406135220287,
+            "smoothness": -3.818843324456925,
+            "time": -2.3149500000000063,
+            "terminal": 30.0
+          },
+          "total": 199.08672773267298
+        },
+        {
+          "episode": "episode_00003_165307_209282",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_70000/PI_SAC/episode_00003_165307_209282/steps.jsonl",
+          "source_sha256": "ec2a7076cf43d96e334767e547c3b55e914ad71057257876ffb3da593be847c4",
+          "steps": 462,
+          "duration_s": 48.798,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.60148387745664,
+            "cross_track": -0.5979125697233858,
+            "heading": -0.2826979775319797,
+            "vibration": -16.061987860276176,
+            "effort": -0.31772925409460945,
+            "smoothness": -3.4578416133017025,
+            "time": -2.3335000000000026,
+            "terminal": 30.0
+          },
+          "total": 222.54981460252878
+        }
+      ],
+      "total": {
+        "n": 3,
+        "mean": 217.85165253415084,
+        "std": 16.912553671979783,
+        "median": 222.54981460252878,
+        "minimum": 199.08672773267298,
+        "maximum": 231.9184152672508
+      },
+      "components": {
+        "progress": {
+          "n": 3,
+          "mean": 215.49961988162246,
+          "std": 0.10247190767026115,
+          "median": 215.50082507413697,
+          "minimum": 215.39655069327375,
+          "maximum": 215.60148387745664
+        },
+        "cross_track": {
+          "n": 3,
+          "mean": -0.6814860342104249,
+          "std": 0.22722854864344177,
+          "median": -0.5979125697233858,
+          "minimum": -0.9386664068982021,
+          "maximum": -0.5078791260096865
+        },
+        "heading": {
+          "n": 3,
+          "mean": -0.2855416667190945,
+          "std": 0.050877275325546194,
+          "median": -0.2826979775319797,
+          "minimum": -0.33778114819598937,
+          "maximum": -0.2361458744293143
+        },
+        "vibration": {
+          "n": 3,
+          "mean": -20.508754765984207,
+          "std": 16.81748171184992,
+          "median": -16.061987860276176,
+          "minimum": -39.102764022182804,
+          "maximum": -6.361512415493647
+        },
+        "effort": {
+          "n": 3,
+          "mean": -0.309676773826402,
+          "std": 0.024599262087011017,
+          "median": -0.31772925409460945,
+          "minimum": -0.3292406135220287,
+          "maximum": -0.28206045386256784
+        },
+        "smoothness": {
+          "n": 3,
+          "mean": -3.5342247733981327,
+          "std": 0.2551510188127523,
+          "median": -3.4578416133017025,
+          "minimum": -3.818843324456925,
+          "maximum": -3.325989382435771
+        },
+        "time": {
+          "n": 3,
+          "mean": -2.328283333333338,
+          "std": 0.011637690206106551,
+          "median": -2.3335000000000026,
+          "minimum": -2.3364000000000056,
+          "maximum": -2.3149500000000063
+        },
+        "terminal": {
+          "n": 3,
+          "mean": 30.0,
+          "std": 0.0,
+          "median": 30.0,
+          "minimum": 30.0,
+          "maximum": 30.0
+        }
+      },
+      "nav_successes": 3,
+      "checkpoint": {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261027_173345_545739/model.zip",
+        "sha256": "bab34bc5eaf55e91a1f52a2dcc019c145250d1ead54534aca64b30ab30b966e6",
+        "timesteps": 70000,
+        "stats_window_size": 100
+      },
+      "source_run": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_70000/PI_SAC",
+      "metadata_sha256": "cd308b6b243f4960dc7bb218b50500763a273ab9a426170f73fd581e9768a414",
+      "result_sha256": "408faca7b758d19162a6a88ebb3a287ce17a1e14e08f3939f0a1932388f4bdb5"
+    },
+    {
+      "label": "100k đợt đầu",
+      "kind": "evaluate",
+      "episodes": [
+        {
+          "episode": "episode_00001_165414_162974",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_100000/PI_SAC/episode_00001_165414_162974/steps.jsonl",
+          "source_sha256": "c292b38e10fda2e1565acea82679168ac6f645c8429a92dfb03b5138d6d53ec7",
+          "steps": 470,
+          "duration_s": 49.732,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.53155520233332,
+            "cross_track": -0.6033444598193332,
+            "heading": -0.22863011260274052,
+            "vibration": -15.323437843885685,
+            "effort": -0.2984416287878796,
+            "smoothness": -3.102759363168932,
+            "time": -2.3822000000000005,
+            "terminal": 30.0
+          },
+          "total": 223.59274179406876
+        },
+        {
+          "episode": "episode_00002_165517_838623",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_100000/PI_SAC/episode_00002_165517_838623/steps.jsonl",
+          "source_sha256": "1945027832ddff39c6372d23fd30f7128f004ba10a24462bf9d8094b91de1691",
+          "steps": 142,
+          "duration_s": 15.004999999999999,
+          "outcome": "FAILED",
+          "terms": {
+            "progress": 62.64636504422514,
+            "cross_track": -0.4780675217509566,
+            "heading": -0.03129349531622418,
+            "vibration": -1.54232286376329,
+            "effort": -0.08460994014986335,
+            "smoothness": -0.9924141257193696,
+            "time": -0.7193000000000004,
+            "terminal": -30.0
+          },
+          "total": 28.79835709752544
+        },
+        {
+          "episode": "episode_00003_165549_030914",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_100000/PI_SAC/episode_00003_165549_030914/steps.jsonl",
+          "source_sha256": "e9058c3710fa25a37e7e7d715c6777bf526c34e9ef4f6c3f5e3937eb42fe2bc8",
+          "steps": 459,
+          "duration_s": 48.346000000000004,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.4446935388941,
+            "cross_track": -0.5407377992324891,
+            "heading": -0.2178628573281045,
+            "vibration": -11.257623555954137,
+            "effort": -0.3018602847258944,
+            "smoothness": -3.063573137260537,
+            "time": -2.326350000000007,
+            "terminal": 30.0
+          },
+          "total": 227.7366859043929
+        }
+      ],
+      "total": {
+        "n": 3,
+        "mean": 160.0425949319957,
+        "std": 113.6797279278967,
+        "median": 223.59274179406876,
+        "minimum": 28.79835709752544,
+        "maximum": 227.7366859043929
+      },
+      "components": {
+        "progress": {
+          "n": 3,
+          "mean": 164.54087126181753,
+          "std": 88.24324157822157,
+          "median": 215.4446935388941,
+          "minimum": 62.64636504422514,
+          "maximum": 215.53155520233332
+        },
+        "cross_track": {
+          "n": 3,
+          "mean": -0.5407165936009263,
+          "std": 0.06263847172629669,
+          "median": -0.5407377992324891,
+          "minimum": -0.6033444598193332,
+          "maximum": -0.4780675217509566
+        },
+        "heading": {
+          "n": 3,
+          "mean": -0.15926215508235642,
+          "std": 0.1109547964636607,
+          "median": -0.2178628573281045,
+          "minimum": -0.22863011260274052,
+          "maximum": -0.03129349531622418
+        },
+        "vibration": {
+          "n": 3,
+          "mean": -9.374461421201037,
+          "std": 7.080925592262947,
+          "median": -11.257623555954137,
+          "minimum": -15.323437843885685,
+          "maximum": -1.54232286376329
+        },
+        "effort": {
+          "n": 3,
+          "mean": -0.22830395122121244,
+          "std": 0.12445440295720911,
+          "median": -0.2984416287878796,
+          "minimum": -0.3018602847258944,
+          "maximum": -0.08460994014986335
+        },
+        "smoothness": {
+          "n": 3,
+          "mean": -2.3862488753829463,
+          "std": 1.2072553052699873,
+          "median": -3.063573137260537,
+          "minimum": -3.102759363168932,
+          "maximum": -0.9924141257193696
+        },
+        "time": {
+          "n": 3,
+          "mean": -1.8092833333333358,
+          "std": 0.9443662191297064,
+          "median": -2.326350000000007,
+          "minimum": -2.3822000000000005,
+          "maximum": -0.7193000000000004
+        },
+        "terminal": {
+          "n": 3,
+          "mean": 10.0,
+          "std": 34.64101615137755,
+          "median": 30.0,
+          "minimum": -30.0,
+          "maximum": 30.0
+        }
+      },
+      "nav_successes": 2,
+      "checkpoint": {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/model.zip",
+        "sha256": "89c9b688684d3689f0572a6dbc743a887c58c345db8fecd12e32023664a40081",
+        "timesteps": 100000,
+        "stats_window_size": 100
+      },
+      "source_run": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_100000/PI_SAC",
+      "metadata_sha256": "92260ff604457b24694477308eba3473a718b803bd2f12e9cacc3e8899b8334f",
+      "result_sha256": "5181c438e78b2fe35d1d5fbc99fbf8e06a9accc6aa5ac3e73fedd715440ec01e"
+    },
+    {
+      "label": "100k chạy lại",
+      "kind": "evaluate",
+      "episodes": [
+        {
+          "episode": "episode_00001_171255_615190",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation/PI_SAC/episode_00001_171255_615190/steps.jsonl",
+          "source_sha256": "6c8a04dde6bf914e23ab4a34dc5a94c591ff41eb48785eec3c257a3b7400c43d",
+          "steps": 474,
+          "duration_s": 50.197,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.42502142705987,
+            "cross_track": -1.5039414958016821,
+            "heading": -0.5299727785640542,
+            "vibration": -23.594952026150803,
+            "effort": -0.2918846971898859,
+            "smoothness": -3.176364665981164,
+            "time": -2.4072000000000067,
+            "terminal": 30.0
+          },
+          "total": 213.92070576337227
+        },
+        {
+          "episode": "episode_00002_171402_056258",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation/PI_SAC/episode_00002_171402_056258/steps.jsonl",
+          "source_sha256": "73009c08e28e1f90a1ea4387673f92a0e7a545a96f24ae81572962ec8310d498",
+          "steps": 467,
+          "duration_s": 49.38400000000001,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.66365642740732,
+            "cross_track": -1.0957090649124563,
+            "heading": -0.3420338451159405,
+            "vibration": -25.706531501796448,
+            "effort": -0.32084787784014657,
+            "smoothness": -3.31056526731144,
+            "time": -2.361550000000006,
+            "terminal": 30.0
+          },
+          "total": 212.5264188704309
+        },
+        {
+          "episode": "episode_00003_171508_627517",
+          "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation/PI_SAC/episode_00003_171508_627517/steps.jsonl",
+          "source_sha256": "2a80952420cb4663013399c6f1b98e4b0379aa03f0ba2e3510ba3b15045e2889",
+          "steps": 469,
+          "duration_s": 49.465,
+          "outcome": "SUCCEEDED",
+          "terms": {
+            "progress": 215.24552832750564,
+            "cross_track": -0.906470593631587,
+            "heading": -0.25453158933165965,
+            "vibration": -11.478170012180641,
+            "effort": -0.24651533885145138,
+            "smoothness": -2.3823925260126906,
+            "time": -2.3685000000000014,
+            "terminal": 30.0
+          },
+          "total": 227.6089482674976
+        }
+      ],
+      "total": {
+        "n": 3,
+        "mean": 218.01869096710024,
+        "std": 8.334613686357962,
+        "median": 213.92070576337227,
+        "minimum": 212.5264188704309,
+        "maximum": 227.6089482674976
+      },
+      "components": {
+        "progress": {
+          "n": 3,
+          "mean": 215.44473539399095,
+          "std": 0.20975999940638498,
+          "median": 215.42502142705987,
+          "minimum": 215.24552832750564,
+          "maximum": 215.66365642740732
+        },
+        "cross_track": {
+          "n": 3,
+          "mean": -1.1687070514485751,
+          "std": 0.30535127192093436,
+          "median": -1.0957090649124563,
+          "minimum": -1.5039414958016821,
+          "maximum": -0.906470593631587
+        },
+        "heading": {
+          "n": 3,
+          "mean": -0.37551273767055143,
+          "std": 0.14073943785041682,
+          "median": -0.3420338451159405,
+          "minimum": -0.5299727785640542,
+          "maximum": -0.25453158933165965
+        },
+        "vibration": {
+          "n": 3,
+          "mean": -20.259884513375965,
+          "std": 7.678123088090614,
+          "median": -23.594952026150803,
+          "minimum": -25.706531501796448,
+          "maximum": -11.478170012180641
+        },
+        "effort": {
+          "n": 3,
+          "mean": -0.28641597129382795,
+          "std": 0.037466809449446505,
+          "median": -0.2918846971898859,
+          "minimum": -0.32084787784014657,
+          "maximum": -0.24651533885145138
+        },
+        "smoothness": {
+          "n": 3,
+          "mean": -2.9564408197684315,
+          "std": 0.5016483160763724,
+          "median": -3.176364665981164,
+          "minimum": -3.31056526731144,
+          "maximum": -2.3823925260126906
+        },
+        "time": {
+          "n": 3,
+          "mean": -2.379083333333338,
+          "std": 0.024596459772361558,
+          "median": -2.3685000000000014,
+          "minimum": -2.4072000000000067,
+          "maximum": -2.361550000000006
+        },
+        "terminal": {
+          "n": 3,
+          "mean": 30.0,
+          "std": 0.0,
+          "median": 30.0,
+          "minimum": 30.0,
+          "maximum": 30.0
+        }
+      },
+      "nav_successes": 3,
+      "checkpoint": {
+        "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/model.zip",
+        "sha256": "89c9b688684d3689f0572a6dbc743a887c58c345db8fecd12e32023664a40081",
+        "timesteps": 100000,
+        "stats_window_size": 100
+      },
+      "source_run": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation/PI_SAC",
+      "metadata_sha256": "44b0b8cc34e72665666135187dea7db735ca939a1d372ee14500109daac93760",
+      "result_sha256": "def400cb746ecbdb8383c556a03b3e8d198dc8fb0b9fec580297a90a1aafada5"
+    }
+  ],
+  "combined_100k": {
+    "label": "100k gộp cả 6 lượt",
+    "kind": "evaluate_derived",
+    "episodes": [
+      {
+        "episode": "episode_00001_165414_162974",
+        "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_100000/PI_SAC/episode_00001_165414_162974/steps.jsonl",
+        "source_sha256": "c292b38e10fda2e1565acea82679168ac6f645c8429a92dfb03b5138d6d53ec7",
+        "steps": 470,
+        "duration_s": 49.732,
+        "outcome": "SUCCEEDED",
+        "terms": {
+          "progress": 215.53155520233332,
+          "cross_track": -0.6033444598193332,
+          "heading": -0.22863011260274052,
+          "vibration": -15.323437843885685,
+          "effort": -0.2984416287878796,
+          "smoothness": -3.102759363168932,
+          "time": -2.3822000000000005,
+          "terminal": 30.0
+        },
+        "total": 223.59274179406876
+      },
+      {
+        "episode": "episode_00002_165517_838623",
+        "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_100000/PI_SAC/episode_00002_165517_838623/steps.jsonl",
+        "source_sha256": "1945027832ddff39c6372d23fd30f7128f004ba10a24462bf9d8094b91de1691",
+        "steps": 142,
+        "duration_s": 15.004999999999999,
+        "outcome": "FAILED",
+        "terms": {
+          "progress": 62.64636504422514,
+          "cross_track": -0.4780675217509566,
+          "heading": -0.03129349531622418,
+          "vibration": -1.54232286376329,
+          "effort": -0.08460994014986335,
+          "smoothness": -0.9924141257193696,
+          "time": -0.7193000000000004,
+          "terminal": -30.0
+        },
+        "total": 28.79835709752544
+      },
+      {
+        "episode": "episode_00003_165549_030914",
+        "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_100000/PI_SAC/episode_00003_165549_030914/steps.jsonl",
+        "source_sha256": "e9058c3710fa25a37e7e7d715c6777bf526c34e9ef4f6c3f5e3937eb42fe2bc8",
+        "steps": 459,
+        "duration_s": 48.346000000000004,
+        "outcome": "SUCCEEDED",
+        "terms": {
+          "progress": 215.4446935388941,
+          "cross_track": -0.5407377992324891,
+          "heading": -0.2178628573281045,
+          "vibration": -11.257623555954137,
+          "effort": -0.3018602847258944,
+          "smoothness": -3.063573137260537,
+          "time": -2.326350000000007,
+          "terminal": 30.0
+        },
+        "total": 227.7366859043929
+      },
+      {
+        "episode": "episode_00001_171255_615190",
+        "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation/PI_SAC/episode_00001_171255_615190/steps.jsonl",
+        "source_sha256": "6c8a04dde6bf914e23ab4a34dc5a94c591ff41eb48785eec3c257a3b7400c43d",
+        "steps": 474,
+        "duration_s": 50.197,
+        "outcome": "SUCCEEDED",
+        "terms": {
+          "progress": 215.42502142705987,
+          "cross_track": -1.5039414958016821,
+          "heading": -0.5299727785640542,
+          "vibration": -23.594952026150803,
+          "effort": -0.2918846971898859,
+          "smoothness": -3.176364665981164,
+          "time": -2.4072000000000067,
+          "terminal": 30.0
+        },
+        "total": 213.92070576337227
+      },
+      {
+        "episode": "episode_00002_171402_056258",
+        "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation/PI_SAC/episode_00002_171402_056258/steps.jsonl",
+        "source_sha256": "73009c08e28e1f90a1ea4387673f92a0e7a545a96f24ae81572962ec8310d498",
+        "steps": 467,
+        "duration_s": 49.38400000000001,
+        "outcome": "SUCCEEDED",
+        "terms": {
+          "progress": 215.66365642740732,
+          "cross_track": -1.0957090649124563,
+          "heading": -0.3420338451159405,
+          "vibration": -25.706531501796448,
+          "effort": -0.32084787784014657,
+          "smoothness": -3.31056526731144,
+          "time": -2.361550000000006,
+          "terminal": 30.0
+        },
+        "total": 212.5264188704309
+      },
+      {
+        "episode": "episode_00003_171508_627517",
+        "source": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation/PI_SAC/episode_00003_171508_627517/steps.jsonl",
+        "source_sha256": "2a80952420cb4663013399c6f1b98e4b0379aa03f0ba2e3510ba3b15045e2889",
+        "steps": 469,
+        "duration_s": 49.465,
+        "outcome": "SUCCEEDED",
+        "terms": {
+          "progress": 215.24552832750564,
+          "cross_track": -0.906470593631587,
+          "heading": -0.25453158933165965,
+          "vibration": -11.478170012180641,
+          "effort": -0.24651533885145138,
+          "smoothness": -2.3823925260126906,
+          "time": -2.3685000000000014,
+          "terminal": 30.0
+        },
+        "total": 227.6089482674976
+      }
+    ],
+    "total": {
+      "n": 6,
+      "mean": 189.03064294954797,
+      "std": 78.77427780859738,
+      "median": 218.75672377872053,
+      "minimum": 28.79835709752544,
+      "maximum": 227.7366859043929
+    },
+    "components": {
+      "progress": {
+        "n": 6,
+        "mean": 189.99280332790423,
+        "std": 62.38690959225277,
+        "median": 215.43485748297698,
+        "minimum": 62.64636504422514,
+        "maximum": 215.66365642740732
+      },
+      "cross_track": {
+        "n": 6,
+        "mean": -0.8547118225247508,
+        "std": 0.3964552881547745,
+        "median": -0.7549075267254601,
+        "minimum": -1.5039414958016821,
+        "maximum": -0.4780675217509566
+      },
+      "heading": {
+        "n": 6,
+        "mean": -0.26738744637645395,
+        "std": 0.16394119930883028,
+        "median": -0.24158085096720008,
+        "minimum": -0.5299727785640542,
+        "maximum": -0.03129349531622418
+      },
+      "vibration": {
+        "n": 6,
+        "mean": -14.817172967288501,
+        "std": 8.898593334247293,
+        "median": -13.400803928033163,
+        "minimum": -25.706531501796448,
+        "maximum": -1.54232286376329
+      },
+      "effort": {
+        "n": 6,
+        "mean": -0.2573599612575202,
+        "std": 0.08814854595158461,
+        "median": -0.2951631629888828,
+        "minimum": -0.32084787784014657,
+        "maximum": -0.08460994014986335
+      },
+      "smoothness": {
+        "n": 6,
+        "mean": -2.6713448475756887,
+        "std": 0.8838451324086964,
+        "median": -3.0831662502147346,
+        "minimum": -3.31056526731144,
+        "maximum": -0.9924141257193696
+      },
+      "time": {
+        "n": 6,
+        "mean": -2.094183333333337,
+        "std": 0.6740731626957631,
+        "median": -2.3650250000000037,
+        "minimum": -2.4072000000000067,
+        "maximum": -0.7193000000000004
+      },
+      "terminal": {
+        "n": 6,
+        "mean": 20.0,
+        "std": 24.49489742783178,
+        "median": 30.0,
+        "minimum": -30.0,
+        "maximum": 30.0
+      }
+    },
+    "nav_successes": 5,
+    "note": "Tập dẫn xuất, trùng dữ liệu hai đợt 100k; không phải sáu lượt mới hoặc một nhóm độc lập."
+  },
+  "weights": {
+    "progress": 20.0,
+    "cross_track": 8.0,
+    "heading": 0.5,
+    "vibration": 0.02,
+    "effort": 0.01,
+    "smoothness": 0.01,
+    "time": 0.05,
+    "success": 30.0,
+    "failure": -30.0
+  },
+  "validation": [
+    {
+      "check": "monitor_matches_reward_terms",
+      "group": "50k",
+      "episodes": 10,
+      "tolerance": 1e-05
+    },
+    {
+      "check": "monitor_matches_reward_terms",
+      "group": "70k",
+      "episodes": 10,
+      "tolerance": 1e-05
+    },
+    {
+      "check": "monitor_matches_reward_terms",
+      "group": "100k",
+      "episodes": 10,
+      "tolerance": 1e-05
+    },
+    {
+      "check": "result_matches_reward_terms",
+      "group": "50k",
+      "episodes": 3,
+      "tolerance": 1e-07
+    },
+    {
+      "check": "result_matches_reward_terms",
+      "group": "70k",
+      "episodes": 3,
+      "tolerance": 1e-07
+    },
+    {
+      "check": "result_matches_reward_terms",
+      "group": "100k đợt đầu",
+      "episodes": 3,
+      "tolerance": 1e-07
+    },
+    {
+      "check": "result_matches_reward_terms",
+      "group": "100k chạy lại",
+      "episodes": 3,
+      "tolerance": 1e-07
+    }
+  ],
+  "train_window": 10,
+  "created_local": "2026-11-01T18:25:25+07:00",
+  "analysis_source_sha256": "579c9704e1a87e9ae5f6320f8fa22eb3ff2fb0b863f06427a51de650cecf3c1d",
+  "reward_formula_source_sha256": "7fc38b6c64649d2e27e60efde47276ad24064db9970f5d6f3b986d02008c0055"
+}

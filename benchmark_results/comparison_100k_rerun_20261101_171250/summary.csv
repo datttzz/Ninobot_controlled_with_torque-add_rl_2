@@ -1,0 +1,121 @@
+group,metric,section,description,unit,direction,n,mean,std,median,p95
+PI,mission_success_pct,1. Hoàn thành,Nav2 thành công và đạt điều kiện AMCL,%,max,3,100.0,0.0,100.0,100.0
+PI,nav_success_pct,1. Hoàn thành,Nav2 thông báo SUCCEEDED,%,max,3,100.0,0.0,100.0,100.0
+PI,deviation_violation_pct,1. Hoàn thành,Lượt vi phạm lệch đường AMCL,%,min,3,0.0,0.0,0.0,0.0
+PI,completion_time_s,1. Hoàn thành,"Thời gian hoàn thành, chỉ lượt đạt chuẩn",s,min,3,48.593333333333334,0.3832888379973192,48.443,48.970400000000005
+PI,average_speed_m_s,1. Hoàn thành,Trung bình |v_x| từ odometry encoder (ước lượng),m/s,N/A,3,0.2329451944319929,0.0009590798188228836,0.23307406169666708,0.23375739888894367
+PI,amcl_goal_xy_m,1. Hoàn thành,Sai số vị trí AMCL cuối lượt,m,min,3,0.2246794950372986,0.007123706699960239,0.22860492073952993,0.22893980248704268
+PI,amcl_goal_yaw_rad,1. Hoàn thành,Sai số hướng AMCL cuối lượt,rad,min,3,0.15431157934454817,0.09588399728686073,0.1972477827774281,0.21882630713279552
+PI,amcl_violation_pct,1. Hoàn thành,Lượt AMCL vượt giới hạn lệch đường,%,min,3,0.0,0.0,0.0,0.0
+PI,amcl_rmse_m,2. Bám đường,AMCL: RMSE ngang cân thời gian,m,min,3,0.04478492883393034,0.003919220003324351,0.04614354184652747,0.04767400784951266
+PI,amcl_p95_m,2. Bám đường,AMCL: P95 |e_y| cân thời gian,m,min,3,0.08759045713798382,0.007801505267624023,0.0876534161307414,0.09458960475029744
+PI,amcl_max_m,2. Bám đường,AMCL: Max |e_y|,m,min,3,0.11197166440566557,0.010193054024231887,0.11322608699175896,0.12065411398401948
+PI,amcl_heading_rmse_rad,2. Bám đường,AMCL: RMSE lỗi hướng,rad,min,3,0.1123566238103296,0.00841574071934952,0.11720736432965405,0.11722192166202415
+PI,az_rms_m_s2,3. IMU,RMS a_z đã trừ trọng lực,m/s²,min,3,4.507400407865946,0.2915662196629823,4.5712390218387435,4.742705899412908
+PI,az_peak_m_s2,3. IMU,Peak |a_z| đã trừ trọng lực,m/s²,min,3,134.82414674972017,19.315113966929175,142.76128870224048,148.2917070205976
+PI,roll_rate_rms_rad_s,3. IMU,"RMS vận tốc góc roll, body p",rad/s,min,3,0.15388919892255049,0.004720364359894771,0.1520517063562256,0.15853196379832007
+PI,pitch_rate_rms_rad_s,3. IMU,"RMS vận tốc góc pitch, body q",rad/s,min,3,0.21405931842811982,0.006916194698970499,0.21127029850102308,0.22086812640784956
+PI,jerk_rms_m_s3,3. IMU,"RMS jerk z, lọc 5 Hz",m/s³,min,3,120.15902847055439,7.302169945380363,121.74093949876597,126.06061574569308
+PI,jerk_p95_m_s3,3. IMU,"P95 |jerk z|, lọc 5 Hz",m/s³,min,3,80.09350773848091,8.459205462422464,82.45557890491449,86.65411210042514
+PI,wheel_rmse_rad_s,5. Chấp hành,RMSE bám vận tốc hai bánh,rad/s,min,3,1.2162570478665182,0.047714795742375006,1.1932298382232676,1.2633293906766114
+PI,torque_rms_nm,5. Chấp hành,"RMS lệnh mô-men tổng, trung bình hai bánh",N·m,min,3,0.39720402463334054,0.012858587369526712,0.3935051742080318,0.4097065007662561
+PI,torque_peak_nm,5. Chấp hành,Peak |lệnh mô-men tổng| trên hai bánh,N·m,min,3,1.3327625512564285,0.07580243715654318,1.3042242083072926,1.4072451352825834
+PI,sac_contribution_pct,5. Chấp hành,Đóng góp |SAC| / (|PI| + |SAC|),%,N/A,3,0.0,0.0,0.0,0.0
+PI,slew_limit_pct,5. Chấp hành,Chu kỳ chạm giới hạn slew trên hai bánh,%,min,3,23.373458646680334,0.6058583279738138,23.063055595847405,23.97076057458995
+PI,saturation_pct,5. Chấp hành,Chu kỳ bão hòa mô-men trên hai bánh,%,min,3,0.015397110400113248,0.010985517217715028,0.012432914067842268,0.02604781542532127
+PID,mission_success_pct,1. Hoàn thành,Nav2 thành công và đạt điều kiện AMCL,%,max,3,66.66666666666667,57.735026918962575,100.0,100.0
+PID,nav_success_pct,1. Hoàn thành,Nav2 thông báo SUCCEEDED,%,max,3,100.0,0.0,100.0,100.0
+PID,deviation_violation_pct,1. Hoàn thành,Lượt vi phạm lệch đường AMCL,%,min,3,0.0,0.0,0.0,0.0
+PID,completion_time_s,1. Hoàn thành,"Thời gian hoàn thành, chỉ lượt đạt chuẩn",s,min,2,52.929,5.904341622907668,52.929,56.6865
+PID,average_speed_m_s,1. Hoàn thành,Trung bình |v_x| từ odometry encoder (ước lượng),m/s,N/A,3,0.22008366609787933,0.014365494819229732,0.22032586186785708,0.23292646472458814
+PID,amcl_goal_xy_m,1. Hoàn thành,Sai số vị trí AMCL cuối lượt,m,min,3,0.11019129561035813,0.08976860870382179,0.07028171758230936,0.19872301733718933
+PID,amcl_goal_yaw_rad,1. Hoàn thành,Sai số hướng AMCL cuối lượt,rad,min,3,0.23912710865933326,0.027404142616805675,0.24756359008862386,0.2599453552486721
+PID,amcl_violation_pct,1. Hoàn thành,Lượt AMCL vượt giới hạn lệch đường,%,min,3,0.0,0.0,0.0,0.0
+PID,amcl_rmse_m,2. Bám đường,AMCL: RMSE ngang cân thời gian,m,min,3,0.044313897328602546,0.0024904869226595374,0.04339144360994027,0.04675975187114574
+PID,amcl_p95_m,2. Bám đường,AMCL: P95 |e_y| cân thời gian,m,min,3,0.08862759665187774,0.0005747577415516689,0.08832004311271646,0.08919362637125695
+PID,amcl_max_m,2. Bám đường,AMCL: Max |e_y|,m,min,3,0.11702364163644319,0.010842022540405677,0.11193451479304928,0.12772006375917094
+PID,amcl_heading_rmse_rad,2. Bám đường,AMCL: RMSE lỗi hướng,rad,min,3,0.1289672103196137,0.01821522171749278,0.1359701874374294,0.1419745174971826
+PID,az_rms_m_s2,3. IMU,RMS a_z đã trừ trọng lực,m/s²,min,3,3.739809930618406,1.0384252033343102,3.693322213018031,4.689960666003142
+PID,az_peak_m_s2,3. IMU,Peak |a_z| đã trừ trọng lực,m/s²,min,3,115.03461844575746,31.36672271575514,104.84545847206434,145.69078045611474
+PID,roll_rate_rms_rad_s,3. IMU,"RMS vận tốc góc roll, body p",rad/s,min,3,0.14581328654595974,0.006920860961720453,0.147082587597919,0.15151873668216045
+PID,pitch_rate_rms_rad_s,3. IMU,"RMS vận tốc góc pitch, body q",rad/s,min,3,0.23035757853959274,0.016631417486376036,0.22927126212747975,0.2456820984993005
+PID,jerk_rms_m_s3,3. IMU,"RMS jerk z, lọc 5 Hz",m/s³,min,3,99.18364317361566,27.25547699496179,100.5249945666209,123.22180987103013
+PID,jerk_p95_m_s3,3. IMU,"P95 |jerk z|, lọc 5 Hz",m/s³,min,3,71.26895539999323,5.110592773634773,70.63304056195823,76.06427562659755
+PID,wheel_rmse_rad_s,5. Chấp hành,RMSE bám vận tốc hai bánh,rad/s,min,3,1.2216867218439882,0.052637158246053986,1.200455762082977,1.273506860560018
+PID,torque_rms_nm,5. Chấp hành,"RMS lệnh mô-men tổng, trung bình hai bánh",N·m,min,3,0.4281276685427645,0.01943804593604369,0.4301718507161663,0.44483374121222247
+PID,torque_peak_nm,5. Chấp hành,Peak |lệnh mô-men tổng| trên hai bánh,N·m,min,3,1.682850008938689,0.2244857331901947,1.792147597480384,1.827794765420582
+PID,sac_contribution_pct,5. Chấp hành,Đóng góp |SAC| / (|PI| + |SAC|),%,N/A,3,0.0,0.0,0.0,0.0
+PID,slew_limit_pct,5. Chấp hành,Chu kỳ chạm giới hạn slew trên hai bánh,%,min,3,31.689991568185132,1.217444894126795,32.39243068580661,32.39324603374004
+PID,saturation_pct,5. Chấp hành,Chu kỳ bão hòa mô-men trên hai bánh,%,min,3,2.710362724005493,0.5728704565862994,2.9410733998002487,3.1128226364572114
+PI + SAC 50k,mission_success_pct,1. Hoàn thành,Nav2 thành công và đạt điều kiện AMCL,%,max,3,100.0,0.0,100.0,100.0
+PI + SAC 50k,nav_success_pct,1. Hoàn thành,Nav2 thông báo SUCCEEDED,%,max,3,100.0,0.0,100.0,100.0
+PI + SAC 50k,deviation_violation_pct,1. Hoàn thành,Lượt vi phạm lệch đường AMCL,%,min,3,0.0,0.0,0.0,0.0
+PI + SAC 50k,completion_time_s,1. Hoàn thành,"Thời gian hoàn thành, chỉ lượt đạt chuẩn",s,min,3,48.184000000000005,0.467160571966429,48.419000000000004,48.4802
+PI + SAC 50k,average_speed_m_s,1. Hoàn thành,Trung bình |v_x| từ odometry encoder (ước lượng),m/s,N/A,3,0.23547645734001033,0.0015945841276685782,0.2347391093318203,0.23704955726076032
+PI + SAC 50k,amcl_goal_xy_m,1. Hoàn thành,Sai số vị trí AMCL cuối lượt,m,min,3,0.21528358148874638,0.011496113323478099,0.21940799374645556,0.22367446940107014
+PI + SAC 50k,amcl_goal_yaw_rad,1. Hoàn thành,Sai số hướng AMCL cuối lượt,rad,min,3,0.12987659914548386,0.03237229758944358,0.1459039361883108,0.1505881309178161
+PI + SAC 50k,amcl_violation_pct,1. Hoàn thành,Lượt AMCL vượt giới hạn lệch đường,%,min,3,0.0,0.0,0.0,0.0
+PI + SAC 50k,amcl_rmse_m,2. Bám đường,AMCL: RMSE ngang cân thời gian,m,min,3,0.03171104308100945,0.0049638283630622435,0.03098885349443207,0.03639565139780606
+PI + SAC 50k,amcl_p95_m,2. Bám đường,AMCL: P95 |e_y| cân thời gian,m,min,3,0.06687537841530913,0.012176220610209367,0.06723941360782631,0.07770289080224624
+PI + SAC 50k,amcl_max_m,2. Bám đường,AMCL: Max |e_y|,m,min,3,0.08285404571598795,0.01382083687389345,0.08062261072695526,0.09595160814763834
+PI + SAC 50k,amcl_heading_rmse_rad,2. Bám đường,AMCL: RMSE lỗi hướng,rad,min,3,0.10378295222050044,0.004926361496086189,0.10417329830261071,0.10806960540319989
+PI + SAC 50k,az_rms_m_s2,3. IMU,RMS a_z đã trừ trọng lực,m/s²,min,3,2.5332782450614872,0.4589988205681991,2.62413292050435,2.9084632366995304
+PI + SAC 50k,az_peak_m_s2,3. IMU,Peak |a_z| đã trừ trọng lực,m/s²,min,3,85.19420397130848,24.05620958859095,75.62904626337634,108.8685054488786
+PI + SAC 50k,roll_rate_rms_rad_s,3. IMU,"RMS vận tốc góc roll, body p",rad/s,min,3,0.15668058211653085,0.0020158768933974795,0.15715708463444994,0.15828967492869872
+PI + SAC 50k,pitch_rate_rms_rad_s,3. IMU,"RMS vận tốc góc pitch, body q",rad/s,min,3,0.2101070842431307,0.0018287866584957586,0.2095080732698888,0.21189503891900643
+PI + SAC 50k,jerk_rms_m_s3,3. IMU,"RMS jerk z, lọc 5 Hz",m/s³,min,3,66.90171077810102,12.77596956844262,69.53349264704653,77.29451041181265
+PI + SAC 50k,jerk_p95_m_s3,3. IMU,"P95 |jerk z|, lọc 5 Hz",m/s³,min,3,68.46545955983471,9.824025550502228,71.99731267955066,75.63147440479447
+PI + SAC 50k,wheel_rmse_rad_s,5. Chấp hành,RMSE bám vận tốc hai bánh,rad/s,min,3,1.2842326300839666,0.008225041151052966,1.2865706258385443,1.290589066645002
+PI + SAC 50k,torque_rms_nm,5. Chấp hành,"RMS lệnh mô-men tổng, trung bình hai bánh",N·m,min,3,0.4143990289899085,0.006515952009997965,0.41738417288730245,0.41873727582974635
+PI + SAC 50k,torque_peak_nm,5. Chấp hành,Peak |lệnh mô-men tổng| trên hai bánh,N·m,min,3,1.4288180478854198,0.07576494966309195,1.4563349946365554,1.4839148313836505
+PI + SAC 50k,sac_contribution_pct,5. Chấp hành,Đóng góp |SAC| / (|PI| + |SAC|),%,N/A,3,41.13325838247162,0.5482773275092885,40.86523118065827,41.674114393600526
+PI + SAC 50k,slew_limit_pct,5. Chấp hành,Chu kỳ chạm giới hạn slew trên hai bánh,%,min,3,29.874294794802346,0.829476841849664,30.118052346342896,30.510928059756576
+PI + SAC 50k,saturation_pct,5. Chấp hành,Chu kỳ bão hòa mô-men trên hai bánh,%,min,3,0.06434686804242859,0.02057592942595102,0.05566525227912448,0.08462321869462597
+PI + SAC 70k,mission_success_pct,1. Hoàn thành,Nav2 thành công và đạt điều kiện AMCL,%,max,3,100.0,0.0,100.0,100.0
+PI + SAC 70k,nav_success_pct,1. Hoàn thành,Nav2 thông báo SUCCEEDED,%,max,3,100.0,0.0,100.0,100.0
+PI + SAC 70k,deviation_violation_pct,1. Hoàn thành,Lượt vi phạm lệch đường AMCL,%,min,3,0.0,0.0,0.0,0.0
+PI + SAC 70k,completion_time_s,1. Hoàn thành,"Thời gian hoàn thành, chỉ lượt đạt chuẩn",s,min,3,48.63366666666667,0.1858341554540861,48.67100000000001,48.7853
+PI + SAC 70k,average_speed_m_s,1. Hoàn thành,Trung bình |v_x| từ odometry encoder (ước lượng),m/s,N/A,3,0.23422099818002354,0.00048143790972079374,0.23421262861428066,0.2346571725374584
+PI + SAC 70k,amcl_goal_xy_m,1. Hoàn thành,Sai số vị trí AMCL cuối lượt,m,min,3,0.22039352841649842,0.006518619858735288,0.22186291939363287,0.22563312623694876
+PI + SAC 70k,amcl_goal_yaw_rad,1. Hoàn thành,Sai số hướng AMCL cuối lượt,rad,min,3,0.15649005531573504,0.031946378150658684,0.14983836112210222,0.18709859582541516
+PI + SAC 70k,amcl_violation_pct,1. Hoàn thành,Lượt AMCL vượt giới hạn lệch đường,%,min,3,0.0,0.0,0.0,0.0
+PI + SAC 70k,amcl_rmse_m,2. Bám đường,AMCL: RMSE ngang cân thời gian,m,min,3,0.04236942263370422,0.006832684635160957,0.04002588553890372,0.04906152815093209
+PI + SAC 70k,amcl_p95_m,2. Bám đường,AMCL: P95 |e_y| cân thời gian,m,min,3,0.08219414356647002,0.014925796033696724,0.07637567365381148,0.0968751578083664
+PI + SAC 70k,amcl_max_m,2. Bám đường,AMCL: Max |e_y|,m,min,3,0.10811347846708373,0.027053462041243412,0.09262492182744353,0.13467907774101356
+PI + SAC 70k,amcl_heading_rmse_rad,2. Bám đường,AMCL: RMSE lỗi hướng,rad,min,3,0.11036852473031786,0.0095094388025946,0.1101984174508583,0.11898553015245182
+PI + SAC 70k,az_rms_m_s2,3. IMU,RMS a_z đã trừ trọng lực,m/s²,min,3,2.740139281568657,1.1534145976253867,3.0871185425017558,3.620922121379088
+PI + SAC 70k,az_peak_m_s2,3. IMU,Peak |a_z| đã trừ trọng lực,m/s²,min,3,79.99982501576253,37.96380666744066,97.68347026145855,105.07460008794273
+PI + SAC 70k,roll_rate_rms_rad_s,3. IMU,"RMS vận tốc góc roll, body p",rad/s,min,3,0.1518886173847466,0.002635169976685737,0.1520181205634691,0.15421279531858226
+PI + SAC 70k,pitch_rate_rms_rad_s,3. IMU,"RMS vận tốc góc pitch, body q",rad/s,min,3,0.22302157641776624,0.030151457318013636,0.20987343799036465,0.25275027760421054
+PI + SAC 70k,jerk_rms_m_s3,3. IMU,"RMS jerk z, lọc 5 Hz",m/s³,min,3,72.56088336525747,31.45472830745052,82.28437471039325,96.43360460734405
+PI + SAC 70k,jerk_p95_m_s3,3. IMU,"P95 |jerk z|, lọc 5 Hz",m/s³,min,3,81.73217129168569,12.766456836593639,88.12021465926568,89.85132826436886
+PI + SAC 70k,wheel_rmse_rad_s,5. Chấp hành,RMSE bám vận tốc hai bánh,rad/s,min,3,1.3250039748459264,0.060367675705938297,1.338580356624215,1.3735427122988584
+PI + SAC 70k,torque_rms_nm,5. Chấp hành,"RMS lệnh mô-men tổng, trung bình hai bánh",N·m,min,3,0.42390529042848724,0.00726735005776933,0.4213174901293392,0.4310328686265995
+PI + SAC 70k,torque_peak_nm,5. Chấp hành,Peak |lệnh mô-men tổng| trên hai bánh,N·m,min,3,1.4346614354544334,0.09233794778057845,1.4287738195432527,1.519699458497765
+PI + SAC 70k,sac_contribution_pct,5. Chấp hành,Đóng góp |SAC| / (|PI| + |SAC|),%,N/A,3,36.6372976698046,1.197052851071181,36.70244194332949,37.69064757422044
+PI + SAC 70k,slew_limit_pct,5. Chấp hành,Chu kỳ chạm giới hạn slew trên hai bánh,%,min,3,32.87744415326343,0.03020481634651513,32.87266762353906,32.90604413574234
+PI + SAC 70k,saturation_pct,5. Chấp hành,Chu kỳ bão hòa mô-men trên hai bánh,%,min,3,0.15461709575386762,0.1339194051633993,0.0871437359032192,0.286681525744025
+PI + SAC 100k,mission_success_pct,1. Hoàn thành,Nav2 thành công và đạt điều kiện AMCL,%,max,3,100.0,0.0,100.0,100.0
+PI + SAC 100k,nav_success_pct,1. Hoàn thành,Nav2 thông báo SUCCEEDED,%,max,3,100.0,0.0,100.0,100.0
+PI + SAC 100k,deviation_violation_pct,1. Hoàn thành,Lượt vi phạm lệch đường AMCL,%,min,3,0.0,0.0,0.0,0.0
+PI + SAC 100k,completion_time_s,1. Hoàn thành,"Thời gian hoàn thành, chỉ lượt đạt chuẩn",s,min,3,49.682,0.44783814040342573,49.465,50.1238
+PI + SAC 100k,average_speed_m_s,1. Hoàn thành,Trung bình |v_x| từ odometry encoder (ước lượng),m/s,N/A,3,0.23284215727174767,0.0007028241157093625,0.2328796000086748,0.23346092043111988
+PI + SAC 100k,amcl_goal_xy_m,1. Hoàn thành,Sai số vị trí AMCL cuối lượt,m,min,3,0.2231942622078069,0.005632901699397773,0.22267034644213088,0.2284307713310494
+PI + SAC 100k,amcl_goal_yaw_rad,1. Hoàn thành,Sai số hướng AMCL cuối lượt,rad,min,3,0.10348298194263293,0.08744163693227527,0.0704795913323074,0.18940882052572233
+PI + SAC 100k,amcl_violation_pct,1. Hoàn thành,Lượt AMCL vượt giới hạn lệch đường,%,min,3,0.0,0.0,0.0,0.0
+PI + SAC 100k,amcl_rmse_m,2. Bám đường,AMCL: RMSE ngang cân thời gian,m,min,3,0.05505138720700226,0.006840731295031035,0.05383836611195944,0.061559574428581114
+PI + SAC 100k,amcl_p95_m,2. Bám đường,AMCL: P95 |e_y| cân thời gian,m,min,3,0.10879176879478591,0.02242993249318357,0.10211572711686989,0.13063316548929121
+PI + SAC 100k,amcl_max_m,2. Bám đường,AMCL: Max |e_y|,m,min,3,0.1487388791093852,0.04679529679522037,0.1470801470450721,0.1914153540065902
+PI + SAC 100k,amcl_heading_rmse_rad,2. Bám đường,AMCL: RMSE lỗi hướng,rad,min,3,0.12404501470621385,0.02263619405732525,0.1202178134331272,0.14553753642113376
+PI + SAC 100k,az_rms_m_s2,3. IMU,RMS a_z đã trừ trọng lực,m/s²,min,3,3.795539058690718,1.891960737057022,4.838490208006055,4.926701710358407
+PI + SAC 100k,az_peak_m_s2,3. IMU,Peak |a_z| đã trừ trọng lực,m/s²,min,3,119.63189380211806,68.8065678450671,142.48626093239454,170.9414463618645
+PI + SAC 100k,roll_rate_rms_rad_s,3. IMU,"RMS vận tốc góc roll, body p",rad/s,min,3,0.15286596307863737,0.006479253422137464,0.15509912471150394,0.15764985541262438
+PI + SAC 100k,pitch_rate_rms_rad_s,3. IMU,"RMS vận tốc góc pitch, body q",rad/s,min,3,0.2217379390049019,0.025232089250228473,0.2079773847191793,0.24657066084235563
+PI + SAC 100k,jerk_rms_m_s3,3. IMU,"RMS jerk z, lọc 5 Hz",m/s³,min,3,100.72772914061368,50.62590216866277,128.43457439507858,131.1508556322627
+PI + SAC 100k,jerk_p95_m_s3,3. IMU,"P95 |jerk z|, lọc 5 Hz",m/s³,min,3,82.92960488460432,13.63512509013942,88.34847374976448,92.55488259104375
+PI + SAC 100k,wheel_rmse_rad_s,5. Chấp hành,RMSE bám vận tốc hai bánh,rad/s,min,3,1.3175189450264433,0.04820933174080298,1.3208372424286583,1.3596687852997207
+PI + SAC 100k,torque_rms_nm,5. Chấp hành,"RMS lệnh mô-men tổng, trung bình hai bánh",N·m,min,3,0.43628702025471633,0.01350670078810307,0.4418428200425704,0.44570107448373847
+PI + SAC 100k,torque_peak_nm,5. Chấp hành,Peak |lệnh mô-men tổng| trên hai bánh,N·m,min,3,1.4554025802852488,0.18685705921148954,1.355824142433256,1.6394452339718157
+PI + SAC 100k,sac_contribution_pct,5. Chấp hành,Đóng góp |SAC| / (|PI| + |SAC|),%,N/A,3,36.250555246914054,1.6845223254533033,36.43272893096032,37.69620072207043
+PI + SAC 100k,slew_limit_pct,5. Chấp hành,Chu kỳ chạm giới hạn slew trên hai bánh,%,min,3,31.790435708979825,1.5281428062004228,32.666932429738885,32.67731959811786
+PI + SAC 100k,saturation_pct,5. Chấp hành,Chu kỳ bão hòa mô-men trên hai bánh,%,min,3,0.14116763607299876,0.10869604063130246,0.11859677097867251,0.24529905783506553

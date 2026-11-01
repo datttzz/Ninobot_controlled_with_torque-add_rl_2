@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Một báo cáo offline cố định PI / PID / PI + SAC; không mở ROS hay train model."""
+"""Một báo cáo offline cố định PI / PID / PI + SAC; không mở ROS hay train model.đọc dữ liệu để tính chỉ số,xuất bàng và biểu đồ"""
 import argparse
 from collections import defaultdict
 import csv

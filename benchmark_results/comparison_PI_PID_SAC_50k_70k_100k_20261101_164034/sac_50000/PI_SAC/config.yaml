@@ -1,0 +1,56 @@
+environment:
+  goal_x: 11.0
+  goal_y: 0.0
+  max_path_deviation: 0.2
+  residual_limit: 0.3
+  step_seconds: 0.1
+  max_episode_seconds: 90.0
+  sensor_timeout: 0.75
+  startup_timeout: 60.0
+  startup_progress_timeout: 15.0
+  startup_attempts: 3
+  headless: true
+  resource_guard: {}
+  effort_drive_config: /home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_50000/PI_SAC/controller.yaml
+  nav2_params_file: /home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_50000/nav2.yaml
+  reference_path_file: /home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_50000/reference_path.json
+  benchmark_controller:
+    wheel_radius: 0.0625
+    wheel_separation: 0.34273666
+    velocity_kp: 0.3
+    velocity_ki: 0.1
+    integral_limit: 4.0
+    max_wheel_speed: 12.0
+    max_wheel_acceleration: 12.0
+    max_wheel_torque: 12.0
+    max_velocity_control_torque: 2.0
+    max_effort_rate: 10.0
+    command_timeout: 0.5
+    torque_command_timeout: 0.25
+    control_rate: 1000.0
+    odom_publish_rate: 50.0
+    torque_status_publish_rate: 50.0
+    velocity_kd: 0.0
+    derivative_filter_seconds: 0.05
+reward:
+  progress: 20.0
+  cross_track: 8.0
+  heading: 0.5
+  vibration: 0.02
+  effort: 0.01
+  smoothness: 0.01
+  time: 0.05
+  success: 30.0
+  failure: -30.0
+sac:
+  learning_rate: 0.0003
+  buffer_size: 100000
+  learning_starts: 1000
+  batch_size: 256
+  gamma: 0.99
+  tau: 0.005
+  train_freq: 1
+  gradient_steps: 1
+  net_arch:
+  - 128
+  - 128

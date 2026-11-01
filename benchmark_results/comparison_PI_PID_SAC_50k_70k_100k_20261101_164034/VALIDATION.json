@@ -1,0 +1,66 @@
+{
+  "created_utc": "2026-11-01T09:59:44.747076+00:00",
+  "state": "PASS",
+  "new_episodes": 15,
+  "groups": 5,
+  "episodes_each": 3,
+  "infra_events": 0,
+  "related_metric_tests": "27 passed",
+  "report_fixture_tests": "five groups / 15 episodes / 120 summary rows; synthetic fixtures kept separate in temporary folder",
+  "browser": [
+    {
+      "episode": 1,
+      "groups": 5,
+      "svg_polylines": {
+        "trajectory": 6,
+        "error": 16,
+        "az": 5,
+        "jerk": 5,
+        "torque": 10
+      },
+      "external_assets": 0
+    },
+    {
+      "episode": 2,
+      "groups": 5,
+      "svg_polylines": {
+        "trajectory": 6,
+        "error": 25,
+        "az": 5,
+        "jerk": 16,
+        "torque": 10
+      },
+      "external_assets": 0
+    },
+    {
+      "episode": 3,
+      "groups": 5,
+      "svg_polylines": {
+        "trajectory": 6,
+        "error": 6,
+        "az": 5,
+        "jerk": 5,
+        "torque": 10
+      },
+      "external_assets": 0
+    }
+  ],
+  "source_hashes_unchanged": true,
+  "shared_reference_verified": true,
+  "checkpoint_timesteps": [
+    50000,
+    70000,
+    100000
+  ],
+  "checkpoint_bytes_unchanged": true,
+  "evaluation_driver_snapshot": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/driver_during_evaluation.py",
+  "report_only_revision": "Coverage notice uses 1e-9 floating-point tolerance matching measurement completeness; presentation/provenance notes updated. All episode metrics/evidence identical before and after regeneration.",
+  "limitations": [
+    "Only three episodes per group; no statistical/generalization claim",
+    "Seeds label Gym reset, not controlled Gazebo/AMCL noise",
+    "Pose is AMCL estimate; no independent ground truth",
+    "Legacy checkpoint metadata lacks historical PI gain snapshot/hash",
+    "No verified obstacle positions in map: no window metrics inferred from world"
+  ],
+  "jobs_remaining": false
+}

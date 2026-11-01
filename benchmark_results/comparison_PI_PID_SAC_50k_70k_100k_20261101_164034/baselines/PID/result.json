@@ -1,0 +1,29 @@
+[
+  {
+    "episode": 0,
+    "seed": 1,
+    "reward": 215.9902851214822,
+    "steps": 474,
+    "outcome": "SUCCEEDED",
+    "reference_geometry_sha256": "990a576f10e7fd2918e24bde2405e3fe3a26a29f41055a0f109077ef1df3bef1",
+    "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/baselines/PID/episode_00001_164401_042238"
+  },
+  {
+    "episode": 1,
+    "seed": 2,
+    "reward": 239.7715235815967,
+    "steps": 525,
+    "outcome": "SUCCEEDED",
+    "reference_geometry_sha256": "990a576f10e7fd2918e24bde2405e3fe3a26a29f41055a0f109077ef1df3bef1",
+    "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/baselines/PID/episode_00002_164508_860562"
+  },
+  {
+    "episode": 2,
+    "seed": 3,
+    "reward": 225.3317322050604,
+    "steps": 555,
+    "outcome": "SUCCEEDED",
+    "reference_geometry_sha256": "990a576f10e7fd2918e24bde2405e3fe3a26a29f41055a0f109077ef1df3bef1",
+    "session": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/baselines/PID/episode_00003_164622_555204"
+  }
+]

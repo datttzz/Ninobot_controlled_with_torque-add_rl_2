@@ -1,0 +1,60 @@
+{
+  "rerun": {
+    "job": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250",
+    "evaluation": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation",
+    "report": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_100k_rerun_20261101_171250",
+    "old_report": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034",
+    "seed": 1,
+    "episodes": 3,
+    "checkpoint": {
+      "path": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/model.zip",
+      "sha256": "89c9b688684d3689f0572a6dbc743a887c58c345db8fecd12e32023664a40081",
+      "timesteps": 100000,
+      "config": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/config.yaml",
+      "config_sha256": "07d7133f9f81e3e5fbed9a974677b2779d72ffef41bd38a65db2b5e00a18b53f",
+      "metadata": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/train_20261101_115053_102278/metadata.json",
+      "metadata_sha256": "68ce79404bebc097fac47f89a12c3cd8c2c74213dad7683aafcf5703c6a688b9",
+      "training_environment": {
+        "goal_x": 11.0,
+        "goal_y": 0.0,
+        "max_path_deviation": 0.2,
+        "residual_limit": 0.3,
+        "step_seconds": 0.1,
+        "max_episode_seconds": 90.0,
+        "sensor_timeout": 0.75,
+        "startup_timeout": 60.0,
+        "startup_progress_timeout": 15.0,
+        "startup_attempts": 3,
+        "headless": true
+      },
+      "training_reward": {
+        "progress": 20.0,
+        "cross_track": 8.0,
+        "heading": 0.5,
+        "vibration": 0.02,
+        "effort": 0.01,
+        "smoothness": 0.01,
+        "time": 0.05,
+        "success": 30.0,
+        "failure": -30.0
+      },
+      "pi_gain_provenance": "Legacy metadata has no gain snapshot; repo PI 0.30/0.10 assumed"
+    },
+    "reference_geometry_sha256": "990a576f10e7fd2918e24bde2405e3fe3a26a29f41055a0f109077ef1df3bef1",
+    "old_report_sha256": "c2902c392050fa66d6b82629f2040106f2d21aa072037e990d49b26f080d6b6b"
+  },
+  "main_table_100k": "new three episodes",
+  "reused_groups": {
+    "PI": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/baselines/PI",
+    "PID": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/baselines/PID",
+    "PI + SAC 50k": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_50000/PI_SAC",
+    "PI + SAC 70k": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/benchmark_results/comparison_PI_PID_SAC_50k_70k_100k_20261101_164034/sac_70000/PI_SAC"
+  },
+  "current_group": "/home/tiendat/project/Ninobot_controlled_with_torque-add_rl_2/rl_training/runs/sac100k_rerun_20261101_171250/evaluation/PI_SAC",
+  "seed_labels": [
+    1,
+    2,
+    3
+  ],
+  "caveat": "Gym labels do not control Gazebo/AMCL noise; rerun is not a model update."
+}
